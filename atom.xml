@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-11-30T14:58:22.654Z</updated>
+  <updated>2015-12-01T06:29:45.401Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://guowenfh.github.io/2015/11/30/type/"/>
     <id>http://guowenfh.github.io/2015/11/30/type/</id>
     <published>2015-11-30T11:50:30.000Z</published>
-    <updated>2015-11-30T14:58:22.654Z</updated>
+    <updated>2015-12-01T06:29:45.401Z</updated>
     <content type="html"><![CDATA[<h2 id="类型系统">类型系统</h2><blockquote>
 <p>javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。</p>
 </blockquote>
@@ -159,6 +159,8 @@
     </summary>
     
       <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
+    
+      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
