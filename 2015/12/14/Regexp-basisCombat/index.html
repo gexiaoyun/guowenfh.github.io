@@ -1,0 +1,842 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,正则表达式," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
+
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式-基础实战篇">
+<meta property="og:url" content="http://guowenfh.github.io/2015/12/14/Regexp-basisCombat/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
+
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配">
+<meta property="og:updated_time" content="2015-12-14T03:45:07.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式-基础实战篇">
+<meta name="twitter:description" content="在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
+
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> 正则表达式-基础实战篇 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'hgLic_uJPFsSQxKjp8sA','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                正则表达式-基础实战篇
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/Regexp-basisCombat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Regexp-basisCombat/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!<br>建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》<a href="http://segmentfault.com/a/1190000003977848" target="_blank" rel="external">SF地址</a>、<a href="http://guowenfh.github.io/2015/12/01/Regexp-basis/">原址</a>使用效果更佳哦!</p>
+</blockquote>
+<h2 id="一个手机号码匹配的进化历程">一个手机号码匹配的进化历程</h2><blockquote>
+<p>实例代码依托于:<code>RegExpObj.test(String)</code>，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回<code>true</code></p>
+</blockquote>
+<h3 id="第一阶段-字符直接量:匹配自身">第一阶段-字符直接量:匹配自身</h3><blockquote>
+<p>先假设一个手机号码为13762571094.</p>
+</blockquote>
+<ul>
+<li><strong>最初形态</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13783281094"</span>);<span class="comment">//false</span></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//正则表达式在匹配时,只要输出匹配内容就返回true,不考虑前面的ui和后面的dd</span></span><br><span class="line"><span class="comment">//最后这种情况显然不是我们想要的.那么就进入下一阶段的实践吧.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第二阶段-锚点:指定匹配位置">第二阶段-锚点:指定匹配位置</h3><ul>
+<li><code>^</code>匹配起始位置</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^http:/.test("http://www.163.com");//true</span><br><span class="line">/^http:/.test("ahttp://www.163.com");//false</span><br><span class="line">/^http:/.test("https://www.163.com");//false</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>$</code>匹配结尾位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/.jpg$/.test(<span class="string">"1.jpg"</span>);<span class="comment">//true</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.jpg png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"regexp.png"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>\b</code>:匹配单词边界</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/\bis\b/.test(<span class="string">"this"</span>);<span class="comment">//false</span></span><br><span class="line">/\bis\b/.test(<span class="string">"that is reg"</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在了解锚点之后我们的正则就有了<strong>第一次进化</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//此时这个程序就能正确识别头尾的字符了.下面我们看看</span></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13712345674"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">/*在试过了多个号码后发现,这个正则只能识别这个标准的手机号码.</span><br><span class="line">这显然不是我们想要的,而不是识别一个手机号码的格式.</span><br><span class="line">在下一阶段我们将实现一个手机号码的匹配.*/</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第三阶段-字符类:匹配一类字符中的一个">第三阶段-字符类:匹配一类字符中的一个</h3><ul>
+<li><code>[abc]</code>:a或b或c。<code>[0-9]</code>:一个数字</li>
+<li><code>[^0-9]</code>:非数字的一个字符。<code>[a-z]</code>:一个字母</li>
+<li><code>.</code>    :任一字符(换行符除外)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"123"</span>)<span class="comment">//true</span></span><br><span class="line">/[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//false</span></span><br><span class="line">/[^<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/[a-z]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"allen"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"12"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>了解了字符类后,我们就可以进行<strong>第二次进化(50%)</strong>。此时就能匹配一个手机号码啦！</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//是不是感觉代码太长了呢?[0-9]足足5个字符呢,为了省力,当然不会就这样算了.继续向下看吧</span></span><br></pre></td></tr></table></figure>
+<h4 id="元字符-具有特殊意义的字符">元字符-具有特殊意义的字符</h4><blockquote>
+<p>其实我们已经在前面使用过它啦</p>
+</blockquote>
+<ul>
+<li><code>^</code>、<code>$</code>、<code>\b</code>。</li>
+<li><code>\d</code>:<code>[0-9]</code>。<code>\D</code>:<code>[^\d]</code></li>
+<li><code>\s</code>:空白符。<code>\S</code>:<code>[^\s]</code></li>
+<li><code>\w</code>:<code>[A-Za-z0-9_]</code>。<code>\W</code>:<code>[^\w]</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/\d/.test(<span class="string">"123"</span>);<span class="comment">//true</span></span><br><span class="line">/\d/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"123"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//自己再多去实验一些例子吧</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>了解了元字符后我们就可以进行<strong>第二次进化(100%)</strong>了。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//是不是感觉代码比刚刚短了很多了呢?但这还是不够,什么事情都阻止不了我想偷懒的心,继续学习吧.</span></span><br></pre></td></tr></table></figure>
+<h3 id="第四阶段-量词:出现的次数">第四阶段-量词:出现的次数</h3><ul>
+<li><code>{n,m}</code>:n到m次。<code>?</code>：<code>{0,1}</code></li>
+<li><code>+</code>:<code>{1,}</code>。<code>*</code>:<code>{0,}</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/\d*/.test("abc");//true</span><br><span class="line">/\d+/.test("abc");//false</span><br><span class="line">/\d+/.test("1abc");//true</span><br><span class="line">/^https?:/.test("http://www.163.com");//true</span><br><span class="line">/^https?:/.test("https://www.163.com");//true</span><br><span class="line">/^https?:/.test("httpss://www.163.com");//false</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时我们的匹配手机号码的正则表达式就到了<strong>最后阶段</strong>了</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//到这里手机号码就匹配完成了!</span></span><br></pre></td></tr></table></figure>
+<h3 id="需要注意的地方-转义符:需要匹配的字符是元字符">需要注意的地方-转义符:需要匹配的字符是元字符</h3><p><code>/^http:/\/\/</code>..<code>/@163\.com$/</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\<span class="comment">//.test("http://www.163.com");//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="多选分支:网易邮箱的匹配">多选分支:网易邮箱的匹配</h2><p><code>/thi(c|n)k/</code>===<code>thi[cn]k</code><br><code>\.(png|jpg|jpeg|gif)$</code>:检测一个文件是不是图片文件.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guo啊圣诞节了@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163.com"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h2 id="捕获">捕获</h2><ul>
+<li>保存匹配到的字符串,日后再用</li>
+<li><code>()</code>:捕获<code>/(\w+)@(163|126|188)\.com$/</code></li>
+<li>(?:):不捕获<code>/(\w+)@(?:163|126|188)\.com$/</code></li>
+<li>使用:<ul>
+<li>$1,$2,…</li>
+<li>api参数或返回值</li>
+</ul>
+</li>
+</ul>
+<h3 id="获取匹配的字符串:String-match(regexp)">获取匹配的字符串:<code>String.match(regexp)</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'http://blog.163.com/album?id=1#comment'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/</span>;</span><br><span class="line"><span class="comment">// var reg = /^(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)$///与上面的正则效果相同.;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = url.match(reg);</span><br><span class="line"></span><br><span class="line"><span class="comment">//arr[0]为原字符串."http://blog.163.com/album?id=1#comment"</span></span><br><span class="line"><span class="comment">//对应括号所匹配的字符</span></span><br><span class="line"><span class="keyword">var</span> protocol= arr[<span class="number">1</span>]<span class="comment">//"http:"</span></span><br><span class="line"><span class="keyword">var</span> host= arr[<span class="number">2</span>]<span class="comment">//"blog.163.com"</span></span><br><span class="line"><span class="keyword">var</span> pathname= arr[<span class="number">3</span>]<span class="comment">//"/album"</span></span><br><span class="line"><span class="keyword">var</span> search= arr[<span class="number">4</span>]<span class="comment">//"?id=1"</span></span><br><span class="line"><span class="keyword">var</span> hash= arr[<span class="number">5</span>]<span class="comment">//"#comment"</span></span><br></pre></td></tr></table></figure>
+<h3 id="替换一个子串:str-replace(regexp/substr,replacement)">替换一个子串:<code>str.replace(regexp/substr,replacement)</code></h3><ul>
+<li>第二个参数是字符时</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"the price of tomato is 5, the price of apple is 10."</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10."</span></span><br><span class="line"><span class="comment">//使用全局模式</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/g</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10.00."</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二个参数是函数时</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">'&lt;label&gt;网址:&lt;/label&gt;&lt;input placeholder="以http://起始"&gt;'</span>;</span><br><span class="line">html = html.replace(<span class="regexp">/[&lt;&gt;]/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">m0</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(m0)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;lt;'</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//处理后输出结果为：</span></span><br><span class="line"><span class="built_in">console</span>.log(html);<span class="comment">//&amp;lt;label&amp;gt;网址:&amp;lt;/label&amp;gt;&amp;lt;input placeholder="以http://起始"&amp;gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="更强大的检索_-_regexpObj-exec(str)">更强大的检索 - <code>regexpObj.exec(str)</code></h3><ul>
+<li>更详尽的结果:index</li>
+<li>过程的状态:lastIndex</li>
+<li>一般用不到，就不详细说明了，有兴趣的自己去了解一下。</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/正则表达式/" rel="tag">#正则表达式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/01/Regexp-basis/" rel="next" title="正则表达式-理论基础篇">
+                <i class="fa fa-chevron-left"></i> 正则表达式-理论基础篇
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/14/Regexp-basisCombat/"
+           data-title="正则表达式-基础实战篇" data-url="http://guowenfh.github.io/2015/12/14/Regexp-basisCombat/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个手机号码匹配的进化历程"><span class="nav-number">1.</span> <span class="nav-text">一个手机号码匹配的进化历程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一阶段-字符直接量:匹配自身"><span class="nav-number">1.1.</span> <span class="nav-text">第一阶段-字符直接量:匹配自身</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二阶段-锚点:指定匹配位置"><span class="nav-number">1.2.</span> <span class="nav-text">第二阶段-锚点:指定匹配位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三阶段-字符类:匹配一类字符中的一个"><span class="nav-number">1.3.</span> <span class="nav-text">第三阶段-字符类:匹配一类字符中的一个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符-具有特殊意义的字符"><span class="nav-number">1.3.1.</span> <span class="nav-text">元字符-具有特殊意义的字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四阶段-量词:出现的次数"><span class="nav-number">1.4.</span> <span class="nav-text">第四阶段-量词:出现的次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需要注意的地方-转义符:需要匹配的字符是元字符"><span class="nav-number">1.5.</span> <span class="nav-text">需要注意的地方-转义符:需要匹配的字符是元字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多选分支:网易邮箱的匹配"><span class="nav-number">2.</span> <span class="nav-text">多选分支:网易邮箱的匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获"><span class="nav-number">3.</span> <span class="nav-text">捕获</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取匹配的字符串:String-match(regexp)"><span class="nav-number">3.1.</span> <span class="nav-text">获取匹配的字符串:String.match(regexp)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换一个子串:str-replace(regexp/substr,replacement)"><span class="nav-number">3.2.</span> <span class="nav-text">替换一个子串:str.replace(regexp/substr,replacement)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更强大的检索_-_regexpObj-exec(str)"><span class="nav-number">3.3.</span> <span class="nav-text">更强大的检索 - regexpObj.exec(str)</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
