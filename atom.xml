@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[task0002（二）- DOM + 事件]]></title>
-    <link href="http://guowenfh.github.io/2015/12/16/task0002-DOM&event/"/>
-    <id>http://guowenfh.github.io/2015/12/16/task0002-DOM&event/</id>
+    <link href="http://guowenfh.github.io/2015/12/16/task0002-DOM&&event/"/>
+    <id>http://guowenfh.github.io/2015/12/16/task0002-DOM&&event/</id>
     <published>2015-12-16T04:32:41.000Z</published>
     <updated>2015-12-16T04:54:10.987Z</updated>
     <content type="html"><![CDATA[<h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
