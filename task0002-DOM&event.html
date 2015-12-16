@@ -35,10 +35,12 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JS,task0002,百度前端技术学院," />
+  <meta name="keywords" content=",,," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
@@ -55,9 +57,9 @@
 
 <meta name="description" content="DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
 1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &amp;#123;    // your implement&amp;#125;/">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:title" content="task0002（二）- DOM + 事件">
-<meta property="og:url" content="http://guowenfh.github.io/2015/12/16/task0002-DOM&event/index.html">
+<meta property="og:url" content="http://guowenfh.github.io/task0002-DOM&event.html">
 <meta property="og:site_name" content="三省吾身丶丶">
 <meta property="og:description" content="DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
 1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &amp;#123;    // your implement&amp;#125;/">
@@ -78,7 +80,13 @@
   };
 </script>
 
-  <title> task0002（二）- DOM + 事件 | 三省吾身丶丶 </title>
+  <title>
+  
+
+  
+    task0002（二）- DOM + 事件 | 三省吾身丶丶
+  
+</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -109,7 +117,7 @@
 
 
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-column ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,81 +228,8 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                task0002（二）- DOM + 事件
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-16T12:32:41+08:00" content="2015-12-16">
-              2015-12-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/16/task0002-DOM&event/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/16/task0002-DOM&event/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        <span itemprop="articleBody"><h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
+      <h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为element增加一个样式名为newClassName的新样式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">element, newClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除element中的样式oldClassName</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">element, oldClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSiblingNode</span>(<span class="params">element, siblingNode</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// your implement</span></span><br></pre></td></tr></table></figure>
 <h4 id="思路：">思路：</h4><ol>
 <li><p>其实这里可以先定义一个<code>hasClass</code>函数。用来判断该节点是否含有某个className。</p>
@@ -387,49 +322,8 @@
 <h4 id="实现如下：">实现如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 事件代理</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element   需要进行事件代理的父元素。</span><br><span class="line"> * @param   &#123;string&#125;   tag       需要触发事件的标签名</span><br><span class="line"> * @param   &#123;string&#125;   eventName 触发的事件类型</span><br><span class="line"> * @param   &#123;function&#125; listener  事件执行的函数</span><br><span class="line"> * @returns &#123;[[Type]]&#125; [[Description]]</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">return</span> addEvent(element, eventName, <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oEvent = ev || event; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">var</span> target = oEvent.target || oEvent.srcElement; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">if</span> (target.tagName.toLocaleLowerCase() === tag) &#123;</span><br><span class="line">            listener.call(target, oEvent); <span class="comment">//使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> delegateEvent(element, tag, eventName, listener);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="封装改变">封装改变</h3><p>估计有同学已经开始吐槽了，函数里面一堆$看着晕啊，那么接下来把我们的事件函数做如下：（这里应该是把前面的<code>$.on</code>、<code>$.click</code>、<code>$.un</code>、<code>$.delegate</code>都改写一下。比较简单，就拿一个出来作例子吧。）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//和上面的函数一样，原来第一个参数是传入获取到的父HTMLElement对象，现在直接传入选择器名称就行</span></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">selector, tag, event, listener</span>) </span>&#123;</span><br><span class="line"><span class="comment">//这里的`$(selector)`，是用的自己封装的选择器函数，愿意的话可以换成标准支持的`document.querySelector()`</span></span><br><span class="line">    <span class="keyword">return</span> delegateEvent($(selector), tag, event, listener);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line">$.delegate(<span class="string">'#list'</span>, <span class="string">"li"</span>, <span class="string">"click"</span>, liClicker);</span><br></pre></td></tr></table></figure>
-</span>
-      
-    </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/JS/" rel="tag">#JS</a>
-          
-            <a href="/tags/task0002/" rel="tag">#task0002</a>
-          
-            <a href="/tags/百度前端技术学院/" rel="tag">#百度前端技术学院</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2015/12/14/task0002-javascriptBasic/" rel="next" title="task0002（一）- JavaScript数据类型及语言基础">
-                <i class="fa fa-chevron-left"></i> task0002（一）- JavaScript数据类型及语言基础
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
 
 
@@ -444,8 +338,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/16/task0002-DOM&event/"
-           data-title="task0002（二）- DOM + 事件" data-url="http://guowenfh.github.io/2015/12/16/task0002-DOM&event/">
+      <div class="ds-thread" data-thread-key="task0002-DOM&event.html"
+           data-title="task0002（二）- DOM + 事件" data-url="http://guowenfh.github.io/task0002-DOM&event.html">
       </div>
     
   </div>
@@ -470,17 +364,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
           <p class="site-author-name" itemprop="name">guowenfh</p>
@@ -489,7 +374,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -565,23 +450,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加class、移除class、是否同级元素、获取元素位置"><span class="nav-number">1.1.</span> <span class="nav-text">添加class、移除class、是否同级元素、获取元素位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现："><span class="nav-number">1.1.2.</span> <span class="nav-text">实现：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挑战mini_$"><span class="nav-number">1.2.</span> <span class="nav-text">挑战mini $</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">2.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件绑定、事件移除"><span class="nav-number">2.1.</span> <span class="nav-text">事件绑定、事件移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#click事件、Enter事件"><span class="nav-number">2.2.</span> <span class="nav-text">click事件、Enter事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件代理"><span class="nav-number">2.3.</span> <span class="nav-text">事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路："><span class="nav-number">2.3.1.</span> <span class="nav-text">实现思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现如下："><span class="nav-number">2.3.2.</span> <span class="nav-text">实现如下：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装改变"><span class="nav-number">2.4.</span> <span class="nav-text">封装改变</span></a></li></ol></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
       
 
     </div>
@@ -669,167 +537,6 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
