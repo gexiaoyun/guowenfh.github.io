@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-12-16T12:03:31.046Z</updated>
+  <updated>2015-12-18T07:01:27.655Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -13,6 +13,294 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Ajax入门（一）从0开始到一次成功的GET请求]]></title>
+    <link href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/"/>
+    <id>http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/</id>
+    <published>2015-12-18T06:38:40.000Z</published>
+    <updated>2015-12-18T07:01:27.655Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>传统表单在提交后整个页面都刷新</p>
+</blockquote>
+<h2 id="什么是服务器">什么是服务器</h2><h3 id="网页浏览过程分析">网页浏览过程分析</h3><p>一个完整的<strong>HTTP请求</strong>过程,通常有下面7个步骤</p>
+<ol>
+<li>建立TCP连接</li>
+<li>Web浏览器想Web服务器发送请求命令</li>
+<li>Web浏览器发送请求头信息</li>
+<li>Web服务器- 应答</li>
+<li>Web服务器- 发送应答头信息</li>
+<li>Web服务器- 向浏览器发送数据</li>
+<li><p>Web服务器- 关闭TCP连接</p>
+<p><strong>如何配置自己的服务器程序(AMP)</strong></p>
+<blockquote>
+<p>Ajax必须在服务器环境下才能正常使用</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我使用的WampServer程序.(支持中文)<a href="http://www.wampserver.com/en/" target="_blank" rel="external">官网连接</a>.可能速度不行,不过科学上网,大家应该都会.</li>
+<li><p>网上的使用教程:<a href="http://www.phpthinking.com/archives/379" target="_blank" rel="external">如何安装使用</a></p>
+</li>
+<li><p>XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了</p>
+</li>
+</ul>
+<h2 id="Ajax原理">Ajax原理</h2><blockquote>
+<p>什么是Ajax?</p>
+</blockquote>
+<ul>
+<li>无刷新数据读取<ul>
+<li>用户注册/在线聊天室</li>
+<li>理解同步和异步(基本都用异步请求).<blockquote>
+<p>同步: 客户端发起请求–等待–&gt;服务器端处理—等待–&gt;响应–&gt;页面载入 (请求错误时全部重新载入).<br>异步: 客户端发起请求—&gt;服务器端处理—&gt;响应—&gt;页面载入(填写时,即时更新,部分返回).</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="HTTP请求">HTTP请求</h3><ul>
+<li>一个HTTP请求一般由四部分组成<ol>
+<li>HTTP请求的方法或动作如是<code>GET</code>还是<code>POST</code>请求</li>
+<li>正在请求的URL,总得知道请求的地址是什么吧?</li>
+<li>请求头,包含一些客户端环境信息,身份验证信息等</li>
+<li>请求体,也就是请求正文,请求正文中可以包含客户端提交的查询字符串信息,表单信息等等.</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/ajax/http.png" alt="HTTP请求"></p>
+<h3 id="HTTP响应">HTTP响应</h3><ul>
+<li>一个<strong>HTTP响应</strong>一般由三部分组成:<ol>
+<li>一个<strong>数字</strong>和<strong>文字</strong>组成的状态码,用来显示请求是成功还是失败</li>
+<li><strong>响应头</strong>,响应头和请求头一样包含许多有用的信息,例如服务器类型,日期时间,内容类型和长度等.</li>
+<li><strong>响应体</strong>,也就是响应正文.</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/ajax/http2.png" alt="HTTP响应"></p>
+<h3 id="HTTP请求方式">HTTP请求方式</h3><table>
+<thead>
+<tr>
+<th>GET</th>
+<th>POST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用于信息获取/查询(如:浏览帖子)</td>
+<td>用于修改服务器上的资源(如:用户注册)</td>
+</tr>
+<tr>
+<td>安全性低(使用<code>url</code>传递参数所有人可见)</td>
+<td>安全性一般(至少不可见)</td>
+</tr>
+<tr>
+<td>容量低(2000个字符)</td>
+<td>容量几乎无限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常见的HTTP状态码">常见的HTTP状态码</h3><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>描述</th>
+<th>原因短语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>请求成功.一般用于GET和POST方法</td>
+<td>OK</td>
+</tr>
+<tr>
+<td>301</td>
+<td>资源移动.所请求资源移动到新的URL,浏览器自动跳转到新的URL</td>
+<td>Moved Permanently</td>
+</tr>
+<tr>
+<td>304</td>
+<td>未修改.所请求资源未修改读取缓存数据</td>
+<td>Not Modified</td>
+</tr>
+<tr>
+<td>400</td>
+<td>请求语法错误,服务器无法理解</td>
+<td>Bad Request</td>
+</tr>
+<tr>
+<td>404</td>
+<td>未找到资源,可以设置个性”404页面”</td>
+<td>Not Found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>服务器内部错误</td>
+<td>internal Server Error</td>
+</tr>
+</tbody>
+</table>
+<h2 id="编写Ajax">编写Ajax</h2><p><strong>类比打电话理解Ajax编写步骤</strong> </p>
+<table>
+<thead>
+<tr>
+<th>打电话</th>
+<th>ajax请求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.打电话</td>
+<td>1.创建Ajax对象</td>
+</tr>
+<tr>
+<td>2.拨号</td>
+<td>2.连接服务器</td>
+</tr>
+<tr>
+<td>3.建立连接</td>
+<td>3.发送请求</td>
+</tr>
+<tr>
+<td>4.听</td>
+<td>4.接受返回</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-创建Ajax对象">1.创建Ajax对象</h3><ul>
+<li>IE6:<code>ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</code>;//IE6已死,可以不考虑了</li>
+<li><code>XMLHttpRequest()</code>; </li>
+</ul>
+<p>例:<code>var request = new XMLHttpRequest();</code></p>
+<h3 id="2-连接服务器">2.连接服务器</h3><ul>
+<li><code>open(method,url,async);</code></li>
+<li>open(发送请求方法”GET/POST” ,(请求地址”文件名”) ,是否异步传输)</li>
+</ul>
+<p>例: <code>request.open(&quot;GET&quot;,&quot;get.json&quot;,true);</code></p>
+<h3 id="3-发送请求">3.发送请求</h3><ul>
+<li><code>send(string)</code><ul>
+<li>在使用<code>GET</code>方式请求时无需填写参数</li>
+<li>在使用<code>POST</code>方式时参数代表着向服务器发送的数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//完整的GET请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建Ajax对象</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//连接服务器</span></span><br><span class="line">oAjax.send();<span class="comment">//发送请求</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//完整的POST发送请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建</span></span><br><span class="line">oAjax.open(<span class="string">"POST"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//"POST"</span></span><br><span class="line">oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);<span class="comment">//设置HTTP头信息.必须在open与send之间,否则出现异常.</span></span><br><span class="line">oAjax.send(<span class="string">"name=陈二狗&amp;sex=男"</span>);<span class="comment">//发送给服务器的内容</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-接收返回-请求状态监控">4.接收返回-请求状态监控</h3><ul>
+<li>XMLHttpRequset取得响应</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>responseText</code></td>
+<td>获得字符串形式的响应数据</td>
+</tr>
+<tr>
+<td><code>responseXML</code></td>
+<td>获得XML形式的响应数据</td>
+</tr>
+<tr>
+<td><code>status</code>和<code>statusText</code></td>
+<td>以数字和文本方式返回HTTP状态码</td>
+</tr>
+<tr>
+<td><code>getAllResponseHeader()</code></td>
+<td>获取所有的响应报头</td>
+</tr>
+<tr>
+<td><code>getResponseheader()</code></td>
+<td>查询响应中的某个字段的值</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong><code>onreadystatechange</code>事件</strong></p>
+<blockquote>
+<p>通过监听<code>onreadystatechange</code>事件,来判断请求的状态.</p>
+</blockquote>
+</li>
+<li><p><code>readyState</code>属性:响应返回所处状态</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>状态</th>
+<th>所处位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>(未初始化)</td>
+<td>还没有调用<code>open()</code>方法</td>
+</tr>
+<tr>
+<td>1</td>
+<td>(载入)</td>
+<td>已调用<code>send()</code>方法,正在发送请求</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(载入完成)</td>
+<td><code>send()</code>方法完成,已经收到全部响应 内容</td>
+</tr>
+<tr>
+<td>3</td>
+<td>(解析)</td>
+<td>正在解析响应内容</td>
+</tr>
+<tr>
+<td>4</td>
+<td>(完成)</td>
+<td>响应内容解析完成,<em>可以在客户端调用了</em></td>
+</tr>
+</tbody>
+</table>
+<p>例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本完整的一个Ajax请求</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">request.open(<span class="string">"GET"</span>,<span class="string">"get.json"</span>,<span class="literal">true</span>);</span><br><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//响应成功,做一些事情</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">//响应失败,做一些事情</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="使用函数简单的封装一个get请求">使用函数简单的封装一个get请求</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的异步get请求</span><br><span class="line"> * <span class="doctag">@param</span> &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnSucc  请求成功时执行的函数,形参为为获取的字符串值.</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnFaild 请求失败执行的函数,可选参数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">(url, fnSucc, fnFaild)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="keyword">null</span></span><br><span class="line">        <span class="comment">//此处必须需要使用window.的方式,表示为window对象的一个属性.不存在是值为undefined,进入else/若直接使用XMLHttpRequest在不支持的情况下会报错</span></span><br><span class="line">    <span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//IE6以上,现在应该不需要考虑IE6了</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, url, <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用Ajax">使用Ajax</h2><h3 id="基础:请求并显示静态TXT文件">基础:请求并显示静态TXT文件</h3><ul>
+<li>字符集编码:不一致时会出现乱码</li>
+<li>缓存,阻止缓存,(使用时间对象添加)</li>
+</ul>
+<h3 id="动态数据:请求JS(或JSON)文件">动态数据:请求JS(或JSON)文件</h3><blockquote>
+<p>注：<strong>并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code></strong>。因为eval解析数据时会有一系列问题出现。这里是因为只是学习就随意点了。<br>在需要解析请求数据时，推荐使用JSON的方法<code>JSON.parse()</code>可以将一个 JSON 字符串解析成为一个 JavaScript 值。参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="external">MDN-JSON</a></p>
+</blockquote>
+<ul>
+<li><code>eval</code>的使用<br>例: </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"54-8*6+4"</span>;</span><br><span class="line">alert(<span class="built_in">eval</span>(str)); <span class="comment">//10;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"[1,2,3]"</span>;   </span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">eval</span>(str1);</span><br><span class="line">alert(arr[<span class="number">1</span>]);<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">"function show()&#123;alert('abc');&#125;"</span>;</span><br><span class="line"><span class="built_in">eval</span>(str3);</span><br><span class="line">show() <span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
+<p><strong>一次成功的get请求</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#24050;&#32463;&#24341;&#20837;get&#20989;&#25968;&#10;//&#25968;&#25454;&#25991;&#20214;&#25918;&#22312;&#21516;&#32423;&#30446;&#24405;&#19979;&#23601;&#34892;&#20102;&#12290;&#10;get(&#34;json.js&#34;, function (str) &#123;&#10;    var arr = eval(str);&#10;    alert(arr[0].a);&#10;&#125;, function () &#123;&#10;    alert(&#34;&#26381;&#21153;&#22120;&#35831;&#27714;&#22833;&#36133;!&#34;);&#10;&#125;);&#10;//json.js&#23384;&#25918;&#30340;&#25991;&#20214;&#22914;&#19979;&#10;/*&#10;    [&#123;&#10;        a: 12,&#10;        b: 5&#10;    &#125;, &#123;&#10;        a: 2,&#10;        b: 56&#10;    &#125;]&#10;*/&#10;//&#26381;&#21153;&#22120;&#21709;&#24212;&#25104;&#21151;&#26102;,&#23558;&#36820;&#22238;12.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>DOM</code>创建元素<ul>
+<li>局部刷新:请求并显示部分网页文件,使用<code>for</code>循环.</li>
+<li>这里是属于DOM操作的范围，在这里就不过多讲述了。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>传统表单在提交后整个页面都刷新</p>
+</blockquote>
+<h2 id="什么是服务器">什么是服务器</h2><h3 id="网页浏览过程分析">网页浏览过程分析</h3><p>一个完整的<strong>HTTP请求</strong>过]]>
+    </summary>
+    
+      <category term="Ajax" scheme="http://guowenfh.github.io/tags/Ajax/"/>
+    
+      <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
+    
+      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[task0002（二）- DOM + 事件]]></title>

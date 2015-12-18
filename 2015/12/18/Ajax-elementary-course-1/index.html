@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Ajax,JS," />
 
 
 
@@ -53,15 +53,57 @@
 
 
 
-<meta name="description" content="兴趣遍地都是，专注和坚持才是真正稀缺的。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="三省吾身丶丶">
-<meta property="og:url" content="http://guowenfh.github.io/index.html">
+<meta name="description" content="传统表单在提交后整个页面都刷新
+
+什么是服务器网页浏览过程分析一个完整的HTTP请求过程,通常有下面7个步骤
+
+建立TCP连接
+Web浏览器想Web服务器发送请求命令
+Web浏览器发送请求头信息
+Web服务器- 应答
+Web服务器- 发送应答头信息
+Web服务器- 向浏览器发送数据
+Web服务器- 关闭TCP连接
+如何配置自己的服务器程序(AMP)
+
+Ajax必须在服务器环境下才能正常使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax入门（一）从0开始到一次成功的GET请求">
+<meta property="og:url" content="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="兴趣遍地都是，专注和坚持才是真正稀缺的。">
+<meta property="og:description" content="传统表单在提交后整个页面都刷新
+
+什么是服务器网页浏览过程分析一个完整的HTTP请求过程,通常有下面7个步骤
+
+建立TCP连接
+Web浏览器想Web服务器发送请求命令
+Web浏览器发送请求头信息
+Web服务器- 应答
+Web服务器- 发送应答头信息
+Web服务器- 向浏览器发送数据
+Web服务器- 关闭TCP连接
+如何配置自己的服务器程序(AMP)
+
+Ajax必须在服务器环境下才能正常使用">
+<meta property="og:image" content="http://guowenfh.github.io/images/ajax/http.png">
+<meta property="og:image" content="http://guowenfh.github.io/images/ajax/http2.png">
+<meta property="og:updated_time" content="2015-12-18T07:01:27.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三省吾身丶丶">
-<meta name="twitter:description" content="兴趣遍地都是，专注和坚持才是真正稀缺的。">
+<meta name="twitter:title" content="Ajax入门（一）从0开始到一次成功的GET请求">
+<meta name="twitter:description" content="传统表单在提交后整个页面都刷新
+
+什么是服务器网页浏览过程分析一个完整的HTTP请求过程,通常有下面7个步骤
+
+建立TCP连接
+Web浏览器想Web服务器发送请求命令
+Web浏览器发送请求头信息
+Web服务器- 应答
+Web服务器- 发送应答头信息
+Web服务器- 向浏览器发送数据
+Web服务器- 关闭TCP连接
+如何配置自己的服务器程序(AMP)
+
+Ajax必须在服务器环境下才能正常使用">
 
 
 
@@ -73,7 +115,7 @@
   };
 </script>
 
-  <title> 三省吾身丶丶 </title>
+  <title> Ajax入门（一）从0开始到一次成功的GET请求 | 三省吾身丶丶 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -104,9 +146,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -193,24 +233,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
-    
-      
 
   
   
@@ -230,10 +255,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/12/18/Ajax-elementary-course-1/" itemprop="url">
-                  Ajax入门（一）从0开始到一次成功的GET请求
-                </a>
+                Ajax入门（一）从0开始到一次成功的GET请求
               
             
           </h1>
@@ -288,10 +310,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <blockquote>
+        <span itemprop="articleBody"><blockquote>
 <p>传统表单在提交后整个页面都刷新</p>
 </blockquote>
 <h2 id="什么是服务器">什么是服务器</h2><h3 id="网页浏览过程分析">网页浏览过程分析</h3><p>一个完整的<strong>HTTP请求</strong>过程,通常有下面7个步骤</p>
@@ -557,43 +576,67 @@
 </ul>
 </li>
 </ul>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Ajax/" rel="tag">#Ajax</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/16/task0002-DOM&&event/" rel="next" title="task0002（二）- DOM + 事件">
+                <i class="fa fa-chevron-left"></i> task0002（二）- DOM + 事件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
 
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
         </div>
 
         
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
         
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/18/Ajax-elementary-course-1/"
+           data-title="Ajax入门（一）从0开始到一次成功的GET请求" data-url="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">
+      </div>
+    
+  </div>
+
 
       </div>
 
@@ -614,8 +657,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
           <p class="site-author-name" itemprop="name">guowenfh</p>
@@ -700,6 +752,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是服务器"><span class="nav-number">1.</span> <span class="nav-text">什么是服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页浏览过程分析"><span class="nav-number">1.1.</span> <span class="nav-text">网页浏览过程分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax原理"><span class="nav-number">2.</span> <span class="nav-text">Ajax原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP响应"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP请求方式"><span class="nav-number">2.3.</span> <span class="nav-text">HTTP请求方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的HTTP状态码"><span class="nav-number">2.4.</span> <span class="nav-text">常见的HTTP状态码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写Ajax"><span class="nav-number">3.</span> <span class="nav-text">编写Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建Ajax对象"><span class="nav-number">3.1.</span> <span class="nav-text">1.创建Ajax对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-连接服务器"><span class="nav-number">3.2.</span> <span class="nav-text">2.连接服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-发送请求"><span class="nav-number">3.3.</span> <span class="nav-text">3.发送请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-接收返回-请求状态监控"><span class="nav-number">3.4.</span> <span class="nav-text">4.接收返回-请求状态监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用函数简单的封装一个get请求"><span class="nav-number">3.5.</span> <span class="nav-text">使用函数简单的封装一个get请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Ajax"><span class="nav-number">4.</span> <span class="nav-text">使用Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础:请求并显示静态TXT文件"><span class="nav-number">4.1.</span> <span class="nav-text">基础:请求并显示静态TXT文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态数据:请求JS(或JSON)文件"><span class="nav-number">4.2.</span> <span class="nav-text">动态数据:请求JS(或JSON)文件</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -787,6 +856,167 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
