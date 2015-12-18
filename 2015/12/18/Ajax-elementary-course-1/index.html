@@ -87,7 +87,7 @@ Web服务器- 关闭TCP连接
 Ajax必须在服务器环境下才能正常使用">
 <meta property="og:image" content="http://guowenfh.github.io/images/ajax/http.png">
 <meta property="og:image" content="http://guowenfh.github.io/images/ajax/http2.png">
-<meta property="og:updated_time" content="2015-12-18T07:01:27.655Z">
+<meta property="og:updated_time" content="2015-12-18T12:01:10.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax入门（一）从0开始到一次成功的GET请求">
 <meta name="twitter:description" content="传统表单在提交后整个页面都刷新
@@ -334,6 +334,8 @@ Ajax必须在服务器环境下才能正常使用">
 </li>
 <li><p>XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了</p>
 </li>
+<li><p>推荐使用firefox浏览器进行AJAX的调试。</p>
+</li>
 </ul>
 <h2 id="Ajax原理">Ajax原理</h2><blockquote>
 <p>什么是Ajax?</p>
@@ -568,7 +570,7 @@ Ajax必须在服务器环境下才能正常使用">
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"54-8*6+4"</span>;</span><br><span class="line">alert(<span class="built_in">eval</span>(str)); <span class="comment">//10;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"[1,2,3]"</span>;   </span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">eval</span>(str1);</span><br><span class="line">alert(arr[<span class="number">1</span>]);<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">"function show()&#123;alert('abc');&#125;"</span>;</span><br><span class="line"><span class="built_in">eval</span>(str3);</span><br><span class="line">show() <span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
 <p><strong>一次成功的get请求</strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//&#24050;&#32463;&#24341;&#20837;get&#20989;&#25968;&#10;//&#25968;&#25454;&#25991;&#20214;&#25918;&#22312;&#21516;&#32423;&#30446;&#24405;&#19979;&#23601;&#34892;&#20102;&#12290;&#10;get(&#34;json.js&#34;, function (str) &#123;&#10;    var arr = eval(str);&#10;    alert(arr[0].a);&#10;&#125;, function () &#123;&#10;    alert(&#34;&#26381;&#21153;&#22120;&#35831;&#27714;&#22833;&#36133;!&#34;);&#10;&#125;);&#10;//json.js&#23384;&#25918;&#30340;&#25991;&#20214;&#22914;&#19979;&#10;/*&#10;    [&#123;&#10;        a: 12,&#10;        b: 5&#10;    &#125;, &#123;&#10;        a: 2,&#10;        b: 56&#10;    &#125;]&#10;*/&#10;//&#26381;&#21153;&#22120;&#21709;&#24212;&#25104;&#21151;&#26102;,&#23558;&#36820;&#22238;12.</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//已经引入get函数</span></span><br><span class="line"><span class="comment">//数据文件放在同级目录下就行了。</span></span><br><span class="line">get(<span class="string">"json.js"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="built_in">eval</span>(str);</span><br><span class="line">    alert(arr[<span class="number">0</span>].a);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"服务器请求失败!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//json.js存放的文件如下</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">    [&#123;</span><br><span class="line">        a: 12,</span><br><span class="line">        b: 5</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        a: 2,</span><br><span class="line">        b: 56</span><br><span class="line">    &#125;]</span><br><span class="line">*/</span></span><br><span class="line"><span class="comment">//服务器响应成功时,将返回12.</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>DOM</code>创建元素<ul>
 <li>局部刷新:请求并显示部分网页文件,使用<code>for</code>循环.</li>
@@ -602,6 +604,10 @@ Ajax必须在服务器环境下才能正常使用">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/18/Ajax-elementary-course-2-fn/" rel="prev" title="Ajax入门（二）Ajax函数封装">
+                Ajax入门（二）Ajax函数封装 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -676,7 +682,7 @@ Ajax必须在服务器环境下才能正常使用">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
