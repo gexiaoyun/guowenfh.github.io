@@ -222,6 +222,210 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/14/Regexp-basisCombat/" itemprop="url">
+                  正则表达式-基础实战篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/Regexp-basisCombat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Regexp-basisCombat/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <blockquote>
+<p>在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!<br>建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》<a href="http://segmentfault.com/a/1190000003977848" target="_blank" rel="external">SF地址</a>、<a href="http://guowenfh.github.io/2015/12/01/Regexp-basis/">原址</a>使用效果更佳哦!</p>
+</blockquote>
+<h2 id="一个手机号码匹配的进化历程">一个手机号码匹配的进化历程</h2><blockquote>
+<p>实例代码依托于:<code>RegExpObj.test(String)</code>，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回<code>true</code></p>
+</blockquote>
+<h3 id="第一阶段-字符直接量:匹配自身">第一阶段-字符直接量:匹配自身</h3><blockquote>
+<p>先假设一个手机号码为13762571094.</p>
+</blockquote>
+<ul>
+<li><strong>最初形态</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13783281094"</span>);<span class="comment">//false</span></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//正则表达式在匹配时,只要输出匹配内容就返回true,不考虑前面的ui和后面的dd</span></span><br><span class="line"><span class="comment">//最后这种情况显然不是我们想要的.那么就进入下一阶段的实践吧.</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二阶段-锚点:指定匹配位置">第二阶段-锚点:指定匹配位置</h3><ul>
+<li><code>^</code>匹配起始位置</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^http:/.test("http://www.163.com");//true</span><br><span class="line">/^http:/.test("ahttp://www.163.com");//false</span><br><span class="line">/^http:/.test("https://www.163.com");//false</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>$</code>匹配结尾位置</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/.jpg$/.test(<span class="string">"1.jpg"</span>);<span class="comment">//true</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.jpg png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"regexp.png"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>\b</code>:匹配单词边界</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/\bis\b/.test(<span class="string">"this"</span>);<span class="comment">//false</span></span><br><span class="line">/\bis\b/.test(<span class="string">"that is reg"</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在了解锚点之后我们的正则就有了<strong>第一次进化</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//此时这个程序就能正确识别头尾的字符了.下面我们看看</span></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13712345674"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">/*在试过了多个号码后发现,这个正则只能识别这个标准的手机号码.</span><br><span class="line">这显然不是我们想要的,而不是识别一个手机号码的格式.</span><br><span class="line">在下一阶段我们将实现一个手机号码的匹配.*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="第三阶段-字符类:匹配一类字符中的一个">第三阶段-字符类:匹配一类字符中的一个</h3><ul>
+<li><code>[abc]</code>:a或b或c。<code>[0-9]</code>:一个数字</li>
+<li><code>[^0-9]</code>:非数字的一个字符。<code>[a-z]</code>:一个字母</li>
+<li><code>.</code>    :任一字符(换行符除外)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"123"</span>)<span class="comment">//true</span></span><br><span class="line">/[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//false</span></span><br><span class="line">/[^<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/[a-z]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"allen"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"12"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>了解了字符类后,我们就可以进行<strong>第二次进化(50%)</strong>。此时就能匹配一个手机号码啦！</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//是不是感觉代码太长了呢?[0-9]足足5个字符呢,为了省力,当然不会就这样算了.继续向下看吧</span></span><br></pre></td></tr></table></figure>
+<h4 id="元字符-具有特殊意义的字符">元字符-具有特殊意义的字符</h4><blockquote>
+<p>其实我们已经在前面使用过它啦</p>
+</blockquote>
+<ul>
+<li><code>^</code>、<code>$</code>、<code>\b</code>。</li>
+<li><code>\d</code>:<code>[0-9]</code>。<code>\D</code>:<code>[^\d]</code></li>
+<li><code>\s</code>:空白符。<code>\S</code>:<code>[^\s]</code></li>
+<li><code>\w</code>:<code>[A-Za-z0-9_]</code>。<code>\W</code>:<code>[^\w]</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/\d/.test(<span class="string">"123"</span>);<span class="comment">//true</span></span><br><span class="line">/\d/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"123"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//自己再多去实验一些例子吧</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>了解了元字符后我们就可以进行<strong>第二次进化(100%)</strong>了。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//是不是感觉代码比刚刚短了很多了呢?但这还是不够,什么事情都阻止不了我想偷懒的心,继续学习吧.</span></span><br></pre></td></tr></table></figure>
+<h3 id="第四阶段-量词:出现的次数">第四阶段-量词:出现的次数</h3><ul>
+<li><code>{n,m}</code>:n到m次。<code>?</code>：<code>{0,1}</code></li>
+<li><code>+</code>:<code>{1,}</code>。<code>*</code>:<code>{0,}</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/\d*/.test("abc");//true</span><br><span class="line">/\d+/.test("abc");//false</span><br><span class="line">/\d+/.test("1abc");//true</span><br><span class="line">/^https?:/.test("http://www.163.com");//true</span><br><span class="line">/^https?:/.test("https://www.163.com");//true</span><br><span class="line">/^https?:/.test("httpss://www.163.com");//false</span><br></pre></td></tr></table></figure>
+<ul>
+<li>此时我们的匹配手机号码的正则表达式就到了<strong>最后阶段</strong>了</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//到这里手机号码就匹配完成了!</span></span><br></pre></td></tr></table></figure>
+<h3 id="需要注意的点">需要注意的点</h3><ul>
+<li>这里匹配的情况是最简单的情况，并没有特别完美，比如限制开头第二位数字的范围：188，158通过，而123,191，不通过等等。</li>
+<li>可利用多选分支，例如：<code>/^1[3|5][0-9]{9}$|^18\d{9}$/</code>。不过现在虚拟运营商的加入，号码段变多了，所以直接用最简单的方法，也没事。</li>
+</ul>
+<h2 id="邮箱的匹配">邮箱的匹配</h2><p><code>/thi(c|n)k/</code>===<code>thi[cn]k</code></p>
+<p><code>\.(png|jpg|jpeg|gif)$</code>:检测一个文件是不是图片文件.</p>
+<h3 id="多选分支:网易邮箱的匹配">多选分支:网易邮箱的匹配</h3><h4 id="元字符的问题">元字符的问题</h4><p><code>/^http:/\/\/</code>..<code>/@163\.com$/</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\<span class="comment">//.test("http://www.163.com");//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用多选分支。">使用多选分支。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guo啊圣诞节了@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163.com"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="分组-邮箱的匹配">分组-邮箱的匹配</h3><p>这里需要思考几个问题.</p>
+<ol>
+<li>在@前能出现哪些东西？这里使用<code>(\w+\.)*</code>来匹配出现<code>.</code>的情况，表示出现0次或多次因为<code>.</code>后不能紧跟@，所以后面紧跟<code>\w+</code>匹配普通的字母数字情况。</li>
+<li>@后出现的邮箱后缀并不固定所以使用<code>\w+</code>来匹配。</li>
+<li>最后考虑域名结尾的级联情况所以用<code>(\.\w+)+</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guo啊圣诞节了@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@163.com"</span>)<span class="comment">//true</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@yea.com.cn"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h2 id="捕获">捕获</h2><ul>
+<li>保存匹配到的字符串,日后再用</li>
+<li><code>()</code>:捕获<code>/(\w+)@(163|126|188)\.com$/</code></li>
+<li>(?:):不捕获<code>/(\w+)@(?:163|126|188)\.com$/</code></li>
+<li>使用:<ul>
+<li>$1,$2,…</li>
+<li>api参数或返回值</li>
+</ul>
+</li>
+</ul>
+<h3 id="获取匹配的字符串:String-match(regexp)">获取匹配的字符串:<code>String.match(regexp)</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'http://blog.163.com/album?id=1#comment'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/</span>;</span><br><span class="line"><span class="comment">// var reg = /^(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)$///与上面的正则效果相同.;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = url.match(reg);</span><br><span class="line"></span><br><span class="line"><span class="comment">//arr[0]为原字符串."http://blog.163.com/album?id=1#comment"</span></span><br><span class="line"><span class="comment">//对应括号所匹配的字符</span></span><br><span class="line"><span class="keyword">var</span> protocol= arr[<span class="number">1</span>]<span class="comment">//"http:"</span></span><br><span class="line"><span class="keyword">var</span> host= arr[<span class="number">2</span>]<span class="comment">//"blog.163.com"</span></span><br><span class="line"><span class="keyword">var</span> pathname= arr[<span class="number">3</span>]<span class="comment">//"/album"</span></span><br><span class="line"><span class="keyword">var</span> search= arr[<span class="number">4</span>]<span class="comment">//"?id=1"</span></span><br><span class="line"><span class="keyword">var</span> hash= arr[<span class="number">5</span>]<span class="comment">//"#comment"</span></span><br></pre></td></tr></table></figure>
+<h3 id="替换一个子串:str-replace(regexp/substr,replacement)">替换一个子串:<code>str.replace(regexp/substr,replacement)</code></h3><ul>
+<li>第二个参数是字符时</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"the price of tomato is 5, the price of apple is 10."</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10."</span></span><br><span class="line"><span class="comment">//使用全局模式</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/g</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10.00."</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二个参数是函数时</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">'&lt;label&gt;网址:&lt;/label&gt;&lt;input placeholder="以http://起始"&gt;'</span>;</span><br><span class="line">html = html.replace(<span class="regexp">/[&lt;&gt;]/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">m0</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(m0)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;lt;'</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//处理后输出结果为：</span></span><br><span class="line"><span class="built_in">console</span>.log(html);<span class="comment">//&amp;lt;label&amp;gt;网址:&amp;lt;/label&amp;gt;&amp;lt;input placeholder="以http://起始"&amp;gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="更强大的检索_-_regexpObj-exec(str)">更强大的检索 - <code>regexpObj.exec(str)</code></h3><ul>
+<li>更详尽的结果:index</li>
+<li>过程的状态:lastIndex</li>
+<li>一般用不到，就不详细说明了，有兴趣的自己去了解一下。</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/01/Regexp-basis/" itemprop="url">
                   正则表达式-理论基础篇
                 </a>
@@ -1089,7 +1293,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
