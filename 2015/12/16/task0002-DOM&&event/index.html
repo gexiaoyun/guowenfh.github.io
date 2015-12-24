@@ -61,8 +61,8 @@
 <meta property="og:site_name" content="三省吾身丶丶">
 <meta property="og:description" content="DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
 1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &amp;#123;    // your implement&amp;#125;/">
-<meta property="og:image" content="http://guowenfh.github.io/images/JavaScirpt-Event-capture-Bubble.jpg">
-<meta property="og:updated_time" content="2015-12-16T12:03:31.046Z">
+<meta property="og:image" content="http://guowenfh.github.io/images/ife/JavaScirpt-Event-capture-Bubble.jpg">
+<meta property="og:updated_time" content="2015-12-24T06:01:46.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="task0002（二）- DOM + 事件">
 <meta name="twitter:description" content="DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
@@ -353,10 +353,12 @@
 <li>“事件代理” 的本质是利用了事件冒泡的特性。当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；</li>
 <li><p>这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，在我们的这个例子中也就是按钮，并且它在我们的元素对象中以属性的形式出现。使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的。</p>
 </li>
-<li><p>这里就不细说事件冒泡与事件捕获了（阻止默认行为也会用到，有兴趣去网上找找看），但是要理解事件代理就必须先知道它们。下面这张图可以先看看。（图片来自网络，侵删）<br><img src="/images/JavaScirpt-Event-capture-Bubble.jpg" alt="事件捕获与事件冒泡原型图"></p>
+<li><p>这里就不细说事件冒泡与事件捕获了（阻止默认行为也会用到，有兴趣去网上找找看），但是要理解事件代理就必须先知道它们。下面这张图可以先看看。（图片来自网络，侵删）</p>
 </li>
-<li><p>理解了这个之后就没那么难了，只需要进行一点兼容性处理。</p>
-</li>
+</ul>
+<p><img src="/images/ife/JavaScirpt-Event-capture-Bubble.jpg" alt="事件捕获与事件冒泡原型图"></p>
+<ul>
+<li>理解了这个之后就没那么难了，只需要进行一点兼容性处理。</li>
 <li>参考资料<ul>
 <li><a href="http://www.cnblogs.com/Aralic/p/4446030.html" target="_blank" rel="external">javascript事件代理（委托）</a></li>
 <li><a href="http://www.cnblogs.com/rubylouvre/archive/2009/08/09/1542174.html" target="_blank" rel="external">JavaScript事件代理</a></li>
@@ -472,7 +474,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
