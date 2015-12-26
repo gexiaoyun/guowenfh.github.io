@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-12-26T07:32:36.780Z</updated>
+  <updated>2015-12-26T07:36:44.382Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,9 +19,8 @@
     <link href="http://guowenfh.github.io/2015/12/26/SublimeText/"/>
     <id>http://guowenfh.github.io/2015/12/26/SublimeText/</id>
     <published>2015-12-26T07:26:17.000Z</published>
-    <updated>2015-12-26T07:32:36.780Z</updated>
+    <updated>2015-12-26T07:36:44.382Z</updated>
     <content type="html"><![CDATA[<p><strong>详细设置 &amp;&amp; 20+插件</strong></p>
-<p>[TOC]</p>
 <blockquote>
 <p>本文章会在本人有插件或者设置更新时，进行不定时更新</p>
 </blockquote>
@@ -100,19 +99,23 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// User/Preferences.sublime-settings</span></span><br><span class="line"><span class="comment">//我觉得自带字体挺好的。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"color_scheme"</span>: <span class="string">"Packages/User/SublimeLinter/Dawn (SL).tmTheme"</span>, <span class="comment">//主题</span></span><br><span class="line">    <span class="string">"draw_minimap_border"</span>: <span class="literal">true</span>, <span class="comment">// 右侧缩略图边框</span></span><br><span class="line">    <span class="string">"font_size"</span>: <span class="number">10</span>, <span class="comment">// 字体大小</span></span><br><span class="line">    <span class="string">"highlight_line"</span>: <span class="literal">true</span>, <span class="comment">// 当前行标亮</span></span><br><span class="line">    <span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>, <span class="comment">// 当前行标亮</span></span><br><span class="line">    <span class="string">"theme"</span>: <span class="string">"Spacegray Eighties.sublime-theme"</span>, <span class="comment">//主题相关</span></span><br><span class="line">    <span class="string">"word_separators"</span>: <span class="string">"./\\()\"':,.;&lt;&gt;~!@#$%^&amp;*|+=[]&#123;&#125;`~?"</span>, <span class="comment">// 双击选中中划线</span></span><br><span class="line">    <span class="string">"word_wrap"</span>: <span class="literal">true</span>, <span class="comment">//自动换行</span></span><br><span class="line">    <span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>, <span class="comment">//自动移除行尾多余空格</span></span><br><span class="line">    <span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>, <span class="comment">//文件末尾自动保留一个空行</span></span><br><span class="line">    <span class="string">"disable_tab_abbreviations"</span>: <span class="literal">true</span>, <span class="comment">//禁用 Emmet 的 tab 键功能（请使用 ctrl+e）</span></span><br><span class="line">    <span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, <span class="comment">//把代码 tab 对齐转换为空格对齐</span></span><br><span class="line">    <span class="string">"tab_size"</span>: <span class="number">4</span>, <span class="comment">//空格数</span></span><br><span class="line">    <span class="string">"fade_fold_buttons"</span>: <span class="literal">false</span>, <span class="comment">//显示代码块的倒三角</span></span><br><span class="line">    <span class="string">"bold_folder_labels"</span>: <span class="literal">true</span>, <span class="comment">//侧边栏文件夹加粗</span></span><br><span class="line">    <span class="string">"auto_find_in_selection"</span>: <span class="literal">true</span> <span class="comment">//开启选中范围内搜索</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>key - Bindings-User</code>：个人对于快捷键的设置。同样会覆盖默认的设置。例如：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动改变缩进格式</span></span><br><span class="line">    &#123; <span class="string">"keys"</span>: [<span class="string">"shift+tab"</span>], <span class="string">"command"</span>: <span class="string">"reindent"</span>,<span class="string">"args"</span>:&#123;<span class="string">"single_line"</span>:<span class="literal">false</span>&#125; &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li><code>key - Bindings-User</code>：个人对于快捷键的设置。同样会覆盖默认的设置。例如：</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动改变缩进格式</span></span><br><span class="line">    &#123; <span class="string">"keys"</span>: [<span class="string">"shift+tab"</span>], <span class="string">"command"</span>: <span class="string">"reindent"</span>,<span class="string">"args"</span>:&#123;<span class="string">"single_line"</span>:<span class="literal">false</span>&#125; &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="实现保存自动刷新">实现保存自动刷新</h3><p><code>tools</code>:工具下的<code>Build System</code>选择新建一个选项后，进行如下设置（注意后缀），保存到user目录下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样设置。。地址是你的浏览器位置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cmd"</span> :[<span class="string">"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"</span>,<span class="string">"$file"</span>],</span><br><span class="line">  <span class="string">"selector"</span>:[<span class="string">"text.html"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>而且选择第一个<code>auto</code>，     修改内容后按<code>Ctrl+B</code>，可以看到自动打开了chrome并且是修改后的内容。</p>
 <h2 id="插件的安装与使用">插件的安装与使用</h2><h3 id="安装package_control。">安装<code>package control</code>。</h3><p>这里我使用的是sublime_text3， 2的话上官网查询代码。<br>首先打开package control的<a href="https://packagecontrol.io/installation" target="_blank" rel="external">官方网站</a>。<br>复制下面这一段代码:</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)</span><br></pre></td></tr></table></figure>
 <p>在上面说的<code>View</code>–&gt;<code>Show console</code>打开控制台窗口，粘贴上面的代码，回车，然后就是等待安装了，需要一定的时间。安装完成后重启</p>
-<p>使用<code>Ctrl+Shift+P</code>,打开控制面板，输入PC，效果如下，说明安装成功了。<br><img src="/images/SublimeText/package_control.jpg" alt="package control"></p>
+<p>使用<code>Ctrl+Shift+P</code>,打开控制面板，输入PC，效果如下，说明安装成功了。</p>
+<p><img src="/images/SublimeText/package_control.jpg" alt="package control"></p>
 <h3 id="安装主题">安装主题</h3><ul>
 <li>按照上面的步骤，打开图片中的安装插件就行了，其实默认配色真的挺好看的</li>
 <li>推荐在安装前，先去<a href="https://packagecontrol.io" target="_blank" rel="external">官方网站查看样式</a>。的样式，以及设置方法,说明文档。一般安装成功后，会自动弹出。</li>
-<li>以<code>Theme - Spacegray</code>为例：<br><img src="/images/SublimeText/Theme_Spacegray.jpg" alt="Theme - Spacegray"><br>先使用<code>Ctrl+Shift+P</code> 输入PCI，回车选择 <code>Install Package</code> 。需要等待一会加载时间，输入<code>Theme-Spacegray</code>。其实不输入完也会模糊匹配出来的。</li>
+<li>以<code>Theme - Spacegray</code>为例：</li>
+</ul>
+<p><img src="/images/SublimeText/Theme_Spacegray.jpg" alt="Theme - Spacegray"><br>先使用<code>Ctrl+Shift+P</code> 输入PCI，回车选择 <code>Install Package</code> 。需要等待一会加载时间，输入<code>Theme-Spacegray</code>。其实不输入完也会模糊匹配出来的。</p>
+<ul>
 <li>回车等待安装就好，成功后会弹出一个使用设置的页面，把其中的如下代码拷贝到<code>Settings-User</code>，保存，你会发现，默认的主题已经变成了刚刚我们查看过的主题了。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"color_scheme"</span>: <span class="string">"Packages/Theme - Spacegray/base16-eighties.dark.tmTheme"</span>,  </span><br><span class="line"><span class="string">"theme"</span>: <span class="string">"Spacegray Eighties.sublime-theme"</span></span><br></pre></td></tr></table></figure>
@@ -122,7 +125,8 @@
 <li>但是有了该插件之后，事情就变得简单了许多，只需要按下<code>Ctrl+Shift+N</code>，输入文件夹以及文件名，你就会看到如下效果:（回车，你会发现已经子目录下的文件已经新建完成了！）</li>
 </ul>
 <p><img src="/images/SublimeText/AdvancedNewFile.jpg" alt="AdvancedNewFile"></p>
-<h3 id="NO-2_Nettuts+_Fetch：管理类库。">NO.2 <code>Nettuts+ Fetch</code>：管理类库。</h3><p>安装成功后输入<code>Ctrl+Shift+P</code>打开命令面板，输入<code>Fetch</code>，可以看到以下：<br><img src="/images/SublimeText/Nettuts_Fetch.jpg" alt="Nettuts+ Fetch"><br>选择<code>file</code>可以看到设置的文件。选择下载<br>配合刚刚上面的插件使用，简直完美..</p>
+<h3 id="NO-2_Nettuts+_Fetch：管理类库。">NO.2 <code>Nettuts+ Fetch</code>：管理类库。</h3><p>安装成功后输入<code>Ctrl+Shift+P</code>打开命令面板，输入<code>Fetch</code>，可以看到以下：</p>
+<p><img src="/images/SublimeText/Nettuts_Fetch.jpg" alt="Nettuts+ Fetch"><br>选择<code>file</code>可以看到设置的文件。选择下载<br>配合刚刚上面的插件使用，简直完美..</p>
 <h3 id="NO-3_Sidebar_Enhancements：增强侧边栏。">NO.3 <code>Sidebar Enhancements</code>：增强侧边栏。</h3><p>必装插件，无比强大，就不过多介绍了。可以在浏览器中打开，还可以配置不同文件的打开方式。<br>单单下面这一个功能就必须安装了！快捷在不同浏览器打开：参考：<a href="http://www.w3cfuns.com/blog-5431998-5401485.html" target="_blank" rel="external">SideBarEnhancements快捷键设置</a></p>
 <ul>
 <li>可选<code>SyncedSideBar</code>：每次打开文件，侧边栏都会同步显示该文件所在目录树中的位置</li>
@@ -205,11 +209,10 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p><strong>详细设置 &amp;&amp; 20+插件</strong></p>
-<p>[TOC]</p>
 <blockquote>
 <p>本文章会在本人有插件或者设置更新时，进行不定时更新</p>
 </blockquote>
-<p><strong>为什么要选择Subl]]>
+<p><strong>为什么要选择Sublime Text3？</s]]>
     </summary>
     
       <category term="Sublime Text" scheme="http://guowenfh.github.io/tags/Sublime-Text/"/>
