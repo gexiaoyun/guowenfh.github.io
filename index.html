@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -46,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
 
 
 
@@ -66,10 +72,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -78,15 +90,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -104,9 +107,14 @@
 
 
 
-  <div class="container one-column 
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -180,6 +188,7 @@
 
       
       
+      
     </ul>
   
 
@@ -191,13 +200,23 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
 
     
 
     
+    
+      
+      
+        
+        
+        
+      
+
+      
     
 
     
@@ -232,7 +251,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-26T15:26:17+08:00" content="2015-12-26">
               2015-12-26
             </time>
@@ -240,7 +262,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -268,209 +294,61 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <p><strong>详细设置 &amp;&amp; 20+插件</strong></p>
-<blockquote>
-<p>本文章会在本人有插件或者设置更新时，进行不定时更新</p>
-</blockquote>
-<p><strong>为什么要选择Sublime Text3？</strong></p>
-<ul>
-<li>Sublime Text3 自动保存，打开图片</li>
-<li>跨平台启动快，多行选择。</li>
-<li>插件，简直选不过来。</li>
-<li>代码片段</li>
-<li>VIM兼容模式</li>
-</ul>
-<h2 id="菜单栏基础功能介绍">菜单栏基础功能介绍</h2><p><img src="/images/SublimeText/Menu_Bar.jpg" alt="菜单栏介绍"></p>
-<ol>
-<li><code>File</code>：文档相关，新建文件,打开文件或文件夹等。</li>
-<li><code>Edit</code>：文件编辑相关，复制，剪切等（CVS大法好）。除此之外还有一些强大的功能。</li>
-<li><code>Selection</code>：选择相关，帮助选择代码。</li>
-<li><code>Find</code>：查找替换相关。这个和其它编辑器区别好像不大。<ul>
-<li><code>Ctrl+F</code>查找、<code>Ctrl+H</code>替换等。</li>
-</ul>
-</li>
-<li><code>View</code>：对Sublime_Text编辑器本身的一些配置。<ul>
-<li><code>SideBar</code>:开启侧边栏<code>Ctrl+k,b</code></li>
-<li><code>Show console</code>：打开控制台窗口，安装package control需要使用.</li>
-</ul>
-</li>
-<li><code>Goto</code>：快捷导航：下面介绍。Goto Anything</li>
-<li><code>tools</code>:工具，一些命令。<ul>
-<li><code>new Snippet</code>：自定义代码片段，保存到user下</li>
-</ul>
-</li>
-<li><code>Project</code>: 项目相关，用的少。</li>
-<li><code>Preferences</code>：对于sublime_text进行一些个性化定值。</li>
-<li><code>Help</code>：如同名字。注册在这里</li>
-</ol>
-<h3 id="快捷键">快捷键</h3><ul>
-<li><code>line</code>相关：<ul>
-<li><code>Ctrl+Shift+D</code>：复制当前行 </li>
-<li><code>Ctrl+Shift+K</code>：删除当前行 </li>
-<li><code>Ctrl+j</code> 合并一行</li>
-<li><code>Ctrl+Enter</code>：在当前行下添加新行。After</li>
-<li><code>Ctrl+Shift+Enter</code>：在当前行上添加新行。Before</li>
-</ul>
-</li>
-<li><code>Comment</code>注释：<ul>
-<li><code>Ctrl+/</code>：行注释。 </li>
-<li><code>Ctrl+Shift+/</code>：块注释</li>
-</ul>
-</li>
-<li><code>Ctrl+Shift+P</code>：调用命令面板，快速查找，例如：改变语法模式等。<ul>
-<li>模糊匹配，可以减少对快捷键的记忆。</li>
-</ul>
-</li>
-<li><strong><code>Shift+Alt+1，2，3，4，5</code>：开启对应数字的多栏编辑</strong></li>
-</ul>
-<h4 id="Ctrl+P：Goto_Anything"><code>Ctrl+P</code>：Goto Anything</h4><ul>
-<li><code>Ctrl+P</code>: 查找项目中的文件：<ul>
-<li>直接输入名称：在不同文件中切换，<strong>支持级联的目录模式</strong></li>
-<li><code>:</code>：+ 行号：<code>Ctrl+G</code> 定位到具体的行。</li>
-<li><code>@</code>：+ 符号：<code>Ctrl+R</code>定位到具体的符号，例如：JS函数名，CSS选择器名。</li>
-<li><code>#</code>：+ 关键字：<code>Ctrl+;</code>匹配到具体的匹配的关键字。主要是模糊匹配。</li>
-</ul>
-</li>
-</ul>
-<h4 id="多行游标">多行游标</h4><ul>
-<li><code>Ctrl+D</code>：选中当前光标所在位置的<strong>单词</strong>。连续使用时，进行多光标选择，选中下一个同名单词。</li>
-<li><code>Ctrl+K</code>：配合<code>Ctrl+D</code>可以<strong>跳过</strong>下一个同名单词。</li>
-<li><code>Ctrl+L</code>：选择当前光标所在位置的<strong>行</strong>。连续使用时，继续选中下一行。</li>
-<li><code>Ctrl+Shift+L</code>：在多行选中后，在所有选中的行后产生游标。</li>
-<li><code>Alt+F3</code>：选中文档中所有的同名单词。</li>
-<li><code>Shift+鼠标右键</code>：向下拖动，产生多个光标。</li>
-</ul>
-<h3 id="设置">设置</h3><p>使用 Ctrl+`调出console面板输入<code>sublime.log_commands(True)</code>，可以得到当前使用的命令面板进行设置的值。方便进行快捷键的绑定。</p>
-<p>下面这些都可以通过命令面板快捷查找</p>
-<ul>
-<li><code>Settings-User</code>：个人对于sublime_text的定制。使用JSON格式，会直接覆盖掉<code>Settings-Default</code>默认设置中的内容。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// User/Preferences.sublime-settings</span></span><br><span class="line"><span class="comment">//我觉得自带字体挺好的。</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"color_scheme"</span>: <span class="string">"Packages/User/SublimeLinter/Dawn (SL).tmTheme"</span>, <span class="comment">//主题</span></span><br><span class="line">    <span class="string">"draw_minimap_border"</span>: <span class="literal">true</span>, <span class="comment">// 右侧缩略图边框</span></span><br><span class="line">    <span class="string">"font_size"</span>: <span class="number">10</span>, <span class="comment">// 字体大小</span></span><br><span class="line">    <span class="string">"highlight_line"</span>: <span class="literal">true</span>, <span class="comment">// 当前行标亮</span></span><br><span class="line">    <span class="string">"save_on_focus_lost"</span>: <span class="literal">true</span>, <span class="comment">// 当前行标亮</span></span><br><span class="line">    <span class="string">"theme"</span>: <span class="string">"Spacegray Eighties.sublime-theme"</span>, <span class="comment">//主题相关</span></span><br><span class="line">    <span class="string">"word_separators"</span>: <span class="string">"./\\()\"':,.;&lt;&gt;~!@#$%^&amp;*|+=[]&#123;&#125;`~?"</span>, <span class="comment">// 双击选中中划线</span></span><br><span class="line">    <span class="string">"word_wrap"</span>: <span class="literal">true</span>, <span class="comment">//自动换行</span></span><br><span class="line">    <span class="string">"trim_trailing_white_space_on_save"</span>: <span class="literal">true</span>, <span class="comment">//自动移除行尾多余空格</span></span><br><span class="line">    <span class="string">"ensure_newline_at_eof_on_save"</span>: <span class="literal">true</span>, <span class="comment">//文件末尾自动保留一个空行</span></span><br><span class="line">    <span class="string">"disable_tab_abbreviations"</span>: <span class="literal">true</span>, <span class="comment">//禁用 Emmet 的 tab 键功能（请使用 ctrl+e）</span></span><br><span class="line">    <span class="string">"translate_tabs_to_spaces"</span>: <span class="literal">true</span>, <span class="comment">//把代码 tab 对齐转换为空格对齐</span></span><br><span class="line">    <span class="string">"tab_size"</span>: <span class="number">4</span>, <span class="comment">//空格数</span></span><br><span class="line">    <span class="string">"fade_fold_buttons"</span>: <span class="literal">false</span>, <span class="comment">//显示代码块的倒三角</span></span><br><span class="line">    <span class="string">"bold_folder_labels"</span>: <span class="literal">true</span>, <span class="comment">//侧边栏文件夹加粗</span></span><br><span class="line">    <span class="string">"auto_find_in_selection"</span>: <span class="literal">true</span> <span class="comment">//开启选中范围内搜索</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>key - Bindings-User</code>：个人对于快捷键的设置。同样会覆盖默认的设置。例如：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自动改变缩进格式</span></span><br><span class="line">    &#123; <span class="string">"keys"</span>: [<span class="string">"shift+tab"</span>], <span class="string">"command"</span>: <span class="string">"reindent"</span>,<span class="string">"args"</span>:&#123;<span class="string">"single_line"</span>:<span class="literal">false</span>&#125; &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="实现保存自动刷新">实现保存自动刷新</h3><p><code>tools</code>:工具下的<code>Build System</code>选择新建一个选项后，进行如下设置（注意后缀），保存到user目录下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这样设置。。地址是你的浏览器位置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"cmd"</span> :[<span class="string">"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"</span>,<span class="string">"$file"</span>],</span><br><span class="line">  <span class="string">"selector"</span>:[<span class="string">"text.html"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>而且选择第一个<code>auto</code>，     修改内容后按<code>Ctrl+B</code>，可以看到自动打开了chrome并且是修改后的内容。</p>
-<h2 id="插件的安装与使用">插件的安装与使用</h2><h3 id="安装package_control。">安装<code>package control</code>。</h3><p>这里我使用的是sublime_text3， 2的话上官网查询代码。<br>首先打开package control的<a href="https://packagecontrol.io/installation" target="_blank" rel="external">官方网站</a>。<br>复制下面这一段代码:</p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); <span class="keyword">by</span> = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.<span class="built_in">replace</span>(<span class="string">' '</span>, <span class="string">'%20'</span>)).<span class="built_in">read</span>(); dh = hashlib.sha256(<span class="keyword">by</span>).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="built_in">open</span>(os.path.join( ipp, pf), <span class="string">'wb'</span> ).<span class="built_in">write</span>(<span class="keyword">by</span>)</span><br></pre></td></tr></table></figure>
-<p>在上面说的<code>View</code>–&gt;<code>Show console</code>打开控制台窗口，粘贴上面的代码，回车，然后就是等待安装了，需要一定的时间。安装完成后重启</p>
-<p>使用<code>Ctrl+Shift+P</code>,打开控制面板，输入PC，效果如下，说明安装成功了。</p>
-<p><img src="/images/SublimeText/package_control.jpg" alt="package control"></p>
-<h3 id="安装主题">安装主题</h3><ul>
-<li>按照上面的步骤，打开图片中的安装插件就行了，其实默认配色真的挺好看的</li>
-<li>推荐在安装前，先去<a href="https://packagecontrol.io" target="_blank" rel="external">官方网站查看样式</a>。的样式，以及设置方法,说明文档。一般安装成功后，会自动弹出。</li>
-<li>以<code>Theme - Spacegray</code>为例：</li>
-</ul>
-<p><img src="/images/SublimeText/Theme_Spacegray.jpg" alt="Theme - Spacegray"><br>先使用<code>Ctrl+Shift+P</code> 输入PCI，回车选择 <code>Install Package</code> 。需要等待一会加载时间，输入<code>Theme-Spacegray</code>。其实不输入完也会模糊匹配出来的。</p>
-<ul>
-<li>回车等待安装就好，成功后会弹出一个使用设置的页面，把其中的如下代码拷贝到<code>Settings-User</code>，保存，你会发现，默认的主题已经变成了刚刚我们查看过的主题了。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"color_scheme"</span>: <span class="string">"Packages/Theme - Spacegray/base16-eighties.dark.tmTheme"</span>,  </span><br><span class="line"><span class="string">"theme"</span>: <span class="string">"Spacegray Eighties.sublime-theme"</span></span><br></pre></td></tr></table></figure>
-<p>当然，你也可以通过菜单栏，进行主题的选择。会有相同的效果。它会自动在<code>Settings-User</code>进行设置。</p>
-<h2 id="个人常用插件及使用方法：">个人常用插件及使用方法：</h2><h3 id="NO-1_AdvancedNewFile：快速新建文件。">NO.1 <code>AdvancedNewFile</code>：快速新建文件。</h3><ul>
-<li>假设有文件夹<code>file</code>。我们正在输入代码，又想在新的子目录下新建html文件的话用传统方式得很多步，新建目录，新建文件，保存等等等。</li>
-<li>但是有了该插件之后，事情就变得简单了许多，只需要按下<code>Ctrl+Shift+N</code>，输入文件夹以及文件名，你就会看到如下效果:（回车，你会发现已经子目录下的文件已经新建完成了！）</li>
-</ul>
-<p><img src="/images/SublimeText/AdvancedNewFile.jpg" alt="AdvancedNewFile"></p>
-<h3 id="NO-2_Nettuts+_Fetch：管理类库。">NO.2 <code>Nettuts+ Fetch</code>：管理类库。</h3><p>安装成功后输入<code>Ctrl+Shift+P</code>打开命令面板，输入<code>Fetch</code>，可以看到以下：</p>
-<p><img src="/images/SublimeText/Nettuts_Fetch.jpg" alt="Nettuts+ Fetch"><br>选择<code>file</code>可以看到设置的文件。选择下载<br>配合刚刚上面的插件使用，简直完美..</p>
-<h3 id="NO-3_Sidebar_Enhancements：增强侧边栏。">NO.3 <code>Sidebar Enhancements</code>：增强侧边栏。</h3><p>必装插件，无比强大，就不过多介绍了。可以在浏览器中打开，还可以配置不同文件的打开方式。<br>单单下面这一个功能就必须安装了！快捷在不同浏览器打开：参考：<a href="http://www.w3cfuns.com/blog-5431998-5401485.html" target="_blank" rel="external">SideBarEnhancements快捷键设置</a></p>
-<ul>
-<li>可选<code>SyncedSideBar</code>：每次打开文件，侧边栏都会同步显示该文件所在目录树中的位置</li>
-</ul>
-<h3 id="NO-4_Doc​Blockr：代码块注释。">NO.4 <code>Doc​Blockr</code>：代码块注释。</h3><p>可以快速的对函数进行注释。保存代码规范<br>支持多种语言。（个人觉得brackets的这个插件比Sublime Text做得好多了。）<br><code>/*</code>:回车创建一个代码块注释<br><code>/**</code>:回车在自动查找函数中的形参等等。<br>它会生成 JSDoc 格式的注释。如果你从没有使用过类似的工具，DocBlockr 会让你觉得以前没有它是如何写代码的。帮助你创造你的代码注释，通过解析功能，参数，变量，并且自动添加基本项目。</p>
-<h3 id="NO-5_SublimeLinter-jshint:语法校验">NO.5 <code>SublimeLinter-jshint</code>:语法校验</h3><ul>
-<li>需先安装<code>SublimeLinter</code>。</li>
-<li>需先安装<code>Node.JS</code>及<code>npm</code>。</li>
-<li>在cmd输入 <code>npm install -g jshint</code>，等待安装成功就好了。</li>
-</ul>
-<p>安装成功后，重启就可以测试代码的风格了。<br>当然还可以自定义校验规则，在该目录下使用<code>Ctrl+Shift+N</code>创建文件<code>.jshintrc</code>，在其中使用JSON格式配置校验风格。<br>例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建议使用===，不使用时会有提示。</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"eqeqeq"</span>:<span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>并且在左下角会有错误提示。需要注意的是内容有更改时，才会立即生效。<br>详细自定义规则：<a href="http://jshint.com/docs/options/" target="_blank" rel="external">自定义Hint校验</a></p>
-<h3 id="NO-6_Git_:版本控制">NO.6 <code>Git</code> :版本控制</h3><p>可视化的操作：帮助你与你的Git repo协议进行交互。它支持很多命令像init, push, pull, branch, stash,等等。了解更多关于你在Sublime Text里面究竟能使用哪些Git功能，以提高您的工作流程。<br><a href="https://scotch.io/tutorials/using-git-inside-of-sublime-text-to-improve-workflow" target="_blank" rel="external">使用参考</a></p>
-<ul>
-<li><code>GitGutter</code>:<br>Sublime Text 有了 Git 插件之后，GitGutter 更好的帮助开发者查看文件之前的改动和差异，提升开发效率。</li>
-</ul>
-<h3 id="NO-7_Emmet：不解释。">NO.7 <code>Emmet</code>：不解释。</h3><p>中文文档：<a href="http://yanxyz.github.io/emmet-docs/css-abbreviations/vendor-prefixes/" target="_blank" rel="external">地址</a><br><a href="http://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="external">前端开发必备！Emmet使用手册</a></p>
-<h3 id="NO-8_JsFormat：代码格式化">NO.8 <code>JsFormat</code>：代码格式化</h3><ul>
-<li>JsFormat 基于 JS Beautifier，可以帮助你自动格式化 JavaScript 和 JSON。这对于阅读代码是非常有用的。</li>
-<li>快捷键：<code>Ctrl + Alt + f</code> 或者，你也可以使用菜单栏。</li>
-<li>可定制喜欢的格式：在 SublimeText 3 中 Preferences -&gt; Package Settings -&gt; JsFormat -&gt; Settings - Default 可以调整这些配置。</li>
-</ul>
-<h3 id="NO-10_jQuery：JQuery的API代码片段">NO.10 <code>jQuery</code>：JQuery的API代码片段</h3><p>我知道目前在很多地方 jQuery 看似已经落伍了，但是如果你不是建立一个交互性很强的网站或者你只是想在已有应用上添加功能，它仍然是非常有用的。</p>
-<p>比如，输入<code>$.a</code>就可以让我选择<code>$.ajax()</code>，然后自动扩展成以下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: <span class="string">'/path/to/file'</span>,</span><br><span class="line">  type: <span class="string">'default GET (Other values: POST)'</span>,</span><br><span class="line">  dataType: <span class="string">'default: Intelligent Guess (Other values: xml, json, script, or html)'</span>,</span><br><span class="line">  data: &#123;param1: <span class="string">'value1'</span>&#125;,</span><br><span class="line">&#125;)</span><br><span class="line">.done(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"success"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.fail(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"error"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">.always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"complete"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="NO-11_BracketHighlighter:符号高亮">NO.11 <code>BracketHighlighter</code>:符号高亮</h3><p>该插件提供行数列高亮的各种配对的语法符号，显示在行号上。效果如下：</p>
-<p><img src="/images/SublimeText/BracketHighlighter.jpg" alt="BracketHighlighter"></p>
-<p>配置方法参考<a href="http://www.cnblogs.com/liu-l/p/3866458.html" target="_blank" rel="external">sublime text3下BracketHighlighter的配置方法</a></p>
-<h3 id="NO-12_JavaScript_Next：完美支持ECMAScript_6">NO.12 <code>JavaScript Next</code>：完美支持ECMAScript 6</h3><ul>
-<li>JavaScript Next 提供了比默认JavaScript Package更好的语法高亮，而且他完美支持ECMAScript 6。</li>
-<li>建议完全使用 JavaScript Next代替JavaScript Package。</li>
-</ul>
-<h3 id="NO-13_CSS3:CSS3语法高亮">NO.13 <code>CSS3</code>:CSS3语法高亮</h3><ul>
-<li>默认安装的Sublime Text对CSS3的支持让人抓狂，帧动画？别开玩笑了你只会看到一片白色的纯文本一样的代码。</li>
-<li>事实上不光CSS3，我建议用CSS3 Package完全替代原来的CSS Package来完成语法高亮。把原来的禁用了吧</li>
-</ul>
-<h3 id="NO-14_Color_Highlighter_：CSS颜色高亮">NO.14 <code>Color Highlighter</code> ：CSS颜色高亮</h3><ul>
-<li>这个插件我等了很久了（在使用breakets的时候发现 的，好用到爆），我最早用Sublime Text写CSS时候就在想“这堆颜色码谁知道是什么颜色”。。</li>
-<li>还是brackets的牛逼</li>
-<li>Color Highlighter这个插件会检测CSS文件中的颜色码，不论是Hex码或者RGB码都能很好的显示。</li>
-<li>Color Highlighter能够设置成用背景色或者边框提示颜色，我一般在Settings里做这样的设置：</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"ha_style"</span>: <span class="string">"filled"</span>,</span><br><span class="line">  <span class="string">"icons"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<p><img src="/images/SublimeText/Color_Highlighter.jpg" alt="Color Highlighter"></p>
-<h3 id="NO-15Colorpicker：使用一个取色器改变颜色">NO.15<code>Colorpicker</code>：使用一个取色器改变颜色</h3><p>使用方法: <code>ctrl + shift + c</code>，快捷键有冲突，需修改。可以通过<code>ctrl+shift+p</code>：来搜索调用</p>
-<p><img src="/images/SublimeText/Colorpicker.jpg" alt="Colorpicker"></p>
-<h3 id="NO-16_Markdown_Editing_和_Markdown_Preview，实现预览MD">NO.16 <code>Markdown Editing</code> 和 <code>Markdown Preview</code>，实现预览MD</h3><ul>
-<li>当在 Sublime Text 中编写 markdown 文件时，在浏览器中打开全是乱码，因为还没有将 markdown 文件解析成相应的 HTML. </li>
-<li>这两个插件的功能就是可以用浏览器浏览 Sublime Text 中编写的 markdown文件。</li>
-<li>配置：</li>
-</ul>
-<p>打开 Preferences-&gt;Package Settings-&gt;Markdown Preview-&gt;Setting User 将下面这句话粘贴进去。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// "浏览markdown的浏览器的路径"</span></span><br><span class="line">    <span class="string">"browser"</span> : <span class="string">"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//打开Preferences-&gt;Key Binding User，添加下面一句话。</span></span><br><span class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"f6"</span>], <span class="string">"command"</span>: <span class="string">"markdown_preview"</span>, <span class="string">"args"</span>: &#123;<span class="string">"target"</span>: <span class="string">"browser"</span>, <span class="string">"parser"</span>:<span class="string">"markdown"</span>&#125; &#125;,</span><br><span class="line"><span class="comment">//keys的值是以上面浏览器预览markdown文件。</span></span><br></pre></td></tr></table></figure>
-<p>直接按F6就可以打开了</p>
-<p>不进行这些配置的话，因为我们在前面<strong>实现保存自动刷新</strong>使用了一些操作，按<code>ctrl+b</code>,就会在该目录下，创建一个同名的html文件。<br>选中该htnl文件，再次按<code>ctrl+b</code>可以达到同样的预览效果，不过还是F6简单不是吗？</p>
-<h3 id="NO-17AutoFileName：文件路径自动提示">NO.17<code>AutoFileName</code>：文件路径自动提示</h3><p>这个直接安装就可以用了，挺方便的。</p>
-<h3 id="NO-18_Terminal：在Sublime_Text直接打开命令行">NO.18 <code>Terminal</code>：在Sublime Text直接打开命令行</h3><h3 id="NO-19_CSScomb_:_CSS属性排序">NO.19 <code>CSScomb</code> : CSS属性排序</h3><ul>
-<li>使用参考:<a href="http://yunkus.com/article/ziyuan/331.html" target="_blank" rel="external">点击查看</a></li>
-<li><a href="http://yunkus.com/article/ziyuan/333.html" target="_blank" rel="external">CSS属性排序 CSScomb 插件配置参数大全</a></li>
-</ul>
-<h3 id="NO-20_JavaScript_Completions和Java​Script_&amp;_Node​JS_Snippets。输入提示，代码补全">NO.20 <code>JavaScript Completions</code>和<code>Java​Script &amp; Node​JS Snippets</code>。输入提示，代码补全</h3><h3 id="其他：">其他：</h3><ul>
-<li><code>LiveStyle</code>: 实时刷新双向修改<br>win下没有配置成功</li>
-<li><code>IMESupport</code> ，输入法不跟随时安装</li>
-<li><code>FileHeader</code> ，自动更新保存时间，文件模板</li>
-<li><code>Quote​HTML</code> ，把HTML拼接成js插入字符串</li>
-<li><code>CSS Format</code> ，CSS格式化</li>
-<li><code>AutoPrefixer</code> ，浏览器私有属性前缀补全 (Node.js依赖)</li>
-<li><code>ConvertToUTF8</code>，GBK编码兼容</li>
-</ul>
-<blockquote>
-<p>参考如下：</p>
-<ul>
-<li>慕课网视频：<a href="http://www.imooc.com/learn/40" target="_blank" rel="external">前端开发工具技巧介绍—Sublime篇</a></li>
-<li>慕课网视频：<a href="http://www.imooc.com/learn/333" target="_blank" rel="external">快乐的sublime编辑器</a></li>
-<li>Sublime Text手冊：<a href="http://docs.sublimetext.tw/" target="_blank" rel="external">点击查看</a></li>
-<li>Github资源合集<a href="https://github.com/jikeytang/sublime-text" target="_blank" rel="external">jikeytang/sublime-text</a></li>
-<li>知乎Sublime Text专题<a href="https://www.zhihu.com/topic/19668076" target="_blank" rel="external">点击查看</a></li>
-</ul>
-</blockquote>
+          
+          详细设置 &amp;&amp; 20+插件
 
-            
-          </span>
+本文章会在本人有插件或者设置更新时，进行不定时更新
+
+为什么要选择Sublime Text3？
+
+Sublime Text3 自动保存，打开图片
+跨平台启动快，多行选择。
+插件，简直选不过来。
+代码片段
+VIM兼容模式
+
+菜单栏基础功能介绍
+
+File：文档相关，新建文件,打开文件或文件夹等。
+Edit：文件编辑相关，复制，剪切等（CVS大法好）。除此之外还有一些强大的功能。
+Selection：选择相关，帮助选择代码。
+Find：查找替换相关。这个和其它编辑器区别好像不大。
+Ctrl+F查找、Ctrl+H替换等。
+
+
+View：对Sublime_Text编辑器本身的一些配置。
+SideBar:开启侧边栏Ctrl+k,b
+Show console：打开控制台窗口，安装package control需要使用.
+
+
+Goto：快捷导航：下面介绍。Goto Anything
+tools:工具，一些命令。
+new Snippet：自定义代码片段，保存到user下
+
+
+Project: 项目相关，用的少。
+Preferences：对于sublime_
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/26/SublimeText/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -520,7 +398,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-24T13:46:57+08:00" content="2015-12-24">
               2015-12-24
             </time>
@@ -528,7 +409,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -556,338 +441,49 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>包括5部分：</p>
-<ul>
-<li>小练习1-处理用户输入</li>
-<li>小练习2-日期对象的使用</li>
-<li>小练习3：轮播图</li>
-<li>小练习4：输入提示框</li>
-<li>小练习5：界面拖拽交互</li>
-</ul>
-<p><a href="https://github.com/guowenfh/IFE/tree/master/task0002" target="_blank" rel="external">源码地址</a></p>
-<h2 id="小练习1：处理用户输入">小练习1：处理用户输入</h2><blockquote>
-<p>这里直接可以利用原来写过的<code>util.js</code>。所以应该不是特别难。主要考察对字符串的操作，以及正则表达式的使用</p>
-</blockquote>
-<h3 id="任务描述">任务描述</h3><p>在<code>task0002</code>目录下创建一个<code>task0002_1.html</code>文件，以及一个<code>js</code>目录和<code>css</code>目录，在<code>js</code>目录中创建<code>task0002_1.js</code>，并将之前写的<code>util.js</code>也拷贝到<code>js</code>目录下。然后完成以下需求。</p>
-<h4 id="第一阶段">第一阶段</h4><p>在页面中，有一个单行输入框，一个按钮，输入框中用来输入用户的兴趣爱好，允许用户用半角逗号来作为不同爱好的分隔。</p>
-<p>当点击按钮时，把用户输入的兴趣爱好，按照上面所说的分隔符分开后保存到一个数组，过滤掉空的、重复的爱好，在按钮下方创建一个段落显示处理后的爱好。</p>
-<p><strong>实现</strong></p>
-<p>根据题目要求，这个地方比较简单，可以直接利用前面写过的一些函数，分成四步，进行。</p>
-<ol>
-<li>使用正则表达式来对字符串进行分割操作。</li>
-<li><code>uniqArray</code>函数进行去重操作。</li>
-<li>for循环，<code>trim</code>函数对数组项进行去除首尾空格，用来处理，该项为空的情况。</li>
-<li>innerHTML进行输出。</li>
-</ol>
-<p>html：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"user_input"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btn"</span>&gt;</span>提交<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"user_output"</span>&gt;</span><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><code>task0002_1.js</code>中的js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自执行的匿名函数</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">handle_1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//其实这里没必要使用id因为数据那么少$函数直接获取标签就行</span></span><br><span class="line">    <span class="keyword">var</span> inp = $(<span class="string">"#user_input"</span>);</span><br><span class="line">    <span class="keyword">var</span> out = $(<span class="string">"#user_output"</span>);</span><br><span class="line">    $.click(<span class="string">"#btn"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value = inp.value.split(<span class="regexp">/\,|\，/</span>); <span class="comment">//1.根据半角逗号分割成数组。</span></span><br><span class="line">        <span class="keyword">var</span> unValue = uniqArray(value); <span class="comment">//2.数组去重</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = unValue.length; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> trimValue = trim(unValue[i]); <span class="comment">//3.对每一项进行去除首尾空格操作</span></span><br><span class="line">            <span class="built_in">console</span>.log(trimValue);</span><br><span class="line">            <span class="keyword">if</span> (trimValue !== <span class="string">""</span>) &#123; <span class="comment">//4.只有在去除首尾空格后不为空的数组才输出。</span></span><br><span class="line">                out.innerHTML += <span class="string">"&lt;li&gt;"</span> + trimValue + <span class="string">"&lt;/li&gt;"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<h4 id="第二阶段">第二阶段</h4><p>单行变成多行输入框，一个按钮，输入框中用来输入用户的兴趣爱好，允许用户用换行、空格（全角/半角）、逗号（全角/半角）、顿号、分号来作为不同爱好的分隔。</p>
-<p>当点击按钮时的行为同上</p>
-<p><strong>实现</strong></p>
-<p>看题目描述，主要是对于第一步进行修改，第一阶段只要求对半角逗号进行处理，但是在第二阶段中，需要对<strong>“换行、空格（全角/半角）、逗号（全角/半角）、顿号、分号”</strong>进行处理。<br>主要是考察对于正则表达式的应用。</p>
-<p>只需要对<code>var value = inp.value.split(/\,|\，/);</code>进行更改如下：</p>
-<p><code>var value = inp.value.split(/\n|\s+|\,|\，|\、|\;|\；/);</code><br>需要注意的是：在正则表达式进行匹配这些符号时最好是前面加上转义字符。</p>
-<h4 id="第三阶段">第三阶段</h4><p>用户输入的爱好数量不能超过10个，也不能什么都不输入。当发生异常时，在按钮上方显示一段红色的错误提示文字，并且不继续执行后面的行为；当输入正确时，提示文字消失。</p>
-<p>同时，当点击按钮时，不再是输出到一个段落，而是每一个爱好输出成为一个checkbox，爱好内容作为checkbox的label。</p>
-<p><strong>实现</strong></p>
-<ul>
-<li>嗯，其实这里按照题目要求应该要实时监听输入值变化，但是那样太麻烦了，，所以就直接在点击按钮的时候判断了。</li>
-<li>直接判断数组长度就行了。。输入为空时，判断字符串=“”。</li>
-<li>输出<code>checkbox</code>这里不过多的设置了，只是演示。</li>
-</ul>
-<h3 id="最终完成">最终完成</h3><p>html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">name</span>=<span class="value">"user_input"</span> <span class="attribute">id</span>=<span class="value">"user_input"</span> <span class="attribute">cols</span>=<span class="value">"45"</span> <span class="attribute">rows</span>=<span class="value">"10"</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btn"</span>&gt;</span>处理并输出<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>输入的爱好数量不能超过10个，或什么都不输入<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"user_output"</span>&gt;</span><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>js:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">handle_1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> inp = $(<span class="string">"#user_input"</span>);</span><br><span class="line">    <span class="keyword">var</span> out = $(<span class="string">"#user_output"</span>);</span><br><span class="line">    $.click(<span class="string">"#btn"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value = inp.value.split(<span class="regexp">/\n|\s+|\,|\，|\、|\;|\；/</span>); <span class="comment">//分割成数组。</span></span><br><span class="line">        <span class="keyword">var</span> unValue = uniqArray(value); <span class="comment">//数组去重</span></span><br><span class="line">        <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">var</span> len = unValue.length;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; <span class="number">10</span> || unValue == <span class="string">""</span>) &#123;</span><br><span class="line">            $(<span class="string">"p"</span>).style.disautoPlay = <span class="string">"block"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $(<span class="string">"p"</span>).style.disautoPlay = <span class="string">"none"</span>;</span><br><span class="line">            <span class="keyword">for</span> (; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">var</span> trimValue = trim(unValue[i]); <span class="comment">//对每一项进行去除首尾空格操作</span></span><br><span class="line">                <span class="built_in">console</span>.log(trimValue);</span><br><span class="line">                <span class="keyword">if</span> (trimValue !== <span class="string">""</span>) &#123; <span class="comment">//只有在去除首尾空格后不为空的数组才输出。</span></span><br><span class="line">                    out.innerHTML += <span class="string">"&lt;label&gt;"</span> + <span class="string">"&lt;input type='checkbox'&gt;"</span> + trimValue + <span class="string">"&lt;/label&gt;"</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-<p>在线演示：<strong><a href="http://guowenfh.github.io/IFE/task0002/task0002_1.html">小练习1：处理兴趣列表</a></strong></p>
-<h2 id="小练习2：日期对象的使用">小练习2：日期对象的使用</h2><h3 id="任务描述-1">任务描述</h3><p>在和上一任务同一目录下面创建一个<code>task0002_2.html</code>文件，在<code>js</code>目录中创建<code>task0002_2.js</code>，并在其中编码，实现一个倒计时功能。</p>
-<ul>
-<li>界面首先有一个文本输入框，允许按照特定的格式<code>YYYY-MM-DD</code>输入年月日；</li>
-<li>输入框旁有一个按钮，点击按钮后，计算当前距离输入的日期的00:00:00有多少时间差</li>
-<li>在页面中显示，距离YYYY年MM月DD日还有XX天XX小时XX分XX秒</li>
-<li>每一秒钟更新倒计时上显示的数</li>
-<li>如果时差为0，则倒计时停止</li>
-</ul>
-<h3 id="实现思路">实现思路</h3><h4 id="了解日期对象">了解日期对象</h4><p>这里主要是考察的对于日期对象的使用。</p>
-<p><code>new Date()</code>。如果没有输入任何参数，则Date的构造器会依据系统设置的当前时间来创建一个Date对象。表示当前系统时间。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时间对象创建的几种方式。</span></span><br><span class="line"><span class="keyword">var</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> birthday = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"December 17, 1995 03:24:00"</span>);</span><br><span class="line"><span class="keyword">var</span> birthday = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"1995-12-17T03:24:00"</span>);</span><br><span class="line"><span class="keyword">var</span> birthday = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1995</span>,<span class="number">11</span>,<span class="number">17</span>);</span><br><span class="line"><span class="keyword">var</span> birthday = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1995</span>,<span class="number">11</span>,<span class="number">17</span>,<span class="number">3</span>,<span class="number">24</span>,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Date对象中处理时间和日期的常用方法：详细内容在<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" rel="external">MDN</a>上</li>
-</ul>
-<p><img src="/images/ife/DateObject.jpg" alt="日期对象常用方法"></p>
-<h4 id="正式开始：">正式开始：</h4><ol>
-<li>创建时间处理函数，使用正则表达式，处理输入的值，<code>value.match(/(^\d{4})-(\d{2})-(\d{2}$)/);</code>用到了match方法和正则的分组，在我写的正则博客里应该有过详细介绍了。这里也不过的说明了。</li>
-<li>使用目标时间的<code>getTime()</code>毫秒数减去得到当前的毫秒数，得到相差的毫秒数。处理它：<strong>（注意毫秒的问题）</strong><ul>
-<li><code>(60 * 60 * 24)</code> ：剩余的天数。</li>
-<li><code>(60 * 60) % 24)</code> :剩余的小时数。依次类推。</li>
-</ul>
-</li>
-<li><code>innerHTML输出</code>，并且判断相差时间，改变输出的值。</li>
-<li>定时器的使用。(我这里使用的<code>setTimeout()</code>，使用递归调用实现自执行)<ul>
-<li>计时器<code>setTimeout(函数,延迟时间);</code>，在载入后延迟指定时间后,去执行一次表达式,仅执行一次。</li>
-<li>取消计时器:<code>clearTimeout()</code>停止计时器。</li>
-</ul>
-</li>
-<li>给按钮添加点击事件，在点击时，调用刚刚编写的的时间处理函数。</li>
-</ol>
-<p>在线演示：<strong><a href="http://guowenfh.github.io/IFE/task0002/task0002_2.html">小练习2：倒计时</a></strong></p>
-<h2 id="小练习3：轮播图组件">小练习3：轮播图组件</h2><h3 id="任务描述-2">任务描述</h3><p>在和上一任务同一目录下面创建一个<code>task0002_3.html</code>文件，在<code>js</code>目录中创建<code>task0002_3.js</code>，并在其中编码，实现一个轮播图的功能。</p>
-<ul>
-<li>图片数量及URL均在HTML中写好</li>
-<li>可以配置轮播的顺序（正序、逆序）、是否循环、间隔时长</li>
-<li>图片切换的动画要流畅</li>
-<li>在轮播图下方自动生成对应图片的小点，点击小点，轮播图自动动画切换到对应的图片</li>
-</ul>
-<p>效果示例：<a href="http://echarts.baidu.com/" target="_blank" rel="external">http://echarts.baidu.com/</a> 上面的轮播图（不需要做左右两个箭头）</p>
-<h3 id="实现思路:">实现思路:</h3><blockquote>
-<p>主要是对于考察对于定时器，以及事件绑定的处理，以及动画效果，为此我专门写了一篇博客《<a href="http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/">JS完美运动框架的封装过程</a>》。 这里就直接使用里面封装好的函数了。</p>
-<p>本来都要放弃组件的编写了，只想按照常规方法来写个轮播图就好，但是在先把小练习4完成的情况下，就发现了一种新方法，可以帮助我完成这个任务（强烈建议先看小练习四！）使用<code>nextElementNode</code>,图片向左切换。（不涉及任何css，我假设css都会了，也没有用到特别难css属性）</p>
-</blockquote>
-<p><strong>该轮播图有依赖函数。主要使用到以下函数：</strong></p>
-<ul>
-<li>选择器函数<code>$(class)</code>;</li>
-<li>运动框架<code>startMove</code>。<ul>
-<li>同时在该函数引入时，还依赖于获取实际样式函数<code>getStyle</code>。 </li>
-</ul>
-</li>
-<li>获取当前元素在同级元素的索引<code>getIndex</code>;</li>
-<li>事件代理函数：<code>delegateEvent</code>。</li>
-<li>添加class与删除class元素<code>addClass、romoveClass</code>。</li>
-</ul>
-<h4 id="第一步：实现点击切换">第一步：实现点击切换</h4><p>编写幻灯片函数：<code>Slideshow(element)</code>。</p>
-<ol>
-<li>根据图片的数量创建与图片数量相同的导航小点：<code>ul&gt;li*length</code> 。设置其<code>li</code>样式，并且默认把第一个<code>li</code>设置为活动状态<code>className</code>为<code>active</code>。</li>
-<li>编写点击函数<code>clickLi</code>：<ol>
-<li>给<code>li</code>添加事件代理函数。</li>
-<li>据点击的li的索引值算出来动画的目标值，<code>-iCurrent * getIndex(this);</code></li>
-<li>移除所有<code>li</code>上的选中状态<code>active</code>：编写函数<code>removeLiClass()</code>，在后面我们还要用到它。</li>
-<li>设置当前点击的<code>li</code>为选中：状态<code>active</code></li>
-<li>调用运动框架实现动画效果。</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Slideshow</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建li</span></span><br><span class="line">    <span class="keyword">var</span> imgArr = element.getElementsByTagName(<span class="string">"img"</span>); <span class="comment">//获取图片数量</span></span><br><span class="line">    <span class="keyword">var</span> imgArrLen = imgArr.length; <span class="comment">//缓存图片数量</span></span><br><span class="line">    <span class="keyword">var</span> createUl = <span class="built_in">document</span>.createElement(<span class="string">"ul"</span>); <span class="comment">//创建小点的ul</span></span><br><span class="line">    <span class="keyword">var</span> iCurrent = <span class="built_in">parseInt</span>(getStyle(imgArr[<span class="number">0</span>], <span class="string">"width"</span>)); <span class="comment">//获取一张图片的宽度</span></span><br><span class="line">    element.style.width = iCurrent * imgArrLen + <span class="string">"px"</span>; <span class="comment">//设置图片容器的宽度。</span></span><br><span class="line">    <span class="comment">//创建li</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = imgArrLen; i &lt; len; i++) &#123;</span><br><span class="line">        createUl.innerHTML += <span class="string">"&lt;li&gt;&lt;/li&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    element.parentNode.appendChild(createUl); <span class="comment">//插入导航</span></span><br><span class="line">    addClass(createUl, <span class="string">"Slideshow-nav"</span>); <span class="comment">//添加导航样式</span></span><br><span class="line">    addClass(createUl.getElementsByTagName(<span class="string">"li"</span>)[<span class="number">0</span>], <span class="string">"active"</span>); <span class="comment">//默认设置第一个为第当前活动的li</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//编写点击函数clickLi： </span></span><br><span class="line">    clickLi();</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 点击导航</span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">clickLi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        delegateEvent(createUl, <span class="string">"li"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> iTaget = -iCurrent * getIndex(<span class="keyword">this</span>);</span><br><span class="line">            removeLiClass();</span><br><span class="line">            addClass(<span class="keyword">this</span>, <span class="string">"active"</span>); <span class="comment">//移出</span></span><br><span class="line">            startMove(element, &#123;</span><br><span class="line">                <span class="string">"left"</span>: iTaget</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    * 用于移除所有的Li的选中状态：active</span><br><span class="line">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">removeLiClass</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oLi = createUl.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = oLi.length; i &lt; len; i++) &#123;</span><br><span class="line">            removeClass(oLi[i], <span class="string">"active"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="第二步：实现自动播放">第二步：实现自动播放</h4><blockquote>
-<p>为了方便后续的封装，暂时只考虑：<strong>正序</strong>，<strong>不循环</strong>的情况！</p>
-</blockquote>
-<ol>
-<li>创建自动播放函数<code>paly（）</code>,获取当前为选中状态<code>active</code>的li.</li>
-<li>设置目标值，根据选中状态的索引+1 *width来设置。（注意是负值，同时考虑索引值+1为<code>length</code>的情况。）</li>
-<li>因为不循环，需要在设置<code>(getIndex(heightLi)+1)===imgArrLen-1</code>清除定时器。(其实就是轮播到最后的时候，至于为什么是这样，可以自己研究一下，更改一下值。)</li>
-<li>获取下一个元素节点，存在的话，取消现有选中状态，设置下一个元素节点为选择中，调用运动框架！实现动画，</li>
-<li>添加定时器<code>setInterval()</code>，调用该函数，实现自动播放。<ul>
-<li>测试几次，你会发现：点击<code>li</code>和自动播放之间存在<strong>冲突</strong>，动画效果都没做完就播放下一张了，<strong>如何解决呢？</strong></li>
-</ul>
-</li>
-<li>给图片容器添加一个鼠标移入和移除事件（<code>mouseover、mouseover</code>）也就是<code>hover</code>上去的效果<ul>
-<li>移入时，清除定时器，暂停播放。</li>
-<li>移出时，开启定时器，继续轮播。</li>
-<li>然后你会发现问题成功的解决了！（而且我观察了大部分的轮播，都是这个效果，移入暂停，移出继续)</li>
-</ul>
-</li>
-</ol>
-<p>这里我们的最基本的功能都实现了，代码如下：(放在<code>Slideshow()</code>函数内部)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iSpeed = <span class="number">4000</span>;<span class="comment">//定时器间隔。</span></span><br><span class="line"></span><br><span class="line">hoverElement(); </span><br><span class="line"><span class="comment">/*</span><br><span class="line">* 移入图片容器暂停，移除继续播放。</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hoverElement</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    addEvent(element.parentNode, <span class="string">"mouseover"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearInterval(timer);</span><br><span class="line">    &#125;);</span><br><span class="line">    addEvent(element.parentNode, <span class="string">"mouseout"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        timer = setInterval(autoPlay, iSpeed);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">timer = setInterval(autoPlay, iSpeed);</span><br><span class="line"><span class="comment">/*</span><br><span class="line">* 自动播放函数。</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">autoPlay</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> heightLi = $(<span class="string">".Slideshow-nav .active"</span>); <span class="comment">//高亮的li</span></span><br><span class="line">    <span class="keyword">var</span> iTaget;</span><br><span class="line">    iTaget = (getIndex(heightLi) + <span class="number">1</span>) === imgArrLen ? <span class="number">0</span> : (-iCurrent * (getIndex(heightLi) + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (getIndex(heightLi) + <span class="number">1</span> === imgArrLen - <span class="number">1</span>) &#123;</span><br><span class="line">        clearInterval(timer);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> nextLi = heightLi.nextElementSibling;</span><br><span class="line">    <span class="keyword">if</span> (nextLi) &#123;</span><br><span class="line">        removeLiClass();</span><br><span class="line">        addClass(nextLi, <span class="string">"active"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    startMove(element, &#123;</span><br><span class="line">        <span class="string">"left"</span>: iTaget</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="第三步：添加配置项（题目要求完成）">第三步：添加配置项（题目要求完成）</h4><ol>
-<li>获取题目要求：主要是以下三点。<ol>
-<li>是否循环，默认为循环。</li>
-<li>是否反向，默认不反向。只有循环时，才可反向。</li>
-<li>轮播间隔时间，默认4000。</li>
-</ol>
-</li>
-<li>如何实现？（使用JSON如下：）</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * @param &#123;JSON&#125;         option       配置项</span><br><span class="line"> *   @config   &#123;String&#125;  noLoop       不循环？，默认为循环，只要存在则不循环，任意值</span><br><span class="line"> *   @config   &#123;String&#125;  reverse      是否反向，任意值。只有“noLoop”不存在时，也就是只有循环时，才执行。</span><br><span class="line"> *   @config   &#123;Number&#125;  intervalTime 轮播间隔时间（单位为毫秒），默认为4000，</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li>在<code>Slideshow()</code>内部，以下部分进行修改或添加。<ol>
-<li>先从简单的开始吧！判断<code>option.intervalTime</code>是否存在并且更改<code>iSpeed</code>的值（这样，轮播间隔时间配置就成功了），默认为4000毫秒。</li>
-</ol>
-</li>
-<li>改变自动播放（一）：<code>autoPlay</code>函数。这里是整个改造中最复杂的部分！分几步进行。<ol>
-<li>把刚刚写的<code>autoPlay</code>函数内的内容，除去<code>var heightLi = $(&quot;.Slideshow-nav .active&quot;);</code>、<code>var iTaget;</code>这两个内容，其他的都使用<code>if(option.noLoop){}</code>包裹起来。<br>这样就又完成了一个内容，当配置为不循环时的情况，就写好了。</li>
-<li>既然有<code>if</code><strong>不循环</strong>的情况,那么就肯定有<code>else</code>对应<strong>循环</strong>时的情况对吧?（笑）那么在里面应该怎么做呢？</li>
-<li>第一次练习时，可以不添加函数，直接使用<code>if else</code>,对应正向与反向的情况！但是，在这里为了后面的进化，且不过多的阐述，就直接使用使用函数了，就叫他<code>play(reverse)</code>吧。<br>在这里当然传入的参数是<code>option.reverse</code>，</li>
-</ol>
-</li>
-<li><p>改变自动播放（二）：编写<code>play(reverse)</code>。</p>
-<ol>
-<li>第一要务就是加入<code>if eles</code>啦，用来区分，true时为反向，false为正向（默认）。</li>
-<li>先来说正向的情况！其实特别简单，有两步：</li>
-</ol>
-<ul>
-<li>第一步：删除<code>(getIndex(heightLi)+1)===imgArrLen-1</code>清除定时器的部分，只有这样才能实现循环，</li>
-<li>第二步：在上面被提取到不循环的内容中(也就是第一版的<code>autoPlay()</code>)的<code>if (nextLi)</code>部分加上<code>else</code>的情况就行了！<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在下一个元素节点不存在的情况下（也就是到了最后了），设置第一个节点为活动状态，就这样正向的循环就成功了！</span></span><br><span class="line"> <span class="keyword">else</span> &#123;</span><br><span class="line">    removeLiClass();</span><br><span class="line">    addClass($(<span class="string">".Slideshow-nav li"</span>), <span class="string">"active"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li>反向的情况(只需要对正向循环进行修改)：</li>
-</ol>
-<ul>
-<li>改变目标值<code>iTaget</code>。<code>getIndex(heightLi) === 0 ? -iCurrent * (imgArrLen - 1) : -iCurrent * (getIndex(heightLi) - 1);</code></li>
-<li>改变下一个元素节点，为前一个元素节点<code>previousElementSibling</code>。</li>
-<li>改变上面<code>else</code>的情况，为设置最后一个节点为活动状态。代码就不贴了，有兴趣的看源码吧!</li>
-</ul>
-</li>
-<li><p>到现在函数就修改完成了。只需要在循环的情况下，调用该函数，并且传入<code>option.reverse</code>。</p>
-</li>
-</ol>
-<p>其实到这里我们题目要求就完成了！</p>
-<p>但是！不挑战一下怎么能行？</p>
-<p>为什么不把左右点击切换一起实现了呢？</p>
-<p>既然这样，我们就继续吧！</p>
-<h4 id="第四步：扩展！左右箭头实现！">第四步：扩展！左右箭头实现！</h4><ol>
-<li><p>创建并设置箭头样式(配合css使用)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建左右导航</span></span><br><span class="line"><span class="keyword">var</span> createSpan = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">addClass(createSpan, <span class="string">"left-right"</span>)</span><br><span class="line">createSpan.innerHTML = <span class="string">"&lt;span class='nav-left'&gt;&amp;lt;&lt;/span&gt;&lt;span class='nav-right'&gt;&amp;gt;&lt;/span&gt;"</span></span><br><span class="line">element.parentNode.appendChild(createSpan);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建点击事件，事件代理。</p>
-</li>
-<li>炸裂的函数调用。<ul>
-<li>还记得我们刚刚的<code>play(reverse)</code>函数吗？刚刚的功能完全不用封装函数，那为什么要做呢？就是这里啦！</li>
-<li>想想刚刚的函数实现了什么功能呢？是不是正向循环，和反向循环？，自动播放是因为在外层有定时器的缘故。</li>
-<li>所以只需要调用传参就行了！</li>
-</ul>
-</li>
-<li>传什么参数？<ul>
-<li>想想左右箭头的索引，是不是0和1。这样就懂了吧！</li>
-<li>对索引进行取反。传参！代码如下：</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">delegateEvent(createSpan, <span class="string">"span"</span>, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> heightLi = $(<span class="string">".Slideshow-nav .active"</span>); <span class="comment">//高亮的待选li</span></span><br><span class="line">    <span class="keyword">var</span> leftIndex = !getIndex(<span class="keyword">this</span>); <span class="comment">//点击左时为true，点击又为false</span></span><br><span class="line">    <span class="comment">//移动的目标值，默认正向</span></span><br><span class="line">    play(leftIndex);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>至此，我们的轮播图组件就完成了！ 需要配合CSS使用。 通过这次封装，收益良多，感兴趣的话可以看看<a href="https://github.com/guowenfh/IFE/tree/master/task0002" target="_blank" rel="external">源码</a></p>
-<p>在线演示：<strong><a href="http://guowenfh.github.io/IFE/task0002/task0002_3.html">小练习3：图片轮播组件</a></strong></p>
-<h2 id="小练习4：输入提示框">小练习4：输入提示框</h2><h3 id="任务描述-3">任务描述</h3><p>在和上一任务同一目录下面创建一个<code>task0002_4.html</code>文件，在<code>js</code>目录中创建<code>task0002_4.js</code>，并在其中编码，实现一个类似百度搜索框的输入提示的功能。</p>
-<p>要求如下：</p>
-<ul>
-<li>允许使用鼠标点击选中提示栏中的某个选项</li>
-<li>允许使用键盘上下键来选中提示栏中的某个选项，回车确认选中</li>
-<li>选中后，提示内容变更到输入框中</li>
-</ul>
-<p><strong>初级班：</strong></p>
-<ul>
-<li>不要求和后端交互，可以自己伪造一份提示数据例如：</li>
-</ul>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> suggestData = [<span class="string">'Simon'</span>, <span class="string">'Erik'</span>, <span class="string">'Kener'</span>];</span><br></pre></td></tr></table></figure>
-<p><strong>中级班：</strong></p>
-<ul>
-<li>自己搭建一个后端Server，使用Ajax来获取提示数据</li>
-</ul>
-<p>示例：</p>
-<p><img src="https://github.com/baidu-ife/ife/raw/master/2015_spring/task/task0002/img/task0002_sug.png" alt="示例"></p>
-<h3 id="实现思路-1">实现思路</h3><p>这里我并没有一开始就直接进行数据获取的部分，而是进行了任务分解，如下：</p>
-<h4 id="第一阶段-1">第一阶段</h4><ol>
-<li>先在使用写好的<code>ul&gt;li</code>标签下，。添加3个事件<code>mouseover</code>、<code>mouseout</code>、<code>click</code>。实现点击li使其值变成输入框内的值。（直接使用事件代理）</li>
-<li>对输入框添加键盘事件（对，你没看错，只有在聚焦在输入框时才触发）<ul>
-<li>获取当前高亮的li。没有则设第一个为高亮<code>active</code>。</li>
-<li>判断<code>keyCode</code>使用键盘下键,使用<code>nextElementSibling</code>方法获取下一个节点（向上同理）,取消当前的<code>active</code>，设置下一个为<code>active</code>。（使用键盘上下选中的效果,处理完成）</li>
-<li>判断<code>keyCode</code>，获取当前状态为<code>active</code>的值，实现回车时，把其设为<code>input</code>的值。</li>
-</ul>
-</li>
-</ol>
-<ol>
-<li>需要注意的地方：<ul>
-<li>在移除高亮状态时，最好是遍历一遍。因为键盘与鼠标划过有可能同时触发，导致有多个高亮。 </li>
-<li>错误处理</li>
-</ul>
-</li>
-</ol>
-<h4 id="第二阶段-1">第二阶段</h4><ol>
-<li>删除原来的<code>ul&gt;li</code>html部分的<code>li</code>。添加对于输入框进行实时监听（这部分不在这里展开讲，如何实现大家去google吧，因为一展开就太多要说的了）。</li>
-</ol>
-<ul>
-<li>给个参考：<a href="http://www.cnblogs.com/lhb25/archive/2012/11/30/oninput-and-onpropertychange-event-for-input.html" target="_blank" rel="external">实时监听输入框值变化</a></li>
-</ul>
-<ol>
-<li>使用AJAX获取服务器上的数据，解析，遍历，并进行数据匹配。</li>
-<li>匹配成功显示<code>ul</code>，否则设为<code>none</code>。</li>
-<li>使用正则表达式的<code>match</code>方法，来获取匹配成功的把部分，使用<code>span</code>进行高亮显示。并且插入<code>ul</code></li>
-<li>改造第一阶段的函数：</li>
-</ol>
-<ul>
-<li>因为是使用的事件代理，直接对<code>ul</code>添加事件，所以需要修改的部分不是很多。</li>
-<li><code>click</code>和<code>enter</code>部分获取的值，因为<code>span</code>标签的存在，需要使用正则进行处理，输出删除<code>span</code>后的值。</li>
-</ul>
-<p>在线演示：<strong><a href="http://guowenfh.github.io/IFE/task0002/task0002_4.html">小练习4：输入框即时提示</a></strong></p>
-<h2 id="小练习5：界面拖拽交互">小练习5：界面拖拽交互</h2><ul>
-<li>实现一个可拖拽交互的界面</li>
-<li>如示例图，左右两侧各有一个容器，里面的选项可以通过拖拽来左右移动</li>
-<li>被选择拖拽的容器在拖拽过程后，在原容器中消失，跟随鼠标移动</li>
-<li>注意拖拽释放后，要添加到准确的位置</li>
-<li>拖拽到什么位置认为是可以添加到新容器的规则自己定</li>
-<li>注意交互中良好的用户体验和使用引导</li>
-</ul>
-<p><img src="https://github.com/baidu-ife/ife/raw/master/2015_spring/task/task0002/img/task0002_drag.png" alt="示例"></p>
-<h3 id="实现思路：">实现思路：</h3><h4 id="第一步：封装拖拽函数">第一步：封装拖拽函数</h4><blockquote>
-<p>开一个DEMO页面，实践如下：</p>
-</blockquote>
-<ol>
-<li>了解应该用到的事件，<code>onmousedown</code>、<code>onmousemove</code>、<code>onmouseup</code>。</li>
-<li>思考<strong>对谁添加事件?</strong><ol>
-<li>在鼠标点击<code>div</code>时，对<code>div</code>添加<code>onmousedown</code>,表示鼠标按下。</li>
-<li>在事件内给<code>document</code>添加<code>onmousemove</code>。（为啥给<code>document</code>加呢？因为给<code>div</code>加在移动过快时会跳出去）表示鼠标移动。</li>
-<li>并且添加<code>document</code>添加<code>onmouseup</code>，表示鼠标已经抬起，清除移动事件，以及本身。</li>
-</ol>
-</li>
-<li>思考<strong>如何设置对象的位置？</strong><ol>
-<li>直接获取鼠标的位置并设置给<code>div</code>行不行呢？试试吧！显然，会出现问题，点击鼠标就到<code>div</code>左上角去了。</li>
-<li>那么怎么改变呢？获取鼠标在<code>div</code>中的位置？对。就这样，在鼠标按下时记录鼠标在<code>div</code>中的位置.</li>
-<li>在鼠标移动时，用当前的位置，减去刚刚的位置，这就是应该的值！</li>
-</ol>
-</li>
-<li>别忘了鼠标抬起时，需要清除事件，不然鼠标就粘住了。 <blockquote>
-<p>这里用到了event,事件对象的相关概念，推荐观看慕课网的视频。<a href="http://www.imooc.com/learn/138" target="_blank" rel="external">DOM事件探秘</a></p>
-</blockquote>
-</li>
-<li>善用this。<br><strong>扩展</strong></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 鼠标拖拽函数。</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 需要拖拽的对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setDrag</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    addEvent(element, <span class="string">"mousedown"</span>, onmousedown);</span><br><span class="line">    <span class="comment">//鼠标按下</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onmousedown</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oEvent = ev || event;</span><br><span class="line">        <span class="keyword">var</span> disX = oEvent.clientX - <span class="keyword">this</span>.offsetLeft;</span><br><span class="line">        <span class="keyword">var</span> disY = oEvent.clientY - <span class="keyword">this</span>.offsetTop;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        addEvent(<span class="built_in">document</span>, <span class="string">"mousemove"</span>, onmousemove);</span><br><span class="line">        addEvent(<span class="built_in">document</span>, <span class="string">"mouseup"</span>, onmouseup);</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 鼠标移动</span><br><span class="line">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">onmousemove</span>(<span class="params">ev</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> oEvent = ev || event;</span><br><span class="line">            that.style.left = oEvent.clientX - disX + <span class="string">"px"</span>;</span><br><span class="line">            that.style.top = oEvent.clientY - disY + <span class="string">"px"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 鼠标抬起删除事件</span><br><span class="line">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">onmouseup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            removeEvent(<span class="built_in">document</span>, <span class="string">"mousemove"</span>, onmousemove);</span><br><span class="line">            removeEvent(<span class="built_in">document</span>, <span class="string">"mouseup"</span>, onmouseup);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="第二步：布局转换函数">第二步：布局转换函数</h4><ol>
-<li>两个参数，第一个参数，传入父级对象。第二个参数传入标签名，</li>
-<li>循环，使用数组，对象，获取标签当前元素的位置<code>left</code>，<code>top</code>。（<code>offsetLeft</code>）。这里不能使用获取实际样式函数，因为本身就需要获取其相对父元素的位置。</li>
-<li>第二个循环<ul>
-<li>设置<code>left</code>，<code>top</code>值。</li>
-<li>设置绝对定位。</li>
-<li>取消原有的<code>margin</code>值。</li>
-</ul>
-</li>
-<li>调用函数，把对象从文档流布局，变成绝对定位布局。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 布局转换函数</span><br><span class="line"> * @param &#123;HTMLElment&#125; element  HTML对象</span><br><span class="line"> * @param &#123;string&#125;     childEle 其内需要转换的标签名</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toPosition</span>(<span class="params">element, childEle</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> eleArr = element.getElementsByTagName(childEle);</span><br><span class="line">    <span class="keyword">var</span> aPos = [];</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = eleArr.length; i &lt; len; i++) &#123;</span><br><span class="line">        aPos[i] = &#123;</span><br><span class="line">            left: eleArr[i].offsetLeft,</span><br><span class="line">            top: eleArr[i].offsetTop</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = eleArr.length; i &lt; len; i++) &#123;</span><br><span class="line">        eleArr[i].style.left = aPos[i].left + <span class="string">"px"</span>;</span><br><span class="line">        eleArr[i].style.top = aPos[i].top + <span class="string">"px"</span>;</span><br><span class="line">        eleArr[i].style.position = <span class="string">"absolute"</span>;</span><br><span class="line">        eleArr[i].style.margin = <span class="string">"0"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在线演示：<strong><a href="http://guowenfh.github.io/IFE/task0002/task0002_5.html">小练习5：拖拽交互</a></strong></p>
-<h4 id="第三步：实现拖拽">第三步：实现拖拽</h4><blockquote>
-<p>前面我们已经实现了<code>setDrag(element)</code>函数，常规方法就是直使用循环，然后传入<code>element</code>。</p>
-</blockquote>
-<p>但是，为什么不用事件代理呢？</p>
-<p>特别简单，只需要对上面写的函数进行一些简单的改装。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">delegateEvent(parentElement, <span class="string">"li"</span>, <span class="string">"mousedown"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line"><span class="comment">//此处是原函数中的内容。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>现在知道为什么上面的函数会用到this了吧？</strong></p>
-<h4 id="第四步：碰撞检测函数">第四步：碰撞检测函数</h4><p>先来看张图：<br><img src="/images/ife/hitDetection.jpg" alt="碰撞检测示意图"></p>
-<p>是不是有瞬间豁然开朗的感觉呢？</p>
-<p>获取相关值，只需要考虑不碰不上的情况就行了！。如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 碰撞检测函数</span><br><span class="line"> * @param   &#123;object&#125;  obj1 对象1</span><br><span class="line"> * @param   &#123;object&#125;  obj2 对象2</span><br><span class="line"> * @returns &#123;boolean&#125; 碰撞时返回true，否则反正false</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hitDetection</span>(<span class="params">obj1, obj2</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//对象1的相关值</span></span><br><span class="line">    <span class="keyword">var</span> l1 = obj1.offsetLeft;</span><br><span class="line">    <span class="keyword">var</span> r1 = obj1.offsetLeft + obj1.offsetWidth;</span><br><span class="line">    <span class="keyword">var</span> t1 = obj1.offsetTop;</span><br><span class="line">    <span class="keyword">var</span> b1 = obj1.offsetTop + obj1.offsetHeight;</span><br><span class="line">    <span class="comment">//对象2的相关值</span></span><br><span class="line">    <span class="keyword">var</span> l2 = obj2.offsetLeft;</span><br><span class="line">    <span class="keyword">var</span> r2 = obj2.offsetLeft + obj2.offsetWidth;</span><br><span class="line">    <span class="keyword">var</span> t2 = obj2.offsetTop;</span><br><span class="line">    <span class="keyword">var</span> b2 = obj2.offsetTop + obj2.offsetHeight;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (r1 &lt; l1 || l1 &gt; r2 || b1 &lt; t2 || t1 &gt; b2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//没碰上</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="第五步：处理各种碰撞情况">第五步：处理各种碰撞情况</h4><blockquote>
-<p>这里讲起来就太复杂了。源代码中注释还是比较详细的，有兴趣可以看下</p>
-</blockquote>
-<p><a href="http://guowenfh.github.io/IFE/task0002/index.html">task0002 在线Demo</a></p>
+          
+          包括5部分：
 
-            
-          </span>
+小练习1-处理用户输入
+小练习2-日期对象的使用
+小练习3：轮播图
+小练习4：输入提示框
+小练习5：界面拖拽交互
+
+源码地址
+小练习1：处理用户输入
+这里直接可以利用原来写过的util.js。所以应该不是特别难。主要考察对字符串的操作，以及正则表达式的使用
+
+任务描述在task0002目录下创建一个task0002_1.html文件，以及一个js目录和css目录，在js目录中创建task0002_1.js，并将之前写的util.js也拷贝到js目录下。然后完成以下需求。
+第一阶段在页面中，有一个单行输入框，一个按钮，输入框中用来输入用户的兴趣爱好，允许用户用半角逗号来作为不同爱好的分隔。
+当点击按钮时，把用户输入的兴趣爱好，按照上面所说的分隔符分开后保存到一个数组，过滤掉空的、重复的爱好，在按钮下方创建一个段落显示处理后的爱好。
+实现
+根据题目要求，这个地方比较简单，可以直接利用前面写过的一些函数，分成四步，进行。
+
+使用正则表达式来对字符串进行分割操作。
+uniqArray函数进行去重操作。
+for循环，trim函数对数组项进行去除首尾空格，用来处理，该项为空的情况。
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/24/task0002-Exercises/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -928,7 +524,7 @@
               
                 
                 <a class="post-title-link" href="/2015/12/21/JS-Animated-Frames/" itemprop="url">
-                  JS完美运动框架的封装过程
+                  一个JS完美运动框架的进化封装过程
                 </a>
               
             
@@ -937,7 +533,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-21T17:17:29+08:00" content="2015-12-21">
               2015-12-21
             </time>
@@ -945,7 +544,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -973,227 +576,57 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="运动框架的实现思路">运动框架的实现思路</h2><blockquote>
-<p>运动，其实就是在一段时间内改变<code>left</code>、<code>right</code>、<code>width</code>、<code>height</code>、<code>opactiy</code>的值，到达目的地之后停止。</p>
-</blockquote>
-<p>现在按照以下步骤来进行我们的运动框架的封装:</p>
-<ol>
-<li>匀速运动。</li>
-<li>缓冲运动。</li>
-<li>多物体运动。</li>
-<li>任意值变化。</li>
-<li>链式运动。</li>
-<li>同时运动。</li>
-</ol>
-<h2 id="（一）匀速运动">（一）匀速运动</h2><h3 id="速度动画">速度动画</h3><h4 id="运动基础">运动基础</h4><p>思考：<strong>如何让<code>div</code>动起来?</strong><br>如下：</p>
-<ol>
-<li>设置元素为绝对定位，只有绝对定位后，<code>left</code>,<code>top</code>等值才生效。</li>
-<li>定时器的使用（动态改变值），这里使用<code>setInterval()</code>每隔指定的时间执行代码。<ul>
-<li>计时器<code>setInterval(函数,交互时间(毫秒))</code>：在执行时,从载入页面后每隔指定的时间执行代码。</li>
-<li>取消计时器<code>clearInterval(函数)</code> 方法可取消由 <code>setInterval()</code> 设置的交互时间。</li>
-</ul>
-</li>
-<li>获取当前的位置，大小等等。<code>offsetLeft</code>（当前元素相对父元素位置）。</li>
-<li>速度–物体运动的快慢<ul>
-<li>定时器间隔时间</li>
-<li>改变值的大小</li>
-</ul>
-</li>
-</ol>
-<p>根据上面的信息我们就可以开始封装运动框架创建一个变化的<code>div</code>了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-1-动起来</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 进行运动的节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//定时器</span></span><br><span class="line">        element.style.left = element.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你没看错，就是那么简单。但是等等， what？ 怎么不会停？WTF？</p>
-<p>那是因为我们没有运动终止条件。好再还是比较简单。直接在定时器内部，判断到达目标值，清除定时器就行拉！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-2-运动终止</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 进行运动的节点</span><br><span class="line"> * @param &#123;number&#125;      iTarget 运动终止条件。</span><br><span class="line"> */</span></span><br><span class="line"> <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        element.style.left = element.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//停止条件</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>就这样是不是就完成了呢？已经ok了呢？<br>no。还有一些Bug需要处理。</p>
-<h4 id="运动中的Bug">运动中的Bug</h4><ol>
-<li>速度取到某些值会无法停止</li>
-<li>到达位置后再点击还会运动</li>
-<li>重复点击速度加快</li>
-<li>速度无法更改</li>
-</ol>
-<h4 id="解决BUG">解决BUG</h4><ol>
-<li>速度取到某些值会无法停止（这个Bug稍后解决，在进化过程中自然解决）</li>
-<li>把运动和停止隔开(if/else)</li>
-<li>在开始运动时,关闭已有定时器</li>
-<li>把速度用变量保存</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-3-解决Bug</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(timer);<span class="comment">//在开始运动时,关闭已有定时器</span></span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> iSpeed = <span class="number">5</span>;<span class="comment">//把速度用变量保存</span></span><br><span class="line">        <span class="comment">//把运动和停止隔开(if/else)</span></span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style.left = element.offsetLeft + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样一个简单的运动框架就完成了。但是，再等等。只能向右走？别急，我们不是定义了把速度变成为了变量吗？只需要对它进行一些处理就行啦！<br><code>var iSpeed = 5;</code><strong>–&gt;</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断距离目标位置，达到自动变化速度正负</span></span><br><span class="line"><span class="keyword">var</span> iSpeed = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (element.offsetLeft &lt; iTarget) &#123;</span><br><span class="line">    iSpeed = <span class="number">5</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    iSpeed = -<span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="透明度动画">透明度动画</h3><ol>
-<li>用变量<code>alpha</code>储存当前透明度。</li>
-<li>把上面的<code>element.offsetLeft</code>改成变量<code>alpha</code>。</li>
-<li>运动和停止条件部分进行更改。如下：</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//透明度浏览器兼容实现</span></span><br><span class="line"><span class="keyword">if</span> (alpha === iTarget) &#123;</span><br><span class="line">    clearInterval(time);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alpha += speed;</span><br><span class="line">    element.style.filter = <span class="string">'alpha(opacity:'</span> + alpha + <span class="string">')'</span>; <span class="comment">//兼容IE</span></span><br><span class="line">    element.style.opacity = alpha / <span class="number">100</span>;<span class="comment">//标准</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="（二）缓冲动画">（二）缓冲动画</h2><p>思考：<strong>怎么样才是缓冲动画？</strong></p>
-<p>应该有以下几点：</p>
-<ul>
-<li>逐渐变慢,最后停止</li>
-<li>距离越远速度越大<ul>
-<li>速度由距离决定</li>
-<li>速度=(目标值-当前值)/缩放系数</li>
-</ul>
-</li>
-<li>Bug :速度取整(使用Math方法)，不然会闪<ul>
-<li>向上取整。<code>Math.ceil(iSpeed)</code></li>
-<li>向下取整。<code>Math.floor(iSpeed)</code></li>
-</ul>
-</li>
-</ul>
-<p>还是对速度作文章：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-4-缓冲动画</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - element.offsetLeft) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style.left = element.offsetLeft + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>做到这里，（速度取到某些值会无法停止)这个Bug就自动解决啦！</li>
-<li>例子:缓冲菜单<ul>
-<li>跟随页面滚动的缓冲侧边栏<br>在线演示：<a href="http://codepen.io/guowen921/pen/rxLOMd" target="_blank" rel="external">codepen</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>潜在问题目标值不是整数时</p>
-</blockquote>
-<h2 id="（三）多物体运动">（三）多物体运动</h2><p>思考：<strong>如何实现多物体运动？</strong></p>
-<ul>
-<li>单定时器，存在问题。每个div一个定时器</li>
-<li>定时器作为对象的属性<ul>
-<li>直接使用<code>element.timer</code>把定时器变成对象上的一个属性。</li>
-</ul>
-</li>
-<li>参数的传递:物体/目标值<br>比较简单把上面框架的进行如下更改：<code>timer</code><strong>–&gt;</strong><code>element.timer</code></li>
-</ul>
-<p>就这样就行啦！</p>
-<h2 id="（四）任意值变化">（四）任意值变化</h2><p>咳咳。我们来给div加个1px的边框。<code>boder :1px solid #000</code></p>
-<p>然后来试试下面的代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    oDiv.style.width = oDiv.offsetWidth - <span class="number">1</span> + <span class="string">"px"</span>;</span><br><span class="line">&#125;, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
-<p>嗯，神奇的事情发生了！what？我设置的不是宽度在减吗？怎么尼玛增加了！ 不对啊，大兄弟。</p>
-<p>究竟哪里出了问题呢？</p>
-<p>一起找找资料，看看文档，原来<code>offset</code>这一系列的属性都会存在，被其他属性干扰的问题。</p>
-<p>好吧，既然不能用，那么我们就顺便把任意值变化给做了吧。</p>
-<h3 id="第一步：获取实际样式">第一步：获取实际样式</h3><blockquote>
-<p>使用offsetLeft..等获取样式时, 若设置了边框, padding, 等可以改变元素宽度高度的属性时会出现BUG..</p>
-</blockquote>
-<ul>
-<li>通过查找发现<code>element.currentStyle(attr)</code>可以获取计算过之后的属性。</li>
-<li>但是因为兼容性的问题，需封装getStyle函数。（万恶的IE）</li>
-<li>当然配合CSS的<code>box-sizing</code>属性设为<code>border-box</code>可以达到一样的效果 ? (自认为，未验证)。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取实际样式函数</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element  需要寻找的样式的html节点</span><br><span class="line"> * @param   &#123;String]&#125; attr 在对象中寻找的样式属性</span><br><span class="line"> * @returns &#123;String&#125; 获取到的属性</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element, attr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//IE写法</span></span><br><span class="line">    <span class="keyword">if</span> (element.currentStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> element.currentStyle[attr];</span><br><span class="line">    <span class="comment">//标准</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(element, <span class="literal">false</span>)[attr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二步：改造原函数">第二步：改造原函数</h3><ol>
-<li>添加参数，<code>attr</code>表示需要改变的属性值。</li>
-<li>更改<code>element.offsetLeft</code>为<code>getStyle(element, attr)</code>。<ul>
-<li>需要注意的是：<code>getStyle(element, attr)</code>不能直接使用，因为它获取到的字符串,例：<code>10px</code>。</li>
-<li>变量<code>iCurrent</code>使用<code>parseInt()</code>,将样式转成数字。</li>
-</ul>
-</li>
-<li><code>element.style.left</code>为<code>element.style[attr]</code>。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-4-任意值变化</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;string&#125;      attr    需要改变的属性。</span><br><span class="line"> * @param &#123;number&#125;      iTarget 目标值</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, attr, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">    <span class="keyword">var</span> iCurrent=<span class="number">0</span>;</span><br><span class="line">    iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr));<span class="comment">//实际样式大小</span></span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(element.timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>试一试，这样是不是就可以了呢？</p>
-<blockquote>
-<p>还记得上面我们写的透明度变化吗?  再试试</p>
-</blockquote>
-<p>果然还是不行， （废话，你见过透明度有”px”单位的么? - -<code>白眼</code> ）</p>
-<h3 id="第三步：透明度兼容处理">第三步：透明度兼容处理</h3><p>思考：<strong>需要对那些属性进行修改？</strong></p>
-<ol>
-<li>判断<code>attr</code>是不是透明度属性<code>opacity</code> 。</li>
-<li>对于速度进行处理。<ul>
-<li>为透明度时，由于获取到的透明度会是小数，所以需要 * 100</li>
-<li>并且由于计算机储存浮点数的问题，还需要将小数，进行四舍五入为整数。使用： <code>Math.round(parseFloat(getStyle(element, attr)) * 100)</code>。</li>
-<li>否则，继续使用默认的速度。</li>
-</ul>
-</li>
-<li>对结果输出部分进行更改。<ul>
-<li>判断是透明度属性，使用透明度方法</li>
-<li>否则，使用使用默认的输出格式。</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-5-兼容透明度</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;string&#125;      attr    需要改变的属性。</span><br><span class="line"> * @param &#123;number&#125;      iTarget 目标值</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, attr, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">        <span class="keyword">var</span> iCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时执行。</span></span><br><span class="line">            iCurrent = <span class="built_in">Math</span>.round(<span class="built_in">parseFloat</span>(getStyle(element, attr)) * <span class="number">100</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认情况</span></span><br><span class="line">            iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr)); <span class="comment">//实际样式大小</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(element.timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时，执行</span></span><br><span class="line">                element.style.filter = <span class="string">"alpha(opacity:"</span> + (iCurrent + iSpeed) + <span class="string">")"</span>; <span class="comment">//IE</span></span><br><span class="line">                element.style.opacity = (iCurrent + iSpeed) / <span class="number">100</span>; <span class="comment">//标准</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认</span></span><br><span class="line">                element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>到这里，这个运动框架就基本上完成了。但是，我们是追求完美的不是吗？</p>
-<p>继续进化！</p>
-<h2 id="（五）链式动画">（五）链式动画</h2><blockquote>
-<p>链式动画：顾名思义，就是在该次运动停止时，开始下一次运动。</p>
-</blockquote>
-<p>如何实现呢？</p>
-<ul>
-<li>使用回调函数：运动停止时,执行函数</li>
-<li>添加<code>func</code>形参（回调函数）。</li>
-<li>在当前属性到达目的地时<code>iCurrent === iTarget</code>，判断是否有回调函数存在，有则执行。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    <span class="keyword">if</span> (func) &#123;</span><br><span class="line">        func();<span class="comment">//回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>good，链式动画完成！距离完美还差一步！</p>
-<h2 id="（六）同时运动">（六）同时运动</h2><p>思考：<strong>如何实现同时运动？</strong></p>
-<ol>
-<li>使用JSON传递多个值</li>
-<li>使用<code>for in</code>循环，遍历属性，与值。</li>
-<li>定时器问题!(运动提前停止)<ul>
-<li>在循环外设置变量,假设所有的值都到达了目的值为true</li>
-<li>在循环中检测是否到达目标值,若没有值未到则为false</li>
-<li>在循环结束后,检测是否全部达到目标值.是则清除定时器</li>
-</ul>
-</li>
-</ol>
-<p>实现：</p>
-<ol>
-<li>删除<code>attr</code>与<code>iTarget</code>两个形参，改为<code>json</code></li>
-<li>在函数开始时，设置一个标记<code>var flag = true; //假设所有运动到达终点.</code></li>
-<li>在定时器内使用<code>for in</code>，遍历属性与目标，改写原来的<code>attr</code>与<code>iTarget</code>，为json的属性与值</li>
-<li>修改运动终止条件，只有每一项的实际属性值<code>iCurrent</code>，等于目标值<code>json[attr]</code>时，<code>flag</code>才为<code>true</code>。清除定时器，判断是否回调。</li>
-<li>否则，继续执行代码，直到所有属性值等于目标值。</li>
-</ol>
-<h2 id="完美运动框架">完美运动框架</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取实际样式函数</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element  需要寻找的样式的html节点</span><br><span class="line"> * @param   &#123;String]&#125; attr 在对象中寻找的样式属性</span><br><span class="line"> * @returns &#123;String&#125; 获取到的属性</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element, attr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//IE写法</span></span><br><span class="line">    <span class="keyword">if</span> (element.currentStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> element.currentStyle[attr];</span><br><span class="line">        <span class="comment">//标准</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(element, <span class="literal">false</span>)[attr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 完美运动框架</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;JSON&#125;        json    属性：目标值      </span><br><span class="line"> *   @property &#123;String&#125; attr    属性值</span><br><span class="line"> *   @config   &#123;Number&#125; target  目标值</span><br><span class="line"> * @param &#123;function&#125;    func    可选，回调函数，链式动画。</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, json, func</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>; <span class="comment">//假设所有运动到达终点.</span></span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> json) &#123;</span><br><span class="line">            <span class="comment">//1.取当前的属性值。</span></span><br><span class="line">            <span class="keyword">var</span> iCurrent = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时执行。</span></span><br><span class="line">                iCurrent = <span class="built_in">Math</span>.round(<span class="built_in">parseFloat</span>(getStyle(element, attr)) * <span class="number">100</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认情况</span></span><br><span class="line">                iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr)); <span class="comment">//实际样式大小</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//2.算运动速度,动画缓冲效果</span></span><br><span class="line">            <span class="keyword">var</span> iSpeed = (json[attr] - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">            iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//3.未到达目标值时，执行代码 </span></span><br><span class="line">            <span class="keyword">if</span> (iCurrent != json[attr]) &#123;</span><br><span class="line">                flag = <span class="literal">false</span>; <span class="comment">//终止条件</span></span><br><span class="line">                <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时，执行</span></span><br><span class="line">                    element.style.filter = <span class="string">"alpha(opacity:"</span> + (iCurrent + iSpeed) + <span class="string">")"</span>; <span class="comment">//IE</span></span><br><span class="line">                    element.style.opacity = (iCurrent + iSpeed) / <span class="number">100</span>; <span class="comment">//标准</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认</span></span><br><span class="line">                    element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//4. 运动终止，是否回调</span></span><br><span class="line">            <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">                clearInterval(element.timer);</span><br><span class="line">                <span class="keyword">if</span> (func) &#123;</span><br><span class="line">                    func();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="运动框架总结">运动框架总结</h2><ul>
-<li>运动框架演变过程</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>框架</th>
-<th>变化</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>startMove(element)</td>
-<td>运动</td>
-</tr>
-<tr>
-<td>startMove(element,iTarget)</td>
-<td>匀速–&gt;缓冲–&gt;多物体</td>
-</tr>
-<tr>
-<td>startMove(element,attr,iTargrt)</td>
-<td>任意值</td>
-</tr>
-<tr>
-<td>startMove(element,attr,iTargrt,func)</td>
-<td>链式运动</td>
-</tr>
-<tr>
-<td>startMove(element,json,func)</td>
-<td>多值(同时)–&gt;完美运动框架</td>
-</tr>
-</tbody>
-</table>
+          
+          运动框架的实现思路
+运动，其实就是在一段时间内改变left、right、width、height、opactiy的值，到达目的地之后停止。
 
-            
-          </span>
+现在按照以下步骤来进行我们的运动框架的封装:
+
+匀速运动。
+缓冲运动。
+多物体运动。
+任意值变化。
+链式运动。
+同时运动。
+
+（一）匀速运动速度动画运动基础思考：如何让div动起来?如下：
+
+设置元素为绝对定位，只有绝对定位后，left,top等值才生效。
+定时器的使用（动态改变值），这里使用setInterval()每隔指定的时间执行代码。
+计时器setInterval(函数,交互时间(毫秒))：在执行时,从载入页面后每隔指定的时间执行代码。
+取消计时器clearInterval(函数) 方法可取消由 setInterval() 设置的交互时间。
+
+
+获取当前的位置，大小等等。offsetLeft（当前元素相对父元素位置）。
+速度–物体运动的快慢
+定时器间隔时间
+改变值的大小
+
+
+
+根据上面的信息我们就可以开始封装运动框架创建一个变化的div了。
+12345678910/** * 运动框架-1-动起来 * @param &#123;HTMLEl
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/21/JS-Animated-Frames/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1243,7 +676,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
               2015-12-19
             </time>
@@ -1251,7 +687,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -1279,109 +719,35 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="BOM">BOM</h2><p>实现以下函数</p>
-<h3 id="判断是否为IE浏览器">判断是否为IE浏览器</h3><ul>
-<li>这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的<code>UserAgent</code>可人为修改</li>
-<li>需要实现的话，ie11的版本号中并没有<code>msie:</code>。只能通过<code>rv:</code>获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号<code>- -。</code>所以还需要多加一层判断。查找是否存在<code>Trident\/7.0;</code></li>
-<li>使用正则表达式的<code>match</code>方法,详细见我写的正则表达式的博客。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否为IE浏览器，返回-1或者版本号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isIE</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> uUserAgent = navigator.userAgent; <span class="comment">//保存浏览器的userAgent</span></span><br><span class="line">    <span class="keyword">var</span> ieAgent = uUserAgent.match(<span class="regexp">/msie (\d+.\d+)/i</span>);</span><br><span class="line">    <span class="keyword">if</span> (ieAgent) &#123;</span><br><span class="line">        <span class="keyword">return</span> ieAgent[<span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (uUserAgent.match(<span class="regexp">/Trident\/7.0;/i</span>)) &#123; <span class="comment">//处理到ie11.</span></span><br><span class="line">            ieAgent = uUserAgent.match(<span class="regexp">/rv:(\d+.\d+)/i</span>);</span><br><span class="line">            <span class="keyword">return</span> ieAgent[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>; <span class="comment">//不是ie浏览器。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Cookie相关">Cookie相关</h3><p>秒味js的免费课程，把cookie讲的很好。</p>
-<h4 id="什么是cokie">什么是cokie</h4><ul>
-<li><p>页面用来保存信息</p>
-<ul>
-<li>比如:自动登入/保存用户名</li>
-</ul>
-</li>
-<li><p>cookie的特性</p>
-<ul>
-<li>同一个网站中所有页面共享一套cookie</li>
-<li>数量/大小有限</li>
-<li>过期时间</li>
-</ul>
-</li>
-<li><p>JS中使用cookie</p>
-<ul>
-<li><code>document.cookie</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="设置cookie">设置cookie</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 设置cookie</span><br><span class="line"> * @param &#123;String&#125; cookieName  设置cookie名</span><br><span class="line"> * @param &#123;String&#125; cookieValue 对对应的cookie名</span><br><span class="line"> * @param &#123;Number&#125; expiredays  过期的时间(多少天后)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cookieName, cookieValue, expiredays</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    oDate.setDate(oDate.getDate() + expiredays);</span><br><span class="line">    <span class="built_in">document</span>.cookie = cookieName + <span class="string">"="</span> + cookieValue + <span class="string">";expires="</span> + oDate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="获取cookie值">获取cookie值</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span><br><span class="line"> * 获取cookie</span><br><span class="line"> * @param   &#123;String&#125; cookieName 待寻找的cookie名</span><br><span class="line"> * @returns &#123;String&#125; 返回寻找到的cookie值,无时为空</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cookieName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="built_in">document</span>.cookie.split(<span class="string">"; "</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> arr2 = arr[i].split(<span class="string">"="</span>);</span><br><span class="line">        <span class="keyword">if</span> (arr2[<span class="number">0</span>] == cookieName) &#123;</span><br><span class="line">            <span class="keyword">return</span> arr2[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="删除cookies">删除cookies</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 删除cookie</span><br><span class="line"> * @param &#123;String&#125; cookieName 待删除的cookie名</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeCookie</span>(<span class="params">cookieName</span>) </span>&#123;</span><br><span class="line">    setCookie(cookieName, <span class="string">"1"</span>, -<span class="number">1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="扩展阅读：">扩展阅读：</h3><h4 id="sessionStorage、localStorage_和_cookie_之间的区别">sessionStorage、localStorage 和 cookie 之间的区别</h4><ul>
-<li><strong>共同点</strong><br>  都是保存在浏览器端，且同源的。都是键值对存储。</li>
-<li><strong>区别</strong></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>Cookie</th>
-<th>localStorage</th>
-<th>sessionStorage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数据的声明周期</td>
-<td>一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
-<td>除非被清除，否则永久保存</td>
-<td>仅在当前会话下有效，关闭页面或关闭浏览器后被清除</td>
-</tr>
-<tr>
-<td>存放数据大小</td>
-<td>4K左右</td>
-<td>一般为5MB</td>
-<td>同左（话说markdown不支持跨列表格，只能用html写，懒得麻烦了-_-）</td>
-</tr>
-<tr>
-<td>与服务器端通信</td>
-<td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
-<td>仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
-<td>同左</td>
-</tr>
-<tr>
-<td>易用性</td>
-<td>需要程序员自己封装，原生的Cookie接口不友好</td>
-<td>原生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
-<td>同左</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>安全性</strong><br>  cookie 中最好不要放置任何明文的东西。而且特别需要注意敏感数据的存放。不是什么数据都适合放在 Cookie、localStorage 和 sessionStorage中的。使用它们的时候，需要时刻注意是否有代码存在 XSS 注入的风险。</li>
-<li>参考：<a href="http://jerryzou.com/posts/cookie-and-web-storage/" target="_blank" rel="external">详说 Cookie, LocalStorage 与 SessionStorage</a></li>
-</ul>
-<h2 id="Ajax">Ajax</h2><h3 id="任务描述">任务描述</h3><p>学习Ajax，并尝试自己封装一个Ajax方法。实现如下方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line">ajax(</span><br><span class="line">    <span class="string">'http://localhost:8080/server/ajaxtest'</span>, </span><br><span class="line">    &#123;</span><br><span class="line">        data: &#123;</span><br><span class="line">            name: <span class="string">'simon'</span>,</span><br><span class="line">            password: <span class="string">'123456'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        onsuccess: <span class="function"><span class="keyword">function</span> (<span class="params">responseText, xhr</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>options是一个对象，里面可以包括的参数为：</p>
-<ul>
-<li>type: <code>post</code>或者<code>get</code>，可以有一个默认值</li>
-<li>data: 发送的数据，为一个键值对象或者为一个用&amp;连接的赋值字符串</li>
-<li>onsuccess: 成功时的调用函数</li>
-<li>onfail: 失败时的调用函数</li>
-</ul>
-<h3 id="实现如下：">实现如下：</h3><blockquote>
-<p>专门用两篇博客来记录了一下AJAX的学习过程，以及该函数的完成过程<br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a><br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * AJAX函数封装</span><br><span class="line"> * @param &#123;string&#125; url     请求地址（必须）</span><br><span class="line"> * @param &#123;object&#125; options 发送请求的选项参数</span><br><span class="line"> *   @config &#123;string&#125; [options.type] 请求发送的类型。默认为GET。</span><br><span class="line"> *   @config &#123;Object&#125; [options.data] 需要发送的数据。</span><br><span class="line"> *   @config &#123;Function&#125; [options.onsuccess] 请求成功时触发，function(oAjax.responseText, oAjax)。（必须）</span><br><span class="line"> *   @config &#123;Function&#125; [options.onfail] 请求失败时触发，function(oAjax)。(oAJax为XMLHttpRequest对象)</span><br><span class="line"> *</span><br><span class="line"> *@returns &#123;XMLHttpRequest&#125; 发送请求的XMLHttpRequest对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined,进入else</span><br><span class="line">         * 若直接使用XMLHttpRequest,在不支持的情况下会报错</span><br><span class="line">         **/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        <span class="comment">//IE6以上</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    <span class="keyword">var</span> param = <span class="string">""</span>; <span class="comment">//请求参数。</span></span><br><span class="line">    <span class="comment">//只有data存在，且为对象使才执行</span></span><br><span class="line">    <span class="keyword">var</span> data = options.data ? options.data : -<span class="number">1</span>; <span class="comment">//缓存data</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (data) === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123; <span class="comment">//请求参数拼接</span></span><br><span class="line">            <span class="keyword">if</span> (data.hasOwnProperty(key)) &#123;</span><br><span class="line">                param += key + <span class="string">"="</span> + data[key] + <span class="string">"&amp;"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        param.replace(<span class="regexp">/&amp;$/</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        param = <span class="string">"timestamp="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    <span class="keyword">var</span> type = options.type ? options.type.toUpperCase() : <span class="string">"GET"</span>;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="string">"GET"</span>) &#123;</span><br><span class="line">        oAjax.open(<span class="string">"GET"</span>, url + <span class="string">"?"</span> + param, <span class="literal">true</span>);</span><br><span class="line">        oAjax.send();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">        oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">        oAjax.send(param);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//请求成功。形参为获取到的字符串形式的响应数据</span></span><br><span class="line">                options.onsuccess(oAjax.responseText, oAjax);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//先判断是否存在请求失败函数</span></span><br><span class="line">                <span class="comment">//存在时，形参为XMLHttpRequest对象，便于进行错误进行处理</span></span><br><span class="line">                <span class="keyword">if</span> (options.onfail) &#123;</span><br><span class="line">                    options.onfail(oAjax);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> oAjax;<span class="comment">//发送请求的XMLHttpRequest对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            
-          </span>
+          
+          BOM实现以下函数
+判断是否为IE浏览器
+这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的UserAgent可人为修改
+需要实现的话，ie11的版本号中并没有msie:。只能通过rv:获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号- -。所以还需要多加一层判断。查找是否存在Trident\/7.0;
+使用正则表达式的match方法,详细见我写的正则表达式的博客。
+
+1234567891011121314// 判断是否为IE浏览器，返回-1或者版本号function isIE() &#123;    var uUserAgent = navigator.userAgent; //保存浏览器的userAgent    var ieAgent = uUserAgent.match(/msie (\d+.\d+)/i);    if (ieAgent) &#123;        return ieAgent[1];    &#125; else &#123;        if (uUser
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/19/task0002-BOM&&AJAX/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1431,7 +797,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-18T22:19:28+08:00" content="2015-12-18">
               2015-12-18
             </time>
@@ -1439,7 +808,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/生活/" itemprop="url" rel="index">
@@ -1467,100 +840,43 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="为什么我会喜欢《老子是癞蛤蟆》这本书？">为什么我会喜欢《老子是癞蛤蟆》这本书？</h2><blockquote>
-<p>说实话这本书有很多三观不正的地方，比如男主的后宫群，里面描述的各种关系等等。。。毕竟一本YY小说嘛，但是作为一个有思想的人，读书不都是应该取其精华的吗？</p>
-<p>我想说的是：<strong>敢于吃天鹅肉的才是好癞蛤蟆</strong></p>
-</blockquote>
-<ul>
-<li>一个隐富二代的奋斗史。（比你有钱的人，比你还努力，你在干嘛？）</li>
-<li>一个男人的成长史。（人嘛，从来都不是一开始就天下无敌的。随着各种各样的经历，看的书越来越多，才能慢慢成熟）</li>
-<li>对于感情的极致描写。（宠溺孙子到了极点的奶奶，胡璃之死，张乌梅的日记）很多事，可能家里确实做的不对，但是相信家人总是想着为你好，试着多一点理解。</li>
-<li>对于努力的极致描写。（袁树，沈大元帅，项如意）请多努力一点，吃苦一点，总会有苦尽甘来的一天。</li>
-<li>运动（早晚各10圈，一个好的身体才能支持你想要完成的事情。）</li>
-<li>偏执（假如说别人对于赵甲第的期望值是100分的话，那么他这个偏执狂就自己在往120分上努力。疯魔状态）</li>
-<li>忠诚（韩道德：“韩道德，你就算一条狗，人若以国士待我，我必以国士报之”）</li>
-<li>读书（笔记达百万字？四年512本书？国考废纸卖1401块？）</li>
-<li>专注（工行模型，闭关）</li>
-<li>浪子回头。（不跳的马小跳）</li>
-<li>做人。</li>
-<li>…… 太多太多，每一次看，都能从里面学到自己应该要去改变的地方。</li>
-</ul>
-<blockquote>
-<p>下面摘抄自《老子是癞蛤蟆》的段落（侵删）</p>
-</blockquote>
-<h2 id="开学典礼">开学典礼</h2><p>结果看到一个像门卫的老头踏着一双布鞋自顾自拿了一个话筒，就走到演讲台，没有发言稿，没有主持人预报，咳嗽了两声，不温不火道：“各位同仁，各位同学，我今天不想代表谁发言，只是以一个已经在本校扎根足足50年、并即将离开这所学校的老人这么个身份，跟2000多名新生说几句话。”</p>
-<p>　　老人嗓音并不大，但清晰传到体育馆内每一个人耳朵里去。</p>
-<p>　　台下一下子议论纷纷，都在窃窃私语。</p>
-<p>　　老人一只手拿话筒，另一只手依然背负身后，厚重的老学究眼镜，踩着一双廉价橡胶底布鞋，一身土老帽的装扮，不理睬台下的喧闹，继续道：“我们身处的学区有个不太准确的叫法，杨浦大学城，这块土地上有复旦，有同济，有二军大，还有财大，还有呢？我不太记得住了，相信你们也一定不太清楚，这就是说，如果有人问起我们这所学校，他好不容易听清楚你的解释后，会恍然大悟，哦，就是在同济和二军大边上那所大学啊。或者等有一天你去上海市区逛街，等不到公交车，坐出租车来杨浦大学城，司机一定也一样不知道这么个地儿，所以你还得说，师傅，你干脆先把我送到同济大学吧。”</p>
-<p>　　全场哄然大笑。</p>
-<p>　　老校长也笑了，只是原先谈笑风生的主席台却鸦雀无声，一个个噤若寒蝉。</p>
-<p>  老人轻轻摘下眼镜，用衬衫擦了擦，戴上后继续说道：“所以坦白说，这不是一所能让你说出去就可以赢得喝彩和羡慕的大学，我不知道2000多名学子中有多少是得意洋洋而来，觉得已经九九八十一难过后，可以逍遥快活了，也不知道又有多少是垂头丧气而来，只是混个文凭，然后就走上社会，给复旦学子北大清华学子们打杂做下手，跑跑腿端茶送水之类的。</p>
-<p>  对此，我这个20岁那年就进入本校，然后就没有再离开的老头子还是想说点心里话，人的一生只有一个终点，却有很多个起点，从娘胎出生起是第一个大起点，这个谁都无法更改，接下来小学升初中，初中升高中，又是两个新起点，然后很多孩子就把高中升大学提前看作人生的终点了，这都是一种不负责任，18岁以后，你可以不必对你父母负责，但起码你得学会开始对自己负责。</p>
-<p>  我记得有这么一句话，是你们某位学长一次醉酒后跟我说的：<strong>就是被人踩得像一滩烂泥，也要捏出狗尾巴花来。</strong></p>
-<p>  如果我没有记错，他来自一个贫困县，每年学费都是欠着，然后都是靠他在学校拿奖学金和两个假期各做四份杂工和家教一块钱一块钱攒出来的，到毕业那天他跟我说这句话，那顿酒还是我付的钱。现在，这个大学四年期间从图书馆破本校纪录借了512本书的家伙，可能再过十来年等他走出国家发改委，再来上海，就是我的领导了。”</p>
-<p>　　这一次笑声已经稀疏很多。</p>
-<p>　　老校长笑了笑，环视台下2000多张稚嫩面孔，道：“我不要求你们跟那位学长一样每年借一百多本书，我觉得一年大概30多本就差不多了，当然必须是教材之外的书籍，说实话，<strong>大学拼命要你们读的书，反而是不太有用的东西，你们自己愿意去阅读去咀嚼去反思的作品，才是影响你们一生的精神财富。</strong></p>
-<p>  <strong>我一个普普通通的农民子弟，20岁艰辛考上大学，26岁开始做老师，教书育人到今日，就只证明了一件事情，哪怕是一只癞蛤蟆，能够几十年如一日地充实自己，迟早都有跳出池塘吃上天鹅肉的一天。</strong><br>  <strong>这个天鹅肉可以是桃李满天下，可以是抱得美人归，也可以是功成名就光耀门楣，还可以是做一名伟大的金融家，我问心无愧了，没有遗憾了，也一直在等你们自认没有对自己愧疚的那一天。</strong></p>
-<p>  也许听到这里，很多同学会问，凭什么你这么所不起眼的学校就要求我们奋发图强，是啊，这所学校既没有中国大学泛滥成灾的大楼，也没有几位中国学府集体漠视很多年的大师，凭什么？”</p>
-<p>　　老校长停顿了一下，指了指自己，又指了指台下全场，“<strong>凭自己。</strong>”</p>
-<p>　　全场沉默。</p>
-<p>　　老人恢复轻松笑脸道：“好了，耽误大家那么多听歌看报纸的时间，很抱歉。散会。”</p>
-<h2 id="毕业典礼。">毕业典礼。</h2><p>　　老校长没有做隆重的毕业致辞，仅是做了个简短并且破格的发言，几乎可以算作一场个人表彰。</p>
-<p>　　“我们学校还是那个不怎么出名的学校，师资一般，就业率一般，藏书量一般，什么都很平常，还是比不上临近那些个财大气粗的复旦啊同济啊之类的名牌学。</p>
-<p>  所以我如果要说让你们这帮在这里呆了四年可能只有失望的孩子认可‘我以学校为荣，学校以你为荣’，没几个人当回事，所以我在这里，不奢望什么，只希望以后听到有人骂这所学校的时候，出来说一句我们学校是不咋样但你们外人一边凉快去。</p>
-<p>  可能有些学生已经知道，你们当中有人在去年国考拿下了170分，别说你们不信，我都不信，我还专门打电话去上海教委那边确认，说没错，是170分。那边一个我的学生都好几年没跟我拜年了，正月里特意跑来跟我道贺，说自己母校很不错，听到这话，我是高兴又不高兴。其中滋味，就不细说了。</p>
-<p>  我要说的是这个考了170分的学生，名字不去提，其实教学楼那边很多老师都认识，尤其是跟我办公室一层那些个官帽没我大肚子倒是有我两个大的领导们，肯定记得，因为去年8月9月的时候，这个学生就窝在同一层的小房间，做一个连经济学者都觉得太复杂看不懂的模型，一做就是两个月，后来，我们这些闲着没事的校领导，当然也包括我，就得出一个挺有意思的结论：<strong>那穿着很熏人衣服一脸胡茬的年轻孩子如果是空手冲向洗手间，那肯定是上小号，如果说带上了纸笔，不用猜，是上大号了。</strong></p>
-<p>  你们谁有兴趣，可以把工行10年的社会责任模型翻出来研究一下，就是这个学生做的。但哪怕是这样，我还是不信他能考出170，我要去考，这个分数，除以2，还差不多嘛，所以我很纳闷，凭什么你一个二本大学生考得出来？</p>
-<p>  我就把他喊到办公室，问他怎么考出来的，这小子估摸着是在我办公室蹭吃蹭喝习惯了，随便说了一句看书做题来应付我，我当然不满意，说你小子不说出个子丑寅卯，毕业生扣下。</p>
-<p>  结果他想了想，很认真对我说开始<strong>冲刺国考的7个月</strong>，考完以后把真题集、做过的行测试卷、申论材料这些乱七八糟全当废纸卖了，讨价还价以后<strong>一斤卖7毛钱，他卖了140块9毛钱</strong>，收废纸的给了他141块整，我问他这些钱能不能请我吃顿饭？</p>
-<p>  这小子笑着说说报名费花去96块，还剩下47块。后来我和他找了个附近的大排挡，这段饭，是我这十几年来吃得最舒坦的一顿饭，因为我之前总觉得做了三十来年的狗屁校长，还不如最早的二十多年普通教师来得有用，吃完饭的时候，我对这个学生说。</p>
-<p> <strong>“你不用以学校为荣，但学校以你为荣。”</strong></p>
-<p>　　全场寂静。</p>
-<p>  老校长顿了一下，依然是不急不缓的特色语调：“记得四年前开学典礼上跟耽误你们看报纸听歌的时候，有说到<strong>凭什么要你们奋发图强，答案是凭你们自己</strong>。</p>
-<p>  <strong>今天，我再唠叨一句，希望哪一天你们参加这所学校几几年校庆的时候，可以对新校长理直气壮说一句‘学校要以我为荣’。</strong></p>
-<p>  好了，毕业！”</p>
-<h2 id="赵甲第回校演讲">赵甲第回校演讲</h2><p>  当一身休闲装的他站在讲台上，看着大教室黑压压一片的脑袋脸孔，有点骑虎难下，尤其是还有老校长亲自坐镇，大半校领导都坐在最后一排，这待遇，罕见。赵甲第深呼吸了几下，挤出一个笑脸，开门见山自嘲道：</p>
-<p>  “这次老校长突然跟我说要开个讲座，一开始打死不答应，可架不住老校长威胁，只能硬着头皮来，到学校门口的时候都没想好该讲什么，光顾着紧张了。老校长说让我随便说，我就真的随便说了。”</p>
-<p>　　响起一些笑声。</p>
-<p>　　“不管你们信不信，我也仇富，也当过愤青。当然更打过架，不过胜多输少，高中挨过不少的警告处分，写过情书，但不怎么能收到情书，因为高中打篮球总是被盖帽给白马王子们找信心，踢足球总是跑最多触球最少的那个家伙，也会嫉妒那些长得比我帅的，羡慕口才比我好的，崇拜那些敢在教室跟女朋友亲嘴的。</p>
-<p>  说这些，就是想说我的高中跟你们的没两样。考进这所学校，说实话没什么感觉，唯一记忆深刻的两件事，一件就是悲愤我们学校漂亮学姐太少。”</p>
-<p>　　台下笑声明显多了点。</p>
-<p>　　赵甲第笑了笑，一口洁白的牙齿，是很阳光向上，“第二件事，就是老校长在开学典礼上的那些话，但那会儿只是觉得这学校破破烂烂，跟复旦同济一比就跟丫鬟见着小姐一样，寒碜。但好歹有个不太一样的校长，总算没太大失望，大学四年，那么多日子总得过不是？<br>　　<br>　　除了中途休学一年，三年里跟在座的学弟学妹一样为了生存去学校食堂，价格死贵，东西死难吃，吃来吃去吃了一肚子的腹诽，不知道现在食堂伙食咋样了。”</p>
-<p>　　台下开始互动：“一个德性！”<br>　　赵甲第望向后排玩笑道：“老校长，给改善改善？”<br>　　老校长呵呵笑道：“我亲手抓一抓好了，总不能让你白来。”</p>
-<p>　　一阵雀跃欢呼。</p>
-<p>　　赵甲第继续：“因为要打着听讲座的旗号去各个学校踩点，我买了两辆坐骑，第一辆自行车挂了两把锁都给偷了，真佩服那哥们的本事。三年下来把杨浦校区碾压了无数圈，觉得有些个复旦妹子确实挺耐看，我们学校，呃，只能说还好还好。”<br>　　一个被室友拉着来听讲座的漂亮mm举手道：“抗议。”<br>　　赵甲第笑道：“我应该晚生两年。”<br>　　哄堂大笑。</p>
-<p>　　赵甲第犹豫了一下，笑容灿烂道：“现在想起来，真的挺怀念大学，跟室友一起翘课睡觉，一起去网吧通宵游戏，不过如果有美女上课，我总是不太舍得逃课。跟班上牲口些好不容易蜗牛速度下载来的爱情动作片，还会故意把音箱开到最大，对，就是29栋，被很多女生向校方举报的那个地方。”</p>
-<p>　　一哥们嚷道：“学长，我就是29栋的！”<br>　　赵甲第打趣道：“那这个优良传统就靠你们发扬光大了。”<br>　　女生们会心一笑，没有丝毫反感。<br>　　这个学长，真是不太一样啊。</p>
-<p>　　赵甲第似乎渐入佳境，不再有任何拘谨，轻松道：“刚才到门口看到这么多人，尤其是连走廊都有，我这手都在抖，现在好点了。<br>  说了这么多随便的，那就稍微说点不那么随便的。都是自己的心得，可能片面，你们拣爱听的就行。</p>
-<p>  一个曾经让我当作超越目标的男人说过，他之所以成功，是因为他不读书，那些本来可以成功的人，都被钉死在书本上了。</p>
-<p>  一开始我觉得这话说得偏激而霸气，很带劲，然后我就琢磨，我自己是属于读书还是不读书的？答案挺二百五的，还算是认真读书的老实孩子，小学天天被数学老师打板子，跟我唠叨越是好料越不能长歪，打着打着，就养成了越级做题的习惯，<strong>而这位老师教我最重要的东西，不是拿满分如何重要，而是如何去拿满分</strong>，读武侠小说的同学都知道‘天下武功唯快不破’‘万佛朝宗’这些调调，其实放在读书上，也是可以套用的。</p>
-<p>  兜了一圈，读书到底有没有用？这个命题太大，我还没盖棺的资本，不敢瞎扯，但就我个人而言，<strong>读书有用没用，得看我们是读死书，还是读书读出世事洞明和人情练达</strong>，读死书，大概就是那个所谓的钉死在书本上了，读活了，哪怕成绩一般，我想到了社会，未必会比那些个高考状元差。</p>
-<p>  读书无用论不可取，但存在即合理，当年暴发户嘲笑书生无用，其实有一半是对的，因为他们是社会这个大染缸里的高材生，错的一半不需要我多说，现在的社会趋势已经说明一切，要不中南海会有清华帮聚会？会有工科当政的说法？<strong>以后如果工科不再当政，那也肯定是风水轮流到了文科，怎么都轮不到天天上网玩游戏的，是吧？</strong></p>
-<p>  越是成熟的社会，就越讲究积淀，放在各个行业也是如此，草莽龙蛇的年代一过，注定越来越靠扎实底蕴。</p>
-<p>  <strong>读书好坏不在成绩，但话说回来，你连那些套教科书都玩不过，反而被玩死，就眼巴巴等着踏入社会大杀四方？</strong>不读书，或者说拼都不肯拼不敢拼一下，都成骄傲的资本了？天天嚷着富二代可恨该杀没用，人家照样吃香喝辣，还不如多想想富二代这么惬意，富一代是如何挣扎上位的？有人就说了官二代官三代太子党们又怎么讲，呵，问这个问题的，肯定是历史没学好，一部《解放战争》足以说明一切。”</p>
-<p>　　“扯远了，难怪我作文一直没能拿过高分，议论文还好，散文完全是形散神更散。我想证明读书有用，现在没资格，希望以后有机会能证明，输了，正好当反面典型。接下来是不是该问答环节了？刚才在报刊亭那边买报纸，看到满摊子都是我的照片，你们多半是被这些骗进来的，我尽量做到有问必答。”</p>
-<p>　　场面立即火爆起来。</p>
-<p>　　问题一个个抛出来，不少都极为尖锐，赵甲第还真做到了知无不言言无不尽。</p>
-<p>　　“学长，听说你精通围棋，那篇《他是谁》提到你在弈城有注册，我是业余里的业余，但在弈城也泡了好几年，就想问你是不是那个强九段‘国士无双’。”<br>　　“是。”<br>　　那位兄弟立马崇拜得五体投地，恨不得当场拜师学艺了。<br>　　“你已经进入发改委了，还会继承家族企业吗？”<br>　　“不出意外，会。”<br>　　满堂震惊。</p>
-<p>　　“学长，我矮穷龊，一见到美女就脸红，能不能传授点经验？”</p>
-<p>　　<strong>“舍得一身剁能把皇帝拉下马这是最逆天的屁民，这个我们不敢想，但舍得一身剐能把女神扛上床，这才是最凶残的癞蛤蟆。我一直坚信这点，脸皮厚点肯定没错，但前提是能保证自己给她幸福。”</strong></p>
+          
+          为什么我会喜欢《老子是癞蛤蟆》这本书？
+说实话这本书有很多三观不正的地方，比如男主的后宫群，里面描述的各种关系等等。。。毕竟一本YY小说嘛，但是作为一个有思想的人，读书不都是应该取其精华的吗？
+我想说的是：敢于吃天鹅肉的才是好癞蛤蟆
 
-            
-          </span>
+
+一个隐富二代的奋斗史。（比你有钱的人，比你还努力，你在干嘛？）
+一个男人的成长史。（人嘛，从来都不是一开始就天下无敌的。随着各种各样的经历，看的书越来越多，才能慢慢成熟）
+对于感情的极致描写。（宠溺孙子到了极点的奶奶，胡璃之死，张乌梅的日记）很多事，可能家里确实做的不对，但是相信家人总是想着为你好，试着多一点理解。
+对于努力的极致描写。（袁树，沈大元帅，项如意）请多努力一点，吃苦一点，总会有苦尽甘来的一天。
+运动（早晚各10圈，一个好的身体才能支持你想要完成的事情。）
+偏执（假如说别人对于赵甲第的期望值是100分的话，那么他这个偏执狂就自己在往120分上努力。疯魔状态）
+忠诚（韩道德：“韩道德，你就算一条狗，人若以国士待我，我必以国士报之”）
+读书（笔记达百万字？四年512本书？国考废纸卖141块？）
+专注（工行模型，闭关）
+浪子回头。（不跳的马小跳）
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/18/LaoZiShiLaiHaMa/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1589,17 +905,15 @@
 
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1618,10 +932,12 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
           <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1707,7 +1023,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -1729,7 +1046,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -1741,13 +1058,55 @@
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
-    
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
 
   
     
@@ -1765,37 +1124,21 @@
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
-    
-     
 
-
+  
     
   
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
 
   
   
 
   
   
+
 
 </body>
 </html>

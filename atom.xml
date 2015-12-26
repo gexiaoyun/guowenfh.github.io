@@ -568,11 +568,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[JS完美运动框架的封装过程]]></title>
+    <title><![CDATA[一个JS完美运动框架的进化封装过程]]></title>
     <link href="http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/"/>
     <id>http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/</id>
     <published>2015-12-21T09:17:29.000Z</published>
-    <updated>2015-12-21T09:20:32.764Z</updated>
+    <updated>2015-12-26T07:59:25.604Z</updated>
     <content type="html"><![CDATA[<h2 id="运动框架的实现思路">运动框架的实现思路</h2><blockquote>
 <p>运动，其实就是在一段时间内改变<code>left</code>、<code>right</code>、<code>width</code>、<code>height</code>、<code>opactiy</code>的值，到达目的地之后停止。</p>
 </blockquote>
@@ -903,7 +903,7 @@
     <link href="http://guowenfh.github.io/2015/12/18/LaoZiShiLaiHaMa/"/>
     <id>http://guowenfh.github.io/2015/12/18/LaoZiShiLaiHaMa/</id>
     <published>2015-12-18T14:19:28.000Z</published>
-    <updated>2015-12-18T16:10:23.475Z</updated>
+    <updated>2015-12-26T11:35:35.805Z</updated>
     <content type="html"><![CDATA[<h2 id="为什么我会喜欢《老子是癞蛤蟆》这本书？">为什么我会喜欢《老子是癞蛤蟆》这本书？</h2><blockquote>
 <p>说实话这本书有很多三观不正的地方，比如男主的后宫群，里面描述的各种关系等等。。。毕竟一本YY小说嘛，但是作为一个有思想的人，读书不都是应该取其精华的吗？</p>
 <p>我想说的是：<strong>敢于吃天鹅肉的才是好癞蛤蟆</strong></p>
@@ -916,7 +916,7 @@
 <li>运动（早晚各10圈，一个好的身体才能支持你想要完成的事情。）</li>
 <li>偏执（假如说别人对于赵甲第的期望值是100分的话，那么他这个偏执狂就自己在往120分上努力。疯魔状态）</li>
 <li>忠诚（韩道德：“韩道德，你就算一条狗，人若以国士待我，我必以国士报之”）</li>
-<li>读书（笔记达百万字？四年512本书？国考废纸卖1401块？）</li>
+<li>读书（笔记达百万字？四年512本书？国考废纸卖141块？）</li>
 <li>专注（工行模型，闭关）</li>
 <li>浪子回头。（不跳的马小跳）</li>
 <li>做人。</li>

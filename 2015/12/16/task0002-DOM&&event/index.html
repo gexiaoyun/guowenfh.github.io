@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JS,task0002,百度前端技术学院," />
@@ -46,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
 
 
 
@@ -71,10 +77,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -83,15 +95,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -109,7 +112,12 @@
 
 
 
-  <div class="container one-column page-post-detail">
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,6 +191,7 @@
 
       
       
+      
     </ul>
   
 
@@ -194,8 +203,9 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -226,7 +236,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-16T12:32:41+08:00" content="2015-12-16">
               2015-12-16
             </time>
@@ -234,7 +247,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -262,18 +279,20 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
+        <h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为element增加一个样式名为newClassName的新样式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">element, newClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除element中的样式oldClassName</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">element, oldClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSiblingNode</span>(<span class="params">element, siblingNode</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// your implement</span></span><br></pre></td></tr></table></figure>
 <h4 id="思路：">思路：</h4><ol>
 <li><p>其实这里可以先定义一个<code>hasClass</code>函数。用来判断该节点是否含有某个className。</p>
@@ -368,7 +387,7 @@
 <h4 id="实现如下：">实现如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 事件代理</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element   需要进行事件代理的父元素。</span><br><span class="line"> * @param   &#123;string&#125;   tag       需要触发事件的标签名</span><br><span class="line"> * @param   &#123;string&#125;   eventName 触发的事件类型</span><br><span class="line"> * @param   &#123;function&#125; listener  事件执行的函数</span><br><span class="line"> * @returns &#123;[[Type]]&#125; [[Description]]</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">return</span> addEvent(element, eventName, <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oEvent = ev || event; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">var</span> target = oEvent.target || oEvent.srcElement; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">if</span> (target.tagName.toLocaleLowerCase() === tag) &#123;</span><br><span class="line">            listener.call(target, oEvent); <span class="comment">//使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> delegateEvent(element, tag, eventName, listener);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="封装改变">封装改变</h3><p>估计有同学已经开始吐槽了，函数里面一堆$看着晕啊，那么接下来把我们的事件函数做如下：（这里应该是把前面的<code>$.on</code>、<code>$.click</code>、<code>$.un</code>、<code>$.delegate</code>都改写一下。比较简单，就拿一个出来作例子吧。）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//和上面的函数一样，原来第一个参数是传入获取到的父HTMLElement对象，现在直接传入选择器名称就行</span></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">selector, tag, event, listener</span>) </span>&#123;</span><br><span class="line"><span class="comment">//这里的`$(selector)`，是用的自己封装的选择器函数，愿意的话可以换成标准支持的`document.querySelector()`</span></span><br><span class="line">    <span class="keyword">return</span> delegateEvent($(selector), tag, event, listener);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line">$.delegate(<span class="string">'#list'</span>, <span class="string">"li"</span>, <span class="string">"click"</span>, liClicker);</span><br></pre></td></tr></table></figure>
-</span>
+
       
     </div>
 
@@ -418,15 +437,14 @@
   </div>
 
 
-        </div>
-
-        
+          </div>
+          
 
   <p>热评文章</p>
   <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
-        
+          
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/12/16/task0002-DOM&&event/"
@@ -436,10 +454,9 @@
   </div>
 
 
-      </div>
-
-      
+        </div>
         
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -467,10 +484,12 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
           <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -573,7 +592,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -595,7 +615,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -607,56 +627,48 @@
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"guowenfh"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-
-
-    
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -790,7 +802,7 @@
 
     $('.post-toc a').on('click', function (e) {
       e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
       var offset = $(targetSelector).offset().top;
       hasVelocity ?
         html.velocity('stop').velocity('scroll', {
@@ -803,11 +815,12 @@
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
+    NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
+
       if (CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+          NexT.utils.displaySidebar();
         }
       }
     };
@@ -816,13 +829,46 @@
 
 
 
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
 
   
   
 
   
   
+
 
 </body>
 </html>

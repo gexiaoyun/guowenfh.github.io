@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JS,task0002,百度前端技术学院," />
@@ -46,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
 
 
 
@@ -76,10 +82,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -88,15 +100,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -114,7 +117,12 @@
 
 
 
-  <div class="container one-column page-post-detail">
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -188,6 +196,7 @@
 
       
       
+      
     </ul>
   
 
@@ -199,8 +208,9 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -231,7 +241,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
               2015-12-19
             </time>
@@ -239,7 +252,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -267,18 +284,20 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h2 id="BOM">BOM</h2><p>实现以下函数</p>
+        <h2 id="BOM">BOM</h2><p>实现以下函数</p>
 <h3 id="判断是否为IE浏览器">判断是否为IE浏览器</h3><ul>
 <li>这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的<code>UserAgent</code>可人为修改</li>
 <li>需要实现的话，ie11的版本号中并没有<code>msie:</code>。只能通过<code>rv:</code>获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号<code>- -。</code>所以还需要多加一层判断。查找是否存在<code>Trident\/7.0;</code></li>
@@ -364,7 +383,7 @@
 <h3 id="实现如下：">实现如下：</h3><blockquote>
 <p>专门用两篇博客来记录了一下AJAX的学习过程，以及该函数的完成过程<br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a><br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a></p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * AJAX函数封装</span><br><span class="line"> * @param &#123;string&#125; url     请求地址（必须）</span><br><span class="line"> * @param &#123;object&#125; options 发送请求的选项参数</span><br><span class="line"> *   @config &#123;string&#125; [options.type] 请求发送的类型。默认为GET。</span><br><span class="line"> *   @config &#123;Object&#125; [options.data] 需要发送的数据。</span><br><span class="line"> *   @config &#123;Function&#125; [options.onsuccess] 请求成功时触发，function(oAjax.responseText, oAjax)。（必须）</span><br><span class="line"> *   @config &#123;Function&#125; [options.onfail] 请求失败时触发，function(oAjax)。(oAJax为XMLHttpRequest对象)</span><br><span class="line"> *</span><br><span class="line"> *@returns &#123;XMLHttpRequest&#125; 发送请求的XMLHttpRequest对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined,进入else</span><br><span class="line">         * 若直接使用XMLHttpRequest,在不支持的情况下会报错</span><br><span class="line">         **/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        <span class="comment">//IE6以上</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    <span class="keyword">var</span> param = <span class="string">""</span>; <span class="comment">//请求参数。</span></span><br><span class="line">    <span class="comment">//只有data存在，且为对象使才执行</span></span><br><span class="line">    <span class="keyword">var</span> data = options.data ? options.data : -<span class="number">1</span>; <span class="comment">//缓存data</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (data) === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123; <span class="comment">//请求参数拼接</span></span><br><span class="line">            <span class="keyword">if</span> (data.hasOwnProperty(key)) &#123;</span><br><span class="line">                param += key + <span class="string">"="</span> + data[key] + <span class="string">"&amp;"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        param.replace(<span class="regexp">/&amp;$/</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        param = <span class="string">"timestamp="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    <span class="keyword">var</span> type = options.type ? options.type.toUpperCase() : <span class="string">"GET"</span>;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="string">"GET"</span>) &#123;</span><br><span class="line">        oAjax.open(<span class="string">"GET"</span>, url + <span class="string">"?"</span> + param, <span class="literal">true</span>);</span><br><span class="line">        oAjax.send();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">        oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">        oAjax.send(param);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//请求成功。形参为获取到的字符串形式的响应数据</span></span><br><span class="line">                options.onsuccess(oAjax.responseText, oAjax);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//先判断是否存在请求失败函数</span></span><br><span class="line">                <span class="comment">//存在时，形参为XMLHttpRequest对象，便于进行错误进行处理</span></span><br><span class="line">                <span class="keyword">if</span> (options.onfail) &#123;</span><br><span class="line">                    options.onfail(oAjax);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> oAjax;<span class="comment">//发送请求的XMLHttpRequest对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * AJAX函数封装</span><br><span class="line"> * @param &#123;string&#125; url     请求地址（必须）</span><br><span class="line"> * @param &#123;object&#125; options 发送请求的选项参数</span><br><span class="line"> *   @config &#123;string&#125; [options.type] 请求发送的类型。默认为GET。</span><br><span class="line"> *   @config &#123;Object&#125; [options.data] 需要发送的数据。</span><br><span class="line"> *   @config &#123;Function&#125; [options.onsuccess] 请求成功时触发，function(oAjax.responseText, oAjax)。（必须）</span><br><span class="line"> *   @config &#123;Function&#125; [options.onfail] 请求失败时触发，function(oAjax)。(oAJax为XMLHttpRequest对象)</span><br><span class="line"> *</span><br><span class="line"> *@returns &#123;XMLHttpRequest&#125; 发送请求的XMLHttpRequest对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined,进入else</span><br><span class="line">         * 若直接使用XMLHttpRequest,在不支持的情况下会报错</span><br><span class="line">         **/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        <span class="comment">//IE6以上</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    <span class="keyword">var</span> param = <span class="string">""</span>; <span class="comment">//请求参数。</span></span><br><span class="line">    <span class="comment">//只有data存在，且为对象使才执行</span></span><br><span class="line">    <span class="keyword">var</span> data = options.data ? options.data : -<span class="number">1</span>; <span class="comment">//缓存data</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (data) === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123; <span class="comment">//请求参数拼接</span></span><br><span class="line">            <span class="keyword">if</span> (data.hasOwnProperty(key)) &#123;</span><br><span class="line">                param += key + <span class="string">"="</span> + data[key] + <span class="string">"&amp;"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        param.replace(<span class="regexp">/&amp;$/</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        param = <span class="string">"timestamp="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    <span class="keyword">var</span> type = options.type ? options.type.toUpperCase() : <span class="string">"GET"</span>;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="string">"GET"</span>) &#123;</span><br><span class="line">        oAjax.open(<span class="string">"GET"</span>, url + <span class="string">"?"</span> + param, <span class="literal">true</span>);</span><br><span class="line">        oAjax.send();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">        oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">        oAjax.send(param);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//请求成功。形参为获取到的字符串形式的响应数据</span></span><br><span class="line">                options.onsuccess(oAjax.responseText, oAjax);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//先判断是否存在请求失败函数</span></span><br><span class="line">                <span class="comment">//存在时，形参为XMLHttpRequest对象，便于进行错误进行处理</span></span><br><span class="line">                <span class="keyword">if</span> (options.onfail) &#123;</span><br><span class="line">                    options.onfail(oAjax);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> oAjax;<span class="comment">//发送请求的XMLHttpRequest对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -393,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/21/JS-Animated-Frames/" rel="prev" title="JS完美运动框架的封装过程">
-                JS完美运动框架的封装过程 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/21/JS-Animated-Frames/" rel="prev" title="一个JS完美运动框架的进化封装过程">
+                一个JS完美运动框架的进化封装过程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -414,15 +433,14 @@
   </div>
 
 
-        </div>
-
-        
+          </div>
+          
 
   <p>热评文章</p>
   <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
 
 
-        
+          
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/12/19/task0002-BOM&&AJAX/"
@@ -432,10 +450,9 @@
   </div>
 
 
-      </div>
-
-      
+        </div>
         
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -463,10 +480,12 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
           <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -569,7 +588,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -591,7 +611,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -603,56 +623,48 @@
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"guowenfh"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-
-
-    
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -786,7 +798,7 @@
 
     $('.post-toc a').on('click', function (e) {
       e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
       var offset = $(targetSelector).offset().top;
       hasVelocity ?
         html.velocity('stop').velocity('scroll', {
@@ -799,11 +811,12 @@
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
+    NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
+
       if (CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+          NexT.utils.displaySidebar();
         }
       }
     };
@@ -812,13 +825,46 @@
 
 
 
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
 
   
   
 
   
   
+
 
 </body>
 </html>

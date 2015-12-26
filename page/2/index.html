@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -46,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
 
 
 
@@ -66,10 +72,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -78,15 +90,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -104,9 +107,14 @@
 
 
 
-  <div class="container one-column 
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -180,6 +188,7 @@
 
       
       
+      
     </ul>
   
 
@@ -191,13 +200,19 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
 
     
 
     
+    
+      
+      
+
+      
     
 
     
@@ -232,7 +247,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-18T19:49:35+08:00" content="2015-12-18">
               2015-12-18
             </time>
@@ -240,7 +258,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -268,88 +290,32 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <blockquote>
-<p>如果看了的我上一篇博客《<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a>》的话，肯定知道我们已经完成了一个简单的get请求函数了。如下：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的get请求</span><br><span class="line"> * @param &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * @param &#123;Function&#125; fnSucc  请求成功时执行的函数</span><br><span class="line"> * @param &#123;Function&#125; fnFaild 请求失败执行的函数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AJAX</span>(<span class="params">url, fnSucc, fnFaild</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined.</span><br><span class="line">         * 进入else若直接使用XMLHttpRequest在不支持的情况下会报错</span><br><span class="line">         **/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        <span class="comment">//IE6以上</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, url, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//                alert("成功" + oAjax.responseText);</span></span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//                alert("服务器响应失败!");</span></span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>为什么要继续进行Ajax函数封装？</strong><br>原因如下：</p>
-<ol>
-<li>目前方法只能使用get请求，而不能使用post请求，而在用户注册时必须使用POST，因为POST，现在不够完整。</li>
-<li>目前请求参数只能直接写在url里，不利于动态获取数据，应该使用参数解析的方式，便于使用。</li>
-<li>get请求方式请求缓存问题。</li>
-<li>学习封装方法，</li>
-</ol>
-<h2 id="改造目标">改造目标</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>options是一个对象，里面可以包括的参数为：</p>
-<ul>
-<li>type: post或者get，可以有一个默认值</li>
-<li>data: 发送的数据，为一个键值对象或者为一个用&amp;连接的赋值字符串</li>
-<li>onsuccess: 成功时的调用函数</li>
-<li>onfail: 失败时的调用函数</li>
-</ul>
-<h2 id="改造开始（三步）">改造开始（三步）</h2><h3 id="（一）原函数的改造">（一）原函数的改造</h3><p>形参中，删除<code>fnSucc</code>、<code>fnFaild</code> 添加<code>options</code>。使成功与失败执行的函数变成options对象的 <code>onsuccess</code>、<code>onfail</code>两个方法对应的值。<br>主要是在<strong>4、接收返回</strong>部分进行更改，如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//4.接收返回</span></span><br><span class="line">oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//请求成功。形参为获取到的字符串形式的响应数据</span></span><br><span class="line">            options.onsuccess(oAjax.responseText);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//先判断是否存在请求失败函数</span></span><br><span class="line">            <span class="comment">//存在时，形参为XMLHttpRequest对象，便于进行错误进行处理</span></span><br><span class="line">            <span class="keyword">if</span> (options.onfail) &#123;</span><br><span class="line">                options.onfail(oAjax);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="（二）请求参数的处理">（二）请求参数的处理</h3><blockquote>
-<p>首先我们要知道的是在使用请求参数存在时，GET方式的请求参数特别简单。直接在url后面添加?参数名=参数值&amp;参数名二=参数值二</p>
-</blockquote>
-<h4 id="实现思路：">实现思路：</h4><ol>
-<li>首先判断options.data是否存在，不存在时使用<code>&quot;?timestamp= + new Date().getTime();</code>链接在url后，以清除缓存。<ul>
-<li>这里只是我使用的方法，这里的timestamp可以随意更改</li>
-<li><code>new Date().getTime();</code>也可以用<code>Math.random();</code>主要是保持每次请求的url都不一样。</li>
-<li>还有许多别的方法参考<a href="http://any9.com/1731.html" target="_blank" rel="external">Ajax缓存问题怎么解决？</a>。有兴趣的自己再多google一下吧。</li>
-</ul>
-</li>
-<li>存在options.data时，应该限制请求data格式便于处理，设定为JSON（当然没必要像JSON那么严格，但是应该保持键值对的格式）。</li>
-<li>使用for in 遍历data，使用<code>=</code>来连接键与值，使用<code>&amp;</code>来连接多个请求参数</li>
-<li>只需要对原函数中的<strong>2.连接服务器</strong>进行更改</li>
-</ol>
-<h4 id="实现如下：">实现如下：</h4><p>原：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2.连接服务器</span></span><br><span class="line"><span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>, url, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>现：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line"><span class="keyword">var</span> param = <span class="string">""</span>;<span class="comment">//请求参数。</span></span><br><span class="line"><span class="comment">//判断data存在时缓存它，不存在时，设为0</span></span><br><span class="line"><span class="keyword">var</span> data = options.data ? options.data : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span>(data)===<span class="string">"object"</span>)&#123;<span class="comment">//只有data为对象使才执行</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data)&#123;<span class="comment">//请求参数拼接</span></span><br><span class="line">		<span class="keyword">if</span> (data.hasOwnProperty(key)) &#123;</span><br><span class="line">			param += key+<span class="string">"="</span>+data[key]+<span class="string">"&amp;"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	param.replace(<span class="regexp">/&amp;$/</span>,<span class="string">""</span>);<span class="comment">//去除结尾的&amp;。</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	param= <span class="string">"timestamp="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.连接服务器</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>, url+<span class="string">"?"</span>+param, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="（三）请求类型选择">（三）请求类型选择</h3><blockquote>
-<p>使用post发送数据，模拟form提交。在url看不到请求参数，更加安全。</p>
-</blockquote>
-<h4 id="实现思路：-1">实现思路：</h4><ol>
-<li>判断是否type是否存在，存在时转为大写，默认为GET请求。</li>
-<li>判断请求的类型，GET 或  POST 。</li>
-<li>在使用post请求提交数据时，请求参数不跟在url后面。</li>
-<li><p>使用post请求数据必须添加在<code>open()</code>与<code>send()</code>直接添加头信息。</p>
-<ul>
-<li><code>xmlHttp.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</code></li>
-</ul>
-</li>
-<li><p>使用post请求数据，对<strong>2.连接服务器、3.发送请求</strong>部分进行处理</p>
-</li>
-</ol>
-<h4 id="实现如下：-1">实现如下：</h4><p>原：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2.连接服务器</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>, url+<span class="string">"?"</span>+param, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>现</strong>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3.发送请求</span></span><br><span class="line"><span class="keyword">var</span> type = options.type ? options.type.toUpperCase() : <span class="string">"GET"</span> ;</span><br><span class="line"><span class="keyword">if</span>(type ===<span class="string">"GET"</span>)&#123;</span><br><span class="line">	oAjax.open(<span class="string">"GET"</span>, url+<span class="string">"?"</span>+param, <span class="literal">true</span>);</span><br><span class="line">	oAjax.send();</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	oAjax.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">	oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">	oAjax.send(param);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="最终完成">最终完成</h2><blockquote>
-<p>结合之前写的，集合起来。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * AJAX函数封装</span><br><span class="line"> * @param &#123;string&#125; url     请求地址（必须）</span><br><span class="line"> * @param &#123;object&#125; options 发送请求的选项参数</span><br><span class="line"> *   @config &#123;string&#125; [options.type] 请求发送的类型。默认为GET。</span><br><span class="line"> *   @config &#123;Object&#125; [options.data] 需要发送的数据。</span><br><span class="line"> *   @config &#123;Function&#125; [options.onsuccess] 请求成功时触发，function(oAjax.responseText, oAjax)。（必须）</span><br><span class="line"> *   @config &#123;Function&#125; [options.onfail] 请求失败时触发，function(oAjax)。(oAJax为XMLHttpRequest对象)</span><br><span class="line"> *</span><br><span class="line"> *@returns &#123;XMLHttpRequest&#125; 发送请求的XMLHttpRequest对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AJAX</span>(<span class="params">url, options</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">/**</span><br><span class="line">         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined,进入else</span><br><span class="line">         * 若直接使用XMLHttpRequest,在不支持的情况下会报错</span><br><span class="line">         **/</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        <span class="comment">//IE6以上</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    <span class="keyword">var</span> param = <span class="string">""</span>; <span class="comment">//请求参数。</span></span><br><span class="line">    <span class="comment">//只有data存在，且为对象使才执行</span></span><br><span class="line">    <span class="keyword">var</span> data = options.data ? options.data : -<span class="number">1</span>; <span class="comment">//缓存data</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> (data) === <span class="string">"object"</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) &#123; <span class="comment">//请求参数拼接</span></span><br><span class="line">            <span class="keyword">if</span> (data.hasOwnProperty(key)) &#123;</span><br><span class="line">                param += key + <span class="string">"="</span> + data[key] + <span class="string">"&amp;"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        param.replace(<span class="regexp">/&amp;$/</span>, <span class="string">""</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        param = <span class="string">"timestamp="</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    <span class="keyword">var</span> type = options.type ? options.type.toUpperCase() : <span class="string">"GET"</span>;</span><br><span class="line">    <span class="keyword">if</span> (type === <span class="string">"GET"</span>) &#123;</span><br><span class="line">        oAjax.open(<span class="string">"GET"</span>, url + <span class="string">"?"</span> + param, <span class="literal">true</span>);</span><br><span class="line">        oAjax.send();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        oAjax.open(<span class="string">"POST"</span>, url, <span class="literal">true</span>);</span><br><span class="line">        oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">        oAjax.send(param);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                <span class="comment">//请求成功。形参为获取到的字符串形式的响应数据</span></span><br><span class="line">                options.onsuccess(oAjax.responseText, oAjax);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//先判断是否存在请求失败函数</span></span><br><span class="line">                <span class="comment">//存在时，形参为XMLHttpRequest对象，便于进行错误进行处理</span></span><br><span class="line">                <span class="keyword">if</span> (options.onfail) &#123;</span><br><span class="line">                    options.onfail(oAjax);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> oAjax;<span class="comment">//发送请求的XMLHttpRequest对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>最终完成就是这样了。当然还远远算不上完美，比如<code>try catch</code>的使用 ，但是通过这样的封装，还是学到很多知识。</p>
-</blockquote>
+          
+          
+如果看了的我上一篇博客《Ajax入门（一）从0开始到一次成功的GET请求》的话，肯定知道我们已经完成了一个简单的get请求函数了。如下：
 
-            
-          </span>
+123456789101112131415161718192021222324252627282930313233343536373839404142/** * 一个简单的get请求 * @param &#123;String&#125;   url     请求地址,文件名 * @param &#123;Function&#125; fnSucc  请求成功时执行的函数 * @param &#123;Function&#125; fnFaild 请求失败执行的函数 */function AJAX(url, fnSucc, fnFaild) &#123;    //1.创建ajax对象    var oAjax = null;        /**         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined.         * 进入else若直接使用XMLHttpRequest在不
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/18/Ajax-elementary-course-2-fn/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -399,7 +365,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-18T14:38:40+08:00" content="2015-12-18">
               2015-12-18
             </time>
@@ -407,7 +376,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -435,288 +408,60 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <blockquote>
-<p>续作<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a><br>传统表单在提交后整个页面都刷新</p>
-</blockquote>
-<h2 id="什么是服务器">什么是服务器</h2><h3 id="网页浏览过程分析">网页浏览过程分析</h3><p>一个完整的<strong>HTTP请求</strong>过程,通常有下面7个步骤</p>
-<ol>
-<li>建立TCP连接</li>
-<li>Web浏览器向Web服务器发送请求命令</li>
-<li>Web浏览器发送请求头信息</li>
-<li>Web服务器- 应答</li>
-<li>Web服务器- 发送应答头信息</li>
-<li>Web服务器- 向浏览器发送数据</li>
-<li><p>Web服务器- 关闭TCP连接</p>
-<p><strong>如何配置自己的服务器程序(AMP)</strong></p>
-<blockquote>
-<p>Ajax必须在服务器环境下才能正常使用</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>我使用的WampServer程序.(支持中文)<a href="http://www.wampserver.com/en/" target="_blank" rel="external">官网连接</a>.可能速度不行,不过科学上网,大家应该都会.</li>
-<li>网上的使用教程:<a href="http://www.phpthinking.com/archives/379" target="_blank" rel="external">如何安装使用</a></li>
-<li>XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了</li>
-<li>推荐使用firefox浏览器进行AJAX的调试。</li>
-</ul>
-<h2 id="Ajax原理">Ajax原理</h2><blockquote>
-<p>什么是Ajax?</p>
-</blockquote>
-<ul>
-<li>无刷新数据读取<ul>
-<li>用户注册/在线聊天室</li>
-<li>理解同步和异步(基本都用异步请求).<blockquote>
-<p>同步: 客户端发起请求–等待–&gt;服务器端处理—等待–&gt;响应–&gt;页面载入 (请求错误时全部重新载入).<br>异步: 客户端发起请求—&gt;服务器端处理—&gt;响应—&gt;页面载入(填写时,即时更新,部分返回).</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="HTTP请求">HTTP请求</h3><ul>
-<li>一个HTTP请求一般由四部分组成<ol>
-<li>HTTP请求的方法或动作如是<code>GET</code>还是<code>POST</code>请求</li>
-<li>正在请求的URL,总得知道请求的地址是什么吧?</li>
-<li>请求头,包含一些客户端环境信息,身份验证信息等</li>
-<li>请求体,也就是请求正文,请求正文中可以包含客户端提交的查询字符串信息,表单信息等等.</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/ajax/http.png" alt="HTTP请求"></p>
-<h3 id="HTTP响应">HTTP响应</h3><ul>
-<li>一个<strong>HTTP响应</strong>一般由三部分组成:<ol>
-<li>一个<strong>数字</strong>和<strong>文字</strong>组成的状态码,用来显示请求是成功还是失败</li>
-<li><strong>响应头</strong>,响应头和请求头一样包含许多有用的信息,例如服务器类型,日期时间,内容类型和长度等.</li>
-<li><strong>响应体</strong>,也就是响应正文.</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/ajax/http2.png" alt="HTTP响应"></p>
-<h3 id="HTTP请求方式">HTTP请求方式</h3><table>
-<thead>
-<tr>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>用于信息获取/查询(如:浏览帖子)</td>
-<td>用于修改服务器上的资源(如:用户注册)</td>
-</tr>
-<tr>
-<td>安全性低(使用<code>url</code>传递参数所有人可见)</td>
-<td>安全性一般(至少不可见)</td>
-</tr>
-<tr>
-<td>容量低(2000个字符)</td>
-<td>容量几乎无限</td>
-</tr>
-</tbody>
-</table>
-<h3 id="常见的HTTP状态码">常见的HTTP状态码</h3><table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-<th>原因短语</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>请求成功.一般用于GET和POST方法</td>
-<td>OK</td>
-</tr>
-<tr>
-<td>301</td>
-<td>资源移动.所请求资源移动到新的URL,浏览器自动跳转到新的URL</td>
-<td>Moved Permanently</td>
-</tr>
-<tr>
-<td>304</td>
-<td>未修改.所请求资源未修改读取缓存数据</td>
-<td>Not Modified</td>
-</tr>
-<tr>
-<td>400</td>
-<td>请求语法错误,服务器无法理解</td>
-<td>Bad Request</td>
-</tr>
-<tr>
-<td>404</td>
-<td>未找到资源,可以设置个性”404页面”</td>
-<td>Not Found</td>
-</tr>
-<tr>
-<td>500</td>
-<td>服务器内部错误</td>
-<td>internal Server Error</td>
-</tr>
-</tbody>
-</table>
-<h2 id="编写Ajax">编写Ajax</h2><p><strong>类比打电话理解Ajax编写步骤</strong> </p>
-<table>
-<thead>
-<tr>
-<th>打电话</th>
-<th>ajax请求</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.打电话</td>
-<td>1.创建Ajax对象</td>
-</tr>
-<tr>
-<td>2.拨号</td>
-<td>2.连接服务器</td>
-</tr>
-<tr>
-<td>3.建立连接</td>
-<td>3.发送请求</td>
-</tr>
-<tr>
-<td>4.听</td>
-<td>4.接受返回</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-创建Ajax对象">1.创建Ajax对象</h3><ul>
-<li>IE6:<code>ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</code>;//IE6已死,可以不考虑了</li>
-<li><code>XMLHttpRequest()</code>; </li>
-</ul>
-<p>例:<code>var request = new XMLHttpRequest();</code></p>
-<h3 id="2-连接服务器">2.连接服务器</h3><ul>
-<li><code>open(method,url,async);</code></li>
-<li>open(发送请求方法”GET/POST” ,(请求地址”文件名”) ,是否异步传输)</li>
-</ul>
-<p>例: <code>request.open(&quot;GET&quot;,&quot;get.json&quot;,true);</code></p>
-<h3 id="3-发送请求">3.发送请求</h3><ul>
-<li><code>send(string)</code><ul>
-<li>在使用<code>GET</code>方式请求时无需填写参数</li>
-<li>在使用<code>POST</code>方式时参数代表着向服务器发送的数据</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//完整的GET请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建Ajax对象</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//连接服务器</span></span><br><span class="line">oAjax.send();<span class="comment">//发送请求</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//完整的POST发送请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建</span></span><br><span class="line">oAjax.open(<span class="string">"POST"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//"POST"</span></span><br><span class="line">oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);<span class="comment">//设置HTTP头信息.必须在open与send之间,否则出现异常.</span></span><br><span class="line">oAjax.send(<span class="string">"name=陈二狗&amp;sex=男"</span>);<span class="comment">//发送给服务器的内容</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-接收返回-请求状态监控">4.接收返回-请求状态监控</h3><ul>
-<li>XMLHttpRequset取得响应</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>responseText</code></td>
-<td>获得字符串形式的响应数据</td>
-</tr>
-<tr>
-<td><code>responseXML</code></td>
-<td>获得XML形式的响应数据</td>
-</tr>
-<tr>
-<td><code>status</code>和<code>statusText</code></td>
-<td>以数字和文本方式返回HTTP状态码</td>
-</tr>
-<tr>
-<td><code>getAllResponseHeader()</code></td>
-<td>获取所有的响应报头</td>
-</tr>
-<tr>
-<td><code>getResponseheader()</code></td>
-<td>查询响应中的某个字段的值</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p><strong><code>onreadystatechange</code>事件</strong></p>
-<blockquote>
-<p>通过监听<code>onreadystatechange</code>事件,来判断请求的状态.</p>
-</blockquote>
-</li>
-<li><p><code>readyState</code>属性:响应返回所处状态</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>状态</th>
-<th>所处位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>(未初始化)</td>
-<td>还没有调用<code>open()</code>方法</td>
-</tr>
-<tr>
-<td>1</td>
-<td>(载入)</td>
-<td>已调用<code>send()</code>方法,正在发送请求</td>
-</tr>
-<tr>
-<td>2</td>
-<td>(载入完成)</td>
-<td><code>send()</code>方法完成,已经收到全部响应 内容</td>
-</tr>
-<tr>
-<td>3</td>
-<td>(解析)</td>
-<td>正在解析响应内容</td>
-</tr>
-<tr>
-<td>4</td>
-<td>(完成)</td>
-<td>响应内容解析完成,<em>可以在客户端调用了</em></td>
-</tr>
-</tbody>
-</table>
-<p>例:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本完整的一个Ajax请求</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">request.open(<span class="string">"GET"</span>,<span class="string">"get.json"</span>,<span class="literal">true</span>);</span><br><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//响应成功,做一些事情</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">//响应失败,做一些事情</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="使用函数简单的封装一个get请求">使用函数简单的封装一个get请求</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的异步get请求</span><br><span class="line"> * <span class="doctag">@param</span> &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnSucc  请求成功时执行的函数,形参为为获取的字符串值.</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnFaild 请求失败执行的函数,可选参数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">(url, fnSucc, fnFaild)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="keyword">null</span></span><br><span class="line">        <span class="comment">//此处必须需要使用window.的方式,表示为window对象的一个属性.不存在是值为undefined,进入else/若直接使用XMLHttpRequest在不支持的情况下会报错</span></span><br><span class="line">    <span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//IE6以上,现在应该不需要考虑IE6了</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, url, <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用Ajax">使用Ajax</h2><h3 id="基础:请求并显示静态TXT文件">基础:请求并显示静态TXT文件</h3><ul>
-<li>字符集编码:不一致时会出现乱码</li>
-<li>缓存,阻止缓存,(使用时间对象添加)</li>
-</ul>
-<h3 id="动态数据:请求JS(或JSON)文件">动态数据:请求JS(或JSON)文件</h3><blockquote>
-<p>注：<strong>并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code></strong>。因为eval解析数据时会有一系列问题出现。这里是因为只是学习就随意点了。<br>在需要解析请求数据时，推荐使用JSON的方法<code>JSON.parse()</code>可以将一个 JSON 字符串解析成为一个 JavaScript 值。参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="external">MDN-JSON</a></p>
-</blockquote>
-<ul>
-<li><code>eval</code>的使用<br>例: </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"54-8*6+4"</span>;</span><br><span class="line">alert(<span class="built_in">eval</span>(str)); <span class="comment">//10;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"[1,2,3]"</span>;   </span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">eval</span>(str1);</span><br><span class="line">alert(arr[<span class="number">1</span>]);<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">"function show()&#123;alert('abc');&#125;"</span>;</span><br><span class="line"><span class="built_in">eval</span>(str3);</span><br><span class="line">show() <span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
-<p><strong>一次成功的get请求</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//已经引入get函数</span></span><br><span class="line"><span class="comment">//数据文件放在同级目录下就行了。</span></span><br><span class="line">get(<span class="string">"json.js"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="built_in">eval</span>(str);</span><br><span class="line">    alert(arr[<span class="number">0</span>].a);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"服务器请求失败!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//json.js存放的文件如下</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">    [&#123;</span><br><span class="line">        a: 12,</span><br><span class="line">        b: 5</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        a: 2,</span><br><span class="line">        b: 56</span><br><span class="line">    &#125;]</span><br><span class="line">*/</span></span><br><span class="line"><span class="comment">//服务器响应成功时,将返回12.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>DOM</code>创建元素<ul>
-<li>局部刷新:请求并显示部分网页文件,使用<code>for</code>循环.</li>
-<li>这里是属于DOM操作的范围，在这里就不过多讲述了。</li>
-</ul>
-</li>
-</ul>
+          
+          
+续作Ajax入门（二）Ajax函数封装传统表单在提交后整个页面都刷新
 
-            
-          </span>
+什么是服务器网页浏览过程分析一个完整的HTTP请求过程,通常有下面7个步骤
+
+建立TCP连接
+Web浏览器向Web服务器发送请求命令
+Web浏览器发送请求头信息
+Web服务器- 应答
+Web服务器- 发送应答头信息
+Web服务器- 向浏览器发送数据
+Web服务器- 关闭TCP连接
+如何配置自己的服务器程序(AMP)
+
+Ajax必须在服务器环境下才能正常使用
+
+
+
+
+我使用的WampServer程序.(支持中文)官网连接.可能速度不行,不过科学上网,大家应该都会.
+网上的使用教程:如何安装使用
+XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了
+推荐使用firefox浏览器进行AJAX的调试。
+
+Ajax原理
+什么是Ajax?
+
+
+无刷新数据读取
+用户注册/在线聊天室
+理解同步和异步(基本都用异步请求).
+同步: 客户端发起请求–等待–&gt;服务器端处理—等待–&gt;响应–&gt;页面载入 (请求错误时全部重新载入).异步: 客户端发起请求—&gt;服务器端处理—&gt;响应—&gt;页面载入(
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/18/Ajax-elementary-course-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -766,7 +511,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-16T12:32:41+08:00" content="2015-12-16">
               2015-12-16
             </time>
@@ -774,7 +522,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -802,118 +554,30 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="DOM">DOM</h2><h3 id="添加class、移除class、是否同级元素、获取元素位置">添加class、移除class、是否同级元素、获取元素位置</h3><p>先来一些简单的，在你的<code>util.js</code>中完成以下任务：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为element增加一个样式名为newClassName的新样式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">element, newClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除element中的样式oldClassName</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">element, oldClassName</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSiblingNode</span>(<span class="params">element, siblingNode</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// your implement</span></span><br></pre></td></tr></table></figure>
-<h4 id="思路：">思路：</h4><ol>
-<li><p>其实这里可以先定义一个<code>hasClass</code>函数。用来判断该节点是否含有某个className。</p>
-<ul>
-<li><code>addClass</code>添加样式。调用<code>hasClass</code>函数，判断<code>element</code>是否含有待添加的新className，若没有则添加，否则什么都不做。</li>
-<li><code>removeClass</code>删除样式。调用<code>hasClass</code>函数，判断<code>element</code>是否含有该指定样式，若含有的话删除该className。没有的话什么都不做。</li>
-</ul>
-</li>
-<li><p>判断siblingNode和element是否为同一个父元素下的同一级的元素。这里直接判断<code>parentNode</code>就可以了吧</p>
-</li>
-<li><p>获取element相对于浏览器窗口的位置，返回一个对象{x, y}。</p>
-<ul>
-<li>这个题应该是这几个中比较复杂的一个了。因为不能直接使用<code>offsetLeft/Top</code>。<strong><code>offsetLeft/Top</code>所获取的是其相对父元素的相对位置。</strong>当多层定位嵌套时想要获取到当前元素相对网页的位置就会不对。</li>
-<li>并且由于在<code>表格</code>和<code>iframe</code>中，offsetParent对象未必等于父容器，所以也不能直接利用该元素的<code>parent</code>来获取位置，因为其对于<code>表格</code>和<code>iframe</code>中的元素不适用。</li>
-<li><p>通过查询知道有一个<code>Element.getBoundingClientRect()</code>方法。它返回一个对象，其中包含了left、right、top、bottom四个属性，分别对应了该元素的左上角和右下角相对于浏览器窗口（viewport）左上角的距离。</p>
-</li>
-<li><p>但是用该方法获取到的是元素的相对位置，在出现滚动时，距离会发生改变，要获得绝对位置时，还需要加上滚动的距离。因为Firefox或Chrome的不兼容问题需要进行兼容性处理，参考<a href="http://www.cnblogs.com/zhenyu-whu/archive/2012/11/13/2768004.html" target="_blank" rel="external">document.body.scrollTop or document.documentElement.scrollTop</a></p>
-</li>
-<li>最终根据两个值，得到绝对位置。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//其实也简单，只需要获取到两个值，取其中的最大值即可。</span></span><br><span class="line"><span class="keyword">var</span> scrollLeft = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollLeft, <span class="built_in">document</span>.body.scrollLeft);</span><br><span class="line"><span class="keyword">var</span> scrollTop = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollTop, <span class="built_in">document</span>.body.scrollTop);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="实现：">实现：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断element中是否含有className为sClass。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">element, sClass</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> element.className.match(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(\\s|^)"</span> + sClass + <span class="string">"(\\s|$)"</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为element增加一个样式名为newClassName的新样式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">element, newClassName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!hasClass(element, newClassName)) &#123;</span><br><span class="line">        element.className += <span class="string">" "</span> + newClassName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除element中的样式oldClassName</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">element, oldClassName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hasClass(element, oldClassName)) &#123;</span><br><span class="line">        <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"(\\s|^)"</span> + oldClassName + <span class="string">"(\\s|$)"</span>);</span><br><span class="line">        element.className = element.className.replace(reg, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSiblingNode</span>(<span class="params">element, siblingNode</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> element.parentNode === siblingNode.parentNode</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> position = &#123;&#125;;</span><br><span class="line">    position.x = element.getBoundingClientRect().left + <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollLeft, <span class="built_in">document</span>.body.scrollLeft);<span class="comment">//获取相对位置+滚动距离=绝对位置.</span></span><br><span class="line">    position.y = element.getBoundingClientRect().top + <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollTop, <span class="built_in">document</span>.body.scrollTop);</span><br><span class="line">    <span class="keyword">return</span> position;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考资料：（还没看完）</p>
-<ul>
-<li>阮一峰<a href="http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html" target="_blank" rel="external">用Javascript获取页面元素的位置</a></li>
-<li>博客园<a href="http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html" target="_blank" rel="external">JavaScript获取DOM元素位置和尺寸大小</a></li>
-<li>博客园<a href="http://www.cnblogs.com/myzhibie/p/4256164.html?utm_source=tuicool" target="_blank" rel="external">js中的各种宽高以及位置总结</a></li>
-</ul>
-<h3 id="挑战mini_$">挑战<code>mini $</code></h3><p>接下来挑战一个<code>mini $</code>，它和之前的<code>$</code>是不兼容的，它应该是<code>document.querySelector</code>的功能子集，在不直接使用<code>document.querySelector</code>的情况下，在你的<code>util.js</code>中完成以下任务：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现一个简单的Query</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过id获取DOM对象，通过#标示，例如</span></span><br><span class="line">$(<span class="string">"#adom"</span>); <span class="comment">// 返回id为adom的DOM对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过tagName获取DOM对象，例如</span></span><br><span class="line">$(<span class="string">"a"</span>); <span class="comment">// 返回第一个&lt;a&gt;对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过样式名称获取DOM对象，例如</span></span><br><span class="line">$(<span class="string">".classa"</span>); <span class="comment">// 返回第一个样式定义包含classa的对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过attribute匹配获取DOM对象，例如</span></span><br><span class="line">$(<span class="string">"[data-log]"</span>); <span class="comment">// 返回第一个包含属性data-log的对象</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">"[data-time=2015]"</span>); <span class="comment">// 返回第一个包含属性data-time且值为2015的对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过简单的组合提高查询便利性，例如</span></span><br><span class="line">$(<span class="string">"#adom .classa"</span>); <span class="comment">// 返回id为adom的DOM所包含的所有子节点中，第一个样式定义包含classa的对象</span></span><br></pre></td></tr></table></figure>
-<p>实现思路：<br>嗯，这个题思考了很久，网上找了很多资料但还是不怎么会，还达不到想要的效果，有点钻牛角尖了。尽量来写一下吧。（我果然是个弱鸡）。感谢秒味课堂的免费课程。</p>
-<ol>
-<li>题目要求获取到所有的节点中的第一个，所以不需要用数组来储存获取到的节点。</li>
-<li>额。。想了半天，还是使用函数包装来实现后代选择器比较好，所以VQuery函数返回是获取到的完整节点对象数组，<code>$</code>函数用来达到题目要求。</li>
-<li>所以在VQuery函数中就不需要考虑空格了，直接使用switch分支，来判定不同的情况。<code>#</code>、<code>.</code>、<code>[</code>、 <code>[=]</code>。</li>
-<li>在<code>$</code>函数中，判断字符串中是否含有空格，有空格的话需要分割成数组，数组的前一项是为父选择符，后一项为子选择符。分不同的情况来调用VQuery函数，并返回对象。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * $函数的依赖函数，选择器函数</span><br><span class="line"> * @param   &#123;string&#125; selector CSS方式的选择器</span><br><span class="line"> * @param   &#123;object&#125; root     可选参数，selector的父对象。不存在时，为document</span><br><span class="line"> * @returns &#123;Array&#125;  返回获取到的节点数组，需要注意的是使用ID选择器返的也是数组</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">VQuery</span>(<span class="params">selector, root</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//用来保存选择的元素</span></span><br><span class="line">    <span class="keyword">var</span> elements = []; <span class="comment">//保存结果节点数组</span></span><br><span class="line">    <span class="keyword">var</span> allChildren = <span class="literal">null</span>; <span class="comment">//用来保存获取到的临时节点数组</span></span><br><span class="line">    root = root || <span class="built_in">document</span>; <span class="comment">//若没有给root，赋值document</span></span><br><span class="line">    <span class="keyword">switch</span> (selector.charAt(<span class="number">0</span>)) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"#"</span>: <span class="comment">//id选择器</span></span><br><span class="line">        elements.push(root.getElementById(selector.substring(<span class="number">1</span>)));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"."</span>: <span class="comment">//class选择器</span></span><br><span class="line">        <span class="keyword">if</span> (root.getElementsByClassName) &#123; <span class="comment">//标准</span></span><br><span class="line">            elements = root.getElementsByClassName(selector.substring(<span class="number">1</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//兼容低版本浏览器</span></span><br><span class="line">            <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + selector.substring(<span class="number">1</span>) + <span class="string">"\\b"</span>);</span><br><span class="line">            allChildren = root.getElementsByTagName(<span class="string">"*"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = allChildren.length; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (reg.test(allChildren[i].className)) &#123;</span><br><span class="line">                    elements.push(allChildren[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"["</span>: <span class="comment">//属性选择器</span></span><br><span class="line">    </span><br><span class="line">        <span class="keyword">if</span> (selector.indexOf(<span class="string">"="</span>) === -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">//只有属性没有值的情况</span></span><br><span class="line">            allChildren = root.getElementsByTagName(<span class="string">"*"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = allChildren.length; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (allChildren[i].getAttribute(selector.slice(<span class="number">1</span>, -<span class="number">1</span>)) !== <span class="literal">null</span>) &#123;</span><br><span class="line">                    elements.push(allChildren[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//既有属性又有值的情况</span></span><br><span class="line">            <span class="keyword">var</span> index = selector.indexOf(<span class="string">"="</span>); <span class="comment">//缓存=出现的索引位置。</span></span><br><span class="line">            allChildren = root.getElementsByTagName(<span class="string">"*"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = allChildren.length; i &lt; len; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (allChildren[i].getAttribute(selector.slice(<span class="number">1</span>, index)) === selector.slice(index + <span class="number">1</span>, -<span class="number">1</span>)) &#123;</span><br><span class="line">                    elements.push(allChildren[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="comment">//tagName</span></span><br><span class="line">        elements = root.getElementsByTagName(selector);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> elements</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 模仿jQuery的迷你$选择符。</span><br><span class="line"> * @param   &#123;string&#125; selector CSS方式的选择器，支持简单的后代选择器（只支持一级）</span><br><span class="line"> * @returns &#123;object&#125; 返回获取到的第一个节点对象，后代选择器时，返回第一个对象中的第一个符合条件的对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line"><span class="comment">//这里trim处理输入时两端出现空格的情况，支持ie9+。但是这个函数实现起来也特别简单，可以参考我task0002（-）前面有trim函数的实现。稍微修改一下，这样就没兼容性问题了。</span></span><br><span class="line">    <span class="keyword">if</span> (selector == <span class="built_in">document</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">document</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    selector = selector.trim();</span><br><span class="line">    <span class="comment">//存在空格时，使用后代选择器</span></span><br><span class="line">    <span class="keyword">if</span> (selector.indexOf(<span class="string">" "</span>) !== -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> selectorArr = selector.split(<span class="regexp">/\s+/</span>); <span class="comment">//分割成数组，第一项为parent，第二项为chlid。</span></span><br><span class="line">        <span class="comment">//这里没去考虑特别多的情况了，只是简单的把参数传入。</span></span><br><span class="line">        <span class="keyword">return</span> VQuery(selectorArr[<span class="number">1</span>], VQuery(selectorArr[<span class="number">0</span>])[<span class="number">0</span>])[<span class="number">0</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//普通情况,只返回获取到的第一个对象</span></span><br><span class="line">        <span class="keyword">return</span> VQuery(selector,<span class="built_in">document</span>)[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="事件">事件</h2><h3 id="事件绑定、事件移除">事件绑定、事件移除</h3><p>我们来继续用封装自己的小jQuery库来实现我们对于JavaScript事件的学习，还是在你的<code>util.js</code>，实现以下函数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给一个element绑定一个针对event事件的响应，响应函数为listener</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">element, event, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例如：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clicklistener</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">addEvent($(<span class="string">"#doma"</span>), <span class="string">"click"</span>, a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除element对象对于event事件发生时执行listener的响应</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">element, event, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里慕课网的视频讲的特别清楚，就不赘述了。</p>
-<ul>
-<li><a href="http://www.imooc.com/learn/488" target="_blank" rel="external">慕课网 DOM探索之基础详解篇</a></li>
-<li><a href="http://www.imooc.com/view/138" target="_blank" rel="external">慕课网 DOM事件探秘</a>。这一部分，主要看这个。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 事件添加函数</span><br><span class="line"> * @param &#123;object&#125;   element  需要绑定事件的对象</span><br><span class="line"> * @param &#123;string&#125;   event    事件类型</span><br><span class="line"> * @param &#123;function&#125; listener 事件触发执行的函数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">element, event, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) &#123; <span class="comment">//标准</span></span><br><span class="line">        element.addEventListener(event, listener, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123; <span class="comment">//低版本ie</span></span><br><span class="line">        element.attachEvent(<span class="string">"on"</span> + event, listener);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//都不行的情况</span></span><br><span class="line">        element[<span class="string">"on"</span> + event] = listener;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 事件移除函数</span><br><span class="line"> * @param &#123;object&#125;   element  需要移除事件的对象</span><br><span class="line"> * @param &#123;string&#125;   event    事件类型</span><br><span class="line"> * @param &#123;function&#125; listener 需要被移除事件函数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">element, event, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">if</span> (element.removeEventListener) &#123; <span class="comment">//标准</span></span><br><span class="line">        element.removeEventListener(event, listener, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) &#123; <span class="comment">//低版本ie</span></span><br><span class="line">        element.detachEvent(<span class="string">"on"</span> + event, listener);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//都不行的情况</span></span><br><span class="line">        element[<span class="string">"on"</span> + event] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="click事件、Enter事件"><code>click</code>事件、<code>Enter</code>事件</h3><p>利用上面写好的事件绑定函数就很简单了。</p>
-<ul>
-<li><code>click</code>事件，这个简单，直接函数封装一层就行。</li>
-<li><code>Enter</code>事件，这里主要考察的键盘的事件的触发。<ol>
-<li><code>keydown</code>事件：在键盘按下时触发.</li>
-<li><code>keyup</code>事件：在按键释放时触发,也就是你按下键盘起来后的事件</li>
-<li><code>keypress</code>事件：在敲击按键时触发,我们可以理解为按下并抬起同一个按键</li>
-<li><code>keyCode</code>属性：在键盘事件触发时，按下的键的值。值=13时，为<code>Enter</code>键。（需进行兼容处理）</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现对click事件的绑定</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addClickEvent</span>(<span class="params">element, listener</span>) </span>&#123;</span><br><span class="line">    addEvent(element, <span class="string">"click"</span>, listener);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实现对于按Enter键时的事件绑定</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEnterEvent</span>(<span class="params">element, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    addEvent(element, <span class="string">"keydown"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//兼容性处理。</span></span><br><span class="line">        <span class="keyword">var</span> oEvent = ev || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">if</span> (oEvent.keyCode === <span class="number">13</span>) &#123;</span><br><span class="line">            listener();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>接下来我们把上面几个函数和$做一下结合，把他们变成$对象的一些方法</p>
-<ul>
-<li><code>addEvent(element, event, listener) -&gt; $.on(element, event, listener)</code>;</li>
-<li><code>removeEvent(element, event, listener) -&gt; $.un(element, event, listener)</code>;</li>
-<li><code>addClickEvent(element, listener) -&gt; $.click(element, listener)</code>;</li>
-<li><code>addEnterEvent(element, listener) -&gt; $.enter(element, listener)</code>;</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在js中万物皆对象(原谅我这么浅显的说），所以实现就特别简单了</span></span><br><span class="line">$.on = <span class="function"><span class="keyword">function</span> (<span class="params">element, type, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> addEvent(element, type, listener);</span><br><span class="line">&#125;;</span><br><span class="line">$.un = <span class="function"><span class="keyword">function</span> (<span class="params">element, type, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> removeEvent(element, type, listener);</span><br><span class="line">&#125;;</span><br><span class="line">$.click = <span class="function"><span class="keyword">function</span> (<span class="params">element, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> addClickEvent(element, listener);</span><br><span class="line">&#125;</span><br><span class="line">$.enter = <span class="function"><span class="keyword">function</span> (<span class="params">element, listener</span>) </span>&#123;</span><br><span class="line">    $.enter addEnterEvent(element, listener);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="事件代理">事件代理</h3><p>接下来考虑这样一个场景，我们需要对一个列表里所有的<code>&lt;li&gt;</code>增加点击事件的监听</p>
-<p>我们通过自己写的函数，取到id为list这个ul里面的所有li，然后通过遍历给他们绑定事件。这样我们就不需要一个一个去绑定了。但是看看以下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"item1"</span>&gt;</span>Simon<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"item2"</span>&gt;</span>Kenner<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">id</span>=<span class="value">"item3"</span>&gt;</span>Erik<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">id</span>=<span class="value">"btn"</span>&gt;</span>Change<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">function clickListener(event) &#123;</span><br><span class="line">    console.log(event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderList</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#list"</span>).innerHTML = <span class="string">'&lt;li&gt;new item&lt;/li&gt;'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    each($(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">'li'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">        $.click(item, clickListener);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    $.click($(<span class="string">"#btn"</span>), renderList);</span><br><span class="line">&#125;</span><br><span class="line">init();</span><br></pre></td></tr></table></figure>
-<p>我们增加了一个按钮，当点击按钮时，改变list里面的项目，这个时候你再点击一下li，绑定事件不再生效了。那是不是我们每次改变了DOM结构或者内容后，都需要重新绑定事件呢？当然不会这么笨，接下来学习一下事件代理，然后实现下面新的方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先简单一些</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.delegate = delegateEvent;</span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="comment">// 还是上面那段HTML，实现对list这个ul里面所有li的click事件进行响应</span></span><br><span class="line">$.delegate($(<span class="string">"#list"</span>), <span class="string">"li"</span>, <span class="string">"click"</span>, clickHandle);</span><br></pre></td></tr></table></figure>
-<h4 id="实现思路：">实现思路：</h4><p>写到这里，刚好前几天CSS魔法写的《前端进阶之路：点击事件绑定》有提到“事件代理/委托”，不过是直接使用jQuery来实现的。所以地址有兴趣的自己搜索吧-_-。</p>
-<ul>
-<li>“事件代理” 的本质是利用了事件冒泡的特性。当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；</li>
-<li><p>这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，在我们的这个例子中也就是按钮，并且它在我们的元素对象中以属性的形式出现。使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的。</p>
-</li>
-<li><p>这里就不细说事件冒泡与事件捕获了（阻止默认行为也会用到，有兴趣去网上找找看），但是要理解事件代理就必须先知道它们。下面这张图可以先看看。（图片来自网络，侵删）</p>
-</li>
-</ul>
-<p><img src="/images/ife/JavaScirpt-Event-capture-Bubble.jpg" alt="事件捕获与事件冒泡原型图"></p>
-<ul>
-<li>理解了这个之后就没那么难了，只需要进行一点兼容性处理。</li>
-<li>参考资料<ul>
-<li><a href="http://www.cnblogs.com/Aralic/p/4446030.html" target="_blank" rel="external">javascript事件代理（委托）</a></li>
-<li><a href="http://www.cnblogs.com/rubylouvre/archive/2009/08/09/1542174.html" target="_blank" rel="external">JavaScript事件代理</a></li>
-</ul>
-</li>
-</ul>
-<h4 id="实现如下：">实现如下：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 事件代理</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element   需要进行事件代理的父元素。</span><br><span class="line"> * @param   &#123;string&#125;   tag       需要触发事件的标签名</span><br><span class="line"> * @param   &#123;string&#125;   eventName 触发的事件类型</span><br><span class="line"> * @param   &#123;function&#125; listener  事件执行的函数</span><br><span class="line"> * @returns &#123;[[Type]]&#125; [[Description]]</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delegateEvent</span>(<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">return</span> addEvent(element, eventName, <span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oEvent = ev || event; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">var</span> target = oEvent.target || oEvent.srcElement; <span class="comment">//兼容处理</span></span><br><span class="line">        <span class="keyword">if</span> (target.tagName.toLocaleLowerCase() === tag) &#123;</span><br><span class="line">            listener.call(target, oEvent); <span class="comment">//使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">element, tag, eventName, listener</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> delegateEvent(element, tag, eventName, listener);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="封装改变">封装改变</h3><p>估计有同学已经开始吐槽了，函数里面一堆$看着晕啊，那么接下来把我们的事件函数做如下：（这里应该是把前面的<code>$.on</code>、<code>$.click</code>、<code>$.un</code>、<code>$.delegate</code>都改写一下。比较简单，就拿一个出来作例子吧。）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//和上面的函数一样，原来第一个参数是传入获取到的父HTMLElement对象，现在直接传入选择器名称就行</span></span><br><span class="line">$.delegate = <span class="function"><span class="keyword">function</span> (<span class="params">selector, tag, event, listener</span>) </span>&#123;</span><br><span class="line"><span class="comment">//这里的`$(selector)`，是用的自己封装的选择器函数，愿意的话可以换成标准支持的`document.querySelector()`</span></span><br><span class="line">    <span class="keyword">return</span> delegateEvent($(selector), tag, event, listener);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 使用示例：</span></span><br><span class="line">$.delegate(<span class="string">'#list'</span>, <span class="string">"li"</span>, <span class="string">"click"</span>, liClicker);</span><br></pre></td></tr></table></figure>
+          
+          DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
+1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;// 移除element中的样式oldClassNamefunction removeClass(element, oldClassName) &#123;    // your implement&#125;// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值function isSiblingNode(element, siblingNode) &#123;    // your implement&#125;// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;function getPosition(el
+          ...
 
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/16/task0002-DOM&&event/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -963,7 +627,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-14T14:45:52+08:00" content="2015-12-14">
               2015-12-14
             </time>
@@ -971,7 +638,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -999,147 +670,39 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="1-_第一个页面交互">1. 第一个页面交互</h2><ul>
-<li>这里最需要学习的老师的代码中，每一部分功能都由函数控制，没有创建一个全部变量。且最后有一个函数来控制执行代码。这个更多的是思想上的学习吧！</li>
-<li>在chrome上相加时，直接两个数拼接到一起了，而不是数值相加。因为输入的值，在获取时，默认是字符串类型的。</li>
-<li>在IE8下提示<code>对象不支持“addEventListener”属性或方法</code>。原因是IE8不支持标准的DOM事件绑定函数，它使用<code>attachEvent</code></li>
-</ul>
-<h3 id="1-1_了解JavaScript是什么">1.1 了解JavaScript是什么</h3><blockquote>
-<p>JavaScript，一种直译式脚本语言，是一种动态类型、基于原型的语言，内置支持类。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。然而现在JavaScript也可被用于网络服务器，如Node.js。</p>
-</blockquote>
-<p>上面是维基百科上的解释。不过让JavaScript流行起来的原因应该是<strong>JavaScript 是目前所有主流浏览器上唯一支持的脚本语言</strong>。下面是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/JavaScript_Overview#What_is_JavaScript.3F" target="_blank" rel="external">MDN对其核心功能的解释</a></p>
-<blockquote>
-<p>核心的 JavaScript 中包含有一组核心的对象，包括 Array，Date 和 Math，以及一组核心的语言要素，包括操作符，控制结构和语句。出于多种目的，可以通过为其增补附加的对象，对核心 JavaScript 加以扩展；例如：</p>
-<ul>
-<li>客户端: JavaScript 提供了用于控制浏览器（Navigator 或者其它浏览器）以及其中的文档对象模型（DOM）的对象，从而扩展了核心 JavaScript。例如，客户端扩展允许应用程序在 HTML 的表单中加入元素，以便响应用户事件，比如鼠标点击，表单输入和页面导航。</li>
-<li>服务器端: JavaScript 提供了服务于在服务器上运行 JavaScript 的对象，从而扩展了核心 JavaScript。例如，服务器端扩展可以允许应用程序访问关系型数据库，在应用程序的不同调用间提供信息的连续性，甚至于处理服务器之上的文件。</li>
-</ul>
-</blockquote>
-<h3 id="1-2_如何在HTML页面加载JavaScript代码">1.2 如何在HTML页面加载JavaScript代码</h3><p>可以有三种方法加载在HTML页面中引入JavaScript代码：</p>
-<ol>
-<li>内联式: 在HTML标签的style属性中定义样式，在onclick这样的属性中定义Javascript代码;</li>
-<li>嵌入式: 在页面中使用<code>&lt;script&gt;</code>标签定义Javascript代码;</li>
-<li>引用外部文件: 在<code>&lt;script&gt;</code>标签中定义<code>src</code>属性引入Javascript文件.</li>
-</ol>
-<p><strong>注意</strong>：在<code>&lt;head&gt;</code>或者<code>&lt;body&gt;</code>中都可以创建<code>&lt;script&gt;</code>标签来创建或者引入JavaScript代码。</p>
-<ul>
-<li>搜索一下，为什么我们让你把<code>&lt;script&gt;</code>放在<code>&lt;/body&gt;</code>前。<ol>
-<li>浏览器在解释HTML页面时，是按照先后顺序的，所在放在前面的<code>JS</code>代码就会先被执行。正是因为这种特性，所以放在<code>&lt;head&gt;</code>中的<code>&lt;script&gt;</code>代码会阻塞页面的渲染。</li>
-<li>其实有些JS代码可以放在<code>&lt;head&gt;&lt;/head &gt;</code>之间,比如IE9以下浏览器兼容HTML5标签的js代码，这是一个底层的兼容脚本，不涉及任何页面逻辑。那么它应该放在<code>&lt;head&gt;&lt;/head &gt;</code>间。</li>
-<li>新版浏览器<code>&lt;script&gt;</code>标签可以使用<code>defer</code>属性来延迟加载。</li>
-</ol>
-</li>
-</ul>
-<p>最简单的不就是把能放在<code>body</code>中的代码放进去吗？扩展阅读中有详细介绍。</p>
-<h3 id="1-3_扩展阅读：">1.3 扩展阅读：</h3><ul>
-<li><a href="http://javascript.ruanyifeng.com/introduction/history.html" target="_blank" rel="external">JavaScript语言的历史</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/web/1308_caiys_jsload/index.html" target="_blank" rel="external">JavaScript 的性能优化：加载和执行</a></li>
-</ul>
-<h2 id="2-_JavaScript数据类型及语言基础">2. JavaScript数据类型及语言基础</h2><ul>
-<li>创建一个JavaScript文件，比如<code>util.js</code>；</li>
-<li>实践判断各种数据类型的方法，并在<code>util.js</code>中实现以下方法：</li>
-</ul>
-<h3 id="2-1_判断各种数据类型的方法">2.1 判断各种数据类型的方法</h3><p>这里比较简单，可以参考我的另一篇博客<a href="http://guowenfh.github.io/2015/11/30/2015-12-01-javascript-type/">JavaScript类型识别</a>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断arr是否为一个数组，返回一个bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> (arr) === <span class="string">"object"</span> &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">"[object Array]"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断fn是否为一个函数，返回一个bool值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> (fn) === <span class="string">"function"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在ECMAScript5中，判断数组类型可以直接使用<code>Array.isArray()</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-2_值类型和引用类型的区别-各种对象的读取、遍历方式">2.2 值类型和引用类型的区别.各种对象的读取、遍历方式</h3><ul>
-<li>了解值类型和引用类型的区别，了解各种对象的读取、遍历方式，并在<code>util.js</code>中实现以下方法：</li>
-</ul>
-<h4 id="2-2-1_深度克隆">2.2.1 深度克隆</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝</span></span><br><span class="line"><span class="comment">// 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。不会包含函数、正则对象等</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneObject</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试用例：</span></span><br><span class="line"><span class="keyword">var</span> srcObj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        b1: [<span class="string">"hello"</span>, <span class="string">"hi"</span>],</span><br><span class="line">        b2: <span class="string">"JavaScript"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> abObj = srcObj;</span><br><span class="line"><span class="keyword">var</span> tarObj = cloneObject(srcObj);</span><br><span class="line"></span><br><span class="line">srcObj.a = <span class="number">2</span>;</span><br><span class="line">srcObj.b.b1[<span class="number">0</span>] = <span class="string">"Hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(abObj.a);</span><br><span class="line"><span class="built_in">console</span>.log(abObj.b.b1[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(tarObj.a);      <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(tarObj.b.b1[<span class="number">0</span>]);    <span class="comment">// "hello"</span></span><br></pre></td></tr></table></figure>
-<p><strong>思路如下</strong></p>
-<ol>
-<li>题目考的主要是有些对象的使用<code>=</code>直接赋值，并不是真正的复制，而是将一个新的变量指向了当前对象，共享同一个地址。在修改原对象时，新对象也会跟着改变。</li>
-<li>经过测试，数字、字符串、布尔、日期、可以直接赋值，修改不会产生影响。所以就思考了在使用<code>typeof</code>值为对象或者是原始类型时的情况。且对象类型为<code>Date</code>对象时，也使用直接赋值的方式。</li>
-<li>再考虑对象类型为<code>Array</code>或者<code>Object</code>的情况。对于结果声明其类型。</li>
-<li>接着往下走，在遍历对象时，只考虑其自身的属性，而不考虑继承来属性。若其自身值还是对象，那么 就递归调用，进一步解析、赋值，否则直接赋值。</li>
-</ol>
-<p><strong>实现：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cloneObject</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result ;<span class="comment">//返回的复制后的结果。</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span>(src)===<span class="string">"object"</span>)&#123;</span><br><span class="line">        <span class="comment">//对象为日期对象时也直接赋值。</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(src)===<span class="string">"[object Date]"</span>)&#123;</span><br><span class="line">            result = src;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//判断对象的类型是Array还是Object，结果类型更改。</span></span><br><span class="line">            result = (<span class="built_in">Object</span>.prototype.toString.call(src)===<span class="string">"[object Array]"</span>)? [] : &#123;&#125;;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> src)&#123;</span><br><span class="line">                <span class="keyword">if</span> (src.hasOwnProperty(i)) &#123; <span class="comment">//排除继承属性</span></span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">typeof</span> src[i] === <span class="string">"object"</span>) &#123;</span><br><span class="line">                        result[i] = cloneObject(src[i]); <span class="comment">//递归赋值</span></span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        result[i] = src[i]; <span class="comment">//直接赋值</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">//对于原始类型直接赋值。</span></span><br><span class="line">        result = src;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-3数组、字符串、数字等相关方法">2.3数组、字符串、数字等相关方法</h3><ul>
-<li>学习数组、字符串、数字等相关方法，在<code>util.js</code>中实现以下函数</li>
-</ul>
-<h4 id="2-3-1_数组去重操作">2.3.1  数组去重操作</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> b = uniqArray(a);</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// [1, 3, 5, 7]</span></span><br></pre></td></tr></table></figure>
-<p><strong>思路如下：</strong></p>
-<ol>
-<li>新建一下新数组</li>
-<li>循环原数组</li>
-<li>判断新数组内元素,原数组是否含有.含有则跳过<ul>
-<li>这里使用了数组的<code>indexOf</code>方法，找到某个元素在数组中的索引。简化了查找过程，若使用最简单的遍历寻找的话需要嵌套循环，是这样的，先在循环中取原数组的值，再循环在新数组中查找，若有相等的情况就不添加。（这是我的第一想法，显然比现在复杂很多）. </li>
-<li>参看来自MDN的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">Array对象</a>.里面介绍了一下数组的方法.</li>
-</ul>
-</li>
-<li>返回新数组.</li>
-</ol>
-<p><strong>实现：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArray</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> result = []; <span class="comment">//创建一个新数组。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = arr.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (result.indexOf(arr[i]) === -<span class="number">1</span>) &#123; <span class="comment">//查找是否已经含有该元素</span></span><br><span class="line">            result.push(arr[i]); <span class="comment">//添加到新数组</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//返回新数组</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-2_实现trim函数，去除字符串首尾空白">2.3.2 实现<code>trim</code>函数，去除字符串首尾空白</h4><ul>
-<li>实现一个简单的<code>trim</code>函数，用于去除一个字符串，头部和尾部的空白字符</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.字符串查找</span></span><br><span class="line"><span class="comment">// 假定空白字符只有半角空格、Tab</span></span><br><span class="line"><span class="comment">// 练习通过循环，以及字符串的一些基本方法，分别扫描字符串str头部和尾部是否有连续的空白字符，并且删掉他们，最后返回一个完成去除的字符串</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleTrim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.正则</span></span><br><span class="line"><span class="comment">// 很多同学肯定对于上面的代码看不下去，接下来，我们真正实现一个trim</span></span><br><span class="line"><span class="comment">// 对字符串头尾进行空格字符的去除、包括全角半角空格、Tab等，返回一个字符串</span></span><br><span class="line"><span class="comment">// 尝试使用一行简洁的正则表达式完成该题目</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'   hi!  '</span>;</span><br><span class="line">str = trim(str);</span><br><span class="line"><span class="built_in">console</span>.log(str); <span class="comment">// 'hi!'</span></span><br></pre></td></tr></table></figure>
-<p><strong>实现如下:</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.字符串查找</span></span><br><span class="line"><span class="comment">//这里就是利用两个循环，找到头尾第一个不是空格且不是tab符的元素。记录它们的索引，之后截取字符串。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">simpleTrim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> result = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, il = str.length; i &lt; il; i++) &#123; <span class="comment">//从头查找</span></span><br><span class="line">        <span class="keyword">if</span> (str[i] != <span class="string">" "</span> &amp;&amp; str[i] != <span class="string">"\t"</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>; <span class="comment">//查找到第一个不为空格及tab符的元素</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> j = str.length - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123; <span class="comment">//从尾查找</span></span><br><span class="line">        <span class="keyword">if</span> (str[j] != <span class="string">" "</span> &amp;&amp; str[j] != <span class="string">"\t"</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    result = str.slice(i, j + <span class="number">1</span>); <span class="comment">//截取需要的字符串。</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.正则</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> result = <span class="string">""</span>;</span><br><span class="line">    result = str.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">""</span>); <span class="comment">//使用正则进行字符串替换</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-3_遍历数组，对每一个元素执行fn函数">2.3.3 遍历数组，对每一个元素执行fn函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">arr, fn</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其中fn函数可以接受两个参数：item和index</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'java'</span>, <span class="string">'c'</span>, <span class="string">'php'</span>, <span class="string">'html'</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;</span><br><span class="line">each(arr, output);  <span class="comment">// java, c, php, html</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'java'</span>, <span class="string">'c'</span>, <span class="string">'php'</span>, <span class="string">'html'</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">output</span>(<span class="params">item, index</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index + <span class="string">': '</span> + item)</span><br><span class="line">&#125;</span><br><span class="line">each(arr, output);  <span class="comment">// 0:java, 1:c, 2:php, 3:html</span></span><br></pre></td></tr></table></figure>
-<p><strong>思路如下:</strong></p>
-<ol>
-<li>这里的实现有点类似ECMA5中数组的<code>forEach()</code>方法</li>
-<li>由示例可知:item为必须参数,index为可选参数.</li>
-<li>且item为数组项,index为数组索引.</li>
-<li>这样就简单了,循环传参.</li>
-</ol>
-<p><strong>实现：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">arr, fn</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = arr.length; i &lt; l; i++) &#123;<span class="comment">//遍历传参</span></span><br><span class="line">        fn(arr[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-3-4_获取对象里第一层元素的数量，返回整数">2.3.4 获取对象里第一层元素的数量，返回整数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取一个对象里面第一层元素的数量，返回一个整数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getObjectLength</span>(<span class="params">obj</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    b: <span class="number">2</span>,</span><br><span class="line">    c: &#123;</span><br><span class="line">        c1: <span class="number">3</span>,</span><br><span class="line">        c2: <span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getObjectLength(obj)); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p><strong>实现：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用for in遍历时,直接获取到的就是第一层的结果</span></span><br><span class="line"><span class="comment">//排除继承来的属性,使用外部变量保存循环次数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getObjectLength</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (obj.hasOwnProperty(i)) &#123;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="正则表达式">正则表达式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否为邮箱地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmail</span>(<span class="params">emailStr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为手机号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobilePhone</span>(<span class="params">phone</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>实现思路</strong></p>
-<blockquote>
-<p>这里参考我对于正则表达式入门的两篇博客</p>
-<ul>
-<li><a href="http://guowenfh.github.io/2015/12/01/Regexp-basis/">正则表达式-理论基础篇</a></li>
-<li><a href="http://guowenfh.github.io/2015/12/14/Regexp-basisCombat/">正则表达式-基础实战篇</a></li>
-</ul>
-</blockquote>
-<ul>
-<li>手机号码的匹配<ol>
-<li>这里匹配的情况是最简单的情况，并没有特别完美，比如限制开头第二位数字的范围：188，158通过，而123,191，不通过等等。</li>
-<li>可利用多选分支，例如：<code>/^1[3|5][0-9]{9}$|^18\d{9}$/</code>。不过现在虚拟运营商的加入，号码段变多了，所以直接用最简单的方法，也没事。 </li>
-</ol>
-</li>
-<li>邮箱的匹配<ol>
-<li>在@前能出现哪些东西？这里使用<code>(\w+\.)*</code>来匹配出现<code>.</code>的情况，表示出现0次或多次因为<code>.</code>后不能紧跟@，所以后面紧跟<code>\w+</code>匹配普通的字母数字情况。</li>
-<li>@后出现的邮箱后缀并不固定所以使用<code>\w+</code>来匹配。</li>
-<li>最后考虑域名结尾的级联情况所以用<code>(\.\w+)+</code>。</li>
-</ol>
-</li>
-</ul>
-<p><strong>实现如下:</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否为邮箱地址</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEmail</span>(<span class="params">emailStr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> reg = <span class="regexp">/^(\w+\.)*\w+@\w+(\.\w+)+$/</span>;</span><br><span class="line">    <span class="keyword">return</span> reg.test(emailStr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为手机号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isMobilePhone</span>(<span class="params">phone</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// your implement</span></span><br><span class="line">    <span class="keyword">var</span> reg = <span class="regexp">/^1\d&#123;10&#125;$/</span>;</span><br><span class="line">    <span class="keyword">return</span> reg.test(phone);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-4_参考资料">2.4 参考资料</h3><ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="external">JavaScript 数据结构</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="external">MDN Array</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="external">MDN String</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number" target="_blank" rel="external">MDN Number</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank" rel="external">MDN 正则</a></li>
-</ul>
+          
+          1. 第一个页面交互
+这里最需要学习的老师的代码中，每一部分功能都由函数控制，没有创建一个全部变量。且最后有一个函数来控制执行代码。这个更多的是思想上的学习吧！
+在chrome上相加时，直接两个数拼接到一起了，而不是数值相加。因为输入的值，在获取时，默认是字符串类型的。
+在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用attachEvent
 
-            
-          </span>
+1.1 了解JavaScript是什么
+JavaScript，一种直译式脚本语言，是一种动态类型、基于原型的语言，内置支持类。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。然而现在JavaScript也可被用于网络服务器，如Node.js。
+
+上面是维基百科上的解释。不过让JavaScript流行起来的原因应该是JavaScript 是目前所有主流浏览器上唯一支持的脚本语言。下面是MDN对其核心功能的解释
+
+核心的 JavaScript 中包含有一组核心的对象，包括 Arra
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/14/task0002-javascriptBasic/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1189,7 +752,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
               2015-12-14
             </time>
@@ -1197,7 +763,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/前端技术/" itemprop="url" rel="index">
@@ -1225,125 +795,45 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <blockquote>
-<p>在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!<br>建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》<a href="http://segmentfault.com/a/1190000003977848" target="_blank" rel="external">SF地址</a>、<a href="http://guowenfh.github.io/2015/12/01/Regexp-basis/">原址</a>使用效果更佳哦!</p>
-</blockquote>
-<h2 id="一个手机号码匹配的进化历程">一个手机号码匹配的进化历程</h2><blockquote>
-<p>实例代码依托于:<code>RegExpObj.test(String)</code>，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回<code>true</code></p>
-</blockquote>
-<h3 id="第一阶段-字符直接量:匹配自身">第一阶段-字符直接量:匹配自身</h3><blockquote>
-<p>先假设一个手机号码为13762571094.</p>
-</blockquote>
-<ul>
-<li><strong>最初形态</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13783281094"</span>);<span class="comment">//false</span></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/<span class="number">13762571094</span>/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//正则表达式在匹配时,只要输出匹配内容就返回true,不考虑前面的ui和后面的dd</span></span><br><span class="line"><span class="comment">//最后这种情况显然不是我们想要的.那么就进入下一阶段的实践吧.</span></span><br></pre></td></tr></table></figure>
-<h3 id="第二阶段-锚点:指定匹配位置">第二阶段-锚点:指定匹配位置</h3><ul>
-<li><code>^</code>匹配起始位置</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^http:/.test("http://www.163.com");//true</span><br><span class="line">/^http:/.test("ahttp://www.163.com");//false</span><br><span class="line">/^http:/.test("https://www.163.com");//false</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>$</code>匹配结尾位置</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/.jpg$/.test(<span class="string">"1.jpg"</span>);<span class="comment">//true</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.jpg png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"1.png"</span>);<span class="comment">//false</span></span><br><span class="line">/.jpg$/.test(<span class="string">"regexp.png"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>\b</code>:匹配单词边界</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/\bis\b/.test(<span class="string">"this"</span>);<span class="comment">//false</span></span><br><span class="line">/\bis\b/.test(<span class="string">"that is reg"</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>在了解锚点之后我们的正则就有了<strong>第一次进化</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"ui13762571094dd"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//此时这个程序就能正确识别头尾的字符了.下面我们看看</span></span><br><span class="line">/^<span class="number">13762571094</span>$/.test(<span class="string">"13712345674"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">/*在试过了多个号码后发现,这个正则只能识别这个标准的手机号码.</span><br><span class="line">这显然不是我们想要的,而不是识别一个手机号码的格式.</span><br><span class="line">在下一阶段我们将实现一个手机号码的匹配.*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="第三阶段-字符类:匹配一类字符中的一个">第三阶段-字符类:匹配一类字符中的一个</h3><ul>
-<li><code>[abc]</code>:a或b或c。<code>[0-9]</code>:一个数字</li>
-<li><code>[^0-9]</code>:非数字的一个字符。<code>[a-z]</code>:一个字母</li>
-<li><code>.</code>    :任一字符(换行符除外)</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"123"</span>)<span class="comment">//true</span></span><br><span class="line">/[<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//false</span></span><br><span class="line">/[^<span class="number">0</span>-<span class="number">9</span>]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/[a-z]/.test(<span class="string">"asd"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"allen"</span>)<span class="comment">//true</span></span><br><span class="line">/./.test(<span class="string">"12"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>了解了字符类后,我们就可以进行<strong>第二次进化(50%)</strong>。此时就能匹配一个手机号码啦！</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>[<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>][<span class="number">0</span>-<span class="number">9</span>]$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//是不是感觉代码太长了呢?[0-9]足足5个字符呢,为了省力,当然不会就这样算了.继续向下看吧</span></span><br></pre></td></tr></table></figure>
-<h4 id="元字符-具有特殊意义的字符">元字符-具有特殊意义的字符</h4><blockquote>
-<p>其实我们已经在前面使用过它啦</p>
-</blockquote>
-<ul>
-<li><code>^</code>、<code>$</code>、<code>\b</code>。</li>
-<li><code>\d</code>:<code>[0-9]</code>。<code>\D</code>:<code>[^\d]</code></li>
-<li><code>\s</code>:空白符。<code>\S</code>:<code>[^\s]</code></li>
-<li><code>\w</code>:<code>[A-Za-z0-9_]</code>。<code>\W</code>:<code>[^\w]</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/\d/.test(<span class="string">"123"</span>);<span class="comment">//true</span></span><br><span class="line">/\d/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"1dsf"</span>);<span class="comment">//true</span></span><br><span class="line">/\D/.test(<span class="string">"123"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//自己再多去实验一些例子吧</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>了解了元字符后我们就可以进行<strong>第二次进化(100%)</strong>了。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d\d\d\d\d\d\d\d\d\d$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line"><span class="comment">//是不是感觉代码比刚刚短了很多了呢?但这还是不够,什么事情都阻止不了我想偷懒的心,继续学习吧.</span></span><br></pre></td></tr></table></figure>
-<h3 id="第四阶段-量词:出现的次数">第四阶段-量词:出现的次数</h3><ul>
-<li><code>{n,m}</code>:n到m次。<code>?</code>：<code>{0,1}</code></li>
-<li><code>+</code>:<code>{1,}</code>。<code>*</code>:<code>{0,}</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/\d*/.test("abc");//true</span><br><span class="line">/\d+/.test("abc");//false</span><br><span class="line">/\d+/.test("1abc");//true</span><br><span class="line">/^https?:/.test("http://www.163.com");//true</span><br><span class="line">/^https?:/.test("https://www.163.com");//true</span><br><span class="line">/^https?:/.test("httpss://www.163.com");//false</span><br></pre></td></tr></table></figure>
-<ul>
-<li>此时我们的匹配手机号码的正则表达式就到了<strong>最后阶段</strong>了</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"1376257109x"</span>);<span class="comment">//false</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13762571094"</span>);<span class="comment">//true</span></span><br><span class="line">/^<span class="number">1</span>\d&#123;<span class="number">10</span>&#125;$/.test(<span class="string">"13712345678"</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">//到这里手机号码就匹配完成了!</span></span><br></pre></td></tr></table></figure>
-<h3 id="需要注意的点">需要注意的点</h3><ul>
-<li>这里匹配的情况是最简单的情况，并没有特别完美，比如限制开头第二位数字的范围：188，158通过，而123,191，不通过等等。</li>
-<li>可利用多选分支，例如：<code>/^1[3|5][0-9]{9}$|^18\d{9}$/</code>。不过现在虚拟运营商的加入，号码段变多了，所以直接用最简单的方法，也没事。</li>
-</ul>
-<h2 id="邮箱的匹配">邮箱的匹配</h2><p><code>/thi(c|n)k/</code>===<code>thi[cn]k</code></p>
-<p><code>\.(png|jpg|jpeg|gif)$</code>:检测一个文件是不是图片文件.</p>
-<h3 id="多选分支:网易邮箱的匹配">多选分支:网易邮箱的匹配</h3><h4 id="元字符的问题">元字符的问题</h4><p><code>/^http:/\/\/</code>..<code>/@163\.com$/</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/http:\/\<span class="comment">//.test("http://www.163.com");//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163.</span>com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163.com"</span>);<span class="comment">//true</span></span><br><span class="line">/@<span class="number">163</span>\.com$/.test(<span class="string">"abc@163acom"</span>);<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h4 id="使用多选分支。">使用多选分支。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guo啊圣诞节了@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/(\w+)@(<span class="number">163</span>|<span class="number">126</span>|<span class="number">188</span>)\.com$/.test(<span class="string">"guodong111@163.com"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="分组-邮箱的匹配">分组-邮箱的匹配</h3><p>这里需要思考几个问题.</p>
-<ol>
-<li>在@前能出现哪些东西？这里使用<code>(\w+\.)*</code>来匹配出现<code>.</code>的情况，表示出现0次或多次因为<code>.</code>后不能紧跟@，所以后面紧跟<code>\w+</code>匹配普通的字母数字情况。</li>
-<li>@后出现的邮箱后缀并不固定所以使用<code>\w+</code>来匹配。</li>
-<li>最后考虑域名结尾的级联情况所以用<code>(\.\w+)+</code></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guo啊圣诞节了@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@163acom"</span>)<span class="comment">//false</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@163.com"</span>)<span class="comment">//true</span></span><br><span class="line">/^(\w+\.)*\w+@\w+(\.\w+)+$/.test(<span class="string">"guodong111@yea.com.cn"</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h2 id="捕获">捕获</h2><ul>
-<li>保存匹配到的字符串,日后再用</li>
-<li><code>()</code>:捕获<code>/(\w+)@(163|126|188)\.com$/</code></li>
-<li>(?:):不捕获<code>/(\w+)@(?:163|126|188)\.com$/</code></li>
-<li>使用:<ul>
-<li>$1,$2,…</li>
-<li>api参数或返回值</li>
-</ul>
-</li>
-</ul>
-<h3 id="获取匹配的字符串:String-match(regexp)">获取匹配的字符串:<code>String.match(regexp)</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">'http://blog.163.com/album?id=1#comment'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(https?:)\/\/([^\/]+)(\/[^\?]*)?(\?[^#]*)?(#.*)?$/</span>;</span><br><span class="line"><span class="comment">// var reg = /^(https?:)\/\/([^\/]+)([^\?]*)([^#]*)(.*)$///与上面的正则效果相同.;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = url.match(reg);</span><br><span class="line"></span><br><span class="line"><span class="comment">//arr[0]为原字符串."http://blog.163.com/album?id=1#comment"</span></span><br><span class="line"><span class="comment">//对应括号所匹配的字符</span></span><br><span class="line"><span class="keyword">var</span> protocol= arr[<span class="number">1</span>]<span class="comment">//"http:"</span></span><br><span class="line"><span class="keyword">var</span> host= arr[<span class="number">2</span>]<span class="comment">//"blog.163.com"</span></span><br><span class="line"><span class="keyword">var</span> pathname= arr[<span class="number">3</span>]<span class="comment">//"/album"</span></span><br><span class="line"><span class="keyword">var</span> search= arr[<span class="number">4</span>]<span class="comment">//"?id=1"</span></span><br><span class="line"><span class="keyword">var</span> hash= arr[<span class="number">5</span>]<span class="comment">//"#comment"</span></span><br></pre></td></tr></table></figure>
-<h3 id="替换一个子串:str-replace(regexp/substr,replacement)">替换一个子串:<code>str.replace(regexp/substr,replacement)</code></h3><ul>
-<li>第二个参数是字符时</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"the price of tomato is 5, the price of apple is 10."</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10."</span></span><br><span class="line"><span class="comment">//使用全局模式</span></span><br><span class="line">str.replace(<span class="regexp">/(\d+)/g</span>,<span class="string">"$1.00"</span>)</span><br><span class="line"><span class="string">"the price of tomato is 5.00, the price of apple is 10.00."</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>第二个参数是函数时</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">'&lt;label&gt;网址:&lt;/label&gt;&lt;input placeholder="以http://起始"&gt;'</span>;</span><br><span class="line">html = html.replace(<span class="regexp">/[&lt;&gt;]/g</span>, <span class="function"><span class="keyword">function</span>(<span class="params">m0</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">switch</span>(m0)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&lt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;lt;'</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">'&gt;'</span>:</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'&amp;gt;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//处理后输出结果为：</span></span><br><span class="line"><span class="built_in">console</span>.log(html);<span class="comment">//&amp;lt;label&amp;gt;网址:&amp;lt;/label&amp;gt;&amp;lt;input placeholder="以http://起始"&amp;gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="更强大的检索_-_regexpObj-exec(str)">更强大的检索 - <code>regexpObj.exec(str)</code></h3><ul>
-<li>更详尽的结果:index</li>
-<li>过程的状态:lastIndex</li>
-<li>一般用不到，就不详细说明了，有兴趣的自己去了解一下。</li>
-</ul>
+          
+          
+在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
 
-            
-          </span>
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回true
+
+第一阶段-字符直接量:匹配自身
+先假设一个手机号码为13762571094.
+
+
+最初形态
+
+123456/13762571094/.test("13783281094");//false/13762571094/.test("13762571094");//true/13762571094/.test("ui13762571094dd");//true//正则表达式在匹配时,只要输出匹配内容就返回true,不考虑前面的ui和后面的dd//最后这种情况显然不是我们想要的.那么就进入下一阶段的实践吧.
+第二阶段-锚点:指定匹配位置
+^匹配起始位置
+
+123/^http
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/14/Regexp-basisCombat/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1372,17 +862,15 @@
 
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1401,10 +889,12 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/guowenfh.jpg" alt="guowenfh" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
           <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">兴趣遍地都是，专注和坚持才是真正稀缺的。</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -1490,7 +980,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -1512,7 +1003,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -1524,13 +1015,55 @@
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
   
-    
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
 
   
     
@@ -1548,37 +1081,21 @@
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
-    
-     
 
-
+  
     
   
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
 
   
   
 
   
   
+
 
 </body>
 </html>
