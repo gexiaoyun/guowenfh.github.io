@@ -232,6 +232,137 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/14/Regexp-basisCombat/" itemprop="url">
+                  正则表达式-基础实战篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/Regexp-basisCombat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Regexp-basisCombat/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
+
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回true
+
+第一阶段-字符直接量:匹配自身
+先假设一个手机号码为13762571094.
+
+
+最初形态
+
+123456/13762571094/.test("13783281094");//false/13762571094/.test("13762571094");//true/13762571094/.test("ui13762571094dd");//true//正则表达式在匹配时,只要输出匹配内容就返回true,不考虑前面的ui和后面的dd//最后这种情况显然不是我们想要的.那么就进入下一阶段的实践吧.
+第二阶段-锚点:指定匹配位置
+^匹配起始位置
+
+123/^http
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/14/Regexp-basisCombat/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/01/Regexp-basis/" itemprop="url">
                   正则表达式-理论基础篇
                 </a>
@@ -774,7 +905,7 @@ This
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -788,7 +919,7 @@ This
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
