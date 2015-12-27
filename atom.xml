@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-12-27T03:26:02.022Z</updated>
+  <updated>2015-12-27T04:38:32.914Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[jQuery入门笔记之（零）思考篇]]></title>
-    <link href="http://guowenfh.github.io/2015/12/27/jQuery_0_thinking/"/>
-    <id>http://guowenfh.github.io/2015/12/27/jQuery_0_thinking/</id>
+    <link href="http://guowenfh.github.io/2015/12/27/jQuery-00-thinking/"/>
+    <id>http://guowenfh.github.io/2015/12/27/jQuery-00-thinking/</id>
     <published>2015-12-27T03:21:38.000Z</published>
-    <updated>2015-12-27T03:26:02.022Z</updated>
+    <updated>2015-12-27T04:38:32.914Z</updated>
     <content type="html"><![CDATA[<h2 id="一-_什么是_jQuery?">一. 什么是 jQuery?</h2><blockquote>
 <p>jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方<br>法。<br>它的作者是JohnResig，于2006年创建的一个开源项目，随着越来越多开发者的加入，jQuery已经集成了JavaScript、CSS、DOM和Ajax于一体的强大功能。<br>它可以用最少的代码，完成更多复杂而困难的功能，从而得到了开发者的青睐。</p>
 </blockquote>
@@ -122,7 +122,7 @@
     
       <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
     
   </entry>
   
@@ -683,7 +683,7 @@
     <link href="http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/"/>
     <id>http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/</id>
     <published>2015-12-21T09:17:29.000Z</published>
-    <updated>2015-12-26T12:40:16.909Z</updated>
+    <updated>2015-12-27T04:38:31.191Z</updated>
     <content type="html"><![CDATA[<h2 id="运动框架的实现思路">运动框架的实现思路</h2><blockquote>
 <p>运动，其实就是在一段时间内改变<code>left</code>、<code>right</code>、<code>width</code>、<code>height</code>、<code>opactiy</code>的值，到达目的地之后停止。</p>
 </blockquote>
@@ -1109,7 +1109,7 @@
     <link href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/"/>
     <id>http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/</id>
     <published>2015-12-18T11:49:35.000Z</published>
-    <updated>2015-12-18T11:59:02.317Z</updated>
+    <updated>2015-12-27T04:38:34.698Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>如果看了的我上一篇博客《<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a>》的话，肯定知道我们已经完成了一个简单的get请求函数了。如下：</p>
 </blockquote>
@@ -1194,7 +1194,7 @@
     <link href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/"/>
     <id>http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/</id>
     <published>2015-12-18T06:38:40.000Z</published>
-    <updated>2015-12-23T00:53:25.541Z</updated>
+    <updated>2015-12-27T04:38:35.963Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>续作<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a><br>传统表单在提交后整个页面都刷新</p>
 </blockquote>
@@ -2269,7 +2269,7 @@
     <link href="http://guowenfh.github.io/2015/11/30/javascript-type/"/>
     <id>http://guowenfh.github.io/2015/11/30/javascript-type/</id>
     <published>2015-11-30T11:50:30.000Z</published>
-    <updated>2015-12-01T06:55:39.504Z</updated>
+    <updated>2015-12-27T04:38:33.681Z</updated>
     <content type="html"><![CDATA[<h2 id="类型系统">类型系统</h2><blockquote>
 <p>javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。</p>
 </blockquote>
