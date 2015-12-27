@@ -241,6 +241,128 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/27/jQuery-01-BasicCore/" itemprop="url">
+                  jQuery入门笔记之（一）基础核心
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-27T20:50:40+08:00" content="2015-12-27">
+              2015-12-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/27/jQuery-01-BasicCore/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/27/jQuery-01-BasicCore/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          一. 代码风格在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么写：
+123$(function () &#123;&#125;); //执行一个匿名函数$(‘#box’); //进行执行的ID元素选择$(‘#box’).css(‘color’, ‘red’); //执行功能函数
+由于$本身就是jQuery对象的缩写形式，那么也就是说上面的三段代码也可以写成如下形式：
+123jQuery(‘#box’).css(‘color’, ‘red’);//jQuery恒等于$// console.log(jQuery===$);//true
+且，每一次执行函数后，都会返回一个jQuery对象。如下：
+1$('#box').css('color', 'red').css('font-size', '50px'); //连缀
+二. 加载模式
+我们在之前的代码一直在使用$(function () {});这段代码进行首尾包裹，那么为什么必须要包
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/27/jQuery-01-BasicCore/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/27/jQuery-00-thinking/" itemprop="url">
                   jQuery入门笔记之（零）思考篇
                 </a>
@@ -770,127 +892,6 @@ for循环，trim函数对数组项进行去除首尾空
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/19/task0002-BOM&&AJAX/" itemprop="url">
-                  task0002（三）- BOM + AJAX
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
-              2015-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/19/task0002-BOM&&AJAX/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/task0002-BOM&&AJAX/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          BOM实现以下函数
-判断是否为IE浏览器
-这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的UserAgent可人为修改
-需要实现的话，ie11的版本号中并没有msie:。只能通过rv:获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号- -。所以还需要多加一层判断。查找是否存在Trident\/7.0;
-使用正则表达式的match方法,详细见我写的正则表达式的博客。
-
-1234567891011121314// 判断是否为IE浏览器，返回-1或者版本号function isIE() &#123;    var uUserAgent = navigator.userAgent; //保存浏览器的userAgent    var ieAgent = uUserAgent.match(/msie (\d+.\d+)/i);    if (ieAgent) &#123;        return ieAgent[1];    &#125; else &#123;        if (uUser
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/19/task0002-BOM&&AJAX/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -937,7 +938,7 @@ for循环，trim函数对数组项进行去除首尾空
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

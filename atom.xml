@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-12-27T04:38:32.914Z</updated>
+  <updated>2015-12-27T12:54:50.253Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -13,6 +13,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[jQuery入门笔记之（一）基础核心]]></title>
+    <link href="http://guowenfh.github.io/2015/12/27/jQuery-01-BasicCore/"/>
+    <id>http://guowenfh.github.io/2015/12/27/jQuery-01-BasicCore/</id>
+    <published>2015-12-27T12:50:40.000Z</published>
+    <updated>2015-12-27T12:54:50.253Z</updated>
+    <content type="html"><![CDATA[<h2 id="一-_代码风格">一. 代码风格</h2><p>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起<br>始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么写：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;&#125;); //执行一个匿名函数</span><br><span class="line">$(‘#box’); //进行执行的ID元素选择</span><br><span class="line">$(‘#box’).css(‘color’, ‘red’); //执行功能函数</span><br></pre></td></tr></table></figure>
+<p>由于$本身就是jQuery对象的缩写形式，那么也就是说上面的三段代码也可以写成如下形式：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jQuery(‘#box’).css(‘color’, ‘red’);</span><br><span class="line">//jQuery恒等于$</span><br><span class="line">// console.log(jQuery===$);//true</span><br></pre></td></tr></table></figure>
+<p>且，每一次执行函数后，都会返回一个jQuery对象。如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#box'</span>).css(<span class="string">'color'</span>, <span class="string">'red'</span>).css(<span class="string">'font-size'</span>, <span class="string">'50px'</span>); <span class="comment">//连缀</span></span><br></pre></td></tr></table></figure>
+<h2 id="二-_加载模式">二. 加载模式</h2><blockquote>
+<p>我们在之前的代码一直在使用<code>$(function () {});</code>这段代码进行首尾包裹，那么为什么必须<br>要包裹这段代码呢？</p>
+</blockquote>
+<ul>
+<li>原因是我们jQuery库文件是在body元素之前加载的，我们必须等待所有的DOM元素加载后，延迟支持DOM操作，否则就无法获取到。使用<code>document.ready()</code>,只需要等待DOM加载完成就执行。</li>
+<li>我们的原生Javascript也有一个延迟加载的方法<code>onload</code>，当网页内容全部加载完成后执行（例如图片等大文件未加载完成之前，JS功能处于假死状态）。</li>
+<li>下面来看看它们<code>load</code>和<code>ready</code>区别到底在什么地方：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th><code>window.onload</code></th>
+<th><code>$(document).ready()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>执行时机</td>
+<td>必须等待网页全部加载完毕（包括图片等），然后再执行包裹代码</td>
+<td>只需要等待网页中的DOM结构加载完毕，就能执行包裹的代码</td>
+</tr>
+<tr>
+<td>执行次数</td>
+<td>只能执行一次，如果第二次，那么第一次的执行会被覆盖</td>
+<td>可以执行多次，第N次都不会覆盖上一次</td>
+</tr>
+<tr>
+<td>简写方案</td>
+<td>无</td>
+<td><code>$(function () {});</code></td>
+</tr>
+</tbody>
+</table>
+<p>慕课网的<a href="http://www.imooc.com/learn/488" target="_blank" rel="external">DOM探索之基础详解篇</a> 有对DOM Ready的一些介绍。</p>
+<h2 id="三-_对象互换及处理多个库之间的冲突">三. 对象互换及处理多个库之间的冲突</h2><h3 id="1-_对象互换。">1. 对象互换。</h3><p>首先我们来看一下这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alert($);<span class="comment">//返回jQuery对象方法内部函数</span></span><br><span class="line">alert($());<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert($(<span class="string">"#box"</span>));<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert(<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>)); <span class="comment">////[object HTMLDivElement]，返回原生DOM对象</span></span><br></pre></td></tr></table></figure>
+<p>如何进行转换呢？<br>jQuery 想要达到获取原生的 DOM 对象，可以这么处理：<br><code>alert($(&#39;#box&#39;).get(0)); //ID 元素的第一个原生 DOM</code></p>
+<p>从上面 get(0)，这里的索引看出，jQuery 是可以进行批量处理 DOM 的，这样可以在很<br>多需要循环遍历的处理上更加得心应手。</p>
+<p>当然要重新转化成jQuery对象的话，只需要使用$()包裹原生对象就可以了。</p>
+<h3 id="2-_多个库之间的冲突">2. 多个库之间的冲突</h3><p>当一个项目中引入多个第三方库的时候，由于没有命名空间的约束（命名空间就好比同<br>一个目录下的文件夹一样，名字相同就会产生冲突），库与库之间发生冲突在所难免。</p>
+<p> jQuery 只不过是 DOM 操作为主的库，方便我们日常 Web 开发。但有时，我们的项目有更多特殊的功能需要引入其他的库，比如用户界面 UI 方面的库，游戏引擎方面的库等等一系列。</p>
+<p>所以jQuery提供了一个方法：<code>jQuery.noConflict();</code>：将$符所有权剔除。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"other_lib.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="actionscript"></span><br><span class="line">  jQuery.noConflict();</span><br><span class="line">  <span class="comment">// 现在就$所有权就不归jQuery了。</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时还可以使用</p>
+<p><code>var $$ = jQuery;</code>：这样<code>$$</code>，就完全实现了原来$函数的功能。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="一-_代码风格">一. 代码风格</h2><p>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起<br>始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么]]>
+    </summary>
+    
+      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
+    
+      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[jQuery入门笔记之（零）思考篇]]></title>

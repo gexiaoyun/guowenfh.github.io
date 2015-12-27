@@ -237,6 +237,127 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/19/task0002-BOM&&AJAX/" itemprop="url">
+                  task0002（三）- BOM + AJAX
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/19/task0002-BOM&&AJAX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/task0002-BOM&&AJAX/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          BOM实现以下函数
+判断是否为IE浏览器
+这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的UserAgent可人为修改
+需要实现的话，ie11的版本号中并没有msie:。只能通过rv:获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号- -。所以还需要多加一层判断。查找是否存在Trident\/7.0;
+使用正则表达式的match方法,详细见我写的正则表达式的博客。
+
+1234567891011121314// 判断是否为IE浏览器，返回-1或者版本号function isIE() &#123;    var uUserAgent = navigator.userAgent; //保存浏览器的userAgent    var ieAgent = uUserAgent.match(/msie (\d+.\d+)/i);    if (ieAgent) &#123;        return ieAgent[1];    &#125; else &#123;        if (uUser
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/19/task0002-BOM&&AJAX/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/18/LaoZiShiLaiHaMa/" itemprop="url">
                   《老子是癞蛤蟆》
                 </a>
@@ -725,131 +846,6 @@ Ajax原理
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/14/task0002-javascriptBasic/" itemprop="url">
-                  task0002（一）- JavaScript数据类型及语言基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-14T14:45:52+08:00" content="2015-12-14">
-              2015-12-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/14/task0002-javascriptBasic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/task0002-javascriptBasic/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1. 第一个页面交互
-这里最需要学习的老师的代码中，每一部分功能都由函数控制，没有创建一个全部变量。且最后有一个函数来控制执行代码。这个更多的是思想上的学习吧！
-在chrome上相加时，直接两个数拼接到一起了，而不是数值相加。因为输入的值，在获取时，默认是字符串类型的。
-在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用attachEvent
-
-1.1 了解JavaScript是什么
-JavaScript，一种直译式脚本语言，是一种动态类型、基于原型的语言，内置支持类。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。然而现在JavaScript也可被用于网络服务器，如Node.js。
-
-上面是维基百科上的解释。不过让JavaScript流行起来的原因应该是JavaScript 是目前所有主流浏览器上唯一支持的脚本语言。下面是MDN对其核心功能的解释
-
-核心的 JavaScript 中包含有一组核心的对象，包括 Arra
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/14/task0002-javascriptBasic/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -896,7 +892,7 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
