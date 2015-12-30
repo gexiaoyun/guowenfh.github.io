@@ -209,261 +209,6 @@
 
     
     
-      
-      
-
-      
-    
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/19/task0002-BOM&&AJAX/" itemprop="url">
-                  task0002（三）- BOM + AJAX
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
-              2015-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/19/task0002-BOM&&AJAX/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/task0002-BOM&&AJAX/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          BOM实现以下函数
-判断是否为IE浏览器
-这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的UserAgent可人为修改
-需要实现的话，ie11的版本号中并没有msie:。只能通过rv:获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号- -。所以还需要多加一层判断。查找是否存在Trident\/7.0;
-使用正则表达式的match方法,详细见我写的正则表达式的博客。
-
-1234567891011121314// 判断是否为IE浏览器，返回-1或者版本号function isIE() &#123;    var uUserAgent = navigator.userAgent; //保存浏览器的userAgent    var ieAgent = uUserAgent.match(/msie (\d+.\d+)/i);    if (ieAgent) &#123;        return ieAgent[1];    &#125; else &#123;        if (uUser
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/19/task0002-BOM&&AJAX/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/18/LaoZiShiLaiHaMa/" itemprop="url">
-                  《老子是癞蛤蟆》
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-18T22:19:28+08:00" content="2015-12-18">
-              2015-12-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/18/LaoZiShiLaiHaMa/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/18/LaoZiShiLaiHaMa/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          为什么我会喜欢《老子是癞蛤蟆》这本书？
-说实话这本书有很多三观不正的地方，比如男主的后宫群，里面描述的各种关系等等。。。毕竟一本YY小说嘛，但是作为一个有思想的人，读书不都是应该取其精华的吗？
-我想说的是：敢于吃天鹅肉的才是好癞蛤蟆
-
-
-一个隐富二代的奋斗史。（比你有钱的人，比你还努力，你在干嘛？）
-一个男人的成长史。（人嘛，从来都不是一开始就天下无敌的。随着各种各样的经历，看的书越来越多，才能慢慢成熟）
-对于感情的极致描写。（宠溺孙子到了极点的奶奶，胡璃之死，张乌梅的日记）很多事，可能家里确实做的不对，但是相信家人总是想着为你好，试着多一点理解。
-对于努力的极致描写。（袁树，沈大元帅，项如意）请多努力一点，吃苦一点，总会有苦尽甘来的一天。
-运动（早晚各10圈，一个好的身体才能支持你想要完成的事情。）
-偏执（假如说别人对于赵甲第的期望值是100分的话，那么他这个偏执狂就自己在往120分上努力。疯魔状态）
-忠诚（韩道德：“韩道德，你就算一条狗，人若以国士待我，我必以国士报之”）
-读书（笔记达百万字？四年512本书？国考废纸卖141块？）
-专注（工行模型，闭关）
-浪子回头。（不跳的马小跳）
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/18/LaoZiShiLaiHaMa/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
 
     
       
@@ -558,7 +303,7 @@
           
 如果看了的我上一篇博客《Ajax入门（一）从0开始到一次成功的GET请求》的话，肯定知道我们已经完成了一个简单的get请求函数了。如下：
 
-123456789101112131415161718192021222324252627282930313233343536373839404142/** * 一个简单的get请求 * @param &#123;String&#125;   url     请求地址,文件名 * @param &#123;Function&#125; fnSucc  请求成功时执行的函数 * @param &#123;Function&#125; fnFaild 请求失败执行的函数 */function AJAX(url, fnSucc, fnFaild) &#123;    //1.创建ajax对象    var oAjax = null;        /**         * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined.         * 进入else若直接使用XMLHttpRequest在不
+123456789101112131415161718192021222324252627282930313233343536373839404142/** * 一个简单的get请求 * @param &#123;String&#125;   url    
           ...
 
           <div class="post-more-link text-center">
@@ -687,24 +432,7 @@ Web服务器- 向浏览器发送数据
 Web服务器- 关闭TCP连接
 如何配置自己的服务器程序(AMP)
 
-Ajax必须在服务器环境下才能正常使用
-
-
-
-
-我使用的WampServer程序.(支持中文)官网连接.可能速度不行,不过科学上网,大家应该都会.
-网上的使用教程:如何安装使用
-XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了
-推荐使用firefox浏览器进行AJAX的调试。
-
-Ajax原理
-什么是Ajax?
-
-
-无刷新数据读取
-用户注册/在线聊天室
-理解同步和异步(基本都用异步请求).
-同步: 客户端发起请求–等待–&gt;服务器端处理—等待–&gt;响应–&gt;页面载入 (请求错误时全部重新载入).异步: 客户端发起请求—&gt;服务器端处理—&gt;响应—&gt;页面载入(
+Aja
           ...
 
           <div class="post-more-link text-center">
@@ -820,11 +548,373 @@ Ajax原理
         
           
           DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
-1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;// 移除element中的样式oldClassNamefunction removeClass(element, oldClassName) &#123;    // your implement&#125;// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值function isSiblingNode(element, siblingNode) &#123;    // your implement&#125;// 获取element相对于浏览器窗口的位置，返回一个对象&#123;x, y&#125;function getPosition(el
+1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;/
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/16/task0002-DOM&&event/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/14/task0002-javascriptBasic/" itemprop="url">
+                  task0002（一）- JavaScript数据类型及语言基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T14:45:52+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/task0002-javascriptBasic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/task0002-javascriptBasic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1. 第一个页面交互
+这里最需要学习的老师的代码中，每一部分功能都由函数控制，没有创建一个全部变量。且最后有一个函数来控制执行代码。这个更多的是思想上的学习吧！
+在chrome上相加时，直接两个数拼接到一起了，而不是数值相加。因为输入的值，在获取时，默认是字符串类型的。
+在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用att
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/14/task0002-javascriptBasic/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/14/Regexp-basisCombat/" itemprop="url">
+                  正则表达式-基础实战篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
+              2015-12-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/14/Regexp-basisCombat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Regexp-basisCombat/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
+
+一个手机号码匹配的进化历程
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/14/Regexp-basisCombat/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/01/Regexp-basis/" itemprop="url">
+                  正则表达式-理论基础篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-01T15:28:12+08:00" content="2015-12-01">
+              2015-12-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/01/Regexp-basis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/01/Regexp-basis/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+什么是正则表达式?可以称作规则一个描述字符模式的对象，正则表达式中的字母和数字，都是按照字面含义进行匹配的。强大的字符串匹配工具
+
+如何建立一个正则表达式？
+
+
+
+使用RegExp()构造函数来创建RegExp对象
+特殊的直接量语法来创建，定义为包含在一对斜杠（/）之间的字符
+
+例：var reg = /s$/;  , var reg = new RegExp(s$);两者效果完全相同，用来匹配
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/01/Regexp-basis/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -892,7 +982,7 @@ Ajax原理
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

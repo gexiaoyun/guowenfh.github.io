@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2015-12-27T12:54:50.253Z</updated>
+  <updated>2015-12-30T03:20:47.880Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -15,18 +15,112 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[jQuery入门笔记之（一）基础核心]]></title>
-    <link href="http://guowenfh.github.io/2015/12/27/jQuery-01-BasicCore/"/>
-    <id>http://guowenfh.github.io/2015/12/27/jQuery-01-BasicCore/</id>
+    <title><![CDATA[jQuery入门笔记之（零）思考与基础核心]]></title>
+    <link href="http://guowenfh.github.io/2015/12/27/jQuery-00-thinkingBasicCore/"/>
+    <id>http://guowenfh.github.io/2015/12/27/jQuery-00-thinkingBasicCore/</id>
     <published>2015-12-27T12:50:40.000Z</published>
-    <updated>2015-12-27T12:54:50.253Z</updated>
-    <content type="html"><![CDATA[<h2 id="一-_代码风格">一. 代码风格</h2><p>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起<br>始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么写：</p>
+    <updated>2015-12-30T03:20:47.880Z</updated>
+    <content type="html"><![CDATA[<h2 id="思考篇">思考篇</h2><h3 id="一-_什么是_jQuery?">一. 什么是 jQuery?</h3><blockquote>
+<p>jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方<br>法。<br>它的作者是JohnResig，于2006年创建的一个开源项目，随着越来越多开发者的加入，jQuery已经集成了JavaScript、CSS、DOM和Ajax于一体的强大功能。<br>它可以用最少的代码，完成更多复杂而困难的功能，从而得到了开发者的青睐。</p>
+</blockquote>
+<h4 id="jQuery的版本">jQuery的版本</h4><blockquote>
+<p>随着jQuery的不断进化，发展也变成了两条进化线：</p>
+</blockquote>
+<p>2006 年 8 月发布了 jQuery1.0，第一个稳定版本，具有对 CSS 选择符、事件处理和<br>Ajax 交互的支持。</p>
+<p>2010 年 2 月发布了 jQuery1.4.2，添加了.delegate()和.undelegate()两个新方法，提升了灵活性和浏览器一致性，对事件系统进行了升级。</p>
+<p>2011 年 1 月发布了 jQuery1.5，重写了 AJAX 组件，增强了扩展性和性能。</p>
+<p>2013 年 5 月发布了 jQuery1.10，增加了一些功能。</p>
+<p>到此，jQuery的以上版本都有非常好的浏览器兼容性，支持所有浏览器，当然包括了IE6/7/8。但是直到下面这条线的出现：</p>
+<p><strong>2013 年 4 月发布了 jQuery2.0，5 月发布了 jQuery2.0.2，一个重大更新版本，不在支持 IE6/7/8，体积更小，速度更快。</strong></p>
+<p>目前最新版本分别是jQuery 2.1.4 和jQuery 1.11.3 。</p>
+<p>现在两条线同时发展，可供大家选择。</p>
+<p><strong>根据项目要求来选择版本，下面有介绍</strong></p>
+<h4 id="关于版本学习的问题：">关于版本学习的问题：</h4><p>版本的版本号升级主要有三种：</p>
+<ul>
+<li>第一种是大版本升级，比如1.x.x升级到2.x.x，这种升级规模是最大的，改动的地方是最多的，周期也是最长的，jQuery从1.x.x到 2.x.x用了7年。</li>
+<li>第二种是小版本更新，比如1.7升级到1.8，改动适中，增加或减少了一些功能一般周期半年到一年左右。</li>
+<li>第三种是微版本更新，比如1.8.1升级到1.8.2，修复一些bug或错误之类。</li>
+</ul>
+<p>版本的内容升级主要也有三种：</p>
+<ul>
+<li>第一种是核心库的升级，比如优化选择符、优化 DOM或者AJAX等；这种升级不影响开发者的使用。</li>
+<li>第二种是功能性的升级，比如剔除一些过时的方法、新增或增强一些方法等等；这种升级需要了解和学习。</li>
+<li>第三种就是 BUG 修复之类的升级，对开发者使用没有影响。</li>
+</ul>
+<p>所以综上所述：<br>有一半左右的升级都是内部优化，升级到新版本并不需要任何学习成本。就算在新的版本增加了一些功能，只需要几分钟了解一下即可使用，无需清零之前的知识，只需后续累加。<br>当然，在早期的 jQuery 版本都创建了最常用的功能，而新版本中增加的功能，也不是最常用的，无需立即学习，立马用起。</p>
+<p><strong>所以选择一个稳定版本开始学习吧！</strong></p>
+<h3 id="二-_jQuery_的功能和优势">二. jQuery  的功能和优势</h3><p>jQuery 作为 JavaScript 封装的库，他的目的就是为了简化开发者使用 JavaScript。主要<br>功能有以下几点：</p>
+<ol>
+<li>像 CSS 那样访问和操作 DOM</li>
+<li>修改 CSS 控制页面外观</li>
+<li>简化 JavaScript 代码操作</li>
+<li>事件处理更加容易</li>
+<li>各种动画效果使用方便</li>
+<li>让 Ajax 技术更加完美</li>
+<li>基于 jQuery 大量插件</li>
+<li>自行扩展功能插件</li>
+</ol>
+<p>jQuery 最大的优势，就是特别的方便。比如模仿 CSS 获取 DOM，比原生的 JavaScript<br>要方便太多。并且在多个 CSS 设置上的集中处理非常舒服，而最常用的 CSS 功能又封装到<br>单独的方法，感觉非常有心。<br>最重要的是 jQuery 的代码兼容性非常好，你不需要总是头疼着考虑不同浏览器的兼容问题。</p>
+<blockquote>
+<p>其次像《编写高质量代码–web前端开发修炼之道》作者曹刘阳在微博上说的jq的强大真的只在那个$选择器吗?太小看jq了，私以为jq真正强大和坚挺的原因有3：<br>1、工业标准，我不知道未来还有谁能像jq一样，api上犀牛书。总之是前无古人，后面恐怕也难有来者。<br>工业标准有多可怕和难以撼动，会超出你想像。看看php就知道了。<br>2、jq的api设计对于原生js的改良。<br>3、jq丰富的插件积累。</p>
+</blockquote>
+<p>我也疑惑过，随着现在前端框架<code>angular</code>和<code>react</code>的流行，乱花渐欲迷人。微博上神仙打架，疑惑的是我们这些前端初学者，不过我是这样认为的：<br>与其把时间花在前端框架的选择上。不如先把花在这个已经成为工业标准的库上，万物殊途同归 ，最终还是在JS做文章不是吗？</p>
+<h3 id="三-_是否兼容IE低版本">三. 是否兼容IE低版本</h3><p>主要是从下面几个方面考虑：</p>
+<h4 id="1-_成本控制">1. 成本控制</h4><ul>
+<li>项目如果不是老站升级，也不是大门户的新闻站，成本控制和尽快<br>上线测试才是最重要的。</li>
+<li>而如果新站一味要求全面兼容，会导致成本加剧（随着功能多少，<br>成本倍率增加）。</li>
+<li>为了锁紧时间，就不停的加班再加班，又导致员工抵触，工作效率降低，这样成本不停的再累加。最终很多项<br>目，根本没上线就失败了。</li>
+</ul>
+<h4 id="2-_用户选择">2. 用户选择</h4><blockquote>
+<p>高质量用户和低质量用户</p>
+</blockquote>
+<ul>
+<li>例如一个3D游戏，和一款新闻应用：网易和腾讯在他们的新闻应用上，他们兼容了几乎所有的手<br>机平台，比如 IOS、安卓、黑莓、塞班等等，因为新闻应用的核心在新闻，而新闻的用户基<br>数巨大，需要兼顾高质量和低质量用户。而腾讯在 IOS 上的几十个应用，除了新闻、QQ、<br>浏览器，其他的基本都只有 IOS 和安卓，在塞班和黑莓及其他上就没有了。</li>
+<li>所以，你的应用核心是哪方面？兼容的成本有多大？会不会导致成本控制问题？用户选<br>择尤为重要，放弃低质量用户也是一种成本控制。</li>
+<li>在用户基数庞大的项目上，放弃低质量用户就有点愚笨，而你的用户基数只有 1000 人，而低质<br>量用户有 50 人，那么为了这 50 人去做兼容，那么 3 倍的成本就变得非常的昂贵。</li>
+</ul>
+<h4 id="3-_项目侧重点">3. 项目侧重点</h4><p>你的项目重点在哪里？是为了看新闻？是为了宣传线下产品？</p>
+<p>那么你其实有必要兼容低版本浏览器。<br>首先这种类型的站不需要太好的用户体验，不需要太多的交互操作，只是看，<br>而兼容的成本比较低，并且核心在新闻或产品！</p>
+<p>但如果你的项目有大量的交互、大量的操作，兼容成本较高，比如全球最大的社交网已经不兼容 IE6/7，就是这个原因。所以，项目并不是一味的全面兼容，或者全面不兼容，主要看你的项目侧重点在哪里！</p>
+<h4 id="4-_用户体验">4. 用户体验</h4><blockquote>
+<p>如果你的项目在兼容低版本浏览器成本巨大，比如社交网，有大量的 JS 和 AJAX 操作。<br>那么兼容 IE6/7 的成本确实很高，如果兼容，用户体验就会很差。</p>
+</blockquote>
+<p>兼容有两种：</p>
+<ul>
+<li>一种是高版本浏览器用性能好，体验好的模式；低版本的自动切换到兼容模式。</li>
+<li>第二种就是，不管高版本或低版本都用统一的兼容模式。</li>
+</ul>
+<p>这两种成本都很高。用户体验好的模式，能增加用户粘度，增加付费潜在用户，而用户体验差的总是被用户归纳为心目中的备胎（所谓备胎就是实在没有了才去访问，如果有，很容易被抛弃）。</p>
+<h4 id="5-_数据支持">5. 数据支持</h4><p>如果对某一种类型的网站项目有一定的研究，那么手头必须有支持的数据分析。<br>有数据分析可以更好的进行成本控制，更有魄力的解决高低质量用户的取舍。</p>
+<h4 id="6-_教育用户">6. 教育用户</h4><p>很多项目可能是有固定客户群，或者使用该项目人员质量普遍较高。那么，面对零星一<br>点的低质量用户，我们不能再去迎合他。因为迎合他，就无法用高质量的用户体验去粘住忠实用户，又不能获取到低质量用户的芳心。<br>所以，我们应有的策略是：</p>
+<ul>
+<li>牢牢把握住高质量的忠诚用户，做到他们心目中的第一；</li>
+<li>教育那部分低质量用户（比如企业级开发项目，可以直接做企业培训，安装高版本浏览器等等。互联网项目，就给出提示安装高版本浏览器即可）。</li>
+<li>那么一部分低质量用户被拉拢过来，还有一小撮死性不改的就只有放弃。切不可捡了芝麻丢了西瓜，不要贪大求全。</li>
+</ul>
+<p>结论就是：结论就是必须根据实际情况，你项目的成本情况、人员情况、用户情况和项目本身类型情况而制定，没有一刀切的<br>兼容或不兼容。</p>
+<h3 id="四-_下载及运行">四. 下载及运行</h3><blockquote>
+<p>目前最新版本分别是jQuery 2.1.4 和jQuery 1.11.3 。下载开发版，可以顺便读一读源代码。</p>
+</blockquote>
+<p>下载jQuery：</p>
+<ul>
+<li><a href="http://code.jquery.com/" target="_blank" rel="external">官网地址</a></li>
+<li><a href="http://cdn.code.baidu.com/" target="_blank" rel="external">百度静态资源共享库 CDN</a>，直接部署网上的地址</li>
+<li>当然你要是看了我写的<a href="http://guowenfh.github.io/2015/12/26/SublimeText/">一个前端程序猿的Sublime Text3的自我修养</a>的话就更加简单了，直接就可以用编辑器下载</li>
+</ul>
+<p>参考手册：</p>
+<ul>
+<li>中文在线手册<a href="http://www.css88.com/jqapi-1.9/" target="_blank" rel="external">CSS88:jQuery快速API参考</a></li>
+<li>官方英文文档<a href="http://api.jquery.com/" target="_blank" rel="external">jQuery API</a>，可配合浏览器翻译插件</li>
+</ul>
+<h4 id="第一个jQuery程序">第一个jQuery程序</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//已经引入jQ，在body内写入如下代码</span><br><span class="line"><span class="tag">&lt;<span class="title">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"hello jQuery!"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="基础核心">基础核心</h2><h3 id="一-_代码风格">一. 代码风格</h3><p>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起<br>始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么写：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(function () &#123;&#125;); //执行一个匿名函数</span><br><span class="line">$(‘#box’); //进行执行的ID元素选择</span><br><span class="line">$(‘#box’).css(‘color’, ‘red’); //执行功能函数</span><br></pre></td></tr></table></figure>
 <p>由于$本身就是jQuery对象的缩写形式，那么也就是说上面的三段代码也可以写成如下形式：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jQuery(‘#box’).css(‘color’, ‘red’);</span><br><span class="line">//jQuery恒等于$</span><br><span class="line">// console.log(jQuery===$);//true</span><br></pre></td></tr></table></figure>
 <p>且，每一次执行函数后，都会返回一个jQuery对象。如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#box'</span>).css(<span class="string">'color'</span>, <span class="string">'red'</span>).css(<span class="string">'font-size'</span>, <span class="string">'50px'</span>); <span class="comment">//连缀</span></span><br></pre></td></tr></table></figure>
-<h2 id="二-_加载模式">二. 加载模式</h2><blockquote>
+<h3 id="二-_加载模式">二. 加载模式</h3><blockquote>
 <p>我们在之前的代码一直在使用<code>$(function () {});</code>这段代码进行首尾包裹，那么为什么必须<br>要包裹这段代码呢？</p>
 </blockquote>
 <ul>
@@ -61,132 +155,21 @@
 </tbody>
 </table>
 <p>慕课网的<a href="http://www.imooc.com/learn/488" target="_blank" rel="external">DOM探索之基础详解篇</a> 有对DOM Ready的一些介绍。</p>
-<h2 id="三-_对象互换及处理多个库之间的冲突">三. 对象互换及处理多个库之间的冲突</h2><h3 id="1-_对象互换。">1. 对象互换。</h3><p>首先我们来看一下这段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alert($);<span class="comment">//返回jQuery对象方法内部函数</span></span><br><span class="line">alert($());<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert($(<span class="string">"#box"</span>));<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert(<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>)); <span class="comment">////[object HTMLDivElement]，返回原生DOM对象</span></span><br></pre></td></tr></table></figure>
+<h3 id="三-_对象互换及处理多个库之间的冲突">三. 对象互换及处理多个库之间的冲突</h3><h4 id="1-_对象互换。">1. 对象互换。</h4><p>首先我们来看一下这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alert($);<span class="comment">//返回jQuery对象方法内部函数</span></span><br><span class="line">alert($());<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert($(<span class="string">"#box"</span>));<span class="comment">//[object object]，返回jQuery对象</span></span><br><span class="line">alert(<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>)); <span class="comment">//[object HTMLDivElement]，返回原生DOM对象</span></span><br></pre></td></tr></table></figure>
 <p>如何进行转换呢？<br>jQuery 想要达到获取原生的 DOM 对象，可以这么处理：<br><code>alert($(&#39;#box&#39;).get(0)); //ID 元素的第一个原生 DOM</code></p>
 <p>从上面 get(0)，这里的索引看出，jQuery 是可以进行批量处理 DOM 的，这样可以在很<br>多需要循环遍历的处理上更加得心应手。</p>
 <p>当然要重新转化成jQuery对象的话，只需要使用$()包裹原生对象就可以了。</p>
-<h3 id="2-_多个库之间的冲突">2. 多个库之间的冲突</h3><p>当一个项目中引入多个第三方库的时候，由于没有命名空间的约束（命名空间就好比同<br>一个目录下的文件夹一样，名字相同就会产生冲突），库与库之间发生冲突在所难免。</p>
+<h4 id="2-_多个库之间的冲突">2. 多个库之间的冲突</h4><p>当一个项目中引入多个第三方库的时候，由于没有命名空间的约束（命名空间就好比同<br>一个目录下的文件夹一样，名字相同就会产生冲突），库与库之间发生冲突在所难免。</p>
 <p> jQuery 只不过是 DOM 操作为主的库，方便我们日常 Web 开发。但有时，我们的项目有更多特殊的功能需要引入其他的库，比如用户界面 UI 方面的库，游戏引擎方面的库等等一系列。</p>
 <p>所以jQuery提供了一个方法：<code>jQuery.noConflict();</code>：将$符所有权剔除。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"other_lib.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="actionscript"></span><br><span class="line">  jQuery.noConflict();</span><br><span class="line">  <span class="comment">// 现在就$所有权就不归jQuery了。</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"other_lib.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">  jQuery.noConflict();</span><br><span class="line">  <span class="comment">// 现在就$所有权就不归jQuery了。</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>同时还可以使用</p>
 <p><code>var $$ = jQuery;</code>：这样<code>$$</code>，就完全实现了原来$函数的功能。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="一-_代码风格">一. 代码风格</h2><p>在jQuery程序中，不管是页面元素的选择、内置的功能函数，都是美元符号“$”来起<br>始的。而这个“$”就是jQuery当中最重要且独有的对象：jQuery对象，所以我们在页面元素选择或执行功能函数的时候可以这么]]>
-    </summary>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[jQuery入门笔记之（零）思考篇]]></title>
-    <link href="http://guowenfh.github.io/2015/12/27/jQuery-00-thinking/"/>
-    <id>http://guowenfh.github.io/2015/12/27/jQuery-00-thinking/</id>
-    <published>2015-12-27T03:21:38.000Z</published>
-    <updated>2015-12-27T04:38:32.914Z</updated>
-    <content type="html"><![CDATA[<h2 id="一-_什么是_jQuery?">一. 什么是 jQuery?</h2><blockquote>
-<p>jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方<br>法。<br>它的作者是JohnResig，于2006年创建的一个开源项目，随着越来越多开发者的加入，jQuery已经集成了JavaScript、CSS、DOM和Ajax于一体的强大功能。<br>它可以用最少的代码，完成更多复杂而困难的功能，从而得到了开发者的青睐。</p>
-</blockquote>
-<h3 id="jQuery的版本">jQuery的版本</h3><blockquote>
-<p>随着jQuery的不断进化，发展也变成了两条进化线：</p>
-</blockquote>
-<p>2006 年 8 月发布了 jQuery1.0，第一个稳定版本，具有对 CSS 选择符、事件处理和<br>Ajax 交互的支持。</p>
-<p>2010 年 2 月发布了 jQuery1.4.2，添加了.delegate()和.undelegate()两个新方法，提升了灵活性和浏览器一致性，对事件系统进行了升级。</p>
-<p>2011 年 1 月发布了 jQuery1.5，重写了 AJAX 组件，增强了扩展性和性能。</p>
-<p>2013 年 5 月发布了 jQuery1.10，增加了一些功能。</p>
-<p>到此，jQuery的以上版本都有非常好的浏览器兼容性，支持所有浏览器，当然包括了IE6/7/8。但是直到下面这条线的出现：</p>
-<p><strong>2013 年 4 月发布了 jQuery2.0，5 月发布了 jQuery2.0.2，一个重大更新版本，不在支持 IE6/7/8，体积更小，速度更快。</strong></p>
-<p>目前最新版本分别是jQuery 2.1.4 和jQuery 1.11.3 。</p>
-<p>现在两条线同时发展，可供大家选择。</p>
-<p><strong>根据项目要求来选择版本，下面有介绍</strong></p>
-<h3 id="关于版本学习的问题：">关于版本学习的问题：</h3><p>版本的版本号升级主要有三种：</p>
-<ul>
-<li>第一种是大版本升级，比如1.x.x升级到2.x.x，这种升级规模是最大的，改动的地方是最多的，周期也是最长的，jQuery从1.x.x到 2.x.x用了7年。</li>
-<li>第二种是小版本更新，比如1.7升级到1.8，改动适中，增加或减少了一些功能一般周期半年到一年左右。</li>
-<li>第三种是微版本更新，比如1.8.1升级到1.8.2，修复一些bug或错误之类。</li>
-</ul>
-<p>版本的内容升级主要也有三种：</p>
-<ul>
-<li>第一种是核心库的升级，比如优化选择符、优化 DOM或者AJAX等；这种升级不影响开发者的使用。</li>
-<li>第二种是功能性的升级，比如剔除一些过时的方法、新增或增强一些方法等等；这种升级需要了解和学习。</li>
-<li>第三种就是 BUG 修复之类的升级，对开发者使用没有影响。</li>
-</ul>
-<p>所以综上所述：<br>有一半左右的升级都是内部优化，升级到新版本并不需要任何学习成本。就算在新的版本增加了一些功能，只需要几分钟了解一下即可使用，无需清零之前的知识，只需后续累加。<br>当然，在早期的 jQuery 版本都创建了最常用的功能，而新版本中增加的功能，也不是最常用的，无需立即学习，立马用起。</p>
-<p><strong>所以选择一个稳定版本开始学习吧！</strong></p>
-<h2 id="二-_jQuery_的功能和优势">二. jQuery  的功能和优势</h2><p>jQuery 作为 JavaScript 封装的库，他的目的就是为了简化开发者使用 JavaScript。主要<br>功能有以下几点：</p>
-<ol>
-<li>像 CSS 那样访问和操作 DOM</li>
-<li>修改 CSS 控制页面外观</li>
-<li>简化 JavaScript 代码操作</li>
-<li>事件处理更加容易</li>
-<li>各种动画效果使用方便</li>
-<li>让 Ajax 技术更加完美</li>
-<li>基于 jQuery 大量插件</li>
-<li>自行扩展功能插件</li>
-</ol>
-<p>jQuery 最大的优势，就是特别的方便。比如模仿 CSS 获取 DOM，比原生的 JavaScript<br>要方便太多。并且在多个 CSS 设置上的集中处理非常舒服，而最常用的 CSS 功能又封装到<br>单独的方法，感觉非常有心。<br>最重要的是 jQuery 的代码兼容性非常好，你不需要总是头疼着考虑不同浏览器的兼容问题。</p>
-<blockquote>
-<p>其次像《编写高质量代码–web前端开发修炼之道》作者曹刘阳在微博上说的<br>jq的强大真的只在那个$选择器吗?太小看jq了，私以为jq真正强大和坚挺的原因有3：<br>1、工业标准，我不知道未来还有谁能像jq一样，api上犀牛书。总之是前无古人，后面恐怕也难有来者。<br>工业标准有多可怕和难以撼动，会超出你想像。看看php就知道了。<br>2、jq的api设计对于原生js的改良。<br>3、jq丰富的插件积累。</p>
-</blockquote>
-<p>我也疑惑过，随着现在前端框架angularJS和reactJS的流行，乱花渐欲迷人眼，与其把时间花在前端框架的选择上。</p>
-<p>不如先把花在这个已经成为工业标准的库上，万物殊途同归 ，最终还是在JS做文章不是吗？</p>
-<h2 id="三-_是否兼容IE低版本">三. 是否兼容IE低版本</h2><p>主要是从下面几个方面考虑：</p>
-<h3 id="1-_成本控制">1. 成本控制</h3><ul>
-<li>项目如果不是老站升级，也不是大门户的新闻站，成本控制和尽快<br>上线测试才是最重要的。</li>
-<li>而如果新站一味要求全面兼容，会导致成本加剧（随着功能多少，<br>成本倍率增加）。</li>
-<li>为了锁紧时间，就不停的加班再加班，又导致员工抵触，工作效率降低，这样成本不停的再累加。最终很多项<br>目，根本没上线就失败了。</li>
-</ul>
-<h3 id="2-_用户选择">2. 用户选择</h3><blockquote>
-<p>高质量用户和低质量用户</p>
-</blockquote>
-<ul>
-<li>例如一个3D游戏，和一款新闻应用：网易和腾讯在他们的新闻应用上，他们兼容了几乎所有的手<br>机平台，比如 IOS、安卓、黑莓、塞班等等，因为新闻应用的核心在新闻，而新闻的用户基<br>数巨大，需要兼顾高质量和低质量用户。而腾讯在 IOS 上的几十个应用，除了新闻、QQ、<br>浏览器，其他的基本都只有 IOS 和安卓，在塞班和黑莓及其他上就没有了。</li>
-<li>所以，你的应用核心是哪方面？兼容的成本有多大？会不会导致成本控制问题？用户选<br>择尤为重要，放弃低质量用户也是一种成本控制。</li>
-<li>在用户基数庞大的项目上，放弃低质量用户就有点愚笨，而你的用户基数只有 1000 人，而低质<br>量用户有 50 人，那么为了这 50 人去做兼容，那么 3 倍的成本就变得非常的昂贵。</li>
-</ul>
-<h3 id="3-_项目侧重点">3. 项目侧重点</h3><p>你的项目重点在哪里？是为了看新闻？是为了宣传线下产品？</p>
-<p>那么你其实有必要兼容低版本浏览器。<br>首先这种类型的站不需要太好的用户体验，不需要太多的交互操作，只是看，<br>而兼容的成本比较低，并且核心在新闻或产品！</p>
-<p>但如果你的项目有大量的交互、大量的操作，兼容成本较高，比如全球最大的社交网已经不兼容 IE6/7，就是这个原因。所以，项目并不是一味的全面兼容，或者全面不兼容，主要看你的项目侧重点在哪里！</p>
-<h3 id="4-_用户体验">4. 用户体验</h3><blockquote>
-<p>如果你的项目在兼容低版本浏览器成本巨大，比如社交网，有大量的 JS 和 AJAX 操作。<br>那么兼容 IE6/7 的成本确实很高，如果兼容，用户体验就会很差。</p>
-</blockquote>
-<p>兼容有两种：</p>
-<ul>
-<li>一种是高版本浏览器用性能好，体验好的模式；低版本的自动切换到兼容模式。</li>
-<li>第二种就是，不管高版本或低版本都用统一的兼容模式。</li>
-</ul>
-<p>这两种成本都很高。用户体验好的模式，能增加用户粘度，增加付费潜在用户，而用户体验差的总是被用户归纳为心目中的备胎（所谓备胎就是实在没有了才去访问，如果有，很容易被抛弃）。</p>
-<h3 id="5-_数据支持">5. 数据支持</h3><p>如果对某一种类型的网站项目有一定的研究，那么手头必须有支持的数据分析。<br>有数据分析可以更好的进行成本控制，更有魄力的解决高低质量用户的取舍。</p>
-<h3 id="6-_教育用户">6. 教育用户</h3><p>很多项目可能是有固定客户群，或者使用该项目人员质量普遍较高。那么，面对零星一<br>点的低质量用户，我们不能再去迎合他。因为迎合他，就无法用高质量的用户体验去粘住忠实用户，又不能获取到低质量用户的芳心。<br>所以，我们应有的策略是：</p>
-<ul>
-<li>牢牢把握住高质量的忠诚用户，做到他们心目中的第一；</li>
-<li>教育那部分低质量用户（比如企业级开发项目，可以直接做企业培训，安装高版本浏览器等等。互联网项目，就给出提示安装高版本浏览器即可）。</li>
-<li>那么一部分低质量用户被拉拢过来，还有一小撮死性不改的就只有放弃。切不可捡了芝麻丢了西瓜，不要贪大求全。</li>
-</ul>
-<p>结论就是：结论就是必须根据实际情况，你项目的成本情况、人员情况、用户情况和项目本身类型情况而制定，没有一刀切的<br>兼容或不兼容。</p>
-<h2 id="四-_下载及运行">四. 下载及运行</h2><blockquote>
-<p>目前最新版本分别是jQuery 2.1.4 和jQuery 1.11.3 。下载开发版，可以顺便读一读源代码。</p>
-</blockquote>
-<p>下载jQuery：</p>
-<ul>
-<li><a href="http://code.jquery.com/" target="_blank" rel="external">官网地址</a></li>
-<li><a href="http://cdn.code.baidu.com/" target="_blank" rel="external">百度静态资源共享库 CDN</a></li>
-</ul>
-<p>参考手册：</p>
-<ul>
-<li>中文在线手册<a href="http://www.css88.com/jqapi-1.9/" target="_blank" rel="external">CSS88:jQuery快速API参考</a></li>
-<li>官方英文文档<a href="http://api.jquery.com/" target="_blank" rel="external">jQuery API</a>，可配合浏览器翻译插件</li>
-</ul>
-<h3 id="第一个jQuery程序">第一个jQuery程序</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//已经引入jQ，在body内写入如下代码</span><br><span class="line"><span class="tag">&lt;<span class="title">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            alert(<span class="string">"hello jQuery!"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="一-_什么是_jQuery?">一. 什么是 jQuery?</h2><blockquote>
-<p>jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方<br>法。<br>它的作者是JohnResig，于2006]]>
+    <![CDATA[<h2 id="思考篇">思考篇</h2><h3 id="一-_什么是_jQuery?">一. 什么是 jQuery?</h3><blockquote>
+<p>jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方<br>法。<br]]>
     </summary>
     
       <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
