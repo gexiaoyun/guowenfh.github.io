@@ -1,0 +1,1213 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jQuery," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。
+
+基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery入门笔记之（三）事件详解">
+<meta property="og:url" content="http://guowenfh.github.io/2015/12/31/jQuery-03-DetailedEvent/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。
+
+基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、m">
+<meta property="og:updated_time" content="2015-12-31T04:31:54.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery入门笔记之（三）事件详解">
+<meta name="twitter:description" content="在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。
+
+基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、m">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery入门笔记之（三）事件详解 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery入门笔记之（三）事件详解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-31T11:42:43+08:00" content="2015-12-31">
+              2015-12-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/31/jQuery-03-DetailedEvent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/31/jQuery-03-DetailedEvent/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。</p>
+</blockquote>
+<h2 id="基础事件">基础事件</h2><h3 id="一-_绑定事件">一. 绑定事件</h3><p>如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout等等。如果恰好你使用的是事件绑定的方式进行触发的话，一定会知道它有多么难处理，各种浏览器的兼容性，this的指向等等，但是在jQuery中，一切都不再是问题了。</p>
+<p>jQuery 通过.bind()方法来为元素绑定这些事件。可以传递三个参数：<code>.bind(eventType [,eventData ],handler(event))</code></p>
+<ol>
+<li><code>eventType</code>：表示一个或多个DOM事件类型，比如<code>click mouseover</code>。</li>
+<li><code>eventData</code>：可选参数，表示一个对象，它包含的数据键值对映射将被传递给事件处理程序。</li>
+<li><code>handler(event)</code>：表示绑定到指定元素的处理函数。event表示事件对象。</li>
+</ol>
+<p><strong>下面就是绑定的几种方式：</strong></p>
+<ol>
+<li><p>点击按钮后执行匿名函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'点击！'</span>);<span class="comment">//使用点击事件</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行普通函数式无须圆括号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).bind(<span class="string">'click'</span>, fn); </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="comment">//普通处理函数</span></span><br><span class="line">    alert(<span class="string">'点击！'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以同时绑定多个事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).bind(<span class="string">'mouseout mouseover'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    $(<span class="string">'div'</span>).html(<span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> value + <span class="string">'1'</span>;<span class="comment">//移入和移出分别执行一次</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>另一种方式：传递一个对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).bind(&#123; </span><br><span class="line">    <span class="string">'mouseout'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//事件名的引号可以省略</span></span><br><span class="line">        alert(<span class="string">'移出'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'mouseover'</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'移入'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>删除绑定函数：</strong></p>
+<p>删除绑定函数<code>.unbind( eventType [, handler ] )</code>有三种不同的用法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).unbind(); <span class="comment">//删除当前元素的所有事件,包括匿名执行的，在js中匿名执行的事件函数无法删除。</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'button'</span>).unbind(<span class="string">'click'</span>); <span class="comment">//删除当前元素的click事件，使unbind参数删除指定类型事件</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'button'</span>).unbind(<span class="string">'click'</span>, fn1); <span class="comment">//只删除click事件的fn1处理函数。</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="二-_简写事件">二. 简写事件</h3><p>当然jQuery为开发者不简简单单提供了事件绑定的方法就不管其它了，为了使开发者更加方便的绑定事件，jQuery 封装了常用的事件以便节约更多的代码。我们称它为简写事件。</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>触发条件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>click(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 click(单击)事件</td>
+</tr>
+<tr>
+<td><code>dblclick(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 dblclick(双击)事件</td>
+</tr>
+<tr>
+<td><code>mousedown(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mousedown(点击后)事件</td>
+</tr>
+<tr>
+<td><code>mouseup(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mouseup(点击弹起)事件</td>
+</tr>
+<tr>
+<td><code>mouseover(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mouseover(鼠标移入)事件</td>
+</tr>
+<tr>
+<td><code>mouseout(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mouseout(鼠标移出)事件</td>
+</tr>
+<tr>
+<td><code>mousemove(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的mousemove(鼠标移动)事件</td>
+</tr>
+<tr>
+<td><code>mouseenter(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mouseenter(鼠标穿过)事件</td>
+</tr>
+<tr>
+<td><code>mouseleave(fn)</code></td>
+<td>鼠标</td>
+<td>触发每一个匹配元素的 mouseleave(鼠标穿出)事件</td>
+</tr>
+<tr>
+<td><code>keydown(fn)</code></td>
+<td>键盘</td>
+<td>触发每一个匹配元素的 keydown(键盘按下)事件</td>
+</tr>
+<tr>
+<td><code>keyup(fn)</code></td>
+<td>键盘</td>
+<td>触发每一个匹配元素的 keyup(键盘按下弹起)事件</td>
+</tr>
+<tr>
+<td><code>keypress(fn)</code></td>
+<td>键盘</td>
+<td>触发每一个匹配元素的 keypress(键盘按下)事件</td>
+</tr>
+<tr>
+<td><code>unload(fn)</code></td>
+<td>文档</td>
+<td>当卸载本页面时绑定一个要执行的函数</td>
+</tr>
+<tr>
+<td><code>resize(fn)</code></td>
+<td>文档</td>
+<td>触发每一个匹配元素的 resize(文档改变大小)事件</td>
+</tr>
+<tr>
+<td><code>scroll(fn)</code></td>
+<td>文档</td>
+<td>触发每一个匹配元素的 scroll(滚动条拖动)事件</td>
+</tr>
+<tr>
+<td><code>focus(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 focus(焦点激活)事件</td>
+</tr>
+<tr>
+<td><code>blur(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 blur(焦点丢失)事件</td>
+</tr>
+<tr>
+<td><code>focusin(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 focusin(焦点激活)事件</td>
+</tr>
+<tr>
+<td><code>focusout(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 focusout(焦点丢失)事件</td>
+</tr>
+<tr>
+<td><code>select(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 select(文本选定)事件</td>
+</tr>
+<tr>
+<td><code>change(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 change(值改变)事件</td>
+</tr>
+<tr>
+<td><code>submit(fn)</code></td>
+<td>表单</td>
+<td>触发每一个匹配元素的 submit(表单提交)事件</td>
+</tr>
+</tbody>
+</table>
+<p>大部分事件都如同上面表格中的描述一般比较简单，也比较好理解。</p>
+<p><strong>下面着重讲几个需要注意的地方：</strong></p>
+<ol>
+<li><p><code>unload(fn)</code>、<code>resize(fn)</code>、<code>scroll(fn)</code>，使用<code>$(window)</code>对象触发。</p>
+</li>
+<li><p><code>change(fn)</code>：触发的条件是，输入框的值有改变，且失去焦点。</p>
+</li>
+<li><p><code>submit(fn)</code>：必须在form中，并且使用<code>$(&quot;form&quot;)</code>作为事件触发元素，不然无效。</p>
+</li>
+<li><p><code>.mouseover()</code>和<code>.mouseout()</code>表示鼠标移入和移出的时候触发。那么 jQuery 还封装了另外一组：<code>.mouseenter()</code>和<code>.mouseleave()</code>表示鼠标穿过和穿出的时候触发。那么这两组本质上有什么区别呢？<br>手册上的说明是：<code>.mouseenter()</code>和<code>.mouseleave()</code>这组穿过子元素不会触发，而<code>.mouseover()</code>和<code>.mouseout()</code>则会触发。<br>经过实验，代码如下：</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:100px;height:100px;background:blue;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"width:100px;height:50px;background:red;"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">strong</span>&gt;</span><span class="tag">&lt;/<span class="title">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">'div'</span>).mouseover(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//移入 div 会触发，移入 p 再触发</span></span><br><span class="line">        $(<span class="string">'strong'</span>).html(<span class="function"><span class="keyword">function</span> (<span class="params">index, value</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> value+<span class="string">'1'</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到，鼠标在div内移动时，会不停触发事件函数，输出值。而<code>mouseenter</code>则不会有这个问题。</p>
+<ol>
+<li><code>.keydown()</code>、<code>.keyup()</code>返回的是键码，而<code>.keypress()</code>返回的是字符编码。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).keydown(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(e.keyCode); <span class="comment">//按下 a 返回 229</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">'input'</span>).keypress(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(e.charCode); <span class="comment">//按下 a 返回 97</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>.focus()</code>和<code>.blur()</code>分别表示光标激活和丢失，事件触发时机是当前元素。而<code>.focusin()</code><br>和<code>.focusout()</code>也表示光标激活和丢失，但是当子元素聚焦或丢失时也触发事件。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">style="width:100px;height:50px;background:blue;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">'div'</span>).focusin(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"激活"</span>); <span class="comment">//绑定的是 div 元素，子类input触发</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">'div'</span>).focusout(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"丢失"</span>); </span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="三-_复合事件">三. 复合事件</h3><p>jQuery 提供了许多最常用的事件效果，组合一些功能实现了一些复合事件，比如切换功<br>能、智能加载等。</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ready(fn)</code></td>
+<td>当 DOM 加载完毕触发事件,已经在笔记1中介绍过</td>
+</tr>
+<tr>
+<td><code>hover([fn1,]fn2)</code></td>
+<td>当鼠标移入触发第一个 fn1，移出触发 fn2</td>
+</tr>
+<tr>
+<td><code>toggle(fn1,fn2[,fn3..])</code></td>
+<td>已废弃，当鼠标点击触发 fn1,再点击触发 fn2…</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).hover(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//背景移入移出切换效果</span></span><br><span class="line">    $(<span class="keyword">this</span>).css(<span class="string">'background'</span>, <span class="string">'black'</span>); <span class="comment">//mouseenter 效果</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).css(<span class="string">'background'</span>, <span class="string">'red'</span>); <span class="comment">//mouseleave 效果，可省略</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>注意：<code>.hover()</code>方法是结合了<code>.mouseenter()</code>方法和<code>.mouseleva()</code>方法，并非<code>.mouseover()</code><br>和<code>.mouseout()</code>方法。</p>
+<p><code>.toggle()</code>有两层含义，一层就如表格中所说（1.9版移除），一层在动画中会用到，在这里不进行讲述，若想实现表格中的效果也特别简单，可以进行如下判断：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> flag = <span class="number">1</span>; <span class="comment">//计数器,标记</span></span><br><span class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (flag == <span class="number">1</span>) &#123; <span class="comment">//第一次点击</span></span><br><span class="line">        $(<span class="keyword">this</span>).css(<span class="string">'background'</span>, <span class="string">'black'</span>);</span><br><span class="line">        flag = <span class="number">2</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (flag == <span class="number">2</span>) &#123; <span class="comment">//第二次点击</span></span><br><span class="line">        $(<span class="keyword">this</span>).css(<span class="string">'background'</span>, <span class="string">'blue'</span>);</span><br><span class="line">        flag = <span class="number">3</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (flag == <span class="number">3</span>) &#123; <span class="comment">//第三次点击</span></span><br><span class="line">        $(<span class="keyword">this</span>).css(<span class="string">'background'</span>, <span class="string">'red'</span>);</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="event对象">event对象</h2><blockquote>
+<p>JavaScript 在事件处理函数中默认传递了 event 对象，也就是事件对象。但由于浏览器<br>的兼容性，开发者总是会做兼容方面的处理。jQuery 在封装的时候，解决了这些问题，并且<br>还创建了一些非常好用的属性和方法。</p>
+</blockquote>
+<h3 id="一-_事件对象">一. 事件对象</h3><p>处理函数的e就是event事件对象（JS中需做兼容处理），event 对象有很多可用的属性和方法，这里先演示一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过处理函数传递事件对象</span></span><br><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; <span class="comment">//接受事件对象参数</span></span><br><span class="line">    alert(e.type);<span class="comment">//打印出click</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面是一些常用的属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>获取这个事件的事件类型的字符串，例如：click</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>获取绑定事件的 DOM 元素</td>
+</tr>
+<tr>
+<td><code>dat</code></td>
+<td>获取事件调用时的额外数据</td>
+</tr>
+<tr>
+<td><code>relatedTarget</code></td>
+<td>获取移入移出目标点离开或进入（最相邻）的那个 DOM 元素</td>
+</tr>
+<tr>
+<td><code>currentTarget</code></td>
+<td>获取冒泡前触发的 DOM 元素，等同与 this</td>
+</tr>
+<tr>
+<td><code>pageX/pageY</code></td>
+<td>获取相对于页面原点（最左上角）的水平/垂直坐标</td>
+</tr>
+<tr>
+<td><code>screenX/screenY</code></td>
+<td>获取显示器屏幕位置的水平/垂直坐标(非 jQuery 封装)</td>
+</tr>
+<tr>
+<td><code>clientX/clientY</code></td>
+<td>获取相对于页面视口的水平/垂直坐标(非 jQuery 封装)</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td>获取上一个相同事件的返回值</td>
+</tr>
+<tr>
+<td><code>timeStamp</code></td>
+<td>获取事件触发的时间戳</td>
+</tr>
+<tr>
+<td><code>whic</code></td>
+<td>获取鼠标的左中右键(1,2,3)，或获取键盘按键</td>
+</tr>
+<tr>
+<td><code>altKey/shiftKey/ctrlKey</code></td>
+<td>获取是否按下了 alt、shift、ctrl(非jQuery 封装)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<p><code>target</code>：是获取触发元素的DOM，就是你点了哪个就是哪个。<br><code>currentTarget</code>：是获取监听元素的DOM，你把事件绑定在谁身上就是谁。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">style</span>=<span class="value">"width:100px;height:100px;background:#999"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"width:50px;height:50px;background:#333"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">'div'</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; </span><br><span class="line">    alert(e.target);<span class="comment">//点击p时返回p</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="string">'div'</span>).bind(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123; </span><br><span class="line">        alert(e.currentTarget);<span class="comment">//无论何时都返回div，等同this</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过 event.data 获取额外数据，可以是数字、字符串、数组、对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'click'</span>, <span class="number">123</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//传递 data 数据</span></span><br><span class="line">    alert(e.data); <span class="comment">//获取数字数据123</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>获取鼠标的左中右键<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).mousedown(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(e.which);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>获取键盘的按键<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).keyup(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(e.which);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>//获取触发元素鼠标当前的位置<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(e.screenY+ <span class="string">','</span> + e.pageY + <span class="string">','</span> + e.clientY);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="二-_冒泡和默认行为">二. 冒泡和默认行为</h3><p>如果看我的百度前端技术学院task0002的笔记的话，应该都知道事件冒泡是怎么样的，事件代理就是根据它来实现的。这里我稍微说一下事件冒泡是什么样的，事件冒泡其实就是在点击一个元素时，会一层一层的向父元素递进当点击一个div时其实是这样的<code>div -&gt; body -&gt; html -&gt; document</code>。</p>
+<p>下面来看一下冒泡和默认行为的一些方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>preventDefault()</code></td>
+<td>阻止某个元素的默认行为</td>
+</tr>
+<tr>
+<td><code>isDefaultPrevented()</code></td>
+<td>判断是否调用了 preventDefault()方法</td>
+</tr>
+<tr>
+<td><code>stopPropagation()</code></td>
+<td>阻止事件冒泡</td>
+</tr>
+<tr>
+<td><code>isPropagationStopped()</code></td>
+<td>判断是否调用了 stopPropagation()方法</td>
+</tr>
+<tr>
+<td><code>stopImmediatePropagation()</code></td>
+<td>阻止事件冒泡，并取消该事件的后续事件处理函数</td>
+</tr>
+<tr>
+<td><code>isImmediatePropagationStopped()</code></td>
+<td>判断是否调用了 stopImmediatePropagation()方法</td>
+</tr>
+</tbody>
+</table>
+<p>这些方法都是event对象的一些方法，需要注意的是：<br>先来看到最后两个，名字都长到让人记不住的方法，，如代码中所示：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"div"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.stopImmediatePropagation() ;</span><br><span class="line">    alert(<span class="string">"div1"</span>);<span class="comment">//只弹出div1</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"div"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"div2"</span>);<span class="comment">//因第一个点击事件取消了该事件的后续处理函数，这里将不被执行</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>同时取消默认行为以及事件冒泡：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://guowenfh.github.io"</span>&gt;</span>三省吾身丶丶<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> &gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">"a"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// e.preventDefault();//阻止默认行为</span></span><br><span class="line">        <span class="comment">// e.stopPropagation();//阻止事件冒泡</span></span><br><span class="line">        alert(<span class="string">"a"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">    $(<span class="built_in">document</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"document"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意这段代码中，我们可以看到a被弹出来了，但是链接并没有跳转，而且document也没有被弹出，因为<code>return false</code>相当于同时了这两件事情，只不过，在使用表格中的检测方法时，返回的false。<br>而使用event对象的方法实现阻止时，检测返回true。</p>
+<h2 id="高级事件">高级事件</h2><blockquote>
+<p>jQuery 不但封装了大量常用的事件处理，还提供了不少高级事件方便开发者使用。比<br>如模拟用户触发事件、事件委托事件、和统一整合的 on 和 off，以及仅执行一次的 one 方<br>法。这些方法大大降低了开发者难度，提升了开发者的开发体验。</p>
+</blockquote>
+<h3 id="一-_模拟操作">一. 模拟操作</h3><p>在事件触发的时候，有时我们需要一些模拟用户行为的操作。例如：当网页加载完毕后自行点击一个按钮触发一个事件，而不是用户去点击。</p>
+<h4 id="1-_-trigger()">1. <code>.trigger()</code></h4><p>先来一个最机械的<code>.trigger()</code>：<br><code>&lt;button&gt;点击&lt;/button&gt;</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"这里是第一次点击来自模拟！"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"button"</span>).trigger(<span class="string">'click'</span>);</span><br></pre></td></tr></table></figure>
+<p>打开网页，可以看到内容并不需要被点击，就直接被弹了出来。<br>当然不会那么复杂，来进阶一下吧，只需要把<code>.trigger(&#39;click&#39;)</code>连在<code>click</code>事件之后就可以了，效果当然一样。<br>但是，这样好像还是有点麻烦，jQuery怎么可能让我们那么麻烦，把添加的字符串删除，添加<code>.click()</code>，现在就是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'我的第一次点击来自模拟！'</span>);<span class="comment">//效果和上面一样</span></span><br><span class="line">&#125;).click();</span><br></pre></td></tr></table></figure>
+<p>这种简单的方法jQuery几乎所有的常用事件都提供了：</p>
+<table>
+<thead>
+<tr>
+<th>blur</th>
+<th>focusin</th>
+<th>mousedown</th>
+<th>resize</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>change</td>
+<td>focusout</td>
+<td>mousenter</td>
+<td>scroll</td>
+</tr>
+<tr>
+<td>click</td>
+<td>keydown</td>
+<td>mouseleave</td>
+<td>select</td>
+</tr>
+<tr>
+<td>dblclick</td>
+<td>keypress</td>
+<td>mousemove</td>
+<td>submit</td>
+</tr>
+<tr>
+<td>error</td>
+<td>keyup</td>
+<td>mouseout</td>
+<td>unload</td>
+</tr>
+<tr>
+<td>focus</td>
+<td>load</td>
+<td>mouseover</td>
+</tr>
+</tbody>
+</table>
+<p>下面来介绍一下<code>.trigger()</code>的一些进阶用法，当然如果要进行这样的参数传递的话，就不能使用上面的简单方法了：<br>有时在模拟用户行为的时候，我们需要给事件执行传递参数，这个参数类似与在事件绑定中的<code>event.data</code>的额外数据，可以是数字、字符串、数组、对象。需要注意的是当传递一个值的时候，直接传递即可。当两个值以上，需要在前后用中括号包含起来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params">e, data1, data2</span>) </span>&#123;</span><br><span class="line">    alert(data1.a + <span class="string">","</span> + data2[<span class="number">1</span>]);<span class="comment">//加载后直接弹出1,456</span></span><br><span class="line">&#125;).trigger(<span class="string">"click"</span>, [&#123;<span class="string">"a"</span> : <span class="string">"1"</span>, <span class="string">"b"</span> : <span class="string">"2"</span>&#125;, [<span class="string">"123"</span>,<span class="string">"456"</span>]]);</span><br></pre></td></tr></table></figure>
+<p>在使用<code>bind</code>时，<code>bind</code>传入的额外数据通过<code>event.data</code>获取，该数据传输模式不变。</p>
+<p>模拟用户行为时，除了通过 JavaScript 事件名触发，也可以通过自定义的事件触发，所谓自定义事件其实就是一个被.bind()绑定的任意函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input'</span>).bind(<span class="string">'myEvent'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">alert(<span class="string">'自定义事件！'</span>);</span><br><span class="line">&#125;).trigger(<span class="string">'myEvent'</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-_-triggerHandler()">2. <code>.triggerHandler()</code></h4><p>这是另一个模拟用户行为的方法，用法和<code>trigger()</code>方法一样。但是在某些情况下有如下区别：</p>
+<ol>
+<li><p><code>.triggerHandler()</code>方法并不会触发事件的默认行为，而<code>.trigger()</code>会，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'form'</span>).trigger(<span class="string">'submit'</span>); <span class="comment">//模拟用户执行提交，并跳转到执行页面</span></span><br><span class="line">$(<span class="string">'form'</span>).triggerHandler(<span class="string">'submit'</span>); <span class="comment">//模拟用户执行提交，并阻止的默认行为</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>.triggerHandler()</code>方法只会影响第一个匹配到的元素，而<code>.trigger()</code>会影响所有。</p>
+</li>
+<li><code>.triggerHandler()</code>方法会返回当前事件执行的返回值，如果没有返回值，则返回<br>undefined；而<code>.trigger()</code>则返回当前包含事件触发元素的 jQuery 对象(方便链式连缀调用)。</li>
+<li><code>.trigger()</code>在创建事件的时候，会冒泡。但这种冒泡是自定义事件才能体现出来，是<br>jQuery 扩展于 DOM 的机制，并非 DOM 特性。而<code>.triggerHandler()</code>不会冒泡。</li>
+</ol>
+<h3 id="二-_命名空间">二. 命名空间</h3><blockquote>
+<p>有时，我们想对事件进行移除。但对于同名同元素绑定的事件移除往往比较麻烦，这个<br>时候，可以使用事件的命名空间解决。（主要是处理绑定匿名函数的情况）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"button"</span>).bind(<span class="string">'click.abc'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"abc"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"button"</span>).bind(<span class="string">'click.xyz'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"xyz"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"button"</span>).unbind(<span class="string">'click.abc'</span> );<span class="comment">//处理过后只弹出xyz。</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>也可以直接使用<code>(&#39;.abc&#39;)</code>，这样的话，可以移除<strong>相同命名空间的不同事件</strong>。对于模拟操作<code>.trigger()</code>和.<code>triggerHandler()</code>，用法也是一样的。<code>$(&#39;input&#39;).trigger(&#39;click.abc&#39;)</code></p>
+<h3 id="三-事件委托">三.事件委托</h3><blockquote>
+<p>事件委托也就是事件代理。我在<a href="http://guowenfh.github.io/2015/12/16/task0002-DOM&amp;&amp;event/">task0002（二）- DOM + 事件</a>已经谈过了。而且也自己实现了一下事件代理，这里稍微再介绍一下:</p>
+</blockquote>
+<ol>
+<li>“事件代理” 的本质是利用了事件冒泡的特性。当一个元素上的事件被触发的时候，比如说鼠标点击了一个按钮，同样的事件将会在那个元素的所有祖先元素中被触发。这一过程被称为事件冒泡；</li>
+<li>这个事件从原始元素开始一直冒泡到DOM树的最上层。任何一个事件的目标元素都是最开始的那个元素，在我们的这个例子中也就是按钮，并且它在我们的元素对象中以属性的形式出现。</li>
+<li>使用事件代理，我们可以把事件处理器添加到一个元素上，等待一个事件从它的子级元素里冒泡上来，并且可以得知这个事件是从哪个元素开始的。</li>
+<li>对于动态生成的节点同样有效。</li>
+</ol>
+<p>实现如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span>&gt;</span>点击<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span>&gt;</span>点击<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    $(<span class="string">"div"</span>).delegate(<span class="string">'button'</span>,<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">"点击了"</span>);<span class="comment">//无论点击哪个都可以弹出</span></span><br><span class="line">        $(<span class="string">"&lt;button&gt;生成&lt;/button&gt;"</span>).appendTo(<span class="string">'div'</span>);<span class="comment">//点击同时生成节点，同样可以点击弹出</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//$("div").undelegate('button', 'click');//取消事件代理</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：<code>.delegate()</code>需要指定父元素，然后第一个参数是当前元素，第二个参数是事件方式，第三个参数是执行函数。和<code>.bind()</code>方法一样，可以传递额外参数。<code>.undelegate()</code>和<code>.unbind()</code>方法一样可以直接删除所有事件，比如：<code>.undelegate(&#39;click&#39;)</code>。也可以删除命名空间的事件，比如：<code>.undelegate(&#39;click.abc&#39;)</code>。</p>
+<p>开胃菜完了，下面才是重点！</p>
+<h2 id="强大的on_、off_和one">强大的<code>on</code> 、<code>off</code> 和<code>one</code></h2><blockquote>
+<p>目前绑定事件和解绑的方法有三组共六个。由于这三组的共存可能会造成一定的混乱，为此 jQuery1.7 以后推出了.on()和.off()方法彻底摒弃前面三组。（暂时未移除）</p>
+</blockquote>
+<h3 id="一-_on">一. <code>on</code></h3><ol>
+<li><p>替代<code>.bind()</code>方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'替代.bind()'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替代<code>.bind()</code>方式，并使用额外数据和事件对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.button'</span>).on(<span class="string">'click'</span>, &#123;user : <span class="string">'Lee'</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'替代.bind()'</span> + e.data.user);<span class="comment">//lee</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替代.bind()方式，并绑定多个事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.button'</span>).on(<span class="string">'mouseover mouseout'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'替代.bind()移入移出！'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">'.button'</span>).on(&#123;<span class="comment">//以对象模式绑定多个事件</span></span><br><span class="line">    mouseover : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'替代.bind()移入！'</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    mouseout : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">'替代.bind()移出！'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替代.bind()方式，阻止默认行为并取消冒泡</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'form'</span>).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">'form'</span>).on(<span class="string">'submit'</span>, <span class="literal">false</span>);<span class="comment">//在function中只有阻止事件存在时，这样写可以简化代码，效果相同</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'form'</span>).on(<span class="string">'submit'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;<span class="comment">//当然使用事件对象也是可以的</span></span><br><span class="line">    e.preventDefault();<span class="comment">//阻止默认行为</span></span><br><span class="line">    e.stopPropagation();<span class="comment">//取消冒泡</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>替代<code>.delegate()</code>，事件委托</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).on(<span class="string">'click'</span>, <span class="string">'button'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).clone().appendTo(<span class="string">'div'</span>);<span class="comment">//每次点击都复制一个button</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>特别注意：</strong><code>.on()</code>和<code>.delegate()</code>之间的选择器和事件名称的位置！因为便于多种事件处理方式，将<strong>选择器与事件名称调换了位置</strong></p>
+<h3 id="二-off">二.<code>off</code></h3><ol>
+<li><p>替代<code>.unbind()</code>方式，移除事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.button'</span>).off(<span class="string">'click'</span>);</span><br><span class="line">$(<span class="string">'.button'</span>).off(<span class="string">'click'</span>, fn);</span><br><span class="line">$(<span class="string">'.button'</span>).off(<span class="string">'click.abc'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代替<code>.undelegate()</code>，取消事件委托<br><code>$(&#39;#box&#39;).off(&#39;click&#39;, &#39;.button&#39;);</code></p>
+</li>
+</ol>
+<p><strong>注意：</strong>和之前方式一样，事件委托和取消事件委托也有各种搭配方式，比如额外数据、命名空间等等。</p>
+<h3 id="三-_one">三. <code>one</code></h3><blockquote>
+<p>不管是.bind()还是.on()，绑定事件后都不是自动移除事件的，需要通过.unbind()和.off()来手工移除。jQuery 提供了.one()方法，绑定元素执行完毕后自动移除事件，可以方法仅触发一次的事件。</p>
+</blockquote>
+<ol>
+<li><p>类似于.bind()只触发一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).one(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">'one 仅触发一次！'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>类似于.delegate()只触发一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).one(<span class="string">'click'</span>, <span class="string">'button'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).clone().appendTo(<span class="string">'div'</span>);<span class="comment">//只复制一次</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>所以前面的一系列讲述，都是为了抛砖引玉，现在在jQuery中对于事件的处理直接用<code>on</code> 、<code>off</code> 和<code>one</code>这三个就好了！</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/31/jQuery-02-DocumentObjectModel/" rel="next" title="jQuery入门笔记之（二）文档对象模型">
+                <i class="fa fa-chevron-left"></i> jQuery入门笔记之（二）文档对象模型
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/12/31/jQuery-03-DetailedEvent/"
+           data-title="jQuery入门笔记之（三）事件详解" data-url="http://guowenfh.github.io/2015/12/31/jQuery-03-DetailedEvent/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> S F
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础事件"><span class="nav-number">1.</span> <span class="nav-text">基础事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-_绑定事件"><span class="nav-number">1.1.</span> <span class="nav-text">一. 绑定事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-_简写事件"><span class="nav-number">1.2.</span> <span class="nav-text">二. 简写事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-_复合事件"><span class="nav-number">1.3.</span> <span class="nav-text">三. 复合事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#event对象"><span class="nav-number">2.</span> <span class="nav-text">event对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-_事件对象"><span class="nav-number">2.1.</span> <span class="nav-text">一. 事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-_冒泡和默认行为"><span class="nav-number">2.2.</span> <span class="nav-text">二. 冒泡和默认行为</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级事件"><span class="nav-number">3.</span> <span class="nav-text">高级事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-_模拟操作"><span class="nav-number">3.1.</span> <span class="nav-text">一. 模拟操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-_-trigger()"><span class="nav-number">3.1.1.</span> <span class="nav-text">1. .trigger()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-_-triggerHandler()"><span class="nav-number">3.1.2.</span> <span class="nav-text">2. .triggerHandler()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-_命名空间"><span class="nav-number">3.2.</span> <span class="nav-text">二. 命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-事件委托"><span class="nav-number">3.3.</span> <span class="nav-text">三.事件委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强大的on_、off_和one"><span class="nav-number">4.</span> <span class="nav-text">强大的on 、off 和one</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-_on"><span class="nav-number">4.1.</span> <span class="nav-text">一. on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-off"><span class="nav-number">4.2.</span> <span class="nav-text">二.off</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-_one"><span class="nav-number">4.3.</span> <span class="nav-text">三. one</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
