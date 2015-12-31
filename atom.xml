@@ -929,7 +929,7 @@
     <link href="http://guowenfh.github.io/2015/12/31/jQuery-01-Sizzle/"/>
     <id>http://guowenfh.github.io/2015/12/31/jQuery-01-Sizzle/</id>
     <published>2015-12-31T03:26:15.000Z</published>
-    <updated>2015-12-31T03:37:11.899Z</updated>
+    <updated>2015-12-31T04:56:18.949Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>本来是单独整理了一个CSS选择器的，但是在jQuery中基本都有对应的，所以就不发了。</p>
 <p>jQuery选择器，若未作特别说明，获取的都是元素集合。</p>
@@ -1077,7 +1077,9 @@
 <p><strong>扩展：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'p'</span>, <span class="string">'#box'</span>);<span class="comment">//jQuery会自动把这条语句转成$('#box').find('p')，这会导致一定的性能损失。</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'p'</span>, $(<span class="string">'#parent'</span>));<span class="comment">//jQuery内部会也将这条语句转成$('#box').find('p')</span></span><br></pre></td></tr></table></figure>
 <p>这里，<strong>推荐使用jQuery提供的方法。</strong>使用“+”或“~”从字面上没有next和nextAll更加语义化，更加清晰，jQuery的方法更加丰富，提供了相对的prev和prevAll。<br>并且有时需要能够灵活的拆分和组合选择器。所以，如果jQuery提供了独立的方法来代替某些选择器的功能，推荐优先使用独立的方法。</p>
-<p>###（四）属性选择器</p>
+<h3 id="（四）属性选择器">（四）属性选择器</h3><blockquote>
+<p>注意<code>¦</code>应该是<code>|</code>，因为markdown表格解析的问题，所以用来替代</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1103,10 +1105,8 @@
 <td>获取具有这个属性且开头属性值匹配的DOM对象</td>
 </tr>
 <tr>
-<td>`a[title\</td>
-<td>=num]`</td>
-<td>`$(‘a[title\</td>
-<td>=num]’)`</td>
+<td><code>a[title¦=num]</code></td>
+<td><code>$(&#39;a[title¦=num]&#39;)</code></td>
 <td>获取具有这个属性且等于属性值或开头属性值匹配后面跟一个<code>-</code>号的DOM对象</td>
 </tr>
 <tr>

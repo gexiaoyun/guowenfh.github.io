@@ -71,7 +71,7 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
 jQuery选择器，若未作特别说明，获取的都是元素集合。
 
 一. 常规选择器（一）简单选择器模仿的是CSS选择器，只不过在使用jQuery选择器时，我们首先必须使用“$()”函数来包装我们的 CSS 规则。而CSS 规则作为参数传递到jQuery对象内部后，再返回包含页面中对应元素的 jQuery 对象。随后可">
-<meta property="og:updated_time" content="2015-12-31T03:37:11.899Z">
+<meta property="og:updated_time" content="2015-12-31T04:56:18.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery入门笔记之（一）选择器引擎">
 <meta name="twitter:description" content="本来是单独整理了一个CSS选择器的，但是在jQuery中基本都有对应的，所以就不发了。
@@ -444,7 +444,9 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
 <p><strong>扩展：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'p'</span>, <span class="string">'#box'</span>);<span class="comment">//jQuery会自动把这条语句转成$('#box').find('p')，这会导致一定的性能损失。</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'p'</span>, $(<span class="string">'#parent'</span>));<span class="comment">//jQuery内部会也将这条语句转成$('#box').find('p')</span></span><br></pre></td></tr></table></figure>
 <p>这里，<strong>推荐使用jQuery提供的方法。</strong>使用“+”或“~”从字面上没有next和nextAll更加语义化，更加清晰，jQuery的方法更加丰富，提供了相对的prev和prevAll。<br>并且有时需要能够灵活的拆分和组合选择器。所以，如果jQuery提供了独立的方法来代替某些选择器的功能，推荐优先使用独立的方法。</p>
-<p>###（四）属性选择器</p>
+<h3 id="（四）属性选择器">（四）属性选择器</h3><blockquote>
+<p>注意<code>¦</code>应该是<code>|</code>，因为markdown表格解析的问题，所以用来替代</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -470,10 +472,8 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
 <td>获取具有这个属性且开头属性值匹配的DOM对象</td>
 </tr>
 <tr>
-<td>`a[title\</td>
-<td>=num]`</td>
-<td>`$(‘a[title\</td>
-<td>=num]’)`</td>
+<td><code>a[title¦=num]</code></td>
+<td><code>$(&#39;a[title¦=num]&#39;)</code></td>
 <td>获取具有这个属性且等于属性值或开头属性值匹配后面跟一个<code>-</code>号的DOM对象</td>
 </tr>
 <tr>
@@ -1013,7 +1013,7 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-_常规选择器"><span class="nav-number">1.</span> <span class="nav-text">一. 常规选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）简单选择器"><span class="nav-number">1.1.</span> <span class="nav-text">（一）简单选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）进阶选择器"><span class="nav-number">1.2.</span> <span class="nav-text">（二）进阶选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）高级选择器"><span class="nav-number">1.3.</span> <span class="nav-text">（三）高级选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-_过滤选择器"><span class="nav-number">2.</span> <span class="nav-text">二. 过滤选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）基本过滤器"><span class="nav-number">2.1.</span> <span class="nav-text">（一）基本过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）内容过滤器"><span class="nav-number">2.2.</span> <span class="nav-text">（二）内容过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）可见性过滤器"><span class="nav-number">2.3.</span> <span class="nav-text">（三）可见性过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）子元素过滤器"><span class="nav-number">2.4.</span> <span class="nav-text">（四）子元素过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）其他方法"><span class="nav-number">2.5.</span> <span class="nav-text">（五）其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-_表单选择器"><span class="nav-number">3.</span> <span class="nav-text">三. 表单选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）常规选择器"><span class="nav-number">3.1.</span> <span class="nav-text">（一）常规选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）表单选择器"><span class="nav-number">3.2.</span> <span class="nav-text">（二）表单选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）表单过滤器"><span class="nav-number">3.3.</span> <span class="nav-text">（三）表单过滤器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-_常规选择器"><span class="nav-number">1.</span> <span class="nav-text">一. 常规选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）简单选择器"><span class="nav-number">1.1.</span> <span class="nav-text">（一）简单选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）进阶选择器"><span class="nav-number">1.2.</span> <span class="nav-text">（二）进阶选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）高级选择器"><span class="nav-number">1.3.</span> <span class="nav-text">（三）高级选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）属性选择器"><span class="nav-number">1.4.</span> <span class="nav-text">（四）属性选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-_过滤选择器"><span class="nav-number">2.</span> <span class="nav-text">二. 过滤选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）基本过滤器"><span class="nav-number">2.1.</span> <span class="nav-text">（一）基本过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）内容过滤器"><span class="nav-number">2.2.</span> <span class="nav-text">（二）内容过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）可见性过滤器"><span class="nav-number">2.3.</span> <span class="nav-text">（三）可见性过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）子元素过滤器"><span class="nav-number">2.4.</span> <span class="nav-text">（四）子元素过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）其他方法"><span class="nav-number">2.5.</span> <span class="nav-text">（五）其他方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-_表单选择器"><span class="nav-number">3.</span> <span class="nav-text">三. 表单选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）常规选择器"><span class="nav-number">3.1.</span> <span class="nav-text">（一）常规选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）表单选择器"><span class="nav-number">3.2.</span> <span class="nav-text">（二）表单选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）表单过滤器"><span class="nav-number">3.3.</span> <span class="nav-text">（三）表单过滤器</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
