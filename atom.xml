@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-03T04:36:42.517Z</updated>
+  <updated>2016-01-03T14:28:30.114Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -13,6 +13,102 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[jQuery入门笔记之（六）工具函数]]></title>
+    <link href="http://guowenfh.github.io/2016/01/03/jQuery-06-toolFunction/"/>
+    <id>http://guowenfh.github.io/2016/01/03/jQuery-06-toolFunction/</id>
+    <published>2016-01-03T14:20:57.000Z</published>
+    <updated>2016-01-03T14:28:30.114Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>工具函数直接依附于 jQuery 对象，针对 jQuery 对象本身定义的方法，它是全局性<br>的函数。主要提供比如字符串、数组、对象等操作方面的遍历。</p>
+</blockquote>
+<p><strong>字符串操作</strong><br>去除字符串左右空格的工具函数：<code>$.trim()</code>。这个函数我在task0002的部分已经用正则实现了。<br>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trim</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="string">""</span>;</span><br><span class="line">    result = str.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">""</span>); <span class="comment">//使用正则进行字符串替换</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//下面是jQuery中的使用方法</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"         guowen      "</span>;</span><br><span class="line">alert($.trim(str));<span class="comment">//可以看到空格被去除了</span></span><br></pre></td></tr></table></figure>
+<h2 id="数组及对象操作">数组及对象操作</h2><p>jQuery 为处理数组和对象提供了一些工具函数，这些函数可以便利的给数组或对象进行<br>遍历、筛选、搜索等操作。</p>
+<p><strong>遍历</strong></p>
+<p>这个我也实现了，其实特别简单，只不过jQuery与和我实现的方法略微有一点不同，且更强大一点。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"二狗"</span>, <span class="string">"甲地"</span>, <span class="string">"道德"</span>, <span class="string">"鲤鱼"</span>];</span><br><span class="line"><span class="comment">//原生JS实现，只能用来遍历数组，不能遍历对象。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">arr, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = arr.length; i &lt; l; i++) &#123;<span class="comment">//遍历传参</span></span><br><span class="line">        fn(arr[i], i);<span class="comment">//第一项为值，第二项为索引</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">each(arr,<span class="function"><span class="keyword">function</span>(<span class="params">value,index</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(index+<span class="string">":"</span>+value);<span class="comment">//0:二狗1:甲地2:道德3:鲤鱼</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//jQuery中的方法</span></span><br><span class="line">$.each(arr, <span class="function"><span class="keyword">function</span> (<span class="params">index,value</span>) </span>&#123;<span class="comment">//注意此处更改了参数的位置。index为数组下标，从0开始</span></span><br><span class="line">    <span class="built_in">console</span>.log(index+<span class="string">":"</span>+value);<span class="comment">//0:二狗1:甲地2:道德3:鲤鱼</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//$.each()还可以用来遍历对象</span></span><br><span class="line"><span class="comment">//&lt;div id="box"&gt;&lt;/div&gt;</span></span><br><span class="line">$.each($.ajax(), <span class="function"><span class="keyword">function</span> (<span class="params">name, fn</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">"#box"</span>).html($(<span class="string">"#box"</span>).html() + name + <span class="string">"."</span> + <span class="string">"&lt;br /&gt;"</span>);<span class="comment">//一堆,就不贴了</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><strong><code>$.grep()</code>数据筛选</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">12</span>, <span class="number">33</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">77</span>, <span class="number">55</span>, <span class="number">32</span>];</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 数据筛选函数。</span><br><span class="line"> * @param  &#123;String or Number&#125; element  这里表示数组项，字符串数字都有可能（自行在函数内部进行筛选）</span><br><span class="line"> * @param  &#123;Number&#125; index   表示数组下标，如下面的index&lt;4，就只在前四项进行筛选</span><br><span class="line"> * @return &#123;String or Number&#125;         返回筛选出来的项</span><br><span class="line"> */</span></span><br><span class="line"><span class="built_in">console</span>.log($.grep(arr,<span class="function"><span class="keyword">function</span>  (<span class="params">element,index</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> element&lt;<span class="number">6</span>&amp;&amp;index&lt;<span class="number">4</span>;<span class="comment">//会打印出[4, 5]。</span></span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p><strong> $.map()修改数据</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//还是上面的数组</span></span><br><span class="line"><span class="keyword">var</span> arrMap = $.map(arr,<span class="function"><span class="keyword">function</span>(<span class="params">element, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(element&lt;<span class="number">6</span> &amp;&amp; index&lt;<span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> element+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arrMap);<span class="comment">//打印出[5,6]</span></span><br></pre></td></tr></table></figure>
+<p><strong> $.inArray()获取查找到元素的下标</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* 获取查找到元素的下标</span><br><span class="line">* @param  &#123;String or Number&#125; element  需要查找的字符串或数字</span><br><span class="line">* @param  &#123;Array&#125; arr   待查找的数组</span><br><span class="line">* @return &#123;Number&#125;   返回查找到的元素的数组下标0开始，(查找到多个时，返回第一个)，未查找到时返回-1</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> arrInArray = $.inArray(<span class="number">1</span>, arr);</span><br><span class="line"><span class="built_in">console</span>.log(arrInArray);<span class="comment">//返回4</span></span><br></pre></td></tr></table></figure>
+<p><strong> $.merge()合并两个数组</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将arr2拼接到arr后，返回合并的数组</span></span><br><span class="line">$.merge(arr, arr2);</span><br></pre></td></tr></table></figure>
+<p> <strong>$.unique()删除重复的 DOM 元素</strong>（不能处理数字和字符串）<br>没太明白，只能删除拼接过来的重复元素，对自身的元素不受影响？<a href="http://www.css88.com/jqapi-1.9/jQuery.unique/" target="_blank" rel="external">文档地址</a><br>希望有看明白的教育我一下。。</p>
+<p>发一个我实现的普通数组去重吧。(处理数字和字符串)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArray</span>(<span class="params">arr</span>) </span>&#123;<span class="comment">//数组去重</span></span><br><span class="line">    <span class="keyword">var</span> result = []; <span class="comment">//创建一个新数组。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, l = arr.length; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (result.indexOf(arr[i]) === -<span class="number">1</span>) &#123; <span class="comment">//查找是否已经含有该元素</span></span><br><span class="line">            result.push(arr[i]); <span class="comment">//添加到新数组</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result; <span class="comment">//返回去重后的新数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> toArray()合并多个dom元素组成数组。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;ul&gt;&lt;li&gt;1&lt;/li&gt;&lt;li&gt;2&lt;/li&gt;&lt;li&gt;3&lt;/li&gt;&lt;li&gt;4&lt;/li&gt;&lt;/ul&gt;</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'li'</span>).toArray());<span class="comment">//[[li, li, li, li]]。注意数组项是原生的DOM元素。</span></span><br><span class="line"><span class="built_in">console</span>.log($(<span class="string">'li'</span>).toArray().length);<span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+<h2 id="测试操作（类型判断）">测试操作（类型判断）</h2><blockquote>
+<p>在jQuery数据有着各种类型和状态。可以通过判断数据的类型和状态做相应的操作。</p>
+</blockquote>
+<p>测试工具函数</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$.isArray(obj)</td>
+<td>判断是否为数组对象，是返回 true</td>
+</tr>
+<tr>
+<td>$.isFunction(obj)</td>
+<td>判断是否为函数，是返回 true</td>
+</tr>
+<tr>
+<td>$.isEmptyObject(obj)</td>
+<td>判断是否为空对象，是返回 true</td>
+</tr>
+<tr>
+<td>$.isPlainObjet(obj)</td>
+<td>判断是否为纯粹对象，是返回 true</td>
+</tr>
+<tr>
+<td>$.contains(obj)</td>
+<td>判断 DOM 节点是否含另一个 DOM 节点，是返回 true</td>
+</tr>
+<tr>
+<td>$.type(data)</td>
+<td>判断数据类型</td>
+</tr>
+<tr>
+<td>$.isNumeric(data)</td>
+<td>判断数据是否为数值</td>
+</tr>
+<tr>
+<td>$.isWindow(data)</td>
+<td>判断数据是否为 window 对象</td>
+</tr>
+</tbody>
+</table>
+<p>挑几个出来说明一下</p>
+<p>判断是否为空对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;a:<span class="string">"1"</span>&#125;;</span><br><span class="line">alert($.isEmptyObject(obj));<span class="comment">//false。</span></span><br></pre></td></tr></table></figure></p>
+<p>判断是由{}或 new Object()创造出的对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert($.isPlainObject(&#123;a:<span class="string">"1"</span>&#125;));<span class="comment">//true</span></span><br><span class="line">alert($.isPlainObject(<span class="keyword">new</span> <span class="built_in">Object</span>(<span class="string">"a"</span>)));<span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>URL解析</strong><br>其实在Ajax的博客中已经讲到了：$.param()将对象键值对转换为 URL 字符串键值对</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name : <span class="string">'Lee'</span>,</span><br><span class="line">    email : <span class="string">"guowen921@163.com"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log( $.param(obj));<span class="comment">//name=Lee&amp;email=guowen921%40163.com</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">decodeURIComponent</span>( $.param(obj)));<span class="comment">//name=Lee&amp;email=guowen921@163.com</span></span><br><span class="line"><span class="comment">//请注意上面的邮箱部分，$.param()会对于特殊字符进行编码传输，下面的代码，可以将其解析成字符</span></span><br></pre></td></tr></table></figure>
+<p><strong>改变this指向</strong><br>$.proxy方法类似于ECMAScript 5的bind方法，可以绑定函数的上下文（也就是this对象）和参数，返回一个新函数。<br>主要用处是为回调函数绑定上下文对象。如如外部事件触发调用对象方法时 this 的指向问题。</p>
+<blockquote>
+<p>来自javaScript标准参考教程。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;button&gt;点击&lt;/button&gt;</span></span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    name: <span class="string">"Lee"</span>,</span><br><span class="line">    test: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">$(<span class="string">"button"</span>)</span><br><span class="line">  .on(<span class="string">"click"</span>, o.test) <span class="comment">// 无输出（默认this指向触发该事件的元素也就是button）</span></span><br><span class="line">  .on(<span class="string">"click"</span>, $.proxy(o.test, o)); <span class="comment">// Lee，现在指向o</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>工具函数直接依附于 jQuery 对象，针对 jQuery 对象本身定义的方法，它是全局性<br>的函数。主要提供比如字符串、数组、对象等操作方面的遍历。</p>
+</blockquote>
+<p><strong>字符串操作</strong><br]]>
+    </summary>
+    
+      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
+    
+      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[jQuery入门笔记之（五）jQuery中的Ajax]]></title>
