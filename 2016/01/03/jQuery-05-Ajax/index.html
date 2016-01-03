@@ -1,0 +1,986 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Ajax,jQuery," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。Ajax入门（一）从0开始到一次成功的GET请求Ajax入门（二）Ajax函数封装
+
+jQuery中的Ajax
+jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery入门笔记之（五）jQuery中的Ajax">
+<meta property="og:url" content="http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。Ajax入门（一）从0开始到一次成功的GET请求Ajax入门（二）Ajax函数封装
+
+jQuery中的Ajax
+jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封">
+<meta property="og:updated_time" content="2016-01-03T04:36:42.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery入门笔记之（五）jQuery中的Ajax">
+<meta name="twitter:description" content="关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。Ajax入门（一）从0开始到一次成功的GET请求Ajax入门（二）Ajax函数封装
+
+jQuery中的Ajax
+jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery入门笔记之（五）jQuery中的Ajax | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery入门笔记之（五）jQuery中的Ajax
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-03T12:22:45+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/jQuery-05-Ajax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/jQuery-05-Ajax/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。<br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a><br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a></p>
+</blockquote>
+<h2 id="jQuery中的Ajax">jQuery中的Ajax</h2><blockquote>
+<p>jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.get()和$.post()，最高层是$.getScript()和$.getJSON()方法。</p>
+</blockquote>
+<h3 id="Ajax中的load()方法">Ajax中的<code>load()</code>方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Ajax中的load方法（局部方法，可以直接绑定在需要获取的元素上）</span><br><span class="line"> * @param &#123;String&#125;        url  必须，获取文件地址</span><br><span class="line"> * @param &#123;JSON or String&#125;          可选，键值对方式的请求参数或者（使用键值对形式，请求将转化成post）</span><br><span class="line"> * @param &#123;Function&#125;      可选，请求成功的回调函数</span><br><span class="line"> *   @config   &#123;String&#125;   responseText         获得字符串形式的响应数据</span><br><span class="line"> *   @config   &#123;String&#125;   textStatus            文本方式返回HTTP状态码</span><br><span class="line"> *   @config   &#123;Object&#125;   XMLHttpRequest        xhr对象，有多种属性</span><br><span class="line"> */</span></span><br><span class="line">.load(url, data, complete(responseText, textStatus, XMLHttpRequest));</span><br></pre></td></tr></table></figure>
+<p>例如下面这段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'#box'</span>).load(<span class="string">'test.php'</span>, &#123;url : <span class="string">'guowen'</span>&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在控制台可以看到请求为POST，（注意：这里第二个参数若是字符串的情况，例如”url=guowen”，请求仍然为GET。）<br>所以服务器端php文件应该如此设置：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$_POST</span>[<span class="string">"url"</span>] == <span class="string">"guowen"</span>) &#123;<span class="comment">//get请求把POST更改一下就好了</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;a href='http://guowenfh.github.io/'&gt;三省吾身丶丶&lt;/a&gt;"</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"其他网站"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>关于XHR对象上的属性，和HTTP状态码，参考我原来的博客。</p>
+<h3 id="$-get()和$-post()">$.get()和$.post()</h3><blockquote>
+<p>.load()方法是局部方法，因为他需要一个包含元素的 jQuery 对象作为前缀。而$.get()和$.post()是全局方法，无须指定某个元素。对于用途而言，.load()适合做静态文件的异步获取，而对于需要传递参数到服务器页面的，$.get()和$.post()更加合适。</p>
+</blockquote>
+<p>$.get()方法有四个参数，前面三个参数和.load()一样，多了一个第四参数type，即服务器返回的内容格式：包括xml、html、script、json、jsonp和text。第一个参数为必选参数，后面三个为可选参数</p>
+<p>GET方式请求会直接在html后以<code>?Key=value</code>跟随，所以，有三种形式请求数据，</p>
+<ol>
+<li>直接跟在url后</li>
+<li>字符串形式的<code>&quot;url=guowen&quot;</code></li>
+<li>键值对形式的<code>{url:&quot;guowen&quot;}</code></li>
+</ol>
+<p>POST请求方式除去不能直接跟在url后之外，剩余两个，使用方法一样</p>
+<p><strong>注意:</strong> 与<code>.load()</code>方法不同的是：<code>.load()</code>方法根据第二个参数的不同类型，请求方式会改变，但这里已经是两个独立的方法了，所以请求类型不会进行转换。</p>
+<p>第四个参数一般都不进行设置，jQuery会自动转换其类型。强制设置时，有可能会连标签一起返回。</p>
+<p>至于POST与GET方式请求的差别，在我原来的博客中也有写到，这里就不赘述了。</p>
+<h3 id="$-getScript()和$-getJSON()"><code>$.getScript()</code>和<code>$.getJSON()</code></h3><p>jQuery提供了一组用于特定异步加载的方法：<code>$.getScript()</code>，用于加载特定的JS文件；<code>$.getJSON()</code>，用于专门加载JSON文件。</p>
+<p><code>$.getJSON()</code>方法与之前的使用方法类似，就是把第四个参数，类型强制设置成了JSON。</p>
+<p>有时我们希望能够特定的情况再加载JS文件，而不是一开始把所有JS文件都加载了，这时就可以使用<code>$.getScript()</code>方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//点击按钮后再加载 JS 文件</span></span><br><span class="line">$(<span class="string">'input'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.getScript(<span class="string">'test.js'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="$-ajax()"><code>$.ajax()</code></h3><blockquote>
+<p>$.ajax()是所有 ajax 方法中最底层的方法，所有其他方法都是基于$.ajax()方法的封装。这个方法只有一个参数，传递一个各个功能键值对的对象。</p>
+</blockquote>
+<p>参数很多有兴趣的自己去看<a href="http://www.css88.com/jqapi-1.9/jQuery.ajax/" target="_blank" rel="external">jQuery.ajax()</a>，本来准备写几个常用的。强迫症犯了，去网上找资料做成了表格。。如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>发送请求的地址</td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>请求方式：POST 或 GET，默认 GET</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>Number</td>
+<td>设置请求超时的时间（毫秒）</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object 或String</td>
+<td>发送到服务器的数据，键值对字符串或对象</td>
+</tr>
+<tr>
+<td>dataType</td>
+<td>String</td>
+<td>返回的数据类型，比如 html、xml、json 等</td>
+</tr>
+<tr>
+<td>beforeSend</td>
+<td>Function</td>
+<td>发送请求前可修改 XMLHttpRequest 对象的函数</td>
+</tr>
+<tr>
+<td>complete</td>
+<td>Function</td>
+<td>请求完成后调用的回调函数</td>
+</tr>
+<tr>
+<td>success</td>
+<td>Function</td>
+<td>请求成功后调用的回调函数</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Function</td>
+<td>请求失败时调用的回调函数</td>
+</tr>
+<tr>
+<td>global</td>
+<td>Boolean</td>
+<td>默认为 true，表示是否触发全局 Ajax</td>
+</tr>
+<tr>
+<td>cache</td>
+<td>Boolean</td>
+<td>设置浏览器缓存响应，默认为 true。如果 dataType类型为 script 或 jsonp 则为 false。</td>
+</tr>
+<tr>
+<td>content</td>
+<td>DOM</td>
+<td>指定某个元素为与这个请求相关的所有回调函数的上下文。</td>
+</tr>
+<tr>
+<td>contentType</td>
+<td>String</td>
+<td>指 定 请 求 内 容 的 类 型 。 默 认 为application/x-www-form-urlencoded。</td>
+</tr>
+<tr>
+<td>async</td>
+<td>Boolean</td>
+<td>是否异步处理。默认为 true，false 为同步处理</td>
+</tr>
+<tr>
+<td>processData</td>
+<td>Boolean</td>
+<td>默认为 true，数据被处理为 URL 编码格式。如果为 false，则阻止将传入的数据处理为 URL 编码的格式。</td>
+</tr>
+<tr>
+<td>dataFilter</td>
+<td>Function</td>
+<td>用来筛选响应数据的回调函数。</td>
+</tr>
+<tr>
+<td>ifModified</td>
+<td>Boolean</td>
+<td>默认为 false，不进行头检测。如果为true，进行头检测，当相应内容与上次请求改变时，请求被认为是成功的。</td>
+</tr>
+<tr>
+<td>jsonp</td>
+<td>String</td>
+<td>指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td>在 HTTP 认证请求中使用的用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>在 HTTP 认证请求中使用的密码</td>
+</tr>
+<tr>
+<td>scriptCharset</td>
+<td>String</td>
+<td>当远程和本地内容使用不同的字符集时，用来设置 script 和 jsonp 请求所使用的字符集。</td>
+</tr>
+<tr>
+<td>xhr</td>
+<td>Function</td>
+<td>用来提供 XHR 实例自定义实现的回调函数</td>
+</tr>
+<tr>
+<td>traditional</td>
+<td>Boolean</td>
+<td>默认为 false，不使用传统风格的参数序列化。如为 true，则使用</td>
+</tr>
+</tbody>
+</table>
+<p>最常用的如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'button'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        type : <span class="string">'POST'</span>, <span class="comment">//这里可以换成 GET</span></span><br><span class="line">        url : <span class="string">'test.php'</span>,</span><br><span class="line">        data : &#123;</span><br><span class="line">            url : <span class="string">'guowen'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        success : <span class="function"><span class="keyword">function</span> (<span class="params">response, stutas, xhr</span>) </span>&#123;</span><br><span class="line">            $(<span class="string">'#box'</span>).html(response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>注意：对于data属性，如果是GET、模式，可以使用三种之前说所的三种形式。如果是POST模式可以使用之前所说的两种形式。（这里不需要考虑之前的data类型的问题了，因为指定了请求类型，不会转化）</p>
+<h3 id="表单序列化">表单序列化</h3><p>使用表单序列化方法<code>.serialize()</code>，会智能的获取指定表单内的所有元素。这样，在面对大量表单元素时，会把表单元素内容序列化为字符串，然后再使用Ajax请求。<br>序列化表单内的元素：<code>data : $(&#39;form&#39;).serialize()</code>，其余部分相同。</p>
+<p>除此之外还可以直接获取单选框、复选框和下拉列表框等内容</p>
+<p>除了<code>.serialize()</code>方法，还有一个可以返回 JSON 数据的方法：<code>.serializeArray()</code>。这个方法可以直接把数据整合成键值对的 JSON 对象。<br>使用方法相同<code>$(&#39;form&#39;).serializeArray()</code>.</p>
+<p>有时，我们可能会在同一个程序中多次调用$.ajax()方法。而它们很多参数都相同，这<br>个时候我们课时使用 jQuery 提供的<code>$.ajaxSetup()</code>请求默认值来初始化参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'form input[type=button]'</span>).click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $.ajaxSetup(&#123;<span class="comment">//初始化多个ajax方法相同部分参数，后面再写ajax的时候，就不用在写了。</span></span><br><span class="line">        type : <span class="string">'POST'</span>,</span><br><span class="line">        url : <span class="string">'test.php'</span>,</span><br><span class="line">        data : $(<span class="string">'form'</span>).serialize()<span class="comment">//表单序列化</span></span><br><span class="line">    &#125;);</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        success : <span class="function"><span class="keyword">function</span> (<span class="params">response, status, xhr</span>) </span>&#123;</span><br><span class="line">                    alert(response);</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在使用 data 属性传递的时候，如果是以对象形式传递键值对，可以使用<code>$.param()</code>方法将对象转换为字符串键值对格式。</p>
+<p>主要是针对无法直接使用表单序列化方法<code>.serialize()</code>的情况，且传递参数为对象，建议使用该方法进行解析后再进行传递。</p>
+<h2 id="Ajax进阶">Ajax进阶</h2><h3 id="加载请求，及错误处理。">加载请求，及错误处理。</h3><p>主要是处理网速较慢的情况，出现请求时间较长的问题。而此时若没有一点提示，用户可能会认为你的网页出现了问题。若是能在请求过程中给用户一些提示，比如：正在努力加载中…… 。 可能会对用户更加友好一些。<br>jQuery提供了两个全局事件，jQuery 提供了两个全局事件，<code>.ajaxStart()</code>和<code>.ajaxStop()</code>。<br>这两个全局事件，只要用户触发了 Ajax，请求开始时（<strong>未完成其他请求</strong>）激活<code>.ajaxStart()</code>，请求结束时（<strong>所有请求都结束了</strong>）激活<code>.ajaxStop()</code>。<br>值得注意的是，因为是全局事件，所以这两个方法是直接需要直接绑定到document上的。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ajaxStart(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">".loading"</span>).show();</span><br><span class="line">&#125;).ajaxStop(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">".loading"</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当然你也可以自行在ajax内部进行一些设置,如请求超时时间，该ajax函数是否触发全局事件等等。以键值对的方式写明就可以了。</p>
+<p>错误处理也特别简单</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    <span class="comment">//…………</span></span><br><span class="line">    timeout : <span class="number">500</span>,<span class="comment">//如果请求时间太长，可以设置超时</span></span><br><span class="line">    global : <span class="literal">false</span>,<span class="comment">//如果某个 ajax 不想触发全局事件，可以设置取消</span></span><br><span class="line">    error : <span class="function"><span class="keyword">function</span>(<span class="params">xhr,errorText,errorType</span>)</span>&#123;<span class="comment">//一般都直接用xhr对象</span></span><br><span class="line">                alert(<span class="string">"发生错误："</span>+xhr.status);<span class="comment">//返回错误状态码</span></span><br><span class="line">            &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>除此之外<code>$.get()</code>、<code>$.post()</code>和<code>.load()</code>,可以通过连缀处理使用局部<code>.error()</code>方法来处理错误，当然还有一个全局的方法：通过全局<code>.ajaxError()</code>事件方法来返回错误信息。即可</p>
+<h3 id="请求全局事件">请求全局事件</h3><p>jQuery 对于 Ajax 操作提供了很多全局事件方法，除去上面已经提到的.ajaxStart()、.ajaxStop()、.ajaxError()等事件方法。他们都属于请求时触发的全局事件，除了这些，还有一些其他全局事件：</p>
+<ol>
+<li>.ajaxSuccess()，对应一个局部方法：.success()，请求成功完成时执行。</li>
+<li>.ajaxComplete()，对应一个局部方法：.complete()，请求完成后注册一个回调函数。</li>
+<li>.ajaxSend()，没有对应的局部方法，只有属性 beforeSend，请求发送之前要绑定的函数。</li>
+</ol>
+<p><strong>注意：</strong>全局事件方法是所有 Ajax 请求都会触发到，并且只能绑定在 document 上。而局部方法，则针对某个 Ajax。<br>对于一些全局事件方法的参数，大部分为对象，而这些对象有哪些属性或方法能调用，<br>可以通过遍历方法得到。如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//遍历 settings 对象的属性</span></span><br><span class="line">$(<span class="built_in">document</span>).ajaxSuccess(<span class="function"><span class="keyword">function</span> (<span class="params">event, xhr, settings</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> settings) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这些全局方法，在$.ajax()方法中都可以直接以参数中的键值对的形式来完成</p>
+<h3 id="JSON和JSONP">JSON和JSONP</h3><p>其实在同一个域中时，只要url的后缀是json的文件的，默认就是json。当然你还可以使用<code>$.ajax()</code>方法设置 dataType属性加载 JSON 文件。</p>
+<p>先来试试本地JSON:<br>php如下：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">    <span class="variable">$_arr</span>= <span class="keyword">array</span>(<span class="string">'a'</span>=&gt;<span class="number">1</span>,<span class="string">'b'</span>=&gt;<span class="number">2</span>,<span class="string">'c'</span>=&gt;<span class="number">3</span>);</span><br><span class="line">    <span class="variable">$_result</span> = json_encode(<span class="variable">$_arr</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$_result</span>;</span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">    type:<span class="string">"post"</span>,</span><br><span class="line">    url:<span class="string">"test.php"</span>,</span><br><span class="line">    dataType:<span class="string">"json"</span>,<span class="comment">//因为文件类型是php。但是返回的数据是json，所以必须设置类型，否则返回字符串</span></span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">response,staus,xhr</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(response.a);<span class="comment">//打印出来1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>实现跨域：这部分需要服务器端配合。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span></span><br><span class="line">    <span class="variable">$_arr</span>= <span class="keyword">array</span>(<span class="string">'a'</span>=&gt;<span class="number">1</span>,<span class="string">'b'</span>=&gt;<span class="number">2</span>,<span class="string">'c'</span>=&gt;<span class="number">3</span>);</span><br><span class="line">    <span class="variable">$_result</span> = json_encode(<span class="variable">$_arr</span>);</span><br><span class="line">    <span class="variable">$_callback</span> = <span class="variable">$_GET</span>[<span class="string">'callback'</span>];<span class="comment">//关键在这。配合客户端JS使用</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$_callback</span>.<span class="string">"($_result)"</span>;<span class="comment">//php用点号实现字符串拼接</span></span><br><span class="line"><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>客户端实现：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;<span class="comment">//我本地地址为http://127.0.0.1:8020/ajax.html</span></span><br><span class="line">    type:<span class="string">"GET"</span>,</span><br><span class="line">    url:<span class="string">"http://localhost/test.php?callback=?"</span>,<span class="comment">//这样就可以实现跨域资源的访问了，最后的？号，jQuery会自动转化成字符串</span></span><br><span class="line">    dataType:<span class="string">"json"</span>,<span class="comment">//若这里使用JSONP的话，可以删除上面url的“?callback=?”，jQuery会自动处理。</span></span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">response,staus,xhr</span>)</span>&#123;</span><br><span class="line">        alert(response.a);</span><br><span class="line">        <span class="built_in">console</span>.log(response)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>当然我们还可以进行使用<code>$.getJSON()</code>。使用方式同上。</p>
+<h3 id="jqXHR对象">jqXHR对象</h3><p>在之前，我们使用了局部方法：.success()、.complete()和.error()。这三个局部方法并不是 XMLHttpRequest 对象调用的，而是$.ajax()之类的全局方法返回的对象调用的。这个对象，就是 jqXHR 对象，它是原生对象 XHR 的一个超集。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取 jqXHR 对象，查看属性和方法</span></span><br><span class="line"><span class="keyword">var</span> jqXHR = $.ajax(&#123;</span><br><span class="line">    type : <span class="string">'POST'</span>,</span><br><span class="line">    url : <span class="string">'test.php'</span>,</span><br><span class="line">    data : $(<span class="string">'form'</span>).serialize()</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> jqXHR) &#123;</span><br><span class="line">    <span class="built_in">document</span>.write(i + <span class="string">'&lt;br /&gt;'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果使用 jqXHR 对象的话，那么建议用.done()、.always()和.fail()代<br>替.success()、.complete()和.error()。以为在未来版本中，很可能将这三种方法废弃取消。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//成功后回调函数</span></span><br><span class="line">jqXHR.done(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    $(<span class="string">'#box'</span>).html(response);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用 jqXHR 的连缀方式比$.ajax()的属性方式有三大好处：</p>
+<ol>
+<li>可连缀操作，可读性大大提高；</li>
+<li>可以多次执行同一个回调函数；</li>
+<li>为多个操作指定回调函数；</li>
+</ol>
+<p>PS：很多都只做了一下测试，并不能熟练应用，先过一遍吧，以后再来熟练掌握。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ajax/" rel="tag">#Ajax</a>
+          
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/01/jQuery-04-animation/" rel="next" title="jQuery入门笔记之（四）动画效果">
+                <i class="fa fa-chevron-left"></i> jQuery入门笔记之（四）动画效果
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/03/jQuery-05-Ajax/"
+           data-title="jQuery入门笔记之（五）jQuery中的Ajax" data-url="http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> S F
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中的Ajax"><span class="nav-number">1.</span> <span class="nav-text">jQuery中的Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax中的load()方法"><span class="nav-number">1.1.</span> <span class="nav-text">Ajax中的load()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$-get()和$-post()"><span class="nav-number">1.2.</span> <span class="nav-text">$.get()和$.post()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$-getScript()和$-getJSON()"><span class="nav-number">1.3.</span> <span class="nav-text">$.getScript()和$.getJSON()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#$-ajax()"><span class="nav-number">1.4.</span> <span class="nav-text">$.ajax()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单序列化"><span class="nav-number">1.5.</span> <span class="nav-text">表单序列化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax进阶"><span class="nav-number">2.</span> <span class="nav-text">Ajax进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加载请求，及错误处理。"><span class="nav-number">2.1.</span> <span class="nav-text">加载请求，及错误处理。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求全局事件"><span class="nav-number">2.2.</span> <span class="nav-text">请求全局事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON和JSONP"><span class="nav-number">2.3.</span> <span class="nav-text">JSON和JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jqXHR对象"><span class="nav-number">2.4.</span> <span class="nav-text">jqXHR对象</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
