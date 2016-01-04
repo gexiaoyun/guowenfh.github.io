@@ -101,7 +101,7 @@ html()
 html(value)
 设置元素中 HTML 内容
 清空">
-<meta property="og:updated_time" content="2015-12-31T05:22:16.098Z">
+<meta property="og:updated_time" content="2016-01-04T07:43:59.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery入门笔记之（二）文档对象模型">
 <meta name="twitter:description" content="基础 DOM 和 和 CSS一. 设置元素及内容我们通过前面所学习的各种选择器、过滤器来得到我们想要操作的元素。这个时候，我们就可以对这些元素进行 DOM 的操作。那么，最常用的操作就是对元素内容的获取和修改。html()和 text()方法:
@@ -769,13 +769,13 @@ html(value)
 <td>无参数</td>
 </tr>
 <tr>
-<td><code>$(&#39;div&#39;).replaceWith(&#39;&lt;span&gt;节点&lt;/span&gt;&#39;)</code></td>
+<td><code>$(selector).replaceWith(content);</code></td>
 <td>将 div 替换成 span 元素</td>
 <td>HTML字符串，DOM元素，或者jQuery对象</td>
 </tr>
 <tr>
-<td><code>$(&#39;&lt;span&gt;节点&lt;/span&gt;&#39;).replaceAll(&#39;div&#39;);</code></td>
-<td>同上</td>
+<td><code>$(content).replaceAll(selector);</code></td>
+<td>参数selector为被替换的元素，content为替换的内容。</td>
 <td>同上</td>
 </tr>
 </tbody>
@@ -784,6 +784,7 @@ html(value)
 <ol>
 <li><code>.remove()</code>和<code>.detach()</code>都是删除节点，而删除后本身方法可以返回当前被删除的节点对象，但区别在于前者在恢复时不保留事件行为，后者则保留。</li>
 <li>节点被替换后，所包含的事件行为就全部消失了。</li>
+<li>注意<code>replaceWith()</code>和<code>replaceAll()</code>方法替换的操作的<strong>内容和被替换元素所在的位置不同</strong></li>
 </ol>
 
       
