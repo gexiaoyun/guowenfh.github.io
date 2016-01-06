@@ -60,27 +60,27 @@
 
 
 <meta name="description" content="本博客讨论居中情况设定为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
-特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的宽高为元素的一半）。宽高改变时，不再是居中效果。
+特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的偏移量为元素宽高的一半）。宽高改变时，不再是居中效果。
 在这些布局中的子元素，因为其属性设置，都默认为内容宽度。
-本博客所">
+本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS之各种居中">
 <meta property="og:url" content="http://guowenfh.github.io/2016/01/06/css-position-middle/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
 <meta property="og:description" content="本博客讨论居中情况设定为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
-特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的宽高为元素的一半）。宽高改变时，不再是居中效果。
+特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的偏移量为元素宽高的一半）。宽高改变时，不再是居中效果。
 在这些布局中的子元素，因为其属性设置，都默认为内容宽度。
-本博客所">
+本">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/HorizontalCenter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/VerticalCenter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/middle.jpg">
-<meta property="og:updated_time" content="2016-01-06T09:27:19.497Z">
+<meta property="og:updated_time" content="2016-01-06T09:33:09.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS之各种居中">
 <meta name="twitter:description" content="本博客讨论居中情况设定为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
-特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的宽高为元素的一半）。宽高改变时，不再是居中效果。
+特别说明：在元素设置position:absolute;来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的margin来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的偏移量为元素宽高的一半）。宽高改变时，不再是居中效果。
 在这些布局中的子元素，因为其属性设置，都默认为内容宽度。
-本博客所">
+本">
 
 
 
@@ -301,7 +301,7 @@
 
       
         <p>本博客讨论居中情况设定为<strong>总宽度不定,内容宽度不定</strong>的情况。（改变大小时，仍然居中）。</p>
-<p>特别说明：在元素设置<code>position:absolute;</code>来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的<code>margin</code>来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的宽高为元素的一半）。宽高改变时，不再是居中效果。</p>
+<p>特别说明：在元素设置<code>position:absolute;</code>来设置居中效果时，除去博客下介绍的css3方法外，还可以使用负的<code>margin</code>来居中，这样解决了兼容性的问题，但是只适用于宽高已知的情况（因为负的偏移量为元素宽高的一半）。宽高改变时，不再是居中效果。</p>
 <p>在这些布局中的子元素，因为其属性设置，都默认为内容宽度。</p>
 <p>本博客所有居中的例子，只讨论css的实现，html代码统一如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>demo<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="1-_水平居中">1. 水平居中</h2><p><img src="/images/css/position/HorizontalCenter.jpg" alt="水平居中"></p>
