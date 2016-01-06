@@ -61,23 +61,26 @@
 
 <meta name="description" content="本博客讨论为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
 特别说明：在元素设置position:absolute;时，使用负的margin来居中，只适用于宽高已知的情况。虽然兼容性好，但宽高改变时，不再是居中效果。
-本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt;div class=&quot;child&quot;&amp;gt;demo&amp;">
+在这些布局中的子元素，因为其设置，都默认为内容宽度。
+本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS之各种居中">
 <meta property="og:url" content="http://guowenfh.github.io/2016/01/06/css-position-middle/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
 <meta property="og:description" content="本博客讨论为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
 特别说明：在元素设置position:absolute;时，使用负的margin来居中，只适用于宽高已知的情况。虽然兼容性好，但宽高改变时，不再是居中效果。
-本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt;div class=&quot;child&quot;&amp;gt;demo&amp;">
+在这些布局中的子元素，因为其设置，都默认为内容宽度。
+本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/HorizontalCenter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/VerticalCenter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/css/position/middle.jpg">
-<meta property="og:updated_time" content="2016-01-06T09:10:42.704Z">
+<meta property="og:updated_time" content="2016-01-06T09:12:44.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS之各种居中">
 <meta name="twitter:description" content="本博客讨论为总宽度不定,内容宽度不定的情况。（改变大小时，仍然居中）。
 特别说明：在元素设置position:absolute;时，使用负的margin来居中，只适用于宽高已知的情况。虽然兼容性好，但宽高改变时，不再是居中效果。
-本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt;div class=&quot;child&quot;&amp;gt;demo&amp;">
+在这些布局中的子元素，因为其设置，都默认为内容宽度。
+本博客所有居中的例子，html代码统一如下：123&amp;lt;div class=&quot;parent&quot;&amp;gt;    &amp;lt">
 
 
 
@@ -299,6 +302,7 @@
       
         <p>本博客讨论为<strong>总宽度不定,内容宽度不定</strong>的情况。（改变大小时，仍然居中）。</p>
 <p>特别说明：在元素设置<code>position:absolute;</code>时，使用负的<code>margin</code>来居中，只适用于宽高已知的情况。虽然兼容性好，但宽高改变时，不再是居中效果。</p>
+<p>在这些布局中的子元素，因为其设置，都默认为内容宽度。</p>
 <p>本博客所有居中的例子，html代码统一如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"child"</span>&gt;</span>demo<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="1-_水平居中">1. 水平居中</h2><p><img src="/images/css/position/HorizontalCenter.jpg" alt="水平居中"></p>
 <h3 id="1-1_inline-block配合text-align">1.1 <code>inline-block</code>配合<code>text-align</code></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.child</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
