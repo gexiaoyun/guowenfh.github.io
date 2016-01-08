@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-06T09:33:09.478Z</updated>
+  <updated>2016-01-08T14:39:51.829Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -13,6 +13,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[CSS3选择器详解]]></title>
+    <link href="http://guowenfh.github.io/2016/01/08/css-selector/"/>
+    <id>http://guowenfh.github.io/2016/01/08/css-selector/</id>
+    <published>2016-01-08T14:38:19.000Z</published>
+    <updated>2016-01-08T14:39:51.829Z</updated>
+    <content type="html"><![CDATA[<h2 id="1-常用选择器">1.常用选择器</h2><p>1.1标签选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span><span class="rules">&#123; &#125;</span><span class="comment">/*选择标签名为p的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<p>1.2类选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.box</span><span class="rules">&#123; &#125;</span><span class="comment">/*选择class名为box的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<p>1.3ID选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#pid</span><span class="rules">&#123; &#125;</span><span class="comment">/*选择id名为pid的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<p>1.4通配符选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="rules">&#123; &#125;</span><span class="comment">/*选择页面中所有的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<p>1.5选择器前缀<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span><span class="class">.bd</span><span class="rules">&#123;&#125;</span><span class="comment">/*选中class名为bd且标签为div的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<p>1.6属性选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr_selector">[disabled]</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择带有属性disabled的所有元素*/</span></span><br><span class="line"><span class="attr_selector">[type=button]</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择type属性为button的所有元素*/</span></span><br><span class="line"><span class="attr_selector">[class~=sports]</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择class属性包含sports所有元素*/</span></span><br><span class="line"><span class="attr_selector">[lang|=en]</span><span class="rules">&#123;  &#125;</span><span class="comment">/*选择以lang属性以"en"开头以及以"-"分隔的所有元素*/</span></span><br><span class="line"><span class="tag">a</span><span class="attr_selector">[href^="#"]</span><span class="rules">&#123; &#125;</span><span class="comment">/*选择href属性以"#"开头的a元素*/</span></span><br><span class="line"><span class="attr_selector">[href$="pdf"]</span><span class="rules">&#123;  &#125;</span><span class="comment">/*选择href属性以"pdf"结尾的元素*/</span></span><br><span class="line"><span class="attr_selector">[href*="lady.163.com"]</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择href属性中包含"lady.163.com"的元素*/</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-伪类选择器">2.伪类选择器</h2><p>2.1链接伪类<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*前两个只可用于描元素（链接）*/</span></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:link</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#FF0000</span></span></span>;&#125;</span>     <span class="comment">/* 未被访问的链接 */</span></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:visited</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#00FF00</span></span></span>;&#125;</span>  <span class="comment">/* 已被访问的链接 */</span></span><br><span class="line"><span class="comment">/*后两个可以用于其它元素*/</span></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:hover</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#FF00FF</span></span></span>;&#125;</span>    <span class="comment">/* 鼠标指针移动到链接上 */</span></span><br><span class="line"><span class="tag">a</span><span class="pseudo">:active</span> <span class="rules">&#123;<span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#0000FF</span></span></span>;&#125;</span>   <span class="comment">/* 正在被点击的链接 */</span></span><br></pre></td></tr></table></figure></p>
+<p>链接在进行设置时：<code>a:hover</code> 必须位于 <code>a:link</code> 和 <code>a:visited</code> 之后, <code>a:active</code> 必须位于 <code>a:hover</code> 之后。</p>
+<p>2.2动态伪类<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">input</span><span class="pseudo">:focus</span><span class="rules">&#123;&#125;</span><span class="comment">/*设置input元素获得焦点后的样式*/</span></span><br><span class="line"><span class="tag">input</span><span class="pseudo">:enabled</span><span class="rules">&#123;&#125;</span><span class="comment">/*元素可用的状态*/</span></span><br><span class="line"><span class="tag">input</span><span class="pseudo">:disabled</span><span class="rules">&#123;&#125;</span><span class="comment">/*元素不可用的状态，属性选择器[disabled]的简写*/</span></span><br><span class="line"><span class="tag">input</span><span class="pseudo">:checked</span><span class="rules">&#123;&#125;</span><span class="comment">/*单选框或者复选框选择的样式*/</span></span><br></pre></td></tr></table></figure></p>
+<p>2.3树形图上的伪类<br>html结构如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>5<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>选择符：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">ul</span><span class="pseudo">:first-child</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择第一个ul下第一个标签（css2定义，支持ie7）在处理margin时很有用*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*以下全是CSS3新增的伪类*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:last-child</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择最后一个li标签*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:nth-child(n)</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择()内的表达式如：[2n+1]，或者数字所代表的li标签*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:nth-last-child(n)</span><span class="comment">/*同上，反向选择*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:only-child</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择ul只有一个子元素的项，这里会选中第三个li下的a标签*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:first-of-type</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择第一个该类型的标签，会选择第一个li和p*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:last-of-type</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择最后一个该类型的标签，会选择第四个li和p*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:nth-last-of-type(2n)</span><span class="rules">&#123;  &#125;</span><span class="comment">/*倒数的选择(.)内的表达式[2n]，或数字所代表的该类型标签。选择第一个和第三个li标签*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:only-of-type</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择ul下中只有一个该类型的项，会选中a标签和p标签*/</span></span><br><span class="line"><span class="pseudo">:root</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择文档的根元素*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:not(li)</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择不含有li标签的元素，这里会选中a标签和p元素*/</span></span><br><span class="line"><span class="tag">ul</span><span class="pseudo">:empty</span><span class="rules">&#123;&#125;</span><span class="comment">/*匹配ul下没有任何子元素（包括text节点）的元素，这里匹配不到，把p标签中的5删除，可匹配成功*/</span></span><br><span class="line"><span class="tag">E</span><span class="pseudo">:target</span><span class="rules">&#123;&#125;</span><span class="comment">/*匹配相关URL（锚点）指向的元素。*/</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-伪元素选择器">3.伪元素选择器</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="pseudo">::first-letter</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择第一个字母*/</span></span><br><span class="line"><span class="pseudo">::first-line</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择第一行*/</span></span><br><span class="line"><span class="pseudo">::before</span><span class="rules">&#123;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">"before"</span></span></span>;&#125;</span><span class="comment">/*在某个元素之前插入一些内容*/</span></span><br><span class="line"><span class="pseudo">::after</span><span class="rules">&#123;<span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">"after"</span></span></span>;&#125;</span><span class="comment">/*在某个元素后插入一些内容*/</span></span><br><span class="line"><span class="pseudo">::selection</span><span class="rules">&#123;&#125;</span><span class="comment">/*设置于被用户选中时的样式*/</span></span><br><span class="line"><span class="pseudo">::placeholder</span><span class="rules">&#123;&#125;</span><span class="comment">/*设置对象文字占位符的样式*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-组合选择器">4.组合选择器</h2><p>4.1后代选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.main</span> <span class="tag">h2</span><span class="rules">&#123;  &#125;</span><span class="comment">/*选择class名为mian元素内的所有h2标签*/</span></span><br></pre></td></tr></table></figure></p>
+<p>4.2子选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.main</span>&gt;<span class="tag">h2</span><span class="rules">&#123;  &#125;</span><span class="comment">/*选择class名为mian元素内的直接关联与父元素的h2标签*/</span></span><br></pre></td></tr></table></figure></p>
+<p>4.3相连选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">h2</span>~<span class="tag">p</span><span class="rules">&#123;&#125;</span><span class="comment">/*只要P标签前有h2标签便选择*/</span></span><br></pre></td></tr></table></figure></p>
+<p>4.4兄弟选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">h2</span>~<span class="tag">p</span><span class="rules">&#123;&#125;</span><span class="comment">/*选择h2标签后出现的所有p标签*/</span></span><br></pre></td></tr></table></figure></p>
+<p>4.4选择器分组<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">h1</span>,<span class="tag">h2</span>,<span class="tag">h3</span><span class="rules">&#123;<span class="rule"><span class="attribute">backgound-color</span>:<span class="value"><span class="hexcolor">#ddd</span></span></span>;&#125;</span><span class="comment">/*同时设置h1,h2,h3标签,使用","分隔*/</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-继承">5.继承</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span><span class="rules">&#123;<span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"Microsoft Yahei"</span></span></span>;&#125;</span><span class="comment">/*设置页面中所有的字体为微软雅黑*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>继承属性<ul>
+<li>color</li>
+<li>font</li>
+<li>text-align</li>
+<li>list-style</li>
+<li>…</li>
+</ul>
+</li>
+<li>非继承属性<ul>
+<li>background</li>
+<li>border</li>
+<li>position</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-CSS优先级">6.CSS优先级</h2><ul>
+<li>计算方法<ul>
+<li>a = 行内样式</li>
+<li>b = ID选择器的数量</li>
+<li>c = 类/伪类和属性选择器的数量</li>
+<li>d = 标签选择器和伪元素选择器数量</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>value = a<em>1000 + b</em>100 + c*10 +d</p>
+</blockquote>
+<p><code>!important</code>强行提升优先级</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="1-常用选择器">1.常用选择器</h2><p>1.1标签选择器<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br>]]>
+    </summary>
+    
+      <category term="css" scheme="http://guowenfh.github.io/tags/css/"/>
+    
+      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[CSS之各种居中]]></title>
@@ -174,7 +240,7 @@
     <link href="http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/"/>
     <id>http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/</id>
     <published>2016-01-03T04:22:45.000Z</published>
-    <updated>2016-01-03T04:36:42.517Z</updated>
+    <updated>2016-01-06T09:45:18.663Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。<br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a><br><a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a></p>
 </blockquote>
@@ -4220,159 +4286,6 @@
       <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
     
       <category term="正则表达式" scheme="http://guowenfh.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[JavaScript类型识别]]></title>
-    <link href="http://guowenfh.github.io/2015/11/30/javascript-type/"/>
-    <id>http://guowenfh.github.io/2015/11/30/javascript-type/</id>
-    <published>2015-11-30T11:50:30.000Z</published>
-    <updated>2015-12-27T04:38:33.681Z</updated>
-    <content type="html"><![CDATA[<h2 id="类型系统">类型系统</h2><blockquote>
-<p>javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。</p>
-</blockquote>
-<p><img src="/images/2015-11-30-javascript-type/javascript-variable-type.jpg" alt="JS数据类型">.</p>
-<h3 id="类型转化表">类型转化表</h3><table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Boolean</th>
-<th>Number</th>
-<th>String</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>undefined</td>
-<td>false</td>
-<td>NaN</td>
-<td>“undefined”</td>
-</tr>
-<tr>
-<td>null</td>
-<td>false</td>
-<td>0</td>
-<td>“null”</td>
-</tr>
-<tr>
-<td>true</td>
-<td>true</td>
-<td>1</td>
-<td>“true”</td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>0</td>
-<td>“false”</td>
-</tr>
-<tr>
-<td>“”</td>
-<td>false</td>
-<td>0</td>
-<td>“”</td>
-</tr>
-<tr>
-<td>‘123’</td>
-<td>true</td>
-<td>123</td>
-<td>‘123’</td>
-</tr>
-<tr>
-<td>‘1a’</td>
-<td>true</td>
-<td>NaN</td>
-<td>‘1a’</td>
-</tr>
-<tr>
-<td>0</td>
-<td>false</td>
-<td>0</td>
-<td>“0”</td>
-</tr>
-<tr>
-<td>1</td>
-<td>true</td>
-<td>1</td>
-<td>“1”</td>
-</tr>
-<tr>
-<td>Infinity</td>
-<td>true</td>
-<td>Infinity</td>
-<td>“Infinity”</td>
-</tr>
-<tr>
-<td>NaN</td>
-<td>false</td>
-<td>NaN</td>
-<td>‘NaN’</td>
-</tr>
-<tr>
-<td>{}</td>
-<td>true</td>
-<td>NaN</td>
-<td>“[object Object]”</td>
-</tr>
-</tbody>
-</table>
-<h2 id="类型判断">类型判断</h2><ul>
-<li><code>typeof</code></li>
-<li><code>Object.prototype.toString</code></li>
-<li><code>constructor</code></li>
-<li><code>instanceof</code></li>
-</ul>
-<h3 id="typeof"><code>typeof</code></h3><ol>
-<li>可以识别标准类型(<code>null</code>除外)</li>
-<li>不可识别具体的对象类型(<code>Function</code>除外)</li>
-</ol>
-<p>例:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 可以识别标准类型(`null`除外)</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="number">1</span>);<span class="comment">//"number"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="string">""</span>);<span class="comment">//"string"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>);<span class="comment">//"undefined"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">true</span>);<span class="comment">//"boolean"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>);<span class="comment">//"object"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 不可识别具体的对象类型(`Function`除外)</span></span><br><span class="line"><span class="keyword">typeof</span>([]);<span class="comment">//"object"</span></span><br><span class="line"><span class="keyword">typeof</span>(&#123;&#125;);<span class="comment">//"object"</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);<span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
-<h3 id="instanceof"><code>instanceof</code></h3><ol>
-<li>能够判别内置对象类型</li>
-<li>不能判别原始类型</li>
-<li>能够判别自定义类型</li>
-</ol>
-<p>例: </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 能够判别内置对象类型</span></span><br><span class="line">[] <span class="keyword">instanceof</span> <span class="built_in">Array</span>;<span class="comment">//true</span></span><br><span class="line">/\d/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>;<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 不能判别原始类型</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>;<span class="comment">//false</span></span><br><span class="line"><span class="string">"xiaohong"</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>;<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3. 能够判别自定义类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = x;</span><br><span class="line">	<span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> Point(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">c <span class="keyword">instanceof</span> Point;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h3 id="Object-prototype-toString-call()方法"><code>Object.prototype.toString.call()</code>方法</h3><ol>
-<li>可以识别标准类型,及内置对象类型</li>
-<li>不能识别自定义类型</li>
-</ol>
-<p>例:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 可以识别标准类型,及内置对象类型</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="number">21</span>);<span class="comment">//"[object Number]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call([]);<span class="comment">//"[object Array]"</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(<span class="regexp">/[A-Z]/</span>);<span class="comment">//"[object RegExp]"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 不能识别自定义类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = x;</span><br><span class="line">	<span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> Point(<span class="number">2</span>,<span class="number">3</span>);<span class="comment">//c instanceof Point;//true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(c);<span class="comment">//"[object Object]"</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>为了方便使用,使用函数封装如下:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">typeProto</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">typeProto(<span class="string">"guo"</span>);<span class="comment">//"String"</span></span><br><span class="line">typeProto(&#123;&#125;);<span class="comment">//"Object"</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="constructor-NaN"><code>constructor</code></h3><blockquote>
-<p><code>constructor</code>指向构造这个对象的构造函数本身..</p>
-</blockquote>
-<ol>
-<li>可识别原始类型</li>
-<li>可识别内置对象类型</li>
-<li>可识别自定义类型</li>
-</ol>
-<p>例:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 可识别原始类型</span></span><br><span class="line"><span class="string">"guo"</span>.constructor === <span class="built_in">String</span>;<span class="comment">//true</span></span><br><span class="line">(<span class="number">1</span>).constructor === <span class="built_in">Number</span>;<span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span>.constructor === <span class="built_in">Boolean</span>;<span class="comment">//true</span></span><br><span class="line">(&#123;&#125;).constructor === <span class="built_in">Object</span>;<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 可识别内置对象类型</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().constructor === <span class="built_in">Date</span>;<span class="comment">//true</span></span><br><span class="line">[].constructor === <span class="built_in">Array</span>;<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3. 可识别自定义类型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = x;</span><br><span class="line">	<span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> People(<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">c.constructor===People;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>为了方便使用,使用函数封装如下:</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getConstructorName</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> obj &amp;&amp; obj.constructor &amp;&amp; obj.constructor.toString().match(<span class="regexp">/function\s*([^(]*)/</span>)[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getConstructorName(<span class="keyword">new</span> <span class="built_in">Date</span>());<span class="comment">//"Date"</span></span><br><span class="line">getConstructorName(<span class="literal">null</span>);<span class="comment">//null</span></span><br><span class="line">getConstructorName(<span class="number">12</span>);<span class="comment">//"Number"</span></span><br></pre></td></tr></table></figure>
-<h2 id="类型判断对比表">类型判断对比表</h2><ul>
-<li>其中红色的单元格表示该判断方式不支持的类型。</li>
-</ul>
-<p><img src="/images/2015-11-30-javascript-type/javascript-type-judge.png" alt="类型判断对比表"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="类型系统">类型系统</h2><blockquote>
-<p>javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。</p>
-</blockquote>]]>
-    </summary>
-    
-      <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
     
       <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
