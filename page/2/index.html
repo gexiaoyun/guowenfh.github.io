@@ -237,6 +237,124 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/31/jQuery-03-DetailedEvent/" itemprop="url">
+                  jQuery入门笔记之（三）事件详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-31T11:42:43+08:00" content="2015-12-31">
+              2015-12-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/31/jQuery-03-DetailedEvent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/31/jQuery-03-DetailedEvent/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。
+
+基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/31/jQuery-03-DetailedEvent/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/31/jQuery-02-DocumentObjectModel/" itemprop="url">
                   jQuery入门笔记之（二）文档对象模型
                 </a>
@@ -842,136 +960,6 @@ File：文档相关，新建文件,打开文件或文
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/21/JS-Animated-Frames/" itemprop="url">
-                  JavaScript完美运动框架的进阶之旅
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-21T17:17:29+08:00" content="2015-12-21">
-              2015-12-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/21/JS-Animated-Frames/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/21/JS-Animated-Frames/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          运动框架的实现思路
-运动，其实就是在一段时间内改变left、right、width、height、opactiy的值，到达目的地之后停止。
-
-现在按照以下步骤来进行我们的运动框架的封装:
-
-匀速运动。
-缓冲运动。
-多物体运动。
-任意值变化。
-链式运动。
-同时运动。
-
-（一）匀速运动速度动画运动基础思考：如何让div动起来?如下：
-
-设置元素为绝对定位，只有绝对定位后，left,top等值才生效。
-
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/21/JS-Animated-Frames/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1018,7 +1006,7 @@ File：文档相关，新建文件,打开文件或文
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
