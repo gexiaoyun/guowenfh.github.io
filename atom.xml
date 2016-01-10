@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-10T07:48:11.282Z</updated>
+  <updated>2016-01-10T07:51:01.541Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,13 +19,13 @@
     <link href="http://guowenfh.github.io/2016/01/10/css-MultiColumn-layout/"/>
     <id>http://guowenfh.github.io/2016/01/10/css-MultiColumn-layout/</id>
     <published>2016-01-10T07:30:52.000Z</published>
-    <updated>2016-01-10T07:48:11.282Z</updated>
+    <updated>2016-01-10T07:51:01.541Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>需要注意的是：本篇文章的布局，都未对父元素进行清除浮动的操作，所以在有<strong>一些</strong>使用了float的布局中，需要在parent容器清除浮动，才能在实际情况下使用。（清除浮动的方式在这里不做讨论）</p>
 </blockquote>
 <h2 id="一列定宽一列自适应">一列定宽一列自适应</h2><p>这部分的html结构如下：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"left"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>left<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span>&gt;</span>right<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>大家先来看看直接浮动是怎么样的吧：<br><img src="/images/css/layout/FixedWidthAndAdaptive-initial.jpg" alt="一列定宽，文字环绕效果"></p>
+<p>大家先来看看直接在左侧添加浮动是怎么样的吧：<br><img src="/images/css/layout/FixedWidthAndAdaptive-initial.jpg" alt="一列定宽，文字环绕效果"></p>
 <p>不要觉得诧异！因为float最开始的出现就是为了实现这个文字环绕效果的，只不过被攻城师们玩坏了，用到了布局上；但这肯定不是我们想要的，来看看我们想要的是怎么样的吧！<br><img src="/images/css/layout/FixedWidthAndAdaptive-target.jpg" alt="一列定宽，一列自适应"></p>
 <p>这样才对嘛！是我们想要的！下面就来看看css的实现吧：</p>
 <h3 id="1-_float+margin">1. <code>float</code>+<code>margin</code></h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.left</span><span class="rules">&#123;   </span><br><span class="line">    <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.right</span><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">margin-left</span>:<span class="value"> <span class="number">120px</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
