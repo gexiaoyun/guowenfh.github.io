@@ -1,0 +1,839 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jQuery," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="插件(Plugin)也成为 jQuery 扩展(Extension)，是一种遵循一定规范的应用程序接口编写出来的程序。目前 jQuery 插件已超过几千种，由来自世界各地的开发者共同编写、验证和完善。而对于jQuery开发者而言，直接使用这些插件将快速稳定架构系统，节约项目成本。
+
+一． 插件概述插件是以 jQuery 的核心代码为基础，编写出复合一定规范的应用程序。也就是说，插件也是 jQuer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery入门笔记之（七）插件">
+<meta property="og:url" content="http://guowenfh.github.io/2016/01/13/jQuery-07-Plugin/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="插件(Plugin)也成为 jQuery 扩展(Extension)，是一种遵循一定规范的应用程序接口编写出来的程序。目前 jQuery 插件已超过几千种，由来自世界各地的开发者共同编写、验证和完善。而对于jQuery开发者而言，直接使用这些插件将快速稳定架构系统，节约项目成本。
+
+一． 插件概述插件是以 jQuery 的核心代码为基础，编写出复合一定规范的应用程序。也就是说，插件也是 jQuer">
+<meta property="og:updated_time" content="2016-01-13T09:23:24.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery入门笔记之（七）插件">
+<meta name="twitter:description" content="插件(Plugin)也成为 jQuery 扩展(Extension)，是一种遵循一定规范的应用程序接口编写出来的程序。目前 jQuery 插件已超过几千种，由来自世界各地的开发者共同编写、验证和完善。而对于jQuery开发者而言，直接使用这些插件将快速稳定架构系统，节约项目成本。
+
+一． 插件概述插件是以 jQuery 的核心代码为基础，编写出复合一定规范的应用程序。也就是说，插件也是 jQuer">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> jQuery入门笔记之（七）插件 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery入门笔记之（七）插件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-13T17:20:59+08:00" content="2016-01-13">
+              2016-01-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/13/jQuery-07-Plugin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/13/jQuery-07-Plugin/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>插件(Plugin)也成为 jQuery 扩展(Extension)，是一种遵循一定规范的应用程序接口编写出来的程序。目前 jQuery 插件已超过几千种，由来自世界各地的开发者共同编写、验证和完善。而对于jQuery开发者而言，直接使用这些插件将快速稳定架构系统，节约项目成本。</p>
+</blockquote>
+<h2 id="一．_插件概述">一． 插件概述</h2><p>插件是以 jQuery 的核心代码为基础，编写出复合一定规范的应用程序。也就是说，插件也是 jQuery 代码，通过 js 文件引入的方式植入即可。<br>插件的种类很多，主要大致可以分为：UI 类、表单及验证类、输入类、特效类、Ajax类、滑动类、图形图像类、导航类、综合工具类、动画类等等。<br>引入插件是需要一定步骤的，基本如下：</p>
+<ol>
+<li>必须先引入 jquery.js 文件，而且在所有插件之前引入；</li>
+<li>引入插件；</li>
+<li>引入插件的周边，比如皮肤、中文包等。</li>
+</ol>
+<p>比如最常用到的表单验证插件：<code>validate</code>，除了最基本的插件文件<code>jquery.validate.min.js</code>之外，还有着<code>messages_zh.js</code>等等各国的语言包可以供你使用。</p>
+<p>如何使用该插件在这里就不进行描述了，可以去看看慕课网上的视频<a href="http://www.imooc.com/learn/385" target="_blank" rel="external">jQuery插件——Validation Plugin</a>，里面详细的描述了这个插件的各种配置项，以及扩展。</p>
+<p>触类旁通，一个优秀的插件，详细的说明文档必不可少，详细的看说明文档能，并且在本地进行测试能让你快速的入门各种插件的使用。</p>
+<p>还有各种各样的别人编写好的插件可以供你使用：比如管理cookie的插件–cookie等等。</p>
+<p>插件可以去jQuery官网的插件模块进行查找<a href="http://plugins.jquery.com/" target="_blank" rel="external">The jQuery Plugin Registry</a></p>
+<h2 id="二-_自定义插件">二. 自定义插件</h2><p>前面我们使用了别人提供好的插件，使用起来非常的方便。如果市面上找不到自己满意的插件，并且想自己封装一个插件提供给别人使用。那么就需要自己编写一个 jQuery 插件了。</p>
+<h3 id="插件种类">插件种类</h3><p>按照功能分类，插件的形式可以分为一下三类：</p>
+<ol>
+<li>封装对象方法的插件；（也就是基于某个 DOM 元素的 jQuery 对象，局部性，使用最多）</li>
+<li>封装全局函数的插件；（全局性的封装）</li>
+<li>选择器插件。(类似与.find()，例如：<code>color(red)</code>来选择所有的红色元素之类)</li>
+</ol>
+<h3 id="插件的基本要点">插件的基本要点</h3><p>主要用以以解决各种因为插件导致的冲突、错误等问题，包括如下：</p>
+<ol>
+<li>插件名推荐使用 jQuery.[插件名].js，以免和其他 js 文件或者其他库相冲突（可以使用alert(<code>$.[插件名]</code>)验证是否存在该全局方法）；</li>
+<li>局部对象附加 jQuery.fn 对象上，全局函数附加在 jQuery对象本身上（可以使用alert(<code>$(selector).[插件名]</code>)验证是否存在该局部方法）；</li>
+<li>插件内部，this 指向是当前的局部对象（通过选择器获取的jQuery对象）；</li>
+<li>可以通过 this.each 来遍历所有元素；</li>
+<li>所有的方法或插件，必须用分号结尾，避免出现问题（为了更稳妥，可在插件头部先加上一个分号）；</li>
+<li>插件应该返回的是 jQuery 对象，以保证可链式操作；</li>
+<li>避免插件内部使用$，如果要使用，使用闭包把传递 jQuery 进去，使插件内部继续使用$作为jQuery的别名。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;<span class="comment">//这里将$符作为匿名函数的形参</span></span><br><span class="line"><span class="comment">/*在此处编写代码，可使用$作为jQuery的缩写别名*/</span></span><br><span class="line">&#125;)(jQuery);<span class="comment">//这里将jQuery作为实参传递给匿名函数了</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="编写一个插件">编写一个插件</h3><p>假设我们的插件需求是：实现一个下拉菜单，在移入该元素时，把对应的下拉列表展现出来，移出时收回。并且可以设置其展开时的文字颜色。</p>
+<p>根据惯例，我们在编写插件时，可以对于html结构有所约束。现在假设我们的页面上有如下HTML结构：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表1</span><br><span class="line">        <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"nav"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表6<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表2</span><br><span class="line">        <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"nav"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表1<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表2<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表3<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表4<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表5<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">li</span>&gt;</span>导航列表6<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 默认已经引入jquery --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这里，我们就对我们的插件实现效果有了第一个要求，必须在<code>对于需要hover展现的元素</code>内部下面建立<code>ul</code>列表，且<code>className</code>必须为<code>nav</code>。（插件内部都是根据该条件来做文章）</p>
+<p>下面就可以开始编写我们的插件了。保存为<code>jQuery.nav.js</code>，（符合上面所说的要求，默认已经导入）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    $.extend(&#123; <span class="comment">//插件定义在全局方法上</span></span><br><span class="line">        <span class="string">"nav"</span> : <span class="function"><span class="keyword">function</span> (<span class="params">color</span>)</span>&#123;<span class="comment">//传参，这里只是抛砖引玉，在您编写的时候，参数选项可以更加丰富，例如传入json对象等等</span></span><br><span class="line">            $(<span class="string">'.nav'</span>).css(&#123;<span class="comment">//对展开的下拉列表设置样式，此处在下面进行详细说明</span></span><br><span class="line">                <span class="string">"list-style"</span> : <span class="string">"none"</span>,</span><br><span class="line">                <span class="string">"margin"</span> : <span class="number">0</span>,</span><br><span class="line">                <span class="string">"padding"</span> : <span class="number">0</span>,</span><br><span class="line">                <span class="string">"display"</span> : <span class="string">"none"</span>,</span><br><span class="line">                <span class="string">"color"</span>:color<span class="comment">//由用户控制hover时，展现出来列表的文字颜色</span></span><br><span class="line">            &#125;);</span><br><span class="line">            $(<span class="string">'.nav'</span>).parent().hover(<span class="comment">//这里用到了.nav的父节点（就是hover到的元素）</span></span><br><span class="line">                <span class="comment">//因为我们只能在插件要求的范围内进行设定，若是使用了外部的选择器，就违背了这个原则</span></span><br><span class="line">                <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                    $(<span class="keyword">this</span>).find(<span class="string">".nav"</span>).stop().slideDown(<span class="string">"normal"</span>);<span class="comment">//注意我们在这里使用了jquery的动画方法</span></span><br><span class="line">                &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                    $(<span class="keyword">this</span>).find(<span class="string">".nav"</span>).stop().slideUp(<span class="string">"normal"</span>);<span class="comment">//注意stop()的使用，不然会有类似手风琴效果的出现，但那并不是我们需要的</span></span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>注意：这里使用css方法只是为了方便，在真实插件编写过程中，若存在如此大量的css样式编写时，推荐在外部定义css样式，例如可改写为：<br>插件依赖的css，需和插件一起导入html中<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.hover</span><span class="rules">&#123;<span class="comment">/*插件必须样式*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">list-style</span>:<span class="value"> none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>在插件内部修改。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.nav'</span>).addClass(<span class="string">"hover"</span>);<span class="comment">//将CSS与jQuery分离开来</span></span><br><span class="line">$(<span class="string">'.nav'</span>).css(<span class="string">"color"</span>,color);<span class="comment">//存在用户设置时启用，不存在就不用了（进行判断）</span></span><br></pre></td></tr></table></figure></p>
+<p>刚刚说的都是插件的js文件，最后要起到效果，别忘了页面的js中加上那么一句话（当前插件定义在全局方法上）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>  (<span class="params"></span>)</span>&#123;</span><br><span class="line">    $.nav(<span class="string">"#999"</span>);<span class="comment">//调用插件实现的全局方法，并且设置其展现背景颜色为#999。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>就这样，我们的全局插件就编写，而且调用完成了，在你的页面刷新看看，是不是已经有了效果呢？</p>
+<p>但是，因为我们的方法定义在全局上，现在只要页面中出现了我们插件所规定的结构，就会存在hover展现效果，但是有时我们往往想要的不是这样，我们希望它在局部，在我指定的元素调用。所以我们需要对其进行一些改造，让其变成局部方法，其实也很简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">    $.fn.extend(&#123;<span class="comment">//定义为局部方法</span></span><br><span class="line">        <span class="string">"nav"</span> : <span class="function"><span class="keyword">function</span> (<span class="params">color</span>)</span>&#123;</span><br><span class="line">            $(<span class="keyword">this</span>).find(<span class="string">'.nav'</span>).addClass(<span class="string">'hover'</span>);<span class="comment">//上面已经说过了,此时this指向调用该方法的元素</span></span><br><span class="line">            $(<span class="keyword">this</span>).find(<span class="string">'.nav'</span>).css(<span class="string">"color"</span>,color);<span class="comment">//在当前元素下，增加了一次find筛选，实现在对应的元素中执行。</span></span><br><span class="line">            $(<span class="keyword">this</span>).find(<span class="string">'.nav'</span>).parent().hover(</span><br><span class="line">                <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                    $(<span class="keyword">this</span>).find(<span class="string">".nav"</span>).stop().slideDown(<span class="string">"normal"</span>);</span><br><span class="line">                &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                    $(<span class="keyword">this</span>).find(<span class="string">".nav"</span>).stop().slideUp(<span class="string">"normal"</span>);</span><br><span class="line">                &#125;);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;<span class="comment">//返回当前的对象</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+<p>我们去刷新一下浏览器。<br>你会发现，咦，怎么没效果？ 当然因为原来的代码是直接在全局调用的，现在变成局部方法了，显然就不能这样做了，需要做一点改变：</p>
+<p><strong>我这里就不贴html代码了，但是希望您在实践时能把上面的html代码在其下复制几份</strong>，以达到思考其实现的效果<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="function"><span class="keyword">function</span>  (<span class="params"></span>)</span>&#123;<span class="comment">//这里的eq(0)代表只对第一份起到效果，复制后的没有效果。</span></span><br><span class="line">    <span class="comment">//（你可以把上面的find筛选删除之后再试试，您会发现，他又对余下的几份起效果了）</span></span><br><span class="line">    $(<span class="string">".list"</span>).eq(<span class="number">0</span>).nav(<span class="string">"red"</span>);<span class="comment">//调用局部方法</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>现在回过头再把我们写的插件代码对应上面写的<strong>插件编写的要点</strong>，思考一下，我们还有哪些没有做到？就会发现，基本已经能对应上了。现在我们就完成了一个下拉菜单的插件。</p>
+<p>其实编写插件并不难，最主要的是在我们编写插件的时候，一定要时刻注意这样的要点，每一个细节都遵循在大家实践过程中总结出来的最佳实现，才能自定义实现一个良好的插件。</p>
+<p>代码首先是写个人看的，再然后才是给机器看的。</p>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/10/css-MultiColumn-layout/" rel="next" title="CSS多列布局">
+                <i class="fa fa-chevron-left"></i> CSS多列布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/13/jQuery-07-Plugin/"
+           data-title="jQuery入门笔记之（七）插件" data-url="http://guowenfh.github.io/2016/01/13/jQuery-07-Plugin/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> S F
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一．_插件概述"><span class="nav-number">1.</span> <span class="nav-text">一． 插件概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-_自定义插件"><span class="nav-number">2.</span> <span class="nav-text">二. 自定义插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#插件种类"><span class="nav-number">2.1.</span> <span class="nav-text">插件种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件的基本要点"><span class="nav-number">2.2.</span> <span class="nav-text">插件的基本要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写一个插件"><span class="nav-number">2.3.</span> <span class="nav-text">编写一个插件</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>
