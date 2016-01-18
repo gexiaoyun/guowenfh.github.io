@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-18T05:48:57.110Z</updated>
+  <updated>2016-01-18T05:57:37.692Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://guowenfh.github.io/2016/01/18/Bootstrap-01-typesetting/"/>
     <id>http://guowenfh.github.io/2016/01/18/Bootstrap-01-typesetting/</id>
     <published>2016-01-18T05:40:46.000Z</published>
-    <updated>2016-01-18T05:48:57.110Z</updated>
+    <updated>2016-01-18T05:57:37.692Z</updated>
     <content type="html"><![CDATA[<h2 id="1-_标题">1. 标题</h2><p>在Bootstrap中使用标题的方式和常规html一样：从<code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>分别从大到小安排标题元素，只不过在Bootstrap中重新设置了其默认样式，从源码中可以看到有如下共性：</p>
 <p>字体颜色与字体样式继承自父元素，字体粗细为500，且行高全部设为1.1（也就是font-size的1.1倍）</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value"> inherit</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-weight</span>:<span class="value"> <span class="number">500</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">1.1</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"> inherit</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -138,6 +138,11 @@
 <p>只需要在<strong><code>&lt;tr&gt;</code></strong>标签添加上这些类就可以使用了。<br>除此之外，通过源码可以看到，在这些颜色设置之外，Bootstrap还单独设置了<strong>hover效果（悬浮状态）</strong>的<strong>颜色加深</strong>效果（它对于不同的情况单独进行了颜色设置）。<br>实现也特别简单，只需要像<code>&lt;table class=&quot;table-hover&quot;&gt;</code>这样，在<code>&lt;table&gt;</code>标签加上一个<code>table-hover</code>的类。（在未对<code>&lt;tr&gt;</code>进行情景颜色设置时，该类依然有效果，只是效果不一样，上面已经说到了，因为它的单独设置，具体请到源码中查看）</p>
 <p>也正因为这样，如果你想自定义颜色的话，<strong>除了修改<code>tr</code>元素的颜色样式外，在<code>.table-hover</code>表格中也要做相应的调整!</strong></p>
 <p>排版的内容到这里就告一段落了，下面进行表单的学习！加油！</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.imooc.com/learn/141" target="_blank" rel="external">慕课网：玩转Bootstrap</a></li>
+<li><a href="http://v3.bootcss.com/css/" target="_blank" rel="external">Bootstrap中文官网：全局 CSS 样式</a></li>
+</ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="1-_标题">1. 标题</h2><p>在Bootstrap中使用标题的方式和常规html一样：从<code>&lt;h1&gt;</code>到<code>&lt;h6&gt;</code>分别从大到小安排标题元素，只不过在Bootstrap中重新设置了其默认样]]>
