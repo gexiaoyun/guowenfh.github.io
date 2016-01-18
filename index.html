@@ -209,6 +209,132 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/18/Bootstrap-01-typesetting/" itemprop="url">
+                  Bootstrap入门笔记之（一）排版
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-18T13:40:46+08:00" content="2016-01-18">
+              2016-01-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/18/Bootstrap-01-typesetting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/18/Bootstrap-01-typesetting/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          1. 标题在Bootstrap中使用标题的方式和常规html一样：从&lt;h1&gt;到&lt;h6&gt;分别从大到小安排标题元素，只不过在Bootstrap中重新设置了其默认样式，从源码中可以看到有如下共性：
+字体颜色与字体样式继承自父元素，字体粗细为500，且行高全部设为1.1（也就是font-size的1.1倍）
+123456&#123;    font-family: inherit;
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/18/Bootstrap-01-typesetting/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -233,7 +359,7 @@
               
                 
                 <a class="post-title-link" href="/2016/01/17/Bootstrap-00-summary/" itemprop="url">
-                  Bootstrap入门笔记之（零）Bootstrap简介
+                  Bootstrap入门笔记之（零）简介
                 </a>
               
             
@@ -804,125 +930,6 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/03/jQuery-06-toolFunction/" itemprop="url">
-                  jQuery入门笔记之（六）工具函数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-03T22:20:57+08:00" content="2016-01-03">
-              2016-01-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/jQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/03/jQuery-06-toolFunction/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/jQuery-06-toolFunction/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-工具函数直接依附于 jQuery 对象，针对 jQuery 对象本身定义的方法，它是全局性的函数。主要提供比如字符串、数组、对象等操作方面的遍历。
-
-字符串操作去除字符串左右空格的工具函数：$.trim()。这个函数我在task0002的部分已经用正则实现了。如下：
-12345678function trim(str) &#123;    var result = "";    result =
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/03/jQuery-06-toolFunction/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -969,7 +976,7 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
