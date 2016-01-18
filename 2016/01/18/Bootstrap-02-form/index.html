@@ -1,0 +1,913 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bootstrap," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。
+
+良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap入门笔记之（二）表单">
+<meta property="og:url" content="http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。
+
+良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form1.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form3.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form2.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form-disabled.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form-status.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form-btn1.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form-btn2.jpg">
+<meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/form-btn-size.jpg">
+<meta property="og:updated_time" content="2016-01-18T15:27:48.134Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bootstrap入门笔记之（二）表单">
+<meta name="twitter:description" content="只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。
+
+良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Bootstrap入门笔记之（二）表单 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Bootstrap入门笔记之（二）表单
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-18T23:26:45+08:00" content="2016-01-18">
+              2016-01-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/18/Bootstrap-02-form/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/18/Bootstrap-02-form/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。</p>
+</blockquote>
+<p>良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：<strong>文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等</strong>。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲染的风格都各有不同。传统的HTML表单就不在这样进行讲解了，下面就开始Bootstrap表单的学习吧！</p>
+<h2 id="一-_基础表单">一. 基础表单</h2><p>在Bootstrap对于基础表单没有做太多的定制效果，仅仅是对于一些元素的<strong>margin、padding和border</strong>进行了一些细化设置。<br>当然，也不会那么简单，在Bootstrap框架中，通过定制了一个类名<code>form-control</code>，也就是说，使用了类名<code>form-control</code>，将会实现一些设计上的定制效果。从源码中（2551行，嗯，善用搜索）可以得出结论如下：</p>
+<ol>
+<li>宽度变成了100%</li>
+<li>设置了一个浅灰色（<code>#ccc</code>）的边框</li>
+<li>具有4px的圆角</li>
+<li>设置阴影效果，并且元素得到焦点之时，阴影和边框效果会有所变化</li>
+<li>设置了placeholder(输入框的提示文字)的颜色为<code>#999</code></li>
+</ol>
+<p>这个类一般用于输入框，对于其他的类型使用，嗯，你可以试试自己尝试一下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span><span class="comment">&lt;!-- form-group这个类在在这里用于控制表单之间的间隔，之后会有另外介绍 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputEmail1"</span>&gt;</span>邮箱：<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"email"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputEmail1"</span> <span class="attribute">placeholder</span>=<span class="value">"请输入您的邮箱地址"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputPassword1"</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputPassword1"</span> <span class="attribute">placeholder</span>=<span class="value">"请输入您的邮箱密码"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一般来说效果是这样的：<br><img src="images/Bootstrap/form1.jpg" alt="基础表单"></p>
+<h3 id="内联表单">内联表单</h3><p>还是上面那一段代码：我们只需要给<strong>form</strong>加上下面<code>.form-inline</code>这个类就可以实现表单元素在一行排列：</p>
+<p><img src="images/Bootstrap/form3.jpg" alt="内联表单"></p>
+<p>它的实现原理很简单，其实就是在添加了这个类后，将内部的表单元素设置为了内联块（inline-block）。</p>
+<p>我们继续改变屏幕大小会发现小到一定层度之后又变成了原来的样式，那是因为这个类是处于媒体查询中的！这样是为了更好的在移动设备上体验，Bootstrap本来就是一个响应式框架不是吗？</p>
+<p>如果你想更简洁一点还可以对于<code>label</code>添加一个<code>.sr-only</code>类，把label标签进行隐藏。（注意是隐藏，而不是人为删除，设置label标签有助于屏幕阅读器理解此处的含义）</p>
+<h3 id="水平表单">水平表单</h3><p>Bootstrap框架默认的表单是<strong>垂直显示风格</strong>，除了上面的内联表达之外，很多时候我们需要的是<strong>水平表单风格</strong>。在Bootstrap框架中要实现水平表单效果，必须满足以下两个条件：</p>
+<ol>
+<li>在<code>&lt;form&gt;</code>元素是使用类名<code>.form-horizontal</code>，作用如下： <ul>
+<li>设置表单控件padding和margin值。</li>
+<li>改变“form-group”的表现形式，类似于栅格系统的“row”。</li>
+</ul>
+</li>
+<li>配合Bootstrap框架的栅格系统。（栅格布局会在以后的章节中详细讲解）<ul>
+<li>例如：使用<code>&lt;div class=&quot;col-sm-6&quot;&gt;&lt;/div&gt;</code>将我们的input进行包裹，具体情况到栅格布局的时候再说</li>
+</ul>
+</li>
+</ol>
+<p>可以实现下面的效果，（同样处于媒体查询中）<br><img src="images/Bootstrap/form2.jpg" alt="水平表单"></p>
+<h2 id="二-_表单控件">二. 表单控件</h2><h3 id="输入框input">输入框input</h3><p>单行文本框在html编写时，我们都需要设置<strong>type</strong>属性为<strong>text</strong>，在Bootstrap中也必须正确的添加type的类型，因为在这里是使用CSS的属性选择器如：<code>input[type=&quot;text&quot;]</code>来进行样式设置的！<br>为了让控件在各种表单风格中样式不出错，需要添加类名“form-control”，如：<code>&lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;请输入您的邮箱&quot;&gt;</code></p>
+<h3 id="下拉选择框select">下拉选择框select</h3><p>Bootstrap框架中的下拉选择框使用和原始的一致，但是Bootstrap框架为这些元素提供统一的样式风格。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">select</span>  <span class="attribute">class</span>=<span class="value">"form-control"</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>踢足球<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>游泳<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>慢跑<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>跳舞<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>想要实现多行选择，只需要在<strong>select</strong>中设置multiple属性的值为multiple。<code>&lt;select multiple class=&quot;form-control&quot;&gt;</code></p>
+<p>需要注意的是，经过测试多行选择是固定高度的（82px），也就是说只有一个选项时，也占据那么高的高度，在选项多时，将出现滚动条</p>
+<h3 id="文本域textarea">文本域textarea</h3><p>文本域和原始使用方法一样，设置<strong>rows可定义其高度</strong>，设置<strong>cols可以设置其宽度</strong>。但如果textarea元素中添加了类名<code>form-control</code>类名，则无需设置cols属性。因为Bootstrap框架中的<code>form-control</code>样式的表单控件宽度为100%或auto。<br>如：<code>&lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;</code></p>
+<h3 id="复选框checkbox和单选按钮radio">复选框checkbox和单选按钮radio</h3><p>Bootstrap对于这两个按钮进行了一些优化，要想达到最佳显示效果，有着如下说明：</p>
+<ol>
+<li>不管是<code>checkbox</code>还是<code>radio</code>都使用<code>label</code>包起来了。</li>
+<li><code>checkbox</code>按钮连同<code>label</code>标签放置在一个名为<code>.checkbox</code>的容器内，<code>radio</code>连同<code>label</code>标签放置在一个名为<code>.radio</code>的容器内。</li>
+<li>在Bootstrap框架中，主要借助<code>.checkbox</code>和<code>.radio</code>样式，来处理复选框、单选按钮与标签的对齐方式。</li>
+<li>只需要将<code>checkbox</code>换成<code>checkbox-inline</code>就可以了，你可以添加在label上也可以添加在外部的容器上。</li>
+</ol>
+<h3 id="表单控件大小">表单控件大小</h3><p>在Bootstrap中除了使用传统的控制大小（height，padding等等）方式外，还特意定制了两个类名用来控制大小，如下：</p>
+<ol>
+<li><code>input-sm</code>：让控件比正常大小更小</li>
+<li><code>input-lg</code>：让控件比正常大小更大</li>
+</ol>
+<p>这两个类适用于表单中的<strong>input，textarea和select</strong>控件</p>
+<h3 id="表单控件状态">表单控件状态</h3><h4 id="焦点状态">焦点状态</h4><p>焦点状态是通过伪类<code>:focus</code>来实现。在Bootstrap框架中表单控件的焦点状态删除了<code>outline</code>的默认样式，重新添加阴影效果。.</p>
+<h4 id="禁用状态">禁用状态</h4><p>Bootstrap实现禁用和普通的表单禁用状态的实现方法一样的，就是在相应的表单控件上添加属性<code>disabled</code>，只不过Bootstrap做了一些样式风格的处理：</p>
+<p><img src="images/Bootstrap/form-disabled.jpg" alt="禁用状态"></p>
+<p>其次，除了单独给相应的表单控件添加disabled外，还可以直接添加到域中<code>&lt;fieldset disabled&gt;&lt;/fieldset&gt;</code>，在这种情况，整个域中的表单全部都将会被禁用，此外还有一个<strong>小bug</strong>：如果该域中存在<code>&lt;legend&gt;</code>(域标题)，在其内的表单控件，虽然有禁用的样式，但是实际上可以进行输入，点击等操作！</p>
+<h4 id="验证状态">验证状态</h4><p>在前面我们说过，Bootstrap有着大量的对于特定的情景内容的颜色设置，表单当然也不例外！在制作表单时，不免要做表单验证。同样也需要提供验证状态样式，那么Bootstrap框架中就提供了这几种效果：</p>
+<ol>
+<li><code>.has-warning</code>：警告状态（黄色）</li>
+<li><code>.has-error</code>：错误状态（红色）</li>
+<li><code>.has-success</code>：成功状态（绿色）</li>
+</ol>
+<p>除此之外，Bootstrap还实现了在不同的状态提示不同的<strong>icon</strong>，如果你想让表单在对应的状态下显示这样的效果，只需要在对应的状态下添加类名<code>has-feedback</code>。请注意，此类名要与<code>has-error</code>、<code>has-warning</code>和<code>has-success</code>在一起，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group has-success has-feedback"</span>&gt;</span><span class="comment">&lt;!-- 最后一个class控制图标显示 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"control-label"</span> <span class="attribute">for</span>=<span class="value">"inputSuccess1"</span>&gt;</span>成功状态<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"inputSuccess1"</span> <span class="attribute">placeholder</span>=<span class="value">"成功状态"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="comment">&lt;!-- 图标显示！选取显示图标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ...... 还有不同的图标显示例如glyphicon-warning-sign glyphicon-remove等等 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 Bootstrap 的小图标都是使用<strong>@font-face</strong>来制作，只要有一个容器，就可以通过不同的类名来控制显示的图标。具体内容后面再详细介绍。</p>
+<p>显示效果如下：</p>
+<p><img src="images/Bootstrap/form-status.jpg" alt="禁用状态"></p>
+<h4 id="表单提示信息">表单提示信息</h4><p>在表单验证的过程，未免会要提供不同的提示信息。在Bootstrap框架中也提供了这样的效果。提供了一个<code>help-block</code>类，例如：<code>&lt;span class=&quot;help-block&quot;&gt;您输入的信息是错误的&lt;/span&gt;</code>只要将其插入到input之后，提示信息将以块状显示，并且显示在控件底部。</p>
+<h2 id="三-_按钮">三. 按钮</h2><p>众所周知，我们创建的按钮通常通过下面这几种形式：:</p>
+<ul>
+<li><code>input[type=&quot;submit&quot;]</code>：提交按钮</li>
+<li><code>input[type=&quot;button&quot;]</code>：普通按钮</li>
+<li><code>input[type=&quot;reset&quot;]</code>：重置按钮</li>
+<li><code>&lt;button&gt;&lt;/button&gt;</code>：按钮元素，（默认行为是提交）</li>
+</ul>
+<p><strong>在Bootstrap框架中的按钮都是采用<code>&lt;button&gt;</code>来实现。</strong></p>
+<h3 id="1-_情景按钮">1. 情景按钮</h3><p>也正如我们前面所说，Bootstrop对于按钮也做了不同情景下的类，用不同的颜色展示很好的描述了当前的状态。一下图片来自<a href="http://www.imooc.com" target="_blank" rel="external">慕课网</a></p>
+<p><img src="images/Bootstrap/form-btn1.jpg" alt="默认状态"><br><img src="images/Bootstrap/form-btn2.jpg" alt="多种状态"></p>
+<p>记住一点！Bootstrap中的按钮，<strong>第一前提是必须添加<code>btn</code>这个类</strong>，其他的各种类，都只能添加到其后。所以一个按钮应该是这个样子的：<code>&lt;button class=&quot;btn btn-info&quot; &gt;信息按钮&lt;/button&gt;</code>，若还有其他的样式，往<code>btn-info</code>后添加，充分利用css的层叠特性。</p>
+<h3 id="2-_按钮大小">2. 按钮大小</h3><p>Bootstrap有着很对相似的类（学习完后总结一下吧颜色，大小等等），比如现在要说的，改变按钮的大小，当然你可以自定义，但是Bootstrap默认为我们提供了一些，添加到<code>btn</code>类后就行！</p>
+<p><img src="images/Bootstrap/form-btn-size.jpg" alt="按钮大小"></p>
+<h3 id="3-_块状按钮">3. 块状按钮</h3><p>Bootstrap框架中提供了一个类名<code>btn-block</code>。使用这个类名就可以让按钮<strong>充满整个容器</strong>，并且这个按钮不会有任何的padding和margin值。在实际当中，常把这种按钮称为块状按钮。同样添加到<code>btn</code>类后即可生效</p>
+<h3 id="4-_活动与禁用状态">4. 活动与禁用状态</h3><p>Bootstrap框架针对按钮的状态做了一些特殊处理。主要分为两种：活动状态和禁用状态。</p>
+<h4 id="活动状态">活动状态</h4><p>Bootstrap按钮的活动状态主要包括按钮的悬浮状态(<code>:hover</code>)，点击状态(<code>:active</code>)和焦点状态（<code>:focus</code>）几种。</p>
+<p>通过在源码中我们可以看到，Bootstrap对于每一种风格的按钮都做了单独的定制。需要进行修改的话可以参考源码！</p>
+<h4 id="禁用状态-1">禁用状态</h4><p>在Bootstrap框架中，要禁用按钮有两种实现方式：</p>
+<ol>
+<li>在标签中添加<code>disabled</code>属性</li>
+<li>在元素标签中添加类名<code>.disabled</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://guowenfh.github.io/"</span> <span class="attribute">class</span>=<span class="value">"btn btn-danger disabled"</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>添加disabled类<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://guowenfh.github.io/"</span> <span class="attribute">class</span>=<span class="value">"btn btn-danger "</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">disabled</span>&gt;</span>添加disabled属性<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这两个方式除了样式上的改变之外，还存在是否阻止默认行为上的区别。（此处有大坑，暂时不能跳，以后在详细了解吧。不同浏览器，对于实现阻止默认行为的方式不同，IE11：两个方式都阻止默认行为，IE10-通过属性可以阻止，FF、Chrome通过类可以阻止默认行为。。我已经醉了）</p>
+<p>从这里我们也可以看到，Bootstrap只需要在制作按钮的标签元素比如<code>&lt;div&gt;,&lt;span&gt;</code>等等，上添加类名<code>btn</code>就可以为其加上按钮风格，但是，<strong>并不建议这样使用，为了避免浏览器兼容性问题，个人强烈建议使用button或a标签来制作按钮。</strong></p>
+<h2 id="四-_图像">四. 图像</h2><p>在Bootstrap框架中对于图像的样式风格提供以下几种风格：</p>
+<ol>
+<li><code>.img-responsive</code>：响应式图片，主要针对于响应式设计</li>
+<li><code>.img-rounded</code>：圆角图片</li>
+<li><code>.img-circle</code>：圆形图片</li>
+<li><code>.img-thumbnail</code>：缩略图片，相框效果</li>
+</ol>
+<p>直接把类名添加到img标签上就行了！</p>
+<p><strong>注意：</strong><br>设置图片大小时，由于样式没有对图片做大小上的样式限制，所以在实际使用的时候，需要通过其他的方式来处理图片大小。比如说控制图片容器大小。（注意不可以通过css样式直接修改img图片的大小，这样操作就不响应了）</p>
+<h3 id="图标">图标</h3><p>这里说的图标就是Web制作中常看到的小icon图标，包括250多个来自 Glyphicon Halflings 的字体图标，Bootstrap框架中图标都是<strong>glyphicons.com</strong>这个商业网站提供的，并且<strong>免费授权</strong>给Bootstrap框架使用。</p>
+<p>可以在<a href="http://v3.bootcss.com/components/#glyphicons" target="_blank" rel="external">Glyphicons 字体图标</a>，看到全部图标的样式，您可以根据你的需求进行设置</p>
+<p>在网页中使用图标也非常的简单，在任何<strong>内联元素</strong>上应用所对应的样式即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-cloud"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-chevron-left"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里第一个类是<strong>所有字体图标所必需的</strong>，第二个类用来自定义显示的图标。</p>
+<p>从源码中我们可以看到<code>glyphicon</code>这个类,最主要的部分有着如下样式设置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.glyphicon</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">1px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'Glyphicons Halflings'</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-style</span>:<span class="value"> normal</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-weight</span>:<span class="value"> normal</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>从这里，也就不难发现为什么是必须的了，它控制了标签的显示方式，和引入了字体图标库；而第二个类，仅仅是调用对应字体的编码而已</p>
+<p>表单的部分呢，学到这里也就基本高一段落了，下面就要开始进行，Bootstrap的核心栅格系统的学习了，继续加油！</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.imooc.com/learn/141" target="_blank" rel="external">慕课网：玩转Bootstrap</a></li>
+<li><a href="http://v3.bootcss.com/css/" target="_blank" rel="external">Bootstrap中文官网：全局 CSS 样式</a></li>
+</ul>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/18/Bootstrap-01-typesetting/" rel="next" title="Bootstrap入门笔记之（一）排版">
+                <i class="fa fa-chevron-left"></i> Bootstrap入门笔记之（一）排版
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/18/Bootstrap-02-form/"
+           data-title="Bootstrap入门笔记之（二）表单" data-url="http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> S F
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-_基础表单"><span class="nav-number">1.</span> <span class="nav-text">一. 基础表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内联表单"><span class="nav-number">1.1.</span> <span class="nav-text">内联表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平表单"><span class="nav-number">1.2.</span> <span class="nav-text">水平表单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-_表单控件"><span class="nav-number">2.</span> <span class="nav-text">二. 表单控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入框input"><span class="nav-number">2.1.</span> <span class="nav-text">输入框input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉选择框select"><span class="nav-number">2.2.</span> <span class="nav-text">下拉选择框select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本域textarea"><span class="nav-number">2.3.</span> <span class="nav-text">文本域textarea</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复选框checkbox和单选按钮radio"><span class="nav-number">2.4.</span> <span class="nav-text">复选框checkbox和单选按钮radio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单控件大小"><span class="nav-number">2.5.</span> <span class="nav-text">表单控件大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单控件状态"><span class="nav-number">2.6.</span> <span class="nav-text">表单控件状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#焦点状态"><span class="nav-number">2.6.1.</span> <span class="nav-text">焦点状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用状态"><span class="nav-number">2.6.2.</span> <span class="nav-text">禁用状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证状态"><span class="nav-number">2.6.3.</span> <span class="nav-text">验证状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单提示信息"><span class="nav-number">2.6.4.</span> <span class="nav-text">表单提示信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-_按钮"><span class="nav-number">3.</span> <span class="nav-text">三. 按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_情景按钮"><span class="nav-number">3.1.</span> <span class="nav-text">1. 情景按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_按钮大小"><span class="nav-number">3.2.</span> <span class="nav-text">2. 按钮大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_块状按钮"><span class="nav-number">3.3.</span> <span class="nav-text">3. 块状按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-_活动与禁用状态"><span class="nav-number">3.4.</span> <span class="nav-text">4. 活动与禁用状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#活动状态"><span class="nav-number">3.4.1.</span> <span class="nav-text">活动状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用状态-1"><span class="nav-number">3.4.2.</span> <span class="nav-text">禁用状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-_图像"><span class="nav-number">4.</span> <span class="nav-text">四. 图像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图标"><span class="nav-number">4.1.</span> <span class="nav-text">图标</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-18T05:57:37.692Z</updated>
+  <updated>2016-01-18T15:27:48.134Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -13,6 +13,142 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Bootstrap入门笔记之（二）表单]]></title>
+    <link href="http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/"/>
+    <id>http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/</id>
+    <published>2016-01-18T15:26:45.000Z</published>
+    <updated>2016-01-18T15:27:48.134Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。</p>
+</blockquote>
+<p>良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：<strong>文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等</strong>。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲染的风格都各有不同。传统的HTML表单就不在这样进行讲解了，下面就开始Bootstrap表单的学习吧！</p>
+<h2 id="一-_基础表单">一. 基础表单</h2><p>在Bootstrap对于基础表单没有做太多的定制效果，仅仅是对于一些元素的<strong>margin、padding和border</strong>进行了一些细化设置。<br>当然，也不会那么简单，在Bootstrap框架中，通过定制了一个类名<code>form-control</code>，也就是说，使用了类名<code>form-control</code>，将会实现一些设计上的定制效果。从源码中（2551行，嗯，善用搜索）可以得出结论如下：</p>
+<ol>
+<li>宽度变成了100%</li>
+<li>设置了一个浅灰色（<code>#ccc</code>）的边框</li>
+<li>具有4px的圆角</li>
+<li>设置阴影效果，并且元素得到焦点之时，阴影和边框效果会有所变化</li>
+<li>设置了placeholder(输入框的提示文字)的颜色为<code>#999</code></li>
+</ol>
+<p>这个类一般用于输入框，对于其他的类型使用，嗯，你可以试试自己尝试一下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span><span class="comment">&lt;!-- form-group这个类在在这里用于控制表单之间的间隔，之后会有另外介绍 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputEmail1"</span>&gt;</span>邮箱：<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"email"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputEmail1"</span> <span class="attribute">placeholder</span>=<span class="value">"请输入您的邮箱地址"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"exampleInputPassword1"</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"exampleInputPassword1"</span> <span class="attribute">placeholder</span>=<span class="value">"请输入您的邮箱密码"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一般来说效果是这样的：<br><img src="images/Bootstrap/form1.jpg" alt="基础表单"></p>
+<h3 id="内联表单">内联表单</h3><p>还是上面那一段代码：我们只需要给<strong>form</strong>加上下面<code>.form-inline</code>这个类就可以实现表单元素在一行排列：</p>
+<p><img src="images/Bootstrap/form3.jpg" alt="内联表单"></p>
+<p>它的实现原理很简单，其实就是在添加了这个类后，将内部的表单元素设置为了内联块（inline-block）。</p>
+<p>我们继续改变屏幕大小会发现小到一定层度之后又变成了原来的样式，那是因为这个类是处于媒体查询中的！这样是为了更好的在移动设备上体验，Bootstrap本来就是一个响应式框架不是吗？</p>
+<p>如果你想更简洁一点还可以对于<code>label</code>添加一个<code>.sr-only</code>类，把label标签进行隐藏。（注意是隐藏，而不是人为删除，设置label标签有助于屏幕阅读器理解此处的含义）</p>
+<h3 id="水平表单">水平表单</h3><p>Bootstrap框架默认的表单是<strong>垂直显示风格</strong>，除了上面的内联表达之外，很多时候我们需要的是<strong>水平表单风格</strong>。在Bootstrap框架中要实现水平表单效果，必须满足以下两个条件：</p>
+<ol>
+<li>在<code>&lt;form&gt;</code>元素是使用类名<code>.form-horizontal</code>，作用如下： <ul>
+<li>设置表单控件padding和margin值。</li>
+<li>改变“form-group”的表现形式，类似于栅格系统的“row”。</li>
+</ul>
+</li>
+<li>配合Bootstrap框架的栅格系统。（栅格布局会在以后的章节中详细讲解）<ul>
+<li>例如：使用<code>&lt;div class=&quot;col-sm-6&quot;&gt;&lt;/div&gt;</code>将我们的input进行包裹，具体情况到栅格布局的时候再说</li>
+</ul>
+</li>
+</ol>
+<p>可以实现下面的效果，（同样处于媒体查询中）<br><img src="images/Bootstrap/form2.jpg" alt="水平表单"></p>
+<h2 id="二-_表单控件">二. 表单控件</h2><h3 id="输入框input">输入框input</h3><p>单行文本框在html编写时，我们都需要设置<strong>type</strong>属性为<strong>text</strong>，在Bootstrap中也必须正确的添加type的类型，因为在这里是使用CSS的属性选择器如：<code>input[type=&quot;text&quot;]</code>来进行样式设置的！<br>为了让控件在各种表单风格中样式不出错，需要添加类名“form-control”，如：<code>&lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;请输入您的邮箱&quot;&gt;</code></p>
+<h3 id="下拉选择框select">下拉选择框select</h3><p>Bootstrap框架中的下拉选择框使用和原始的一致，但是Bootstrap框架为这些元素提供统一的样式风格。如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">select</span>  <span class="attribute">class</span>=<span class="value">"form-control"</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>踢足球<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>游泳<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>慢跑<span class="tag">&lt;/<span class="title">option</span>&gt;</span> </span><br><span class="line">            <span class="tag">&lt;<span class="title">option</span>&gt;</span>跳舞<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>想要实现多行选择，只需要在<strong>select</strong>中设置multiple属性的值为multiple。<code>&lt;select multiple class=&quot;form-control&quot;&gt;</code></p>
+<p>需要注意的是，经过测试多行选择是固定高度的（82px），也就是说只有一个选项时，也占据那么高的高度，在选项多时，将出现滚动条</p>
+<h3 id="文本域textarea">文本域textarea</h3><p>文本域和原始使用方法一样，设置<strong>rows可定义其高度</strong>，设置<strong>cols可以设置其宽度</strong>。但如果textarea元素中添加了类名<code>form-control</code>类名，则无需设置cols属性。因为Bootstrap框架中的<code>form-control</code>样式的表单控件宽度为100%或auto。<br>如：<code>&lt;textarea class=&quot;form-control&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;</code></p>
+<h3 id="复选框checkbox和单选按钮radio">复选框checkbox和单选按钮radio</h3><p>Bootstrap对于这两个按钮进行了一些优化，要想达到最佳显示效果，有着如下说明：</p>
+<ol>
+<li>不管是<code>checkbox</code>还是<code>radio</code>都使用<code>label</code>包起来了。</li>
+<li><code>checkbox</code>按钮连同<code>label</code>标签放置在一个名为<code>.checkbox</code>的容器内，<code>radio</code>连同<code>label</code>标签放置在一个名为<code>.radio</code>的容器内。</li>
+<li>在Bootstrap框架中，主要借助<code>.checkbox</code>和<code>.radio</code>样式，来处理复选框、单选按钮与标签的对齐方式。</li>
+<li>只需要将<code>checkbox</code>换成<code>checkbox-inline</code>就可以了，你可以添加在label上也可以添加在外部的容器上。</li>
+</ol>
+<h3 id="表单控件大小">表单控件大小</h3><p>在Bootstrap中除了使用传统的控制大小（height，padding等等）方式外，还特意定制了两个类名用来控制大小，如下：</p>
+<ol>
+<li><code>input-sm</code>：让控件比正常大小更小</li>
+<li><code>input-lg</code>：让控件比正常大小更大</li>
+</ol>
+<p>这两个类适用于表单中的<strong>input，textarea和select</strong>控件</p>
+<h3 id="表单控件状态">表单控件状态</h3><h4 id="焦点状态">焦点状态</h4><p>焦点状态是通过伪类<code>:focus</code>来实现。在Bootstrap框架中表单控件的焦点状态删除了<code>outline</code>的默认样式，重新添加阴影效果。.</p>
+<h4 id="禁用状态">禁用状态</h4><p>Bootstrap实现禁用和普通的表单禁用状态的实现方法一样的，就是在相应的表单控件上添加属性<code>disabled</code>，只不过Bootstrap做了一些样式风格的处理：</p>
+<p><img src="images/Bootstrap/form-disabled.jpg" alt="禁用状态"></p>
+<p>其次，除了单独给相应的表单控件添加disabled外，还可以直接添加到域中<code>&lt;fieldset disabled&gt;&lt;/fieldset&gt;</code>，在这种情况，整个域中的表单全部都将会被禁用，此外还有一个<strong>小bug</strong>：如果该域中存在<code>&lt;legend&gt;</code>(域标题)，在其内的表单控件，虽然有禁用的样式，但是实际上可以进行输入，点击等操作！</p>
+<h4 id="验证状态">验证状态</h4><p>在前面我们说过，Bootstrap有着大量的对于特定的情景内容的颜色设置，表单当然也不例外！在制作表单时，不免要做表单验证。同样也需要提供验证状态样式，那么Bootstrap框架中就提供了这几种效果：</p>
+<ol>
+<li><code>.has-warning</code>：警告状态（黄色）</li>
+<li><code>.has-error</code>：错误状态（红色）</li>
+<li><code>.has-success</code>：成功状态（绿色）</li>
+</ol>
+<p>除此之外，Bootstrap还实现了在不同的状态提示不同的<strong>icon</strong>，如果你想让表单在对应的状态下显示这样的效果，只需要在对应的状态下添加类名<code>has-feedback</code>。请注意，此类名要与<code>has-error</code>、<code>has-warning</code>和<code>has-success</code>在一起，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">role</span>=<span class="value">"form"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form-group has-success has-feedback"</span>&gt;</span><span class="comment">&lt;!-- 最后一个class控制图标显示 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">class</span>=<span class="value">"control-label"</span> <span class="attribute">for</span>=<span class="value">"inputSuccess1"</span>&gt;</span>成功状态<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">class</span>=<span class="value">"form-control"</span> <span class="attribute">id</span>=<span class="value">"inputSuccess1"</span> <span class="attribute">placeholder</span>=<span class="value">"成功状态"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="comment">&lt;!-- 图标显示！选取显示图标 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ...... 还有不同的图标显示例如glyphicon-warning-sign glyphicon-remove等等 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 Bootstrap 的小图标都是使用<strong>@font-face</strong>来制作，只要有一个容器，就可以通过不同的类名来控制显示的图标。具体内容后面再详细介绍。</p>
+<p>显示效果如下：</p>
+<p><img src="images/Bootstrap/form-status.jpg" alt="禁用状态"></p>
+<h4 id="表单提示信息">表单提示信息</h4><p>在表单验证的过程，未免会要提供不同的提示信息。在Bootstrap框架中也提供了这样的效果。提供了一个<code>help-block</code>类，例如：<code>&lt;span class=&quot;help-block&quot;&gt;您输入的信息是错误的&lt;/span&gt;</code>只要将其插入到input之后，提示信息将以块状显示，并且显示在控件底部。</p>
+<h2 id="三-_按钮">三. 按钮</h2><p>众所周知，我们创建的按钮通常通过下面这几种形式：:</p>
+<ul>
+<li><code>input[type=&quot;submit&quot;]</code>：提交按钮</li>
+<li><code>input[type=&quot;button&quot;]</code>：普通按钮</li>
+<li><code>input[type=&quot;reset&quot;]</code>：重置按钮</li>
+<li><code>&lt;button&gt;&lt;/button&gt;</code>：按钮元素，（默认行为是提交）</li>
+</ul>
+<p><strong>在Bootstrap框架中的按钮都是采用<code>&lt;button&gt;</code>来实现。</strong></p>
+<h3 id="1-_情景按钮">1. 情景按钮</h3><p>也正如我们前面所说，Bootstrop对于按钮也做了不同情景下的类，用不同的颜色展示很好的描述了当前的状态。一下图片来自<a href="http://www.imooc.com" target="_blank" rel="external">慕课网</a></p>
+<p><img src="images/Bootstrap/form-btn1.jpg" alt="默认状态"><br><img src="images/Bootstrap/form-btn2.jpg" alt="多种状态"></p>
+<p>记住一点！Bootstrap中的按钮，<strong>第一前提是必须添加<code>btn</code>这个类</strong>，其他的各种类，都只能添加到其后。所以一个按钮应该是这个样子的：<code>&lt;button class=&quot;btn btn-info&quot; &gt;信息按钮&lt;/button&gt;</code>，若还有其他的样式，往<code>btn-info</code>后添加，充分利用css的层叠特性。</p>
+<h3 id="2-_按钮大小">2. 按钮大小</h3><p>Bootstrap有着很对相似的类（学习完后总结一下吧颜色，大小等等），比如现在要说的，改变按钮的大小，当然你可以自定义，但是Bootstrap默认为我们提供了一些，添加到<code>btn</code>类后就行！</p>
+<p><img src="images/Bootstrap/form-btn-size.jpg" alt="按钮大小"></p>
+<h3 id="3-_块状按钮">3. 块状按钮</h3><p>Bootstrap框架中提供了一个类名<code>btn-block</code>。使用这个类名就可以让按钮<strong>充满整个容器</strong>，并且这个按钮不会有任何的padding和margin值。在实际当中，常把这种按钮称为块状按钮。同样添加到<code>btn</code>类后即可生效</p>
+<h3 id="4-_活动与禁用状态">4. 活动与禁用状态</h3><p>Bootstrap框架针对按钮的状态做了一些特殊处理。主要分为两种：活动状态和禁用状态。</p>
+<h4 id="活动状态">活动状态</h4><p>Bootstrap按钮的活动状态主要包括按钮的悬浮状态(<code>:hover</code>)，点击状态(<code>:active</code>)和焦点状态（<code>:focus</code>）几种。</p>
+<p>通过在源码中我们可以看到，Bootstrap对于每一种风格的按钮都做了单独的定制。需要进行修改的话可以参考源码！</p>
+<h4 id="禁用状态-1">禁用状态</h4><p>在Bootstrap框架中，要禁用按钮有两种实现方式：</p>
+<ol>
+<li>在标签中添加<code>disabled</code>属性</li>
+<li>在元素标签中添加类名<code>.disabled</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://guowenfh.github.io/"</span> <span class="attribute">class</span>=<span class="value">"btn btn-danger disabled"</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>添加disabled类<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://guowenfh.github.io/"</span> <span class="attribute">class</span>=<span class="value">"btn btn-danger "</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">disabled</span>&gt;</span>添加disabled属性<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这两个方式除了样式上的改变之外，还存在是否阻止默认行为上的区别。（此处有大坑，暂时不能跳，以后在详细了解吧。不同浏览器，对于实现阻止默认行为的方式不同，IE11：两个方式都阻止默认行为，IE10-通过属性可以阻止，FF、Chrome通过类可以阻止默认行为。。我已经醉了）</p>
+<p>从这里我们也可以看到，Bootstrap只需要在制作按钮的标签元素比如<code>&lt;div&gt;,&lt;span&gt;</code>等等，上添加类名<code>btn</code>就可以为其加上按钮风格，但是，<strong>并不建议这样使用，为了避免浏览器兼容性问题，个人强烈建议使用button或a标签来制作按钮。</strong></p>
+<h2 id="四-_图像">四. 图像</h2><p>在Bootstrap框架中对于图像的样式风格提供以下几种风格：</p>
+<ol>
+<li><code>.img-responsive</code>：响应式图片，主要针对于响应式设计</li>
+<li><code>.img-rounded</code>：圆角图片</li>
+<li><code>.img-circle</code>：圆形图片</li>
+<li><code>.img-thumbnail</code>：缩略图片，相框效果</li>
+</ol>
+<p>直接把类名添加到img标签上就行了！</p>
+<p><strong>注意：</strong><br>设置图片大小时，由于样式没有对图片做大小上的样式限制，所以在实际使用的时候，需要通过其他的方式来处理图片大小。比如说控制图片容器大小。（注意不可以通过css样式直接修改img图片的大小，这样操作就不响应了）</p>
+<h3 id="图标">图标</h3><p>这里说的图标就是Web制作中常看到的小icon图标，包括250多个来自 Glyphicon Halflings 的字体图标，Bootstrap框架中图标都是<strong>glyphicons.com</strong>这个商业网站提供的，并且<strong>免费授权</strong>给Bootstrap框架使用。</p>
+<p>可以在<a href="http://v3.bootcss.com/components/#glyphicons" target="_blank" rel="external">Glyphicons 字体图标</a>，看到全部图标的样式，您可以根据你的需求进行设置</p>
+<p>在网页中使用图标也非常的简单，在任何<strong>内联元素</strong>上应用所对应的样式即可：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-cloud"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-chevron-left"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里第一个类是<strong>所有字体图标所必需的</strong>，第二个类用来自定义显示的图标。</p>
+<p>从源码中我们可以看到<code>glyphicon</code>这个类,最主要的部分有着如下样式设置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.glyphicon</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">1px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'Glyphicons Halflings'</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-style</span>:<span class="value"> normal</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">font-weight</span>:<span class="value"> normal</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">line-height</span>:<span class="value"> <span class="number">1</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>从这里，也就不难发现为什么是必须的了，它控制了标签的显示方式，和引入了字体图标库；而第二个类，仅仅是调用对应字体的编码而已</p>
+<p>表单的部分呢，学到这里也就基本高一段落了，下面就要开始进行，Bootstrap的核心栅格系统的学习了，继续加油！</p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.imooc.com/learn/141" target="_blank" rel="external">慕课网：玩转Bootstrap</a></li>
+<li><a href="http://v3.bootcss.com/css/" target="_blank" rel="external">Bootstrap中文官网：全局 CSS 样式</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。</p>
+</blockquote>
+<p]]>
+    </summary>
+    
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
+    
+      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Bootstrap入门笔记之（一）排版]]></title>
@@ -3533,292 +3669,6 @@
     <summary type="html">
     <![CDATA[<blockquote>
 <p>如果看了的我上一篇博客《<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/">Ajax入门（一）从0开始到一次成功的GET请求</a>》的话，肯定知道我们已]]>
-    </summary>
-    
-      <category term="Ajax" scheme="http://guowenfh.github.io/tags/Ajax/"/>
-    
-      <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
-    
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Ajax入门（一）从0开始到一次成功的GET请求]]></title>
-    <link href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/"/>
-    <id>http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/</id>
-    <published>2015-12-18T06:38:40.000Z</published>
-    <updated>2015-12-27T04:38:35.963Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>续作<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a><br>传统表单在提交后整个页面都刷新</p>
-</blockquote>
-<h2 id="什么是服务器">什么是服务器</h2><h3 id="网页浏览过程分析">网页浏览过程分析</h3><p>一个完整的<strong>HTTP请求</strong>过程,通常有下面7个步骤</p>
-<ol>
-<li>建立TCP连接</li>
-<li>Web浏览器向Web服务器发送请求命令</li>
-<li>Web浏览器发送请求头信息</li>
-<li>Web服务器- 应答</li>
-<li>Web服务器- 发送应答头信息</li>
-<li>Web服务器- 向浏览器发送数据</li>
-<li><p>Web服务器- 关闭TCP连接</p>
-<p><strong>如何配置自己的服务器程序(AMP)</strong></p>
-<blockquote>
-<p>Ajax必须在服务器环境下才能正常使用</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>我使用的WampServer程序.(支持中文)<a href="http://www.wampserver.com/en/" target="_blank" rel="external">官网连接</a>.可能速度不行,不过科学上网,大家应该都会.</li>
-<li>网上的使用教程:<a href="http://www.phpthinking.com/archives/379" target="_blank" rel="external">如何安装使用</a></li>
-<li>XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了</li>
-<li>推荐使用firefox浏览器进行AJAX的调试。</li>
-</ul>
-<h2 id="Ajax原理">Ajax原理</h2><blockquote>
-<p>什么是Ajax?</p>
-</blockquote>
-<ul>
-<li>无刷新数据读取<ul>
-<li>用户注册/在线聊天室</li>
-<li>理解同步和异步(基本都用异步请求).<blockquote>
-<p>同步: 客户端发起请求–等待–&gt;服务器端处理—等待–&gt;响应–&gt;页面载入 (请求错误时全部重新载入).<br>异步: 客户端发起请求—&gt;服务器端处理—&gt;响应—&gt;页面载入(填写时,即时更新,部分返回).</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="HTTP请求">HTTP请求</h3><ul>
-<li>一个HTTP请求一般由四部分组成<ol>
-<li>HTTP请求的方法或动作如是<code>GET</code>还是<code>POST</code>请求</li>
-<li>正在请求的URL,总得知道请求的地址是什么吧?</li>
-<li>请求头,包含一些客户端环境信息,身份验证信息等</li>
-<li>请求体,也就是请求正文,请求正文中可以包含客户端提交的查询字符串信息,表单信息等等.</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/ajax/http.png" alt="HTTP请求"></p>
-<h3 id="HTTP响应">HTTP响应</h3><ul>
-<li>一个<strong>HTTP响应</strong>一般由三部分组成:<ol>
-<li>一个<strong>数字</strong>和<strong>文字</strong>组成的状态码,用来显示请求是成功还是失败</li>
-<li><strong>响应头</strong>,响应头和请求头一样包含许多有用的信息,例如服务器类型,日期时间,内容类型和长度等.</li>
-<li><strong>响应体</strong>,也就是响应正文.</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/ajax/http2.png" alt="HTTP响应"></p>
-<h3 id="HTTP请求方式">HTTP请求方式</h3><table>
-<thead>
-<tr>
-<th>GET</th>
-<th>POST</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>用于信息获取/查询(如:浏览帖子)</td>
-<td>用于修改服务器上的资源(如:用户注册)</td>
-</tr>
-<tr>
-<td>安全性低(使用<code>url</code>传递参数所有人可见)</td>
-<td>安全性一般(至少不可见)</td>
-</tr>
-<tr>
-<td>容量低(2000个字符)</td>
-<td>容量几乎无限</td>
-</tr>
-</tbody>
-</table>
-<h3 id="常见的HTTP状态码">常见的HTTP状态码</h3><table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>描述</th>
-<th>原因短语</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>请求成功.一般用于GET和POST方法</td>
-<td>OK</td>
-</tr>
-<tr>
-<td>301</td>
-<td>资源移动.所请求资源移动到新的URL,浏览器自动跳转到新的URL</td>
-<td>Moved Permanently</td>
-</tr>
-<tr>
-<td>304</td>
-<td>未修改.所请求资源未修改读取缓存数据</td>
-<td>Not Modified</td>
-</tr>
-<tr>
-<td>400</td>
-<td>请求语法错误,服务器无法理解</td>
-<td>Bad Request</td>
-</tr>
-<tr>
-<td>404</td>
-<td>未找到资源,可以设置个性”404页面”</td>
-<td>Not Found</td>
-</tr>
-<tr>
-<td>500</td>
-<td>服务器内部错误</td>
-<td>internal Server Error</td>
-</tr>
-</tbody>
-</table>
-<h2 id="编写Ajax">编写Ajax</h2><p><strong>类比打电话理解Ajax编写步骤</strong> </p>
-<table>
-<thead>
-<tr>
-<th>打电话</th>
-<th>ajax请求</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1.打电话</td>
-<td>1.创建Ajax对象</td>
-</tr>
-<tr>
-<td>2.拨号</td>
-<td>2.连接服务器</td>
-</tr>
-<tr>
-<td>3.建立连接</td>
-<td>3.发送请求</td>
-</tr>
-<tr>
-<td>4.听</td>
-<td>4.接受返回</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-创建Ajax对象">1.创建Ajax对象</h3><ul>
-<li>IE6:<code>ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</code>;//IE6已死,可以不考虑了</li>
-<li><code>XMLHttpRequest()</code>; </li>
-</ul>
-<p>例:<code>var request = new XMLHttpRequest();</code></p>
-<h3 id="2-连接服务器">2.连接服务器</h3><ul>
-<li><code>open(method,url,async);</code></li>
-<li>open(发送请求方法”GET/POST” ,(请求地址”文件名”) ,是否异步传输)</li>
-</ul>
-<p>例: <code>request.open(&quot;GET&quot;,&quot;get.json&quot;,true);</code></p>
-<h3 id="3-发送请求">3.发送请求</h3><ul>
-<li><code>send(string)</code><ul>
-<li>在使用<code>GET</code>方式请求时无需填写参数</li>
-<li>在使用<code>POST</code>方式时参数代表着向服务器发送的数据</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//完整的GET请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建Ajax对象</span></span><br><span class="line">oAjax.open(<span class="string">"GET"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//连接服务器</span></span><br><span class="line">oAjax.send();<span class="comment">//发送请求</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//完整的POST发送请求</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//创建</span></span><br><span class="line">oAjax.open(<span class="string">"POST"</span>,<span class="string">"create.php"</span>,<span class="literal">true</span>);<span class="comment">//"POST"</span></span><br><span class="line">oAjax.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);<span class="comment">//设置HTTP头信息.必须在open与send之间,否则出现异常.</span></span><br><span class="line">oAjax.send(<span class="string">"name=陈二狗&amp;sex=男"</span>);<span class="comment">//发送给服务器的内容</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-接收返回-请求状态监控">4.接收返回-请求状态监控</h3><ul>
-<li>XMLHttpRequset取得响应</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>responseText</code></td>
-<td>获得字符串形式的响应数据</td>
-</tr>
-<tr>
-<td><code>responseXML</code></td>
-<td>获得XML形式的响应数据</td>
-</tr>
-<tr>
-<td><code>status</code>和<code>statusText</code></td>
-<td>以数字和文本方式返回HTTP状态码</td>
-</tr>
-<tr>
-<td><code>getAllResponseHeader()</code></td>
-<td>获取所有的响应报头</td>
-</tr>
-<tr>
-<td><code>getResponseheader()</code></td>
-<td>查询响应中的某个字段的值</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p><strong><code>onreadystatechange</code>事件</strong></p>
-<blockquote>
-<p>通过监听<code>onreadystatechange</code>事件,来判断请求的状态.</p>
-</blockquote>
-</li>
-<li><p><code>readyState</code>属性:响应返回所处状态</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>状态</th>
-<th>所处位置</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>(未初始化)</td>
-<td>还没有调用<code>open()</code>方法</td>
-</tr>
-<tr>
-<td>1</td>
-<td>(载入)</td>
-<td>已调用<code>send()</code>方法,正在发送请求</td>
-</tr>
-<tr>
-<td>2</td>
-<td>(载入完成)</td>
-<td><code>send()</code>方法完成,已经收到全部响应 内容</td>
-</tr>
-<tr>
-<td>3</td>
-<td>(解析)</td>
-<td>正在解析响应内容</td>
-</tr>
-<tr>
-<td>4</td>
-<td>(完成)</td>
-<td>响应内容解析完成,<em>可以在客户端调用了</em></td>
-</tr>
-</tbody>
-</table>
-<p>例:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本完整的一个Ajax请求</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">request.open(<span class="string">"GET"</span>,<span class="string">"get.json"</span>,<span class="literal">true</span>);</span><br><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//响应成功,做一些事情</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">//响应失败,做一些事情</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="使用函数简单的封装一个get请求">使用函数简单的封装一个get请求</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的异步get请求</span><br><span class="line"> * <span class="doctag">@param</span> &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnSucc  请求成功时执行的函数,形参为为获取的字符串值.</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnFaild 请求失败执行的函数,可选参数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">(url, fnSucc, fnFaild)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="keyword">null</span></span><br><span class="line">        <span class="comment">//此处必须需要使用window.的方式,表示为window对象的一个属性.不存在是值为undefined,进入else/若直接使用XMLHttpRequest在不支持的情况下会报错</span></span><br><span class="line">    <span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//IE6以上,现在应该不需要考虑IE6了</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, url, <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用Ajax">使用Ajax</h2><h3 id="基础:请求并显示静态TXT文件">基础:请求并显示静态TXT文件</h3><ul>
-<li>字符集编码:不一致时会出现乱码</li>
-<li>缓存,阻止缓存,(使用时间对象添加)</li>
-</ul>
-<h3 id="动态数据:请求JS(或JSON)文件">动态数据:请求JS(或JSON)文件</h3><blockquote>
-<p>注：<strong>并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code>，并不推荐使用<code>eval</code></strong>。因为eval解析数据时会有一系列问题出现。这里是因为只是学习就随意点了。<br>在需要解析请求数据时，推荐使用JSON的方法<code>JSON.parse()</code>可以将一个 JSON 字符串解析成为一个 JavaScript 值。参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON" target="_blank" rel="external">MDN-JSON</a></p>
-</blockquote>
-<ul>
-<li><code>eval</code>的使用<br>例: </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"54-8*6+4"</span>;</span><br><span class="line">alert(<span class="built_in">eval</span>(str)); <span class="comment">//10;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str1 = <span class="string">"[1,2,3]"</span>;   </span><br><span class="line"><span class="keyword">var</span> arr = <span class="built_in">eval</span>(str1);</span><br><span class="line">alert(arr[<span class="number">1</span>]);<span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str3 = <span class="string">"function show()&#123;alert('abc');&#125;"</span>;</span><br><span class="line"><span class="built_in">eval</span>(str3);</span><br><span class="line">show() <span class="comment">//abc</span></span><br></pre></td></tr></table></figure>
-<p><strong>一次成功的get请求</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//已经引入get函数</span></span><br><span class="line"><span class="comment">//数据文件放在同级目录下就行了。</span></span><br><span class="line">get(<span class="string">"json.js"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = <span class="built_in">eval</span>(str);</span><br><span class="line">    alert(arr[<span class="number">0</span>].a);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"服务器请求失败!"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//json.js存放的文件如下</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line">    [&#123;</span><br><span class="line">        a: 12,</span><br><span class="line">        b: 5</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        a: 2,</span><br><span class="line">        b: 56</span><br><span class="line">    &#125;]</span><br><span class="line">*/</span></span><br><span class="line"><span class="comment">//服务器响应成功时,将返回12.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>DOM</code>创建元素<ul>
-<li>局部刷新:请求并显示部分网页文件,使用<code>for</code>循环.</li>
-<li>这里是属于DOM操作的范围，在这里就不过多讲述了。</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>续作<a href="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/">Ajax入门（二）Ajax函数封装</a><br>传统表单在提交后整个页面都刷新</p>
-<]]>
     </summary>
     
       <category term="Ajax" scheme="http://guowenfh.github.io/tags/Ajax/"/>
