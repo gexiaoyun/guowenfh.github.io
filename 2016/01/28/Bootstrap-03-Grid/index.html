@@ -85,7 +85,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 <meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/Grid-mobile-pad-desktop-1.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/Grid-mobile-pad-desktop-2.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/Bootstrap/Grid-mobile-pad-desktop-3.jpg">
-<meta property="og:updated_time" content="2016-01-28T06:48:53.157Z">
+<meta property="og:updated_time" content="2016-01-28T06:52:46.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bootstrap入门笔记之（三）栅格系统">
 <meta name="twitter:description" content="[TOC]
@@ -413,14 +413,14 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 <li>在为不同大小屏幕，添加多个类一定要记住在<strong>基本用法</strong>处的表格中的内容，它决定了在不同大小屏幕下的显示与排列。</li>
 <li>若还要继续添加在超大屏幕下的特定显示效果，只需要对列再添加一个<code>.col-lg-*</code>的类，就能达到你所想要的</li>
 </ol>
-<p>除了在上面讲到的内容，在官方文档中还提到了<strong>响应式列重置</strong>，在我看来其实就是以下几点（或者说在这样的条件下可以使用）：</p>
+<h3 id="响应式列重置">响应式列重置</h3><p>除了在上面讲到的内容，在官方文档中还提到了<strong>响应式列重置</strong>，在我看来其实就是以下几点（或者说在这样的条件下可以使用）：</p>
 <ol>
 <li>需要对于不同屏幕大小进行处理，添加多个对于列宽进行处理的类。</li>
 <li>在缩小屏幕时，同一数据行（<code>.row</code>）针对小屏幕设置的类的宽度（<code>.col-sm-*</code>等等）加起来超过12，余下部分进行换行显示。</li>
 <li>在不同列的高度，有比较大的差异。可以在<strong>未超过12</strong>与<strong>超过12</strong>的部分，两者之间添加下面这样的代码：<code>&lt;div class=&quot;clearfix visible-xs-block&quot;&gt;&lt;/div&gt;</code>。（<code>.visible-xs-block</code>这一系列的类，会在后面进行讲解）<br>它最主要的作用是：它是响应式的，会占据未超过12的部分的宽高，且只有在发生列换行显示（堆叠）才进行设置。</li>
 <li>为了便于大家理解，我加一句：把上面那段代码复制到数据行<code>.row</code>容器内的最末端，它所占据的宽高和<code>.row</code>是一样的。（内容中有多段这样的代码的时候不成立，原因大家应该都能看出来了）</li>
 </ol>
-<p>说到这里呢，栅格的系统的部分，基本告一段落了，我们即将开始对于<strong>菜单、按钮及导航</strong>，这一部分的组件进行学习</p>
+<p>说到这里呢，栅格系统的部分，基本告一段落了，我们即将开始对于<strong>菜单、按钮及导航</strong>，这一部分的组件进行学习</p>
 
       
     </div>
@@ -621,7 +621,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-number">1.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">3.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">3.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列偏移"><span class="nav-number">3.2.</span> <span class="nav-text">列偏移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列排序"><span class="nav-number">3.3.</span> <span class="nav-text">列排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列嵌套"><span class="nav-number">3.4.</span> <span class="nav-text">列嵌套</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例："><span class="nav-number">4.</span> <span class="nav-text">实例：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备和桌面屏幕"><span class="nav-number">4.1.</span> <span class="nav-text">移动设备和桌面屏幕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机、平板、桌面"><span class="nav-number">4.2.</span> <span class="nav-text">手机、平板、桌面</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现原理"><span class="nav-number">1.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作原理"><span class="nav-number">2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">3.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">3.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列偏移"><span class="nav-number">3.2.</span> <span class="nav-text">列偏移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列排序"><span class="nav-number">3.3.</span> <span class="nav-text">列排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列嵌套"><span class="nav-number">3.4.</span> <span class="nav-text">列嵌套</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例："><span class="nav-number">4.</span> <span class="nav-text">实例：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动设备和桌面屏幕"><span class="nav-number">4.1.</span> <span class="nav-text">移动设备和桌面屏幕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手机、平板、桌面"><span class="nav-number">4.2.</span> <span class="nav-text">手机、平板、桌面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式列重置"><span class="nav-number">4.3.</span> <span class="nav-text">响应式列重置</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
