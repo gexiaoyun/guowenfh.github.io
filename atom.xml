@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-01-30T16:09:00.094Z</updated>
+  <updated>2016-02-29T17:43:21.983Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -15,15 +15,143 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Bootstrap入门笔记之（六）其它：警示框、进度条、列表组、面板等]]></title>
+    <link href="http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/"/>
+    <id>http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/</id>
+    <published>2016-02-29T17:41:42.000Z</published>
+    <updated>2016-02-29T17:43:21.983Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>博客之外</p>
+<p>只剩最后一天，二月份就结束了。距离上一篇博客已经有着整整一个月的时间，这一个月的时间，感觉技术上的成长又被搁置了，没有了之前闭关学习的心无旁骛，那段时间成长真的飞快。<br>在家喝酒，玩耍，到现在实习入职了一个星期，整整一个月时间，学习效率都十分的低，也可以说基本没学到什么新东西。今天是2月最后一天，不能再这样下去，好了懊恼的时间，不能太多，应该着眼当下，现在是2016-02-29 21:40，开始把bootstrap入门理论基础部分完结了吧，下一步就该进入一个新的阶段了！我将一直前行，加油！</p>
+</blockquote>
+<hr>
+<h2 id="缩略图">缩略图</h2><p>其实在我们日常使用的网页中，随处都可以看到有缩略图的存在，比如淘宝的商品列表，慕课网上的课程列表等等，Bootstrap自然不会放过那么常见效果，它将这样的效果独立成为了一个模块组件，使用<code>.thumbnail</code>样式类，Boostrap缩略图的默认设计仅需最少的标签就能展示带链接的图片。</p>
+<p>我们需要配合Bootstrap的栅格系统来达到一个不错的显示效果。在Bootstrap中文网中，我们可以看到这样的示例代码:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"row"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"col-xs-6 col-md-3"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"thumbnail"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"..."</span> <span class="attribute">alt</span>=<span class="value">"..."</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 此处应对图片做一些样式设置height: 180px;width: 100%; display: block;等 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们将上面代码中的列复制3份，改变浏览器的大小，我可以看到因为栅格系统的存在，我们的缩略图已经变成了响应式的。这是栅格系统起到的效果那么<code>.thumbnail</code>又起到了什么效果呢？<br>我们可以看到图片周围有了一圈边框，并且在边框与图片之间有着4px的padding，除此之外bootstrap还人性化的为我们的缩略图效果提供了hover效果。</p>
+<p><strong>添加标题、描述内容、按钮</strong></p>
+<p>我们当然不可能仅仅只展示一张可点击的图片就完了，我们时常还会配上相关的说明文字以及一些按钮等等。在已有的缩略图的基础上，我们需要使用<code>.caption</code>容器，并且在这个容器中放置其它的内容，来达到统一的显示效果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 添加到上面代码中的.thumbnail容器内，a标签后 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"caption"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h2</span>&gt;</span>说明文字<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">p</span>&gt;</span>这里是说明文字<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"btn btn-info"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"btn btn-success"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>看看效果吧：</p>
+<p><img src="/images/Bootstrap/06-thumbnail.jpg" alt="缩略图展示"></p>
+<h2 id="警示框">警示框</h2><p>其实在我们的网页中，总是避免不了各种的提示信息，比如我们的登陆界面中，总是避免不了输入错误的情况，就需要使用警示框来提示用户错误信息。Bootstrap为我们提供了一组这样的样式类。</p>
+<p>Bootstrap使用<code>.alert</code>来控制警示框的大小边距等样式，然后再用：成功：<code>.alert-success</code>、信息：<code>.alert-info</code>、警告：<code>.alert-warning</code>和错误：<code>.alert-danger</code>、这样的一组样式类,来表示不同的情景颜色。   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"alert alert-success"</span> <span class="attribute">role</span>=<span class="value">"alert"</span>&gt;</span>恭喜您操作成功！<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- ...等等 --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/Bootstrap/06-alert.jpg" alt="缩略图展示"></p>
+<p>关闭</p>
+<p>除了展示效果之外，如果你还引入了Bootstrap的js文件。那么我们的还可以为我们的警示框非常简单的创造一些交互效果。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"alert alert-success alert-dismissable"</span>&gt;</span></span><br><span class="line">    success操作成功</span><br><span class="line">    <span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"close"</span> <span class="attribute">data-dismiss</span>=<span class="value">"alert"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"glyphicon glyphicon-remove"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到效果如下：（点击后面的icon便可以关闭该提示信息）</p>
+<p><img src="/images/Bootstrap/06-alert-close.jpg" alt="缩略图交互"></p>
+<p>那么好的效果，在实现的时候需要注意一些什么呢？主要有三个步骤：</p>
+<ol>
+<li>在普通的警示框<code>.alert</code>的基础上，添加<code>。alert-dismissable</code>类</li>
+<li>在button标签中加入<code>close</code>类，实现警示框<strong>关闭按钮</strong>的样式（我在上面使用了Bootstrap自带的icon图标来实现关闭按钮）</li>
+<li>在关闭按钮上添加自定义属性<code>data-dismiss=&quot;alert&quot;</code>（Bootstrap中是通过这样的自定义属性，再使用JS检测来实现关闭效果的）</li>
+</ol>
+<p><strong>警示框的链接</strong></p>
+<p>有时我警示框中除了错误信息之外，还会加入一个链接地址，以便于用户在在新的页面中查找问题去处理他的错误。</p>
+<p>Bootstrap仅仅使用了一个<code>.alert-link</code>的类就实现了这样的效果，主要是对于链接样式的<strong>高亮显示</strong>、<strong>加粗</strong>，并且<strong>颜色相应加深</strong>。（除此之外在hover上去后有下划线）</p>
+<h2 id="进度条">进度条</h2><p>Bootstrap框架对于进度条提供了一个基本样式，一个100%宽度的背景色，然后一个子容器高亮，表示完成进度。其实制作这样进度条非常容易，一般使用两个容器，外容器具有一定的宽度，设置一个背景色，他的子元素设置一个宽度（父容器的宽度比例值<code>如60%</code>），同时设置一个高亮的背景色。</p>
+<p>Bootstrap也是这样实现的，外层容器使用<code>.progress</code>类，子容器使用<code>.progress-bar</code>类（别忘记设置宽度）如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"progress"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"progress-bar"</span> <span class="attribute">style</span>=<span class="value">"width:80%"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同样它也提供了四个不同的情景颜色。<code>.progress-bar-info</code>..等，添加到<strong>子容器</strong>原有的类后即可</p>
+<p>除了色彩，还可以使进度条的变为条纹的，只需要将<code>progress-striped</code>添加到原有的<strong>父容器</strong>类后，它同样具有彩色效果。更进一步的是，若在其后再添加一个<code>.active</code>类，可以实现动态的条纹进度条。（必须两个同时使用，使用css3动画实现）我们来试试：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"progress progress-striped active"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"progress-bar progress-bar-danger"</span> <span class="attribute">style</span>=<span class="value">"width:80%"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- .... --&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/Bootstrap/06-progress-striped.jpg" alt="条纹进度条"></p>
+<p>我们还可以在一个进度条内，将不同状态的进度条放置在一起，水平排列，形成叠加进度条，这个就自己试试吧！^_^</p>
+<p><strong>带标签的显示条</strong><br>使用很简单，只需要在子容器中添加相应的数字就可以了，不过下面这段代码会有什么效果呢？不妨也自己去试试吧！(在源码中搜索<code>aria-valuenow=&quot;0&quot;</code>可看到原因)</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"progress"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"progress-bar"</span> role=<span class="string">"progressbar"</span> aria-valuenow=<span class="string">"0"</span> aria-valuemin=<span class="string">"0"</span> aria-valuemax=<span class="string">"100"</span>&gt;<span class="number">0</span>%&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="媒体对象">媒体对象</h2><p>媒体对象一般包括以下几个部分：</p>
+<ol>
+<li>媒体对像的容器：常使用<code>.media</code>类名表示，用来容纳媒体对象的所有内容</li>
+<li>媒体对像的对象：常使用<code>.media-object</code>表示，就是媒体对象中的对象，常常是图片</li>
+<li>媒体对象的主体：常使用<code>.media-body</code>表示，就是媒体对像中的主体内容，可以是任何元素，常常是图片侧边内容</li>
+<li>媒体对象的标题：常使用<code>.media-heading</code>表示，就是用来描述对象的一个标题，此部分可选</li>
+<li><code>.pull-left</code>或者<code>.pull-right</code>来控制媒体对象中的对象浮动方式。(如图片在左或者在右)</li>
+</ol>
+<p>那么我们可以看到的结构如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"media"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"pull-left"</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">img</span> <span class="attribute">class</span>=<span class="value">"media-object"</span> <span class="attribute">src</span>=<span class="value">".."</span> <span class="attribute">alt</span>=<span class="value">"..."</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"media-body"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h4</span> <span class="attribute">class</span>=<span class="value">"media-heading"</span>&gt;</span>Bootstrap<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span>默认样式的媒体对象组件允许在一个内容块的左边或右边展示一个多媒体内容（图像、视频、音频）。<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以实现最普通的图片在左，标题与介绍文字在右的媒体对象组。</p>
+<p>我们在论坛中常常能看到和Bootstrap中文官网媒体对象组模块类似的阶梯状媒体对象，它是怎么实现的呢？<br>其实很简单，我们只需要在上一级的<code>.media-body</code>容器最后添加新的额媒体对象容器<code>.media</code>就可以实现这样的阶梯效果</p>
+<p><img src="/images/Bootstrap/06-media.jpg" alt="媒体对象"></p>
+<p>除了这样的阶梯形式，我们还可以在论坛评论系统中看到，评论是平铺着下来的，也就是媒体对象列表。</p>
+<p>我们只需要将原来的<code>.media</code>放在<code>.media-list</code>容器中就可以实现，不过既然都说了是列表，那我们还是直接使用ul&gt;li的排列方式吧:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"media-list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"media"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"media"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"media"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Bootstrap同样帮我们清除了，媒体对象列表中的ul&gt;li的默认样式，使展示更急美观</p>
+<h2 id="列表组">列表组</h2><p>列表组是Bootstrap框架新增的一个组件，可以用来制作列表清单、垂直导航等效果，也可以配合其他的组件制作出更漂亮的组件。它主要包括两个部分：</p>
+<ol>
+<li><code>.list-group</code>：列表组容器，<strong>常用的是ul元素</strong>，当然也可以是ol或者div元素</li>
+<li><code>.list-group-item</code>：列表项，<strong>常用的是li元素</strong>，当然也可以是div元素</li>
+</ol>
+<p>如：</p>
+<h3 id="带徽章的列表组">带徽章的列表组</h3><p>带徽章的列表组其实就是将Bootstrap框架中的徽章组件和基础列表组结合在一起的一个效果。具体做法很简单，只需要在<code>.list-group-item</code>中添加徽章组件<code>.badge</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"list-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"list-group-item"</span>&gt;</span>玩转Bootstrap  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"badge"</span>&gt;</span>5<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"list-group-item"</span>&gt;</span>基础Bootstrap的网页开发  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"badge"</span>&gt;</span>12<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以实现笑效果如下：</p>
+<p><img src="/images/Bootstrap/06-list-badge.jpg" alt="带徽章的列表"></p>
+<p>如果在列表组中，我们希望列表项是链接的话，Bootstrap为我们提供了两种方案：</p>
+<ol>
+<li>直接将链接置于li<code>.list-group-item</code>容器内，它会有链接下划线的存在</li>
+<li>将ul.list-group&gt;li.list-group-item的结构换成div.list-group&gt;a.list-group-item，此时与默认的列表组显示无异(emmet会吧？那就能理解我的代码的意思…)</li>
+</ol>
+<h3 id="自定义列表组">自定义列表组</h3><p>除了上面默认的列表组之外，为了更清晰的展示内容，Bootstrap实现了自定义列表组，主要是新增了两个类：</p>
+<ol>
+<li><code>.list-group-item-heading</code>：用来定义列表项头部样式</li>
+<li><code>.list-group-item-text</code>：用来定义列表项主要内容</li>
+</ol>
+<p>结构如下编写：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"list-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span> <span class="attribute">class</span>=<span class="value">"list-group-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h4</span> <span class="attribute">class</span>=<span class="value">"list-group-item-heading"</span>&gt;</span>图解CSS3<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"list-group-item-text"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"##"</span> <span class="attribute">class</span>=<span class="value">"list-group-item"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">h4</span> <span class="attribute">class</span>=<span class="value">"list-group-item-heading"</span>&gt;</span>Sass中国<span class="tag">&lt;/<span class="title">h4</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"list-group-item-text"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="列表项的状态设置">列表项的状态设置</h3><p>和其他的组件一样，列表组也两个状态效果：</p>
+<ul>
+<li><code>.active</code>：表示当前状态</li>
+<li><code>.disabled</code>：表示禁用状态</li>
+</ul>
+<p>只需要在相应的列表项上添加。<code>class=&quot;list-group-item active&quot;&gt;</code>，主要对于该项的背景颜色进行高亮，以及其中的<strong>徽章</strong>进行了<strong>高亮处理</strong></p>
+<p>禁用状态，只是添加了一个灰色的背景色，以及文字的暗色处理</p>
+<p>除了上面的两个最常用的状态之外，Bootstrap为我们的列表组也提供了不同的情景颜色，只需要在列表项中添加<code>.list-group-item-danger</code>这一系列的类。</p>
+<h2 id="面板">面板</h2><p>同样作为一个新增的组件，基础面板非常简单，就是一个div容器运用了<code>.panel</code>样式，产生一个具有边框的文本显示块。由于<code>.panel</code>不控制主题颜色，所以在<code>.panel</code>的基础上增加一个控制颜色的主题<code>.panel-default</code>，另外在里面添加了一个<code>.div.panel-body</code>来放置面板主体内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel panel-default"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- panel-default就是那一系列的情景类，设置不同的可以设置不同的颜色 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-body"</span>&gt;</span>我是一个基础面板，带有默认主题样式风格<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="带有头和尾的面板">带有头和尾的面板</h3><p>基础面板看上去太简单了，Bootstrap为了丰富面板的功能，特意为面板增加“面板头部”和“页面尾部”的效果：</p>
+<ol>
+<li><code>.panel-heading</code>：用来设置面板头部样式</li>
+<li><code>.panel-footer</code>：用来设置面板尾部样式</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel panel-default"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这里对于不同的情景颜色，面板头的颜色改变十分明显 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-heading"</span>&gt;</span>图解CSS3<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-body"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-footer"</span>&gt;</span>作者：大漠<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="面板中嵌套表格">面板中嵌套表格</h3><p>其实面板作为一个用于处理，别的组件完成不了的情况的组件，一般情况下可以把面板理解为一个区域，所以在使用面板的时候，都会在<code>.panel-body</code>放置需要的内容，可能是<strong>图片、表格或者列表等</strong>。</p>
+<p>如果在面板中嵌套表格，只需要将编写好的表格直接放置在面板中即可，不过有着如下两种形式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel panel-default"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-heading"</span>&gt;</span>图解CSS3<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-body"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 这里是放在panel-body后面，实际上我们还可以将table放在panel-body里面 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">table</span> <span class="attribute">class</span>=<span class="value">"table table-bordered"</span>&gt;</span>…<span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"panel-footer"</span>&gt;</span>作者：大漠<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>两个效果最大的差异是：</p>
+<ol>
+<li>放在<code>.panel-body</code><strong>内</strong>的表格，实际上就是简单的嵌套，设置了一些padding值等。</li>
+<li>房在<code>.panel-body</code><strong>后</strong>的表格，会与面板融合在一起，与面板相接的地方，不会有着边框的展示，而是直接展示面板的边框</li>
+</ol>
+<p><strong>在面板中嵌套列表组时，同样是这样的两个差异</strong></p>
+<hr>
+<p>到这里我们的Bootstrap基础理论入门就结束了，实际上花了很多时间都是在理论上，并且中间还停歇了很长的时间。下一步我们需要做的就是在实战中去不断掌握它，了解它的细节，帮助我们能够缩短搭建时间、快速的搭建网站，并且让其在不同的终端下达到一个非常好的显示效果。</p>
+<p>现在各个方面还是有很多不足，坚持学习，继续改进，加油！</p>
+<p>2016-03-01 01:40</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>博客之外</p>
+<p>只剩最后一天，二月份就结束了。距离上一篇博客已经有着整整一个月的时间，这一个月的时间，感觉技术上的成长又被搁置了，没有了之前闭关学习的心无旁骛，那段时间成长真的飞快。<br>在家喝酒，玩耍，到现在实习入职了一个星期，整整一个]]>
+    </summary>
+    
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
+    
+      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Bootstrap入门笔记之（五）导航条、分页导航]]></title>
     <link href="http://guowenfh.github.io/2016/01/30/Bootstrap-05-navbar-pagination/"/>
     <id>http://guowenfh.github.io/2016/01/30/Bootstrap-05-navbar-pagination/</id>
     <published>2016-01-30T15:12:50.000Z</published>
-    <updated>2016-01-30T16:09:00.094Z</updated>
+    <updated>2016-02-29T17:40:50.599Z</updated>
     <content type="html"><![CDATA[<h2 id="导航条">导航条</h2><p>导航条（navbar）和我们在上一个笔记中介绍的导航（nav）相比，就多了一个<strong>“条”</strong>字。其实在Bootstrap框架中他们有着一定的区别。<br>在导航条(navbar)中有一个背景色、而且导航条可以是纯链接（类似导航），也可以是表单，还有就是表单和导航一起结合等多种形式。它们在移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式。</p>
 <h3 id="基础导航条">基础导航条</h3><p>实际上，导航条和导航在外观上的差别并不是那么的大，但是在实际使用中导航条要比导航复杂得多。下面就来实现一个最基础的导航条。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"navbar navbar-default"</span> <span class="attribute">role</span>=<span class="value">"navigation"</span>&gt;</span><span class="comment">&lt;!--role是为了方便屏幕阅读器理解此处内容--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"nav navbar-nav"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>CSS<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span>&gt;</span>PHP<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>可以达到的效果是这样的：</p>
+<p>Other more<br>可以达到的效果是这样的：</p>
 <p>宽屏：<br><img src="/images/Bootstrap/05-navbar-1.jpg" alt="基础导航条宽"></p>
 <p>窄屏：<br><img src="/images/Bootstrap/05-navbar-2.jpg" alt="基础导航条窄"></p>
 <p>在制作一个基础导航条时，主要注意以下几点：</p>
@@ -3512,228 +3640,6 @@
       <category term="task0002" scheme="http://guowenfh.github.io/tags/task0002/"/>
     
       <category term="百度前端技术学院" scheme="http://guowenfh.github.io/tags/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2/"/>
-    
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[JavaScript完美运动框架的进阶之旅]]></title>
-    <link href="http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/"/>
-    <id>http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/</id>
-    <published>2015-12-21T09:17:29.000Z</published>
-    <updated>2015-12-27T04:38:31.191Z</updated>
-    <content type="html"><![CDATA[<h2 id="运动框架的实现思路">运动框架的实现思路</h2><blockquote>
-<p>运动，其实就是在一段时间内改变<code>left</code>、<code>right</code>、<code>width</code>、<code>height</code>、<code>opactiy</code>的值，到达目的地之后停止。</p>
-</blockquote>
-<p>现在按照以下步骤来进行我们的运动框架的封装:</p>
-<ol>
-<li>匀速运动。</li>
-<li>缓冲运动。</li>
-<li>多物体运动。</li>
-<li>任意值变化。</li>
-<li>链式运动。</li>
-<li>同时运动。</li>
-</ol>
-<h2 id="（一）匀速运动">（一）匀速运动</h2><h3 id="速度动画">速度动画</h3><h4 id="运动基础">运动基础</h4><p>思考：<strong>如何让<code>div</code>动起来?</strong><br>如下：</p>
-<ol>
-<li>设置元素为绝对定位，只有绝对定位后，<code>left</code>,<code>top</code>等值才生效。</li>
-<li>定时器的使用（动态改变值），这里使用<code>setInterval()</code>每隔指定的时间执行代码。<ul>
-<li>计时器<code>setInterval(函数,交互时间(毫秒))</code>：在执行时,从载入页面后每隔指定的时间执行代码。</li>
-<li>取消计时器<code>clearInterval(函数)</code> 方法可取消由 <code>setInterval()</code> 设置的交互时间。</li>
-</ul>
-</li>
-<li>获取当前的位置，大小等等。<code>offsetLeft</code>（当前元素相对父元素位置）。</li>
-<li>速度–物体运动的快慢<ul>
-<li>定时器间隔时间</li>
-<li>改变值的大小</li>
-</ul>
-</li>
-</ol>
-<p>根据上面的信息我们就可以开始封装运动框架创建一个变化的<code>div</code>了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-1-动起来</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 进行运动的节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//定时器</span></span><br><span class="line">        element.style.left = element.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你没看错，就是那么简单。但是等等， what？ 怎么不会停？WTF？</p>
-<p>那是因为我们没有运动终止条件。好再还是比较简单。直接在定时器内部，判断到达目标值，清除定时器就行拉！</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-2-运动终止</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 进行运动的节点</span><br><span class="line"> * @param &#123;number&#125;      iTarget 运动终止条件。</span><br><span class="line"> */</span></span><br><span class="line"> <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        element.style.left = element.offsetLeft + <span class="number">5</span> + <span class="string">"px"</span>;</span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//停止条件</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>就这样是不是就完成了呢？已经ok了呢？<br>no。还有一些Bug需要处理。</p>
-<h4 id="运动中的Bug">运动中的Bug</h4><ol>
-<li>速度取到某些值会无法停止</li>
-<li>到达位置后再点击还会运动</li>
-<li>重复点击速度加快</li>
-<li>速度无法更改</li>
-</ol>
-<h4 id="解决BUG">解决BUG</h4><ol>
-<li>速度取到某些值会无法停止（这个Bug稍后解决，在进化过程中自然解决）</li>
-<li>把运动和停止隔开(if/else)</li>
-<li>在开始运动时,关闭已有定时器</li>
-<li>把速度用变量保存</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-3-解决Bug</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(timer);<span class="comment">//在开始运动时,关闭已有定时器</span></span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> iSpeed = <span class="number">5</span>;<span class="comment">//把速度用变量保存</span></span><br><span class="line">        <span class="comment">//把运动和停止隔开(if/else)</span></span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style.left = element.offsetLeft + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样一个简单的运动框架就完成了。但是，再等等。只能向右走？别急，我们不是定义了把速度变成为了变量吗？只需要对它进行一些处理就行啦！<br><code>var iSpeed = 5;</code><strong>–&gt;</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断距离目标位置，达到自动变化速度正负</span></span><br><span class="line"><span class="keyword">var</span> iSpeed = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (element.offsetLeft &lt; iTarget) &#123;</span><br><span class="line">    iSpeed = <span class="number">5</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    iSpeed = -<span class="number">5</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="透明度动画">透明度动画</h3><ol>
-<li>用变量<code>alpha</code>储存当前透明度。</li>
-<li>把上面的<code>element.offsetLeft</code>改成变量<code>alpha</code>。</li>
-<li>运动和停止条件部分进行更改。如下：</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//透明度浏览器兼容实现</span></span><br><span class="line"><span class="keyword">if</span> (alpha === iTarget) &#123;</span><br><span class="line">    clearInterval(time);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alpha += speed;</span><br><span class="line">    element.style.filter = <span class="string">'alpha(opacity:'</span> + alpha + <span class="string">')'</span>; <span class="comment">//兼容IE</span></span><br><span class="line">    element.style.opacity = alpha / <span class="number">100</span>;<span class="comment">//标准</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="（二）缓冲动画">（二）缓冲动画</h2><p>思考：<strong>怎么样才是缓冲动画？</strong></p>
-<p>应该有以下几点：</p>
-<ul>
-<li>逐渐变慢,最后停止</li>
-<li>距离越远速度越大<ul>
-<li>速度由距离决定</li>
-<li>速度=(目标值-当前值)/缩放系数</li>
-</ul>
-</li>
-<li>Bug :速度取整(使用Math方法)，不然会闪<ul>
-<li>向上取整。<code>Math.ceil(iSpeed)</code></li>
-<li>向下取整。<code>Math.floor(iSpeed)</code></li>
-</ul>
-</li>
-</ul>
-<p>还是对速度作文章：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-4-缓冲动画</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(timer);</span><br><span class="line">    timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - element.offsetLeft) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (element.offsetLeft === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style.left = element.offsetLeft + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>做到这里，（速度取到某些值会无法停止)这个Bug就自动解决啦！</li>
-<li>例子:缓冲菜单<ul>
-<li>跟随页面滚动的缓冲侧边栏<br>在线演示：<a href="http://codepen.io/guowen921/pen/rxLOMd" target="_blank" rel="external">codepen</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>潜在问题目标值不是整数时</p>
-</blockquote>
-<h2 id="（三）多物体运动">（三）多物体运动</h2><p>思考：<strong>如何实现多物体运动？</strong></p>
-<ul>
-<li>单定时器，存在问题。每个div一个定时器</li>
-<li>定时器作为对象的属性<ul>
-<li>直接使用<code>element.timer</code>把定时器变成对象上的一个属性。</li>
-</ul>
-</li>
-<li>参数的传递:物体/目标值<br>比较简单把上面框架的进行如下更改：<code>timer</code><strong>–&gt;</strong><code>element.timer</code></li>
-</ul>
-<p>就这样就行啦！</p>
-<h2 id="（四）任意值变化">（四）任意值变化</h2><p>咳咳。我们来给div加个1px的边框。<code>boder :1px solid #000</code></p>
-<p>然后来试试下面的代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    oDiv.style.width = oDiv.offsetWidth - <span class="number">1</span> + <span class="string">"px"</span>;</span><br><span class="line">&#125;, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
-<p>嗯，神奇的事情发生了！what？我设置的不是宽度在减吗？怎么尼玛增加了！ 不对啊，大兄弟。</p>
-<p>究竟哪里出了问题呢？</p>
-<p>一起找找资料，看看文档，原来<code>offset</code>这一系列的属性都会存在，被其他属性干扰的问题。</p>
-<p>好吧，既然不能用，那么我们就顺便把任意值变化给做了吧。</p>
-<h3 id="第一步：获取实际样式">第一步：获取实际样式</h3><blockquote>
-<p>使用offsetLeft..等获取样式时, 若设置了边框, padding, 等可以改变元素宽度高度的属性时会出现BUG..</p>
-</blockquote>
-<ul>
-<li>通过查找发现<code>element.currentStyle(attr)</code>可以获取计算过之后的属性。</li>
-<li>但是因为兼容性的问题，需封装getStyle函数。（万恶的IE）</li>
-<li>当然配合CSS的<code>box-sizing</code>属性设为<code>border-box</code>可以达到一样的效果 ? (自认为，未验证)。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取实际样式函数</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element  需要寻找的样式的html节点</span><br><span class="line"> * @param   &#123;String]&#125; attr 在对象中寻找的样式属性</span><br><span class="line"> * @returns &#123;String&#125; 获取到的属性</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element, attr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//IE写法</span></span><br><span class="line">    <span class="keyword">if</span> (element.currentStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> element.currentStyle[attr];</span><br><span class="line">    <span class="comment">//标准</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(element, <span class="literal">false</span>)[attr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="第二步：改造原函数">第二步：改造原函数</h3><ol>
-<li>添加参数，<code>attr</code>表示需要改变的属性值。</li>
-<li>更改<code>element.offsetLeft</code>为<code>getStyle(element, attr)</code>。<ul>
-<li>需要注意的是：<code>getStyle(element, attr)</code>不能直接使用，因为它获取到的字符串,例：<code>10px</code>。</li>
-<li>变量<code>iCurrent</code>使用<code>parseInt()</code>,将样式转成数字。</li>
-</ul>
-</li>
-<li><code>element.style.left</code>为<code>element.style[attr]</code>。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-4-任意值变化</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;string&#125;      attr    需要改变的属性。</span><br><span class="line"> * @param &#123;number&#125;      iTarget 目标值</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, attr, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">    <span class="keyword">var</span> iCurrent=<span class="number">0</span>;</span><br><span class="line">    iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr));<span class="comment">//实际样式大小</span></span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(element.timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>试一试，这样是不是就可以了呢？</p>
-<blockquote>
-<p>还记得上面我们写的透明度变化吗?  再试试</p>
-</blockquote>
-<p>果然还是不行， （废话，你见过透明度有”px”单位的么? - -<code>白眼</code> ）</p>
-<h3 id="第三步：透明度兼容处理">第三步：透明度兼容处理</h3><p>思考：<strong>需要对那些属性进行修改？</strong></p>
-<ol>
-<li>判断<code>attr</code>是不是透明度属性<code>opacity</code> 。</li>
-<li>对于速度进行处理。<ul>
-<li>为透明度时，由于获取到的透明度会是小数，所以需要 * 100</li>
-<li>并且由于计算机储存浮点数的问题，还需要将小数，进行四舍五入为整数。使用： <code>Math.round(parseFloat(getStyle(element, attr)) * 100)</code>。</li>
-<li>否则，继续使用默认的速度。</li>
-</ul>
-</li>
-<li>对结果输出部分进行更改。<ul>
-<li>判断是透明度属性，使用透明度方法</li>
-<li>否则，使用使用默认的输出格式。</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 运动框架-5-兼容透明度</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;string&#125;      attr    需要改变的属性。</span><br><span class="line"> * @param &#123;number&#125;      iTarget 目标值</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, attr, iTarget</span>) </span>&#123;</span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//因为速度要动态改变，所以必须放在定时器中</span></span><br><span class="line">        <span class="keyword">var</span> iCurrent = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时执行。</span></span><br><span class="line">            iCurrent = <span class="built_in">Math</span>.round(<span class="built_in">parseFloat</span>(getStyle(element, attr)) * <span class="number">100</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认情况</span></span><br><span class="line">            iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr)); <span class="comment">//实际样式大小</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> iSpeed = (iTarget - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">        iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line">        <span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">            clearInterval(element.timer);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时，执行</span></span><br><span class="line">                element.style.filter = <span class="string">"alpha(opacity:"</span> + (iCurrent + iSpeed) + <span class="string">")"</span>; <span class="comment">//IE</span></span><br><span class="line">                element.style.opacity = (iCurrent + iSpeed) / <span class="number">100</span>; <span class="comment">//标准</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认</span></span><br><span class="line">                element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>到这里，这个运动框架就基本上完成了。但是，我们是追求完美的不是吗？</p>
-<p>继续进化！</p>
-<h2 id="（五）链式动画">（五）链式动画</h2><blockquote>
-<p>链式动画：顾名思义，就是在该次运动停止时，开始下一次运动。</p>
-</blockquote>
-<p>如何实现呢？</p>
-<ul>
-<li>使用回调函数：运动停止时,执行函数</li>
-<li>添加<code>func</code>形参（回调函数）。</li>
-<li>在当前属性到达目的地时<code>iCurrent === iTarget</code>，判断是否有回调函数存在，有则执行。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (iCurrent === iTarget) &#123;<span class="comment">//结束运动</span></span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    <span class="keyword">if</span> (func) &#123;</span><br><span class="line">        func();<span class="comment">//回调函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>good，链式动画完成！距离完美还差一步！</p>
-<h2 id="（六）同时运动">（六）同时运动</h2><p>思考：<strong>如何实现同时运动？</strong></p>
-<ol>
-<li>使用JSON传递多个值</li>
-<li>使用<code>for in</code>循环，遍历属性，与值。</li>
-<li>定时器问题!(运动提前停止)<ul>
-<li>在循环外设置变量,假设所有的值都到达了目的值为true</li>
-<li>在循环中检测是否到达目标值,若没有值未到则为false</li>
-<li>在循环结束后,检测是否全部达到目标值.是则清除定时器</li>
-</ul>
-</li>
-</ol>
-<p>实现：</p>
-<ol>
-<li>删除<code>attr</code>与<code>iTarget</code>两个形参，改为<code>json</code></li>
-<li>在函数开始时，设置一个标记<code>var flag = true; //假设所有运动到达终点.</code></li>
-<li>在定时器内使用<code>for in</code>，遍历属性与目标，改写原来的<code>attr</code>与<code>iTarget</code>，为json的属性与值</li>
-<li>修改运动终止条件，只有每一项的实际属性值<code>iCurrent</code>，等于目标值<code>json[attr]</code>时，<code>flag</code>才为<code>true</code>。清除定时器，判断是否回调。</li>
-<li>否则，继续执行代码，直到所有属性值等于目标值。</li>
-</ol>
-<h2 id="完美运动框架">完美运动框架</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 获取实际样式函数</span><br><span class="line"> * @param   &#123;HTMLElement&#125;   element  需要寻找的样式的html节点</span><br><span class="line"> * @param   &#123;String]&#125; attr 在对象中寻找的样式属性</span><br><span class="line"> * @returns &#123;String&#125; 获取到的属性</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">element, attr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//IE写法</span></span><br><span class="line">    <span class="keyword">if</span> (element.currentStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> element.currentStyle[attr];</span><br><span class="line">        <span class="comment">//标准</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(element, <span class="literal">false</span>)[attr];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 完美运动框架</span><br><span class="line"> * @param &#123;HTMLElement&#125; element 运动对象</span><br><span class="line"> * @param &#123;JSON&#125;        json    属性：目标值      </span><br><span class="line"> *   @property &#123;String&#125; attr    属性值</span><br><span class="line"> *   @config   &#123;Number&#125; target  目标值</span><br><span class="line"> * @param &#123;function&#125;    func    可选，回调函数，链式动画。</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">startMove</span>(<span class="params">element, json, func</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>; <span class="comment">//假设所有运动到达终点.</span></span><br><span class="line">    clearInterval(element.timer);</span><br><span class="line">    element.timer = setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> json) &#123;</span><br><span class="line">            <span class="comment">//1.取当前的属性值。</span></span><br><span class="line">            <span class="keyword">var</span> iCurrent = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时执行。</span></span><br><span class="line">                iCurrent = <span class="built_in">Math</span>.round(<span class="built_in">parseFloat</span>(getStyle(element, attr)) * <span class="number">100</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认情况</span></span><br><span class="line">                iCurrent = <span class="built_in">parseInt</span>(getStyle(element, attr)); <span class="comment">//实际样式大小</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//2.算运动速度,动画缓冲效果</span></span><br><span class="line">            <span class="keyword">var</span> iSpeed = (json[attr] - iCurrent) / <span class="number">10</span>; <span class="comment">//(目标值-当前值)/缩放系数=速度</span></span><br><span class="line">            iSpeed = iSpeed &gt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(iSpeed) : <span class="built_in">Math</span>.floor(iSpeed); <span class="comment">//速度取整</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//3.未到达目标值时，执行代码 </span></span><br><span class="line">            <span class="keyword">if</span> (iCurrent != json[attr]) &#123;</span><br><span class="line">                flag = <span class="literal">false</span>; <span class="comment">//终止条件</span></span><br><span class="line">                <span class="keyword">if</span> (attr === <span class="string">"opacity"</span>) &#123; <span class="comment">//为透明度时，执行</span></span><br><span class="line">                    element.style.filter = <span class="string">"alpha(opacity:"</span> + (iCurrent + iSpeed) + <span class="string">")"</span>; <span class="comment">//IE</span></span><br><span class="line">                    element.style.opacity = (iCurrent + iSpeed) / <span class="number">100</span>; <span class="comment">//标准</span></span><br><span class="line">                &#125; <span class="keyword">else</span> &#123; <span class="comment">//默认</span></span><br><span class="line">                    element.style[attr] = iCurrent + iSpeed + <span class="string">"px"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                flag = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//4. 运动终止，是否回调</span></span><br><span class="line">            <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">                clearInterval(element.timer);</span><br><span class="line">                <span class="keyword">if</span> (func) &#123;</span><br><span class="line">                    func();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">30</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="运动框架总结">运动框架总结</h2><ul>
-<li>运动框架演变过程</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>框架</th>
-<th>变化</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>startMove(element)</td>
-<td>运动</td>
-</tr>
-<tr>
-<td>startMove(element,iTarget)</td>
-<td>匀速–&gt;缓冲–&gt;多物体</td>
-</tr>
-<tr>
-<td>startMove(element,attr,iTargrt)</td>
-<td>任意值</td>
-</tr>
-<tr>
-<td>startMove(element,attr,iTargrt,func)</td>
-<td>链式运动</td>
-</tr>
-<tr>
-<td>startMove(element,json,func)</td>
-<td>多值(同时)–&gt;完美运动框架</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="运动框架的实现思路">运动框架的实现思路</h2><blockquote>
-<p>运动，其实就是在一段时间内改变<code>left</code>、<code>right</code>、<code>width</code>、<code>height</code>、]]>
-    </summary>
-    
-      <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
     
       <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
     
