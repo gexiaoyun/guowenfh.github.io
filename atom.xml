@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-02-29T17:46:45.100Z</updated>
+  <updated>2016-03-01T03:19:19.465Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Bootstrap入门笔记之（六）其它：警示框、进度条、列表组、面板等]]></title>
+    <title><![CDATA[Bootstrap入门笔记之（六）其它内置组件：进度条、列表组、面板等]]></title>
     <link href="http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/"/>
     <id>http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/</id>
     <published>2016-02-29T17:41:42.000Z</published>
-    <updated>2016-02-29T17:46:45.100Z</updated>
+    <updated>2016-03-01T03:19:19.465Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>博客之外</p>
 <p>只剩最后一天，二月份就结束了。距离上一篇博客已经有着整整一个月的时间，这一个月的时间，感觉技术上的成长又被搁置了，没有了之前闭关学习的心无旁骛，那段时间成长真的飞快。<br>在家喝酒，玩耍，到现在实习入职了一个星期，整整一个月时间，学习效率都十分的低，也可以说基本没学到什么新东西。今天是2月最后一天，不能再这样下去，好了懊恼的时间，不能太多，应该着眼当下，现在是2016-02-29 21:40，开始把bootstrap入门理论基础部分完结了吧，下一步就该进入一个新的阶段了！我将一直前行，加油！</p>
