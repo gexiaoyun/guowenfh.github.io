@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ajax,JS," />
+  <meta name="keywords" content="JS,Ajax," />
 
 
 
@@ -72,7 +72,7 @@ Web服务器- 向浏览器发送数据
 Web服务器- 关闭TCP连接
 如何配置自己的服务器程序(AMP)
 
-Ajax">
+Aja">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ajax入门（一）从0开始到一次成功的GET请求">
 <meta property="og:url" content="http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/index.html">
@@ -90,7 +90,7 @@ Web服务器- 向浏览器发送数据
 Web服务器- 关闭TCP连接
 如何配置自己的服务器程序(AMP)
 
-Ajax">
+Aja">
 <meta property="og:image" content="http://guowenfh.github.io/images/ajax/http.png">
 <meta property="og:image" content="http://guowenfh.github.io/images/ajax/http2.png">
 <meta property="og:updated_time" content="2015-12-27T04:38:35.963Z">
@@ -109,7 +109,8 @@ Web服务器- 向浏览器发送数据
 Web服务器- 关闭TCP连接
 如何配置自己的服务器程序(AMP)
 
-Ajax">
+Aja">
+<meta name="twitter:image" content="http://guowenfh.github.io/images/ajax/http.png">
 
 
 
@@ -573,7 +574,7 @@ Ajax">
 </table>
 <p>例:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基本完整的一个Ajax请求</span></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">request.open(<span class="string">"GET"</span>,<span class="string">"get.json"</span>,<span class="literal">true</span>);</span><br><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="comment">//响应成功,做一些事情</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="comment">//响应失败,做一些事情</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="使用函数简单的封装一个get请求">使用函数简单的封装一个get请求</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的异步get请求</span><br><span class="line"> * <span class="doctag">@param</span> &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnSucc  请求成功时执行的函数,形参为为获取的字符串值.</span><br><span class="line"> * <span class="doctag">@param</span> &#123;Function&#125; fnFaild 请求失败执行的函数,可选参数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">(url, fnSucc, fnFaild)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="keyword">var</span> oAjax = <span class="keyword">null</span></span><br><span class="line">        <span class="comment">//此处必须需要使用window.的方式,表示为window对象的一个属性.不存在是值为undefined,进入else/若直接使用XMLHttpRequest在不支持的情况下会报错</span></span><br><span class="line">    <span class="keyword">if</span> (window.XMLHttpRequest) &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//IE6以上,现在应该不需要考虑IE6了</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, url, <span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用函数简单的封装一个get请求">使用函数简单的封装一个get请求</h3><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 一个简单的异步get请求</span><br><span class="line"> * @param &#123;String&#125;   url     请求地址,文件名</span><br><span class="line"> * @param &#123;Function&#125; fnSucc  请求成功时执行的函数,形参为为获取的字符串值.</span><br><span class="line"> * @param &#123;Function&#125; fnFaild 请求失败执行的函数,可选参数</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url, fnSucc, fnFaild</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.创建ajax对象</span></span><br><span class="line">    <span class="built_in">var</span> oAjax = <span class="literal">null</span></span><br><span class="line">        <span class="comment">//此处必须需要使用window.的方式,表示为window对象的一个属性.不存在是值为undefined,进入else/若直接使用XMLHttpRequest在不支持的情况下会报错</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125; <span class="decorator"><span class="keyword">else</span></span> &#123;</span><br><span class="line">        <span class="comment">//IE6以上,现在应该不需要考虑IE6了</span></span><br><span class="line">        oAjax = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//2.连接服务器</span></span><br><span class="line">    <span class="comment">//open(方法,url,是否异步)</span></span><br><span class="line">    oAjax.open(<span class="string">"GET"</span>, <span class="built_in">url</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    oAjax.send();</span><br><span class="line">    <span class="comment">//4.接收返回</span></span><br><span class="line">    <span class="comment">//OnRedayStateChange事件</span></span><br><span class="line">    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>) &#123;</span><br><span class="line">                fnSucc(oAjax.responseText);</span><br><span class="line">            &#125; <span class="decorator"><span class="keyword">else</span></span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (fnFaild) &#123;</span><br><span class="line">                    fnFaild();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="使用Ajax">使用Ajax</h2><h3 id="基础:请求并显示静态TXT文件">基础:请求并显示静态TXT文件</h3><ul>
 <li>字符集编码:不一致时会出现乱码</li>
 <li>缓存,阻止缓存,(使用时间对象添加)</li>
@@ -602,9 +603,9 @@ Ajax">
       
         <div class="post-tags">
           
-            <a href="/tags/Ajax/" rel="tag">#Ajax</a>
-          
             <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/Ajax/" rel="tag">#Ajax</a>
           
         </div>
       
@@ -698,7 +699,7 @@ Ajax">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
