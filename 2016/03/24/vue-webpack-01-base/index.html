@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="摘录," />
+  <meta name="keywords" content="vue,webpack," />
 
 
 
@@ -59,34 +59,26 @@
 
 
 
-<meta name="description" content="Youth -Samuel Ullman
+<meta name="description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
 
-Samuel Ullman（塞缪尔.厄尔曼）
-
-Youth is not a time of life,it is a state of mind;青春不是年华，而是心境；
-it is not a matter of rosy cheeks, red lips and supple knees;青春不是桃面、丹唇、柔膝，
-it is a matter o">
+什么是webpack
+其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Youth (青春)">
-<meta property="og:url" content="http://guowenfh.github.io/2015/11/30/Youth/index.html">
+<meta property="og:title" content="webpack入坑之旅（一）不是开始的开始">
+<meta property="og:url" content="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="Youth -Samuel Ullman
+<meta property="og:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
 
-Samuel Ullman（塞缪尔.厄尔曼）
-
-Youth is not a time of life,it is a state of mind;青春不是年华，而是心境；
-it is not a matter of rosy cheeks, red lips and supple knees;青春不是桃面、丹唇、柔膝，
-it is a matter o">
-<meta property="og:updated_time" content="2015-12-01T06:48:21.470Z">
+什么是webpack
+其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句">
+<meta property="og:image" content="http://guowenfh.github.io/images/vue-webpack/00-webpack-base.png">
+<meta property="og:updated_time" content="2016-03-24T09:15:39.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Youth (青春)">
-<meta name="twitter:description" content="Youth -Samuel Ullman
+<meta name="twitter:title" content="webpack入坑之旅（一）不是开始的开始">
+<meta name="twitter:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
 
-Samuel Ullman（塞缪尔.厄尔曼）
-
-Youth is not a time of life,it is a state of mind;青春不是年华，而是心境；
-it is not a matter of rosy cheeks, red lips and supple knees;青春不是桃面、丹唇、柔膝，
-it is a matter o">
+什么是webpack
+其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句">
 
 
 
@@ -104,7 +96,7 @@ it is a matter o">
   };
 </script>
 
-  <title> Youth (青春) | 三省吾身丶丶 </title>
+  <title> webpack入坑之旅（一）不是开始的开始 | 三省吾身丶丶 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +234,7 @@ it is a matter o">
             
             
               
-                Youth (青春)
+                webpack入坑之旅（一）不是开始的开始
               
             
           </h1>
@@ -254,8 +246,8 @@ it is a matter o">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-30T16:44:19+08:00" content="2015-11-30">
-              2015-11-30
+            <time itemprop="dateCreated" datetime="2016-03-24T17:05:58+08:00" content="2016-03-24">
+              2016-03-24
             </time>
           </span>
 
@@ -268,8 +260,8 @@ it is a matter o">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
                   </a>
                 </span>
 
@@ -284,8 +276,8 @@ it is a matter o">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/30/Youth/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/30/Youth/" itemprop="commentsCount"></span>
+                <a href="/2016/03/24/vue-webpack-01-base/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/24/vue-webpack-01-base/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -306,28 +298,38 @@ it is a matter o">
       
 
       
-        <p>Youth -Samuel Ullman</p>
-<blockquote>
-<p>Samuel Ullman（塞缪尔.厄尔曼）</p>
+        <blockquote>
+<p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。</p>
 </blockquote>
-<p>Youth is not a time of life,it is a state of mind;<br>青春不是年华，而是心境；</p>
-<p>it is not a matter of rosy cheeks, red lips and supple knees;<br>青春不是桃面、丹唇、柔膝，</p>
-<p>it is a matter of the will, a quality of the imagination, a vigor of the emotions;<br>而是深沉的意志、宏伟的想象、炽热的感情；</p>
-<p>it is the freshness of the deep springs of life.<br>青春是生命的深泉在涌流。</p>
-<p>Youth means a tempera mental predominance of courage over timidity,<br>青春气贯长虹，勇锐盖过怯弱，</p>
-<p>of the appetite for adventure over the love of ease.<br>进取压倒苟安，如此锐气，</p>
-<p>This often exists in a man of 60 more than a boy of 20.<br>二十后生有之,六旬男子则更多见.</p>
-<p>Nobody grows old merely by a number of years. We grow old by deserting our ideals.<br>年年有加，并非垂老；理想丢弃，方堕暮年。</p>
-<p>Years may wrinkle the skin, but to give up enthusiasm wrinkles the soul.<br>岁月悠悠，衰微只及肌肤；热忱抛却，颓唐必至灵魂。</p>
-<p>Worry, fear, self-distrust bows the heart and turns the spring back to dust.<br>烦忧、惶恐、丧失自信，定使心灵扭曲，意气如灰。</p>
-<p>Whether 60 or 16, there is in every human being`s heart the lure of wonder,<br>无论年届花甲，抑或二八芳龄，心中皆有生命之欢乐，奇迹之诱惑，</p>
-<p>the unfailing childlike appetite of what`s next and the joy of the game of living.<br>孩童般天真久盛不衰。</p>
-<p>In the center of your heart and my heart there is a wireless station,<br>人人心中皆有一台天线，</p>
-<p>so long as it receives messages of beauty, hope, cheer, courage and power from men and from the Infinite,<br>只要你从天上人间接受美好、希望、欢乐、勇气和力量的信号，</p>
-<p>so long are you young.<br>你就青春永驻，风华常存。</p>
-<p>When the aerials are down, and your spirit is covered with snows of cynicism and the ice of pessimism,<br>一旦天线倒塌，锐气被冰雪覆盖，玩世不恭、自暴自弃油然而生，</p>
-<p>then you are grown old, even at 20,<br>即使年芳二十,实已垂老矣;</p>
-<p>but as long as your aerials are up,to catch waves of optimism, there is hope you may die young at 80.<br>然则只要竖起天线，捕捉乐观的信号，你就有望在八十岁高龄告别尘寰时仍觉得年轻。</p>
+<h2 id="什么是webpack">什么是webpack</h2><blockquote>
+<p>其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句吧。可以直接跳过。 </p>
+</blockquote>
+<p>Webpack 是德国开发者 Tobias Koppers 开发的模块加载器兼打包工具，在webpack中，它能把各种资源，例如JS（含JSX）、coffee、样式（含less/sass）、图片等都作为模块来使用和处理。因此, Webpack 当中 js 可以引用 css, css 中可以嵌入图片 dataUrl。<br>对应各种不同文件类型的资源, Webpack 有对应的模块 loader比如vue用的是<code>vue-loader</code>当然这是后话，在后面我们再来说。</p>
+<p>请看下图：<br><img src="/images/vue-webpack/00-webpack-base.png" alt="webpack"></p>
+<p>官网查看：<a href="https://github.com/webpack/webpack" target="_blank" rel="external">https://github.com/webpack/webpack</a></p>
+<h2 id="安装">安装</h2><p>前提：因为webpack是一个基于node的项目，所以首先需要确保你的电脑里面已经安装了<code>node.js</code>，以及<code>npm</code>。在这里我使用的版本是：<code>node：v5.8.0  ，npm：3.7.3</code>,若是版本问题，请更新到最新版。<br>若是有出现npm安装过慢的情况，可以使用<a href="https://github.com/Pana/nrm" target="_blank" rel="external">nrm</a>这个项目来进行npm源地址的切换。</p>
+<p>首先我们直接进行全局的安装，运行如下命令：<code>npm install webpack -g</code>，可能需要一点时间。</p>
+<p>安装成功后，在命令行输入<code>webpack -h</code>即可查看当前安装的版本信息。以及可以使用的指令。   </p>
+<p>当然，我们都应该将webapck安装到当前的项目依赖中，此时就可以使用项目的本这样就可以使用项目本地版本的 Webpack。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确保已经进入项目目录</span></span><br><span class="line"><span class="comment"># 确定已经有 package.json，没有就通过</span></span><br><span class="line">npm init </span><br><span class="line"><span class="comment"># 创建，直接一路回车就好，后面再来详细说里面的内容。</span></span><br><span class="line"><span class="comment"># 安装 webpack 依赖</span></span><br><span class="line"></span><br><span class="line">npm install webpack --save-dev</span><br><span class="line"><span class="comment"># 简单的写法：-_-,缩写形式 </span></span><br><span class="line">npm i webpack -D</span><br><span class="line"><span class="comment"># –save：模块名将被添加到dependencies，可以简化为参数-S。</span></span><br><span class="line"><span class="comment"># –save-dev: 模块名将被添加到devDependencies，可以简化为参数-D。</span></span><br></pre></td></tr></table></figure>
+<p>安装好之后我们的<code>package.json</code>的目录应该是这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "<span class="attribute">name</span>": <span class="value"><span class="string">"first-demo"</span></span>,</span><br><span class="line">  "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,</span><br><span class="line">  "<span class="attribute">description</span>": <span class="value"><span class="string">"this is my first-demo"</span></span>,</span><br><span class="line">  "<span class="attribute">main</span>": <span class="value"><span class="string">"index.js"</span></span>,</span><br><span class="line">  "<span class="attribute">scripts</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">test</span>": <span class="value"><span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  </span>&#125;</span>,</span><br><span class="line">  "<span class="attribute">author</span>": <span class="value"><span class="string">"guowenfh"</span></span>,</span><br><span class="line">  "<span class="attribute">license</span>": <span class="value"><span class="string">"MIT"</span></span>,</span><br><span class="line">  "<span class="attribute">dependencies</span>": <span class="value">&#123;&#125;</span>,</span><br><span class="line">  "<span class="attribute">devDependencies</span>": <span class="value">&#123;</span><br><span class="line">    "<span class="attribute">webpack</span>": <span class="value"><span class="string">"^1.12.14"</span></span><br><span class="line">  </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p>既然环境都已经安装好了，那么我们就开始来用webpack进行我们的第一个打包运行程序吧！</p>
+<p>首先创建一个静态页面 <code>index.html</code> 和一个 JS 入口文件 <code>entry.js</code>,（这里你想用什么名字都可以，只需要在打包的时候读取文件为该名字就好，不过，到时候就知道这个名字的含义啦！）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">h1</span> <span class="attribute">id</span>=<span class="value">"app"</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 注意这里引入的不是我们创建的文件，而是用webpack生成的文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** entry.js ***/</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).innerHTML=<span class="string">"这是我第一个打包成功的程序"</span>;</span><br></pre></td></tr></table></figure>
+<p>文件都已经创建成功了，那么就开始我们的打包吧！</p>
+<p><code>webpack entry.js bundle.js</code></p>
+<p>在浏览器中打开<code>index.html</code>，就能看到我们设置的文字啦！：<strong>这是我第一个打包成功的程序</strong></p>
+<p>这么简单的功能直接在html中引入不就好了吗？确实是这样的，不过我们这才刚刚开始嘛，不要急。</p>
+<p>下面我们再来增加一个文件，名为<code>first.js</code>内容如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> h2= <span class="built_in">document</span>.createElement(<span class="string">"h2"</span>)</span><br><span class="line">h2.innerHTML=<span class="string">"不是吧，那么快第二个打包程序啦！"</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(h2);</span><br></pre></td></tr></table></figure>
+<p>更改 <code>entry.js</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'app'</span>).innerHTML=<span class="string">"这是我第一个打包成功的程序"</span>;</span><br><span class="line"><span class="comment">//添加</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./first.js"</span>);</span><br></pre></td></tr></table></figure>
+<p>再来进行一次重复的工作，再打包一次。<code>webpack entry.js bundle.js</code>，如果成功，打包过程会显示日志：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Hash: b1cfe7ff9d75ce235dc9</span><br><span class="line">Version: webpack <span class="number">1.12</span>.<span class="number">14</span></span><br><span class="line">Time: <span class="number">54</span>ms</span><br><span class="line">    Asset     Size  Chunks             Chunk Names</span><br><span class="line">bundle.js  <span class="number">1.82</span> kB       <span class="number">0</span>  [emitted]  main</span><br><span class="line">   [<span class="number">0</span>] ./entry.js <span class="number">208</span> bytes &#123;<span class="number">0</span>&#125; [built]</span><br><span class="line">   [<span class="number">1</span>] ./first.js <span class="number">145</span> bytes &#123;<span class="number">0</span>&#125; [built]</span><br></pre></td></tr></table></figure>
+<p><code>Webpack</code> 会分析入口文件，<strong>解析包含依赖关系的各个文件</strong>。这些文件（模块）都打包到 <code>bundle.js</code> 。<code>Webpack</code> 会给每个模块分配一个唯一的 <code>id</code> 并通过这个 <code>id</code> 索引和访问模块。在页面启动时，会先执行 <code>entry.js</code> 中的代码，其它模块会在运行 <code>require</code> 的时候再执行。</p>
+<p>刷新浏览器，可以发现我们的刚刚的代码已经生效，又有了新的文字出现。</p>
+<p>好吧，我知道这么简单的你们不屑于看，等下我们升个级。</p>
 
       
     </div>
@@ -336,7 +338,9 @@ it is a matter o">
       
         <div class="post-tags">
           
-            <a href="/tags/摘录/" rel="tag">#摘录</a>
+            <a href="/tags/vue/" rel="tag">#vue</a>
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
           
         </div>
       
@@ -345,13 +349,13 @@ it is a matter o">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/03/01/Bootstrap-06-other-more/" rel="next" title="Bootstrap入门笔记之（六）其它内置组件：进度条、列表组、面板等">
+                <i class="fa fa-chevron-left"></i> Bootstrap入门笔记之（六）其它内置组件：进度条、列表组、面板等
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/30/javascript-type/" rel="prev" title="JavaScript类型识别">
-                JavaScript类型识别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -380,8 +384,8 @@ it is a matter o">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/30/Youth/"
-           data-title="Youth (青春)" data-url="http://guowenfh.github.io/2015/11/30/Youth/">
+      <div class="ds-thread" data-thread-key="2016/03/24/vue-webpack-01-base/"
+           data-title="webpack入坑之旅（一）不是开始的开始" data-url="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">
       </div>
     
   </div>
@@ -528,7 +532,7 @@ it is a matter o">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是webpack"><span class="nav-number">1.</span> <span class="nav-text">什么是webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
