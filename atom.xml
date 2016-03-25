@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-03-25T02:46:21.790Z</updated>
+  <updated>2016-03-25T03:58:39.239Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -15,11 +15,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[webpack入坑之旅（五）加载vue单文件组件]]></title>
+    <link href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/"/>
+    <id>http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/</id>
+    <published>2016-03-25T03:57:50.000Z</published>
+    <updated>2016-03-25T03:58:39.239Z</updated>
+    <content type="html"><![CDATA[<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于<code>webpack</code>的理解。</p>
+<p>首先我们应该思考要解析<code>.vue</code>类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？</p>
+<h2 id="开始">开始</h2><h3 id="第一步：初始化项目目录">第一步：初始化项目目录</h3><p>我们需要创建如下目录及文件夹，最终目录结构如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- dist <span class="comment">//文件生成目录</span></span><br><span class="line">    -- <span class="comment">//自动生成</span></span><br><span class="line">- node_module <span class="comment">//自动安装</span></span><br><span class="line">    -- ...</span><br><span class="line">- src <span class="comment">//文件入口</span></span><br><span class="line">    -- components <span class="comment">//组件存放</span></span><br><span class="line">        -- app.vue <span class="comment">//主.vue</span></span><br><span class="line">    -- main.js <span class="comment">//主.js</span></span><br><span class="line">- index.html <span class="comment">//主.html</span></span><br><span class="line">- package.json <span class="comment">//npm 配置</span></span><br><span class="line">- webpack.cofig.js <span class="comment">// webpack配置</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二步：安装项目依赖">第二步：安装项目依赖</h3><p>如果你上面没有创建<code>package.json</code>文件的话，可以直接使用<code>npm init</code>来初始化我们的<code>package.json</code>文件的配置。</p>
+<p>想要去编译其他的文件比如<code>react</code>，<code>coffce</code>等等，就必须要加载很多对应的<code>loader</code>。要想加载一个<code>.vue</code>文件。当然也是同样的道理。<br>建议用<code>npm install xxx-loader --save-dev</code>这样的命令一条一条的敲。在命令行中，会有提示，可以帮助理解<code>webpack</code>的中的依赖管理关系。我的配置清单如下：<br><strong>在实际项目中，json文件中不能出现注释</strong>，在这里为了方便大家了解里面设置项的含义，就直接使用注释的方式加载后面了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"05-five-vue"</span>, <span class="comment">//项目名称</span></span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"1.0.0"</span>, <span class="comment">//版本</span></span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"vue+webapck"</span>, <span class="comment">//描述</span></span><br><span class="line">    <span class="string">"main"</span>: <span class="string">"index.js"</span>, <span class="comment">//主文件</span></span><br><span class="line">    <span class="string">"scripts"</span>: &#123;</span><br><span class="line">        <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span>,</span><br><span class="line">        <span class="string">"start"</span>: <span class="string">"webpack-dev-server --inline"</span></span><br><span class="line">    &#125;, <span class="comment">//scripts指定了运行脚本命令的npm命令行缩写，比如这是的start指定了运行npm run start时，所要执行的命令。</span></span><br><span class="line">    <span class="string">"dependencies"</span>: &#123; <span class="comment">//项目依赖</span></span><br><span class="line">        <span class="string">"vue"</span>: <span class="string">"^1.0.18"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"devDependencies"</span>: &#123; <span class="comment">//各种各样的loader，用来解析想相应的文件格式。要解析vue并且完成相应的功能，这些基本都是必须的。</span></span><br><span class="line">        <span class="string">"autoprefixer-loader"</span>: <span class="string">"^2.0.0"</span>,</span><br><span class="line">        <span class="string">"babel"</span>: <span class="string">"^6.3.13"</span>,</span><br><span class="line">        <span class="string">"babel-core"</span>: <span class="string">"^6.3.21"</span>,</span><br><span class="line">        <span class="string">"babel-loader"</span>: <span class="string">"^6.2.0"</span>,</span><br><span class="line">        <span class="string">"babel-plugin-transform-runtime"</span>: <span class="string">"^6.3.13"</span>,</span><br><span class="line">        <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.3.13"</span>,</span><br><span class="line">        <span class="string">"babel-runtime"</span>: <span class="string">"^5.8.34"</span>,</span><br><span class="line">        <span class="string">"css-loader"</span>: <span class="string">"^0.16.0"</span>,</span><br><span class="line">        <span class="string">"file-loader"</span>: <span class="string">"^0.8.5"</span>,</span><br><span class="line">        <span class="string">"html-loader"</span>: <span class="string">"^0.3.0"</span>,</span><br><span class="line">        <span class="string">"node-sass"</span>: <span class="string">"^3.4.2"</span>,</span><br><span class="line">        <span class="string">"sass-loader"</span>: <span class="string">"^3.2.0"</span>,</span><br><span class="line">        <span class="string">"style-loader"</span>: <span class="string">"^0.12.3"</span>,</span><br><span class="line">        <span class="string">"url-loader"</span>: <span class="string">"^0.5.6"</span>,</span><br><span class="line">        <span class="string">"vue-html-loader"</span>: <span class="string">"^1.2.0"</span>,</span><br><span class="line">        <span class="string">"vue-loader"</span>: <span class="string">"^7.2.0"</span>,</span><br><span class="line">        <span class="string">"webpack"</span>: <span class="string">"^1.12.0"</span>,</span><br><span class="line">        <span class="string">"webpack-dev-server"</span>: <span class="string">"^1.14.0"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"author"</span>: <span class="string">"guowenfh"</span>, <span class="comment">//作者</span></span><br><span class="line">    <span class="string">"license"</span>: <span class="string">"MIT"</span>, <span class="comment">//开源协议</span></span><br><span class="line">    <span class="string">"keywords"</span>: [ <span class="comment">//关键字</span></span><br><span class="line">        <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"webpack"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你想省事的话，直接复制上面的<code>devDependencies</code>,<code>dependencies</code>字段，并且填写到你的<code>package.json</code>文件中。然后运行<code>npm install</code>就会自动安装所有的模块以及依赖。</p>
+<h3 id="第三步：配置webpack">第三步：配置webpack</h3><p>文件已经设置好了，接下来就到了我们关键的一步，配置<code>webpack.config.js</code>,清单如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="comment">// NodeJS中的Path对象，用于处理目录的对象，提高开发效率。</span></span><br><span class="line"><span class="comment">// 模块导入</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 入口文件地址，不需要写完，会自动查找</span></span><br><span class="line">    entry: <span class="string">'./src/main'</span>,</span><br><span class="line">    <span class="comment">// 输出</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname, <span class="string">'./dist'</span>),</span><br><span class="line">        <span class="comment">// 文件地址，使用绝对路径形式</span></span><br><span class="line">        filename: <span class="string">'[name].js'</span>,</span><br><span class="line">        <span class="comment">//[name]这里是webpack提供的根据路口文件自动生成的名字</span></span><br><span class="line">        publicPath: <span class="string">'/dist/'</span></span><br><span class="line">        <span class="comment">// 公共文件生成的地址</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 服务器配置相关，自动刷新!</span></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        historyApiFallback: <span class="literal">true</span>,</span><br><span class="line">        hot: <span class="literal">false</span>,</span><br><span class="line">        inline: <span class="literal">true</span>,</span><br><span class="line">        grogress: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 加载器</span></span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 加载器</span></span><br><span class="line">        loaders: [</span><br><span class="line">        <span class="comment">// 解析.vue文件</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.vue$/</span>, loader: <span class="string">'vue'</span> &#125;,</span><br><span class="line">        <span class="comment">// 转化ES6的语法</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.js$/</span>, loader: <span class="string">'babel'</span>, exclude: <span class="regexp">/node_modules/</span> &#125;,</span><br><span class="line">        <span class="comment">// 编译css并自动添加css前缀</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">'style!css!autoprefixer'</span>&#125;,</span><br><span class="line">        <span class="comment">//.scss 文件想要编译，scss就需要这些东西！来编译处理</span></span><br><span class="line">        <span class="comment">//install css-loader style-loader sass-loader node-sass --save-dev</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.scss$/</span>, loader: <span class="string">'style!css!sass?sourceMap'</span>&#125;,</span><br><span class="line">        <span class="comment">// 图片转化，小于8K自动转化为base64的编码</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.(png|jpg|gif)$/</span>, loader: <span class="string">'url-loader?limit=8192'</span>&#125;,</span><br><span class="line">        <span class="comment">//html模板编译？</span></span><br><span class="line">            &#123; test: <span class="regexp">/\.(html|tpl)$/</span>, loader: <span class="string">'html-loader'</span> &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// .vue的配置。需要单独出来配置</span></span><br><span class="line">    vue: &#123;</span><br><span class="line">        loaders: &#123;</span><br><span class="line">            css: <span class="string">'style!css!autoprefixer'</span>,</span><br><span class="line">            html:<span class="string">'html-loader'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 转化成es5的语法</span></span><br><span class="line">    babel: &#123;</span><br><span class="line">        presets: [<span class="string">'es2015'</span>],</span><br><span class="line">        plugins: [<span class="string">'transform-runtime'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        <span class="comment">// require时省略的扩展名，如：require('module') 不需要module.js</span></span><br><span class="line">        extensions: [<span class="string">''</span>, <span class="string">'.js'</span>, <span class="string">'.vue'</span>],</span><br><span class="line">        <span class="comment">// 别名，可以直接使用别名来代表设定的路径以及其他</span></span><br><span class="line">        alias: &#123;</span><br><span class="line">            filter: path.join(__dirname, <span class="string">'./src/filters'</span>),</span><br><span class="line">            components: path.join(__dirname, <span class="string">'./src/components'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 开启source-map，webpack有多种source-map，在官网文档可以查到</span></span><br><span class="line">    devtool: <span class="string">'eval-source-map'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>请详细查看这里面的设置，我这里都是很简单的配置，在你的项目中，还可以更进一步的对于入口文件和输出文件进行更加深入的定制。</p>
+<p>并且在这里生成的css文件还会插到js中，有时我们需要更进一步的把它独立出来，然后在html中引入这时就会用到<code>webpack</code>的插件，在这里先不说（因为我暂时没用到，没有试验过，好像也不麻烦，可以的话下篇再试试）</p>
+<h3 id="第四步：编写代码">第四步：编写代码</h3><p>接下来就是我们要展示的文件的编写了，我直接把代码贴上来了。</p>
+<p>index.html：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>webpack vue<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="selector-id">#app</span> &#123;</span><br><span class="line">            <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">800px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">600px</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"dist/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里是main.js的内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//es6语法：</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"../node_modules/vue/dist/vue.min.js"</span>;<span class="comment">//其实不用写完，会自动查找。</span></span><br><span class="line"><span class="comment">//外部引入别的库都可以用这样的方式，比如jquery等。。</span></span><br><span class="line"><span class="comment">//引入我们编写的测试用vue文件。</span></span><br><span class="line"><span class="keyword">import</span> app <span class="keyword">from</span> <span class="string">'./components/app'</span>;</span><br><span class="line"></span><br><span class="line">Vue.config.debug = <span class="literal">true</span>;<span class="comment">//开启错误提示</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(app);</span><br></pre></td></tr></table></figure>
+<p>这里是app.vue：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="comment">//es6</span></span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">        el:<span class="string">"#app"</span>,</span><br><span class="line">         <span class="comment">//data:function()&#123;&#125;，下面是es6写法</span></span><br><span class="line">         data () &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">                name:<span class="string">"guowenfh"</span>,</span><br><span class="line">                age:<span class="string">"2q1"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>姓名：&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;age&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">lang</span>=<span class="string">"sass"</span>&gt;</span><span class="undefined"></span><br><span class="line">    /*测试一下对sass的编译*/</span><br><span class="line">    $qwe:#098;</span><br><span class="line">    body&#123;</span><br><span class="line">        background-color: $qwe;</span><br><span class="line">        h1&#123;</span><br><span class="line">            background-color: #eee;</span><br><span class="line">            color: red;</span><br><span class="line">            transform: translate(10%, 10%);</span><br><span class="line">        &#125;</span><br><span class="line">        h1:hover&#123;</span><br><span class="line">            height:100px;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        h2&#123;</span><br><span class="line">            background-color: #999;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="第五步：修改自动刷新设置">第五步：修改自动刷新设置</h3><p>下面再单独的再谈一下关于自动刷新的实现，首先需要说明，在上一篇博客中的自动刷新实现，是有问题的。只能改变css样式，使颜色进行变化。对于html里面的内容改变时，浏览器并不会自动刷新。</p>
+<p><strong>注意点一：</strong><br>首先我们看到<code>package.json</code>中<code>scripts</code>字段中的<code>&quot;start&quot;: &quot;webpack-dev-server --inline&quot;</code>。这里如果按照网上的方法在后面再添加上<code>--hot</code>的话，只会对于<code>app.vue</code>中的<code>&lt;style&gt;</code>标签内的css起效果。</p>
+<p><strong>注意点二：</strong><br>因为我们没有加<code>--hot</code>，所以在<code>webpack.cofig.js</code>中需要对于<code>devServer</code>进行一些配置，如下：（主要是是<code>hot</code>设置为了false）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    historyApiFallback: <span class="literal">true</span>,</span><br><span class="line">    hot: <span class="literal">false</span>,</span><br><span class="line">    inline: <span class="literal">true</span>,</span><br><span class="line">    grogress: <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样设置了之后按下保存相当于按下了F5浏览器整个刷新。而不是局部刷新。（如果你实现了局部刷新，并且没有其他问题，那请教教我^_^）</p>
+<p><strong>注意点三：</strong></p>
+<p>注意<code>package.json</code>的loader安装中的<code>&quot;vue-hot-reload-api&quot;: &quot;^1.2.2&quot;</code>。它有可能是导致你不能自动刷新的凶手(我现在都没搞明白到底该安装，还是取消)</p>
+<h2 id="结束">结束</h2><p>步骤都走完了，因为在上面的<code>package.json</code>中已经进行了<code>scripts</code>项的配置。运行<code>npm start</code>，打开<code>localhost:8080</code></p>
+<p>可以看到设置的背景色已经出来了,去改变一下背景颜色？data？template？ </p>
+<p>看看浏览器会不会自动刷新？</p>
+<hr>
+<p>如果你按照我的步骤，并且，npm包安装没有错误的话，应该就能成功了。</p>
+<p>不行的话，请再仔细对照去看看有什么地方没有编写对吧！</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于<code>webpack</code>的理解。</p>
+<p>首先我们应该思考要解析<co]]>
+    </summary>
+    
+      <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
+    
+      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
+    
+      <category term="前端框架" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[webpack入坑之旅（四）扬帆起航]]></title>
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/</id>
     <published>2016-03-24T09:28:34.000Z</published>
-    <updated>2016-03-25T02:46:21.790Z</updated>
+    <updated>2016-03-25T03:58:56.718Z</updated>
     <content type="html"><![CDATA[<h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev</span><br></pre></td></tr></table></figure>
 <p>当然你也可以在<code>package.json</code>添加依赖，然后再<code>npm nstall</code>一样的效果。</p>
@@ -50,7 +102,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import Vue form ("vue") //如果你安装了babel-loader的话，可以直接使用ES6的语法</span></span><br><span class="line"><span class="keyword">var</span> Vue =<span class="built_in">require</span>(<span class="string">"vue"</span>);</span><br><span class="line">    <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">        el: <span class="string">"body"</span>,</span><br><span class="line">        data: &#123;</span><br><span class="line">            message: <span class="string">"hello vue.js"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p>同样在<code>index.html</code>中添加<code></code>来响应vue的数据绑定。</p>
 <p>运行<code>webpack-dev-server</code>。去浏览器查看试试效果吧！任意改变<code>message</code>中的值，可以看到浏览器会自动刷新。并且将改变的值展示在眼前。（有可能只在<code>http://localhost:8080/webpack-dev-server/</code>才会自动刷新）</p>
-<p><strong>这里其实并没有完全对，将在下一篇继续调整该配置</strong></p>
+<p><strong>这里其实并没有完全对，不够全面，可能只能响应css的改变。将在下一篇继续调整该配置</strong></p>
 <p>自动刷新都配好了。下面我们就来试试怎么加载vue的文件，来实现单文件组件！</p>
 ]]></content>
     <summary type="html">
@@ -58,9 +110,9 @@
 <figure class="highlight s]]>
     </summary>
     
-      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
-    
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
+    
+      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
     
       <category term="前端框架" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
@@ -71,7 +123,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/</id>
     <published>2016-03-24T09:28:14.000Z</published>
-    <updated>2016-03-24T09:30:50.734Z</updated>
+    <updated>2016-03-25T03:58:51.221Z</updated>
     <content type="html"><![CDATA[<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
 <h2 id="了解webpack配置">了解webpack配置</h2><p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的<code>webpack.config.js</code>文件，这个文件是一个 <code>node.js</code> 模块，返回一个 <code>json</code> 格式的配置信息对象，或者通过 <code>--config</code> 选项来指定配置文件。</p>
 <p>所以现在我们就来新建一个<code>webpack.config.js</code>，在里面填写进下面的内容：</p>
@@ -100,8 +152,6 @@
     <![CDATA[<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要]]>
     </summary>
     
-      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
-    
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
     
       <category term="前端框架" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
@@ -113,7 +163,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/</id>
     <published>2016-03-24T09:28:00.000Z</published>
-    <updated>2016-03-24T09:30:51.806Z</updated>
+    <updated>2016-03-25T03:58:59.992Z</updated>
     <content type="html"><![CDATA[<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
 <p><code>Webpack</code> 能做的就是这样，只能处理 JavaScript 模块。</p>
 <p>当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的<code>loader</code>，进而可以处理其它类型的文件。</p>
@@ -157,8 +207,6 @@
     <![CDATA[<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js<]]>
     </summary>
     
-      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
-    
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
     
       <category term="前端框架" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
@@ -170,7 +218,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/</id>
     <published>2016-03-24T09:05:58.000Z</published>
-    <updated>2016-03-24T09:15:39.005Z</updated>
+    <updated>2016-03-25T03:58:43.984Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。</p>
 </blockquote>
@@ -208,8 +256,6 @@
     <![CDATA[<blockquote>
 <p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会]]>
     </summary>
-    
-      <category term="vue" scheme="http://guowenfh.github.io/tags/vue/"/>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
     
@@ -2097,467 +2143,6 @@
     <summary type="html">
     <![CDATA[<blockquote>
 <p>在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方]]>
-    </summary>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[jQuery入门笔记之（二）文档对象模型]]></title>
-    <link href="http://guowenfh.github.io/2015/12/31/jQuery-02-DocumentObjectModel/"/>
-    <id>http://guowenfh.github.io/2015/12/31/jQuery-02-DocumentObjectModel/</id>
-    <published>2015-12-31T03:39:11.000Z</published>
-    <updated>2016-01-04T08:44:15.668Z</updated>
-    <content type="html"><![CDATA[<h2 id="基础_DOM_和_和_CSS">基础 DOM 和 和 CSS</h2><h3 id="一-_设置元素及内容">一. 设置元素及内容</h3><p>我们通过前面所学习的各种选择器、过滤器来得到我们想要操作的元素。这个时候，我们就可以对这些元素进行 DOM 的操作。<br>那么，最常用的操作就是对元素内容的获取和修改。<code>html()</code>和 <code>text()</code>方法:</p>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-<th>区分</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>html()</code></td>
-<td>获取元素中 HTML 内容</td>
-<td>连同标签一起提取</td>
-</tr>
-<tr>
-<td><code>html(value)</code></td>
-<td>设置元素中 HTML 内容</td>
-<td>清空原数据，设置html内容</td>
-</tr>
-<tr>
-<td><code>text()</code></td>
-<td>获取元素中文本内容</td>
-<td>自动清理html标签</td>
-</tr>
-<tr>
-<td><code>text(value)</code></td>
-<td>设置元素中文本内容</td>
-<td>自动转义html标签以文本形式呈现</td>
-</tr>
-<tr>
-<td><code>val()</code></td>
-<td>获取表单中的文本内容</td>
-<td>value属性的值</td>
-</tr>
-<tr>
-<td><code>val(value)</code></td>
-<td>设置表单中的文本内容</td>
-<td>设置value的值(有特殊用法)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意：</strong>当我们使用<code>html()</code>或 <code>text()</code>设置元素里的内容时，会清空原来的数据。而我们期望能够追加数据的话，需要先获取原本的数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#box'</span>).html($(<span class="string">'#box'</span>).html() + <span class="string">'&lt;em&gt;guowenfh.github.io&lt;/em&gt;'</span>); <span class="comment">//追加数据</span></span><br><span class="line"><span class="comment">//当然它还支持使用函数来进行更复杂的追加</span></span><br></pre></td></tr></table></figure>
-<p><strong><code>val()</code>的特殊用法：</strong><br>如果想设置多个选项的选定状态，比如下拉列表、单选复选框等等，可以通过数组传递操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"input"</span>).val([<span class="string">"check1"</span>,<span class="string">"check2"</span>, <span class="string">"radio1"</span>]); <span class="comment">//value 值是这些的将被选定</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="二-_元素属性操作">二. 元素属性操作</h3><p>除了对元素内容进行设置和获取，通过jQuery也可以对元素本身的属性进行操作，包括获取属性的属性值、设置属性的属性值，并且可以删除掉属性。<br><code>attr()</code>和<code>removeAttr()</code>：</p>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>attr(key)</code></td>
-<td>获取某个元素 key 属性的属性值</td>
-</tr>
-<tr>
-<td><code>attr(key, value)</code></td>
-<td>设置某个元素 key 属性的属性值</td>
-</tr>
-<tr>
-<td><code>attr({key1:value2, key2:value2...})</code></td>
-<td>设置某个元素多个 key 属性的属性值</td>
-</tr>
-<tr>
-<td><code>attr(key, function (index, value){})</code></td>
-<td>通过 fn 来设置设置某个元素 key属性</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意：</strong></p>
-<ol>
-<li>jQuery中很多方法都可以使用 <code>function() {}</code>来返回出字符串，比如 <code>html()</code>、<code>text()</code>、<code>val()</code>和上一章刚学过的 <code>is()</code>、<code>filter()</code>方法。<br>这些方法里的<code>function() {}</code>，可以不传参数。可以只传一个参数 <code>index</code>，表示当前元素的索引(从0开始)。也可以传递两个参数 <code>index</code>、<code>value</code>，第二个参数表示属性原本的值。<br>(当然并不是所有方法都适合，有兴趣可以自己逐个尝试)。</li>
-<li>删除指定的属性，这个方法就不可以使用匿名函数，传递<code>index</code>和<code>value</code>均无效。<code>$(&#39;div&#39;).removeAttr(&#39;title&#39;); //删除指定的属性</code></li>
-<li>当然因为<code>id</code>和<code>class</code>也是元素的属性，自然也可以使用attr进行设置，但是建议不这样使用，因为会导致整个页面结构的混乱，有专门的属性对它们进行设置。</li>
-</ol>
-<h3 id="三-_元素样式操作">三. 元素样式操作</h3><p>元素样式操作包括了直接设置 CSS 样式、增加 CSS 类别、类别切换、删除类别这几种操作方法。使用频率极高！</p>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>css(name)</code></td>
-<td>获取某个元素行内的 CSS 样式</td>
-</tr>
-<tr>
-<td><code>css([name1, name2, name3])</code></td>
-<td>获取某个元素行内多个 CSS 样式</td>
-</tr>
-<tr>
-<td><code>css(name, value)</code></td>
-<td>设置某个元素行内的 CSS 样式</td>
-</tr>
-<tr>
-<td><code>css(name, function (index, value) )</code></td>
-<td>设置某个元素行内的 CSS 样式</td>
-</tr>
-<tr>
-<td><code>css({name1 : value1, name2 : value2})</code></td>
-<td>设置某个元素行内多个 CSS 样式，键值对</td>
-</tr>
-<tr>
-<td><code>addClass(class)</code></td>
-<td>给某个元素添加一个 CSS 类</td>
-</tr>
-<tr>
-<td><code>addClass(class1 class2 class3...)</code></td>
-<td>给某个元素添加多个 CSS 类</td>
-</tr>
-<tr>
-<td><code>removeClass(class)</code></td>
-<td>删除某个元素的一个 CSS 类</td>
-</tr>
-<tr>
-<td><code>removeClass(class1 class2 class3...)</code></td>
-<td>删除某个元素的多个 CSS 类</td>
-</tr>
-<tr>
-<td><code>toggleClass(class)</code></td>
-<td>来回切换默认样式和指定样式</td>
-</tr>
-<tr>
-<td><code>toggleClass(class1 class2 class3...)</code></td>
-<td>同上</td>
-</tr>
-<tr>
-<td><code>toggleClass(class, switch)</code></td>
-<td>来回切换样式的时候设置切换频率</td>
-</tr>
-<tr>
-<td><code>toggleClass(function () {})</code></td>
-<td>通过匿名函数设置切换的规则</td>
-</tr>
-<tr>
-<td><code>toggleClass(function () {}, switch)</code></td>
-<td>在匿名函数设置时也可以设置频率</td>
-</tr>
-<tr>
-<td><code>toggleClass(function (i, c, s) {}, switch)</code></td>
-<td>在匿名函数设置时传递三个参数</td>
-</tr>
-</tbody>
-</table>
-<p><strong>理解：</strong></p>
-<p>在获取多个 CSS 样式时，获取到的是一个对象数组，如果用原生JS进行解析需要使用<code>for in</code>遍历。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = $(<span class="string">'div'</span>).css([<span class="string">'color'</span>, <span class="string">'height'</span>, <span class="string">'width'</span>]); <span class="comment">//得到多个 CSS 样式的数组对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> box) &#123; <span class="comment">//逐个遍历出来</span></span><br><span class="line">    alert(i + <span class="string">':'</span> + box[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在jQuery显然不需要那么麻烦，因为它提供了一个遍历工具专门来处理这种对象数组，<code>$.each()</code>方法，这个方法可以轻松的遍历对象数组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 遍历对象数组</span><br><span class="line"> * @param  &#123;String&#125; index 索引，鍵，属性名</span><br><span class="line"> * @param  &#123;String&#125; value  属性值，值（相当于arr[i]）</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">//遍历原生JS对象数组时，value为元素DOM。</span></span><br><span class="line">$.each(box, <span class="function"><span class="keyword">function</span>(<span class="params">index, value</span>) </span>&#123;</span><br><span class="line">    alert(index+<span class="string">":"</span>+value);<span class="comment">//效果和上面的一样</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>如果想设置某个元素的 CSS 样式的值，但这个值需要计算我们可以传递一个匿名函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).css(<span class="string">'width'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">index, value</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="built_in">parseInt</span>(value) - <span class="number">50</span>) + <span class="string">'px'</span>;<span class="comment">//局部操作，不影响全局，避免冲突。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>在使用<code>.toggleClass()</code>使用时，可以使用传入匿名函数的方法，实现由默认到几个class之间的切换。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意这里必须要先删除原有的样式，不然只是被覆盖了，而不是替换。</span></span><br><span class="line">$(<span class="string">'div'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).toggleClass(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="keyword">this</span>).hasClass(<span class="string">'red'</span>)) &#123;</span><br><span class="line">            $(<span class="keyword">this</span>).removeClass(<span class="string">'red'</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'blue'</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            $(<span class="keyword">this</span>).removeClass(<span class="string">'blue'</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'red'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>对于<code>.toggleClass()</code>传入匿名函数的方法，还可以可以传递 <code>index</code>索引、<code>class</code>类两个参数以及频率布尔值，可以得到当前的索引、class类名和频率布尔值。</p>
-<h3 id="四-_CSS方法">四. CSS方法</h3><h4 id="（一）width()方法">（一）width()方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>width()</code></td>
-<td>获取某个元素的宽度(number)</td>
-</tr>
-<tr>
-<td><code>width(value)</code></td>
-<td>设置某个元素的宽度(无单位时，默认px)</td>
-</tr>
-<tr>
-<td><code>width(function (index, width) {})</code></td>
-<td>通过匿名函数设置某个元素的宽度</td>
-</tr>
-</tbody>
-</table>
-<p>虽然可以不加单位，但是建议加上，使代码更加清晰。<br>index 是索引，value 是原本值。</p>
-<h4 id="（二）height()方法">（二）height()方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>height()</code></td>
-<td>获取某个元素的高度</td>
-</tr>
-<tr>
-<td><code>height(value)</code></td>
-<td>设置某个元素的高度</td>
-</tr>
-<tr>
-<td><code>height(function (index, height) {})</code></td>
-<td>通过匿名函数设置某个元素的高度</td>
-</tr>
-</tbody>
-</table>
-<p>上述两个方法不包括内外边距和边框</p>
-<h4 id="（三）内外边距和边框尺寸方法">（三）内外边距和边框尺寸方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>innerWidth()</code></td>
-<td>获取元素宽度，包含内边距 padding</td>
-</tr>
-<tr>
-<td><code>innerHeight()</code></td>
-<td>获取元素高度，包含内边距 padding</td>
-</tr>
-<tr>
-<td><code>outerWidth()</code></td>
-<td>获取元素宽度，包含边框 border 和内边距 padding</td>
-</tr>
-<tr>
-<td><code>outerHeight()</code></td>
-<td>获取元素高度，包含边框 border 和内边距 padding</td>
-</tr>
-<tr>
-<td><code>outerWidth(ture)</code></td>
-<td>同上，且包含外边距(注意里面的true)</td>
-</tr>
-<tr>
-<td><code>outerHeight(true)</code></td>
-<td>同上，且包含外边距</td>
-</tr>
-</tbody>
-</table>
-<h4 id="（四）元素偏移方法">（四）元素偏移方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>offset()</code></td>
-<td>获取某个元素相对于视口的偏移位置(无论定位与否)</td>
-</tr>
-<tr>
-<td><code>position()</code></td>
-<td>获取某个元素相对于父元素的偏移位置</td>
-</tr>
-<tr>
-<td><code>scrollTop()</code></td>
-<td>获取垂直滚动条的位置</td>
-</tr>
-<tr>
-<td><code>scrollTop(value)</code></td>
-<td>设置垂直滚动条的位置</td>
-</tr>
-<tr>
-<td><code>scrollLeft()</code></td>
-<td>获取水平滚动条的值</td>
-</tr>
-<tr>
-<td><code>scrollLeft(value)</code></td>
-<td>设置水平滚动条的值</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意：</strong><br>前两个方法，获取得到的是一个对象，如：<code>{left:12,top:32}</code>，所以需要获取其中的一个值的时候，还需要进行选取，例如：<code>$(div).offset.left</code>。获取相对与视口的偏移。</p>
-<p>在获取滚动条的值时需要注意的是，对象为window且需要用$包装转化成jQ对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">window</span>).scrollTop(); <span class="comment">//获取当前滚动条的位置</span></span><br><span class="line">$(<span class="built_in">window</span>).scrollTop(<span class="number">300</span>); <span class="comment">//设置当前滚动条的位置</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="DOM_节点操作">DOM 节点操作</h2><p>DOM中有一个非常重要的功能，就是节点模型，也就是DOM中的“M”。页面中的元素结构就是通过这种节点模型来互相对应着的，我们只需要通过这些节点关系，可以创建、插入、替换、克隆、删除等等一些列的元素操作。</p>
-<h3 id="一-_创建节点">一. 创建节点</h3><p>为了使页面更加智能化，有时我们想动态的在 html 结构页面添加一个元素标签，那么在插入之前首先要做的动作就是：创建节点。<br>在jQuery中创建节点异常简单。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = $(<span class="string">'&lt;div id="box"&gt;节点&lt;/div&gt;'</span>); <span class="comment">//创建一个节点</span></span><br><span class="line">$(<span class="string">'body'</span>).append(box); <span class="comment">//将节点插入到&lt;body&gt;元素内部</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="二．_插入节点">二． 插入节点</h3><p>在创建节点的过程中，其实我们已经演示怎么通过.append()方法来插入一个节点。但仅仅这个功能远远不能满足我们的需求，除了这个方法，jQuery提供了其他几个方法来插入节点。</p>
-<h4 id="内部插入节点方法">内部插入节点方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>append(content)</code></td>
-<td>向指定元素内部后面插入节点content</td>
-</tr>
-<tr>
-<td><code>append(function (index, html) {})</code></td>
-<td>使用匿名函数向指定元素内部后面插入节点</td>
-</tr>
-<tr>
-<td><code>appendTo(content)</code></td>
-<td>将指定元素移入到指定元素content 内部后面</td>
-</tr>
-<tr>
-<td><code>prepend(content)</code></td>
-<td>向指定元素content 内部的前面插入节点</td>
-</tr>
-<tr>
-<td><code>prepend(function (index, html) {})</code></td>
-<td>使用匿名函数向指定元素内部的前面插入节点</td>
-</tr>
-<tr>
-<td><code>prependTo(content)</code></td>
-<td>将指定元素移入到指定元素 content 内部前面</td>
-</tr>
-</tbody>
-</table>
-<p>需要注意的是<code>appendTo(content)</code>与<code>prependTo(content)</code>在使用方法上与其他两个略微有些不同，<code>$(&quot;&lt;em&gt;new&lt;/em&gt;&quot;).appendTo(&quot;div&quot;);</code>，它代表的是创建的节点传入div内部。</p>
-<p>匿名函数方式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).append(<span class="function"><span class="keyword">function</span> (<span class="params">index, html</span>) </span>&#123;</span><br><span class="line"> <span class="comment">//使用匿名函数插入节点index是获取到的div的索引，html 是原节点</span></span><br><span class="line">    <span class="keyword">if</span>(index==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;strong&gt;节点&lt;/strong&gt;'</span>;<span class="comment">//在获取到的第二个div内部添加节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="外部插入节点方法">外部插入节点方法</h4><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>after(content)</code></td>
-<td>向指定元素的外部后面插入节点 content</td>
-</tr>
-<tr>
-<td><code>after(function (index, html) {})</code></td>
-<td>使用匿名函数向指定元素的外部后面插入节点</td>
-</tr>
-<tr>
-<td><code>before(content)</code></td>
-<td>向指定元素的外部前面插入节点 content</td>
-</tr>
-<tr>
-<td><code>before(function (index, html) {})</code></td>
-<td>使用匿名函数向指定元素的外部前面插入节点</td>
-</tr>
-<tr>
-<td><code>insertAfter(content)</code></td>
-<td>将指定节点移到指定元素 content 外部的后面</td>
-</tr>
-<tr>
-<td><code>insertBefore(content)</code></td>
-<td>将指定节点移到指定元素 content 外部的前面</td>
-</tr>
-</tbody>
-</table>
-<p>与上面相同<code>insertAfter(content)</code> 与<code>insertBefore(content)</code>也与其它两个是相反的。</p>
-<h3 id="三．包裹节点">三．包裹节点</h3><p>jQuery 提供了一系列方法用于包裹节点，那包裹节点是什么意思呢？其实就是使用字符串代码将指定元素的代码包含着的意思。</p>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>wrap(html)</code></td>
-<td>向指定元素包裹一层 html 代码</td>
-</tr>
-<tr>
-<td><code>wrap(element)</code></td>
-<td>向指定元素包裹一层 DOM 对象节点</td>
-</tr>
-<tr>
-<td><code>wrap(function (index) {})</code></td>
-<td>使用匿名函数向指定元素包裹一层自定义内容</td>
-</tr>
-<tr>
-<td><code>unwrap()</code></td>
-<td>移除一层指定元素包裹的内容（多层需移除多次）</td>
-</tr>
-<tr>
-<td><code>wrapAll(html)</code></td>
-<td>用 html 将所有元素包裹到一起</td>
-</tr>
-<tr>
-<td><code>wrapAll(element)</code></td>
-<td>用 DOM 对象将所有元素包裹在一起</td>
-</tr>
-<tr>
-<td><code>wrapInner(html)</code></td>
-<td>向指定元素的子内容包裹一层 html</td>
-</tr>
-<tr>
-<td><code>wrapInner(element)</code></td>
-<td>向指定元素的子内容包裹一层 DOM 对象节点</td>
-</tr>
-<tr>
-<td><code>wrapInner(function (index) {})</code></td>
-<td>用匿名函数向指定元素的子内容包裹一层</td>
-</tr>
-</tbody>
-</table>
-<p>wrap的多种用法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong class="ing"&gt;&lt;/strong&gt;'</span>); <span class="comment">//在 div 外层包裹一层 strong</span></span><br><span class="line">$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong&gt;123&lt;/strong&gt;'</span>); <span class="comment">//包裹的元素可以带内容</span></span><br><span class="line">$(<span class="string">'div'</span>).wrap(<span class="string">'&lt;strong&gt;&lt;em&gt;&lt;/em&gt;&lt;/strong&gt;'</span>); <span class="comment">//包裹多个元素</span></span><br><span class="line">$(<span class="string">'div'</span>).wrap($(<span class="string">'strong'</span>).get(<span class="number">0</span>)); <span class="comment">//也可以包裹一个原生 DOM</span></span><br><span class="line">$(<span class="string">'div'</span>).wrap(<span class="built_in">document</span>.createElement(<span class="string">'strong'</span>)); <span class="comment">//临时的原生 DOM</span></span><br><span class="line">$(<span class="string">'div'</span>).wrap(<span class="function"><span class="keyword">function</span> (<span class="params">index</span>) </span>&#123; <span class="comment">//匿名函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'&lt;strong&gt;&lt;/strong&gt;'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>注意：</strong> <code>.wrap()</code>和<code>.wrapAll()</code>的区别在前者把每个元素当成一个独立体，分别包含一层外层；后者将所有元素作为一个整体作为一个独立体，只包含一层外层。这两种都是在外层包含，而<code>.wrapInner()</code>在内层包含。</p>
-<h3 id="四-_节点操作">四. 节点操作</h3><table>
-<thead>
-<tr>
-<th>方法名</th>
-<th>描述</th>
-<th>参数解析</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>$(&#39;div&#39;).clone(true);</code></td>
-<td>复制一个节点</td>
-<td>true时表示同时复制事件行为，空或false都表示只复制元素及内容</td>
-</tr>
-<tr>
-<td><code>$(&#39;div&#39;).remove(&quot;#box&quot;);</code></td>
-<td>删除一个id=box的div元素</td>
-<td>无参数时，表示直接删除元素</td>
-</tr>
-<tr>
-<td><code>$(&#39;div&#39;).detach();</code></td>
-<td>保留事件行为的删除</td>
-<td>同上</td>
-</tr>
-<tr>
-<td><code>$(&#39;div&#39;).empty();</code></td>
-<td>清空节点里的内容</td>
-<td>无参数</td>
-</tr>
-<tr>
-<td><code>$(selector).replaceWith(content);</code></td>
-<td>将 $(selector) 替换成 content 元素</td>
-<td>HTML字符串，DOM元素，或者jQuery对象</td>
-</tr>
-<tr>
-<td><code>$(content).replaceAll(selector);</code></td>
-<td>同上</td>
-<td>参数selector为被替换的元素，content为替换的内容。</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注意：</strong></p>
-<ol>
-<li><code>.remove()</code>和<code>.detach()</code>都是删除节点，而删除后本身方法可以返回当前被删除的节点对象，但区别在于前者在恢复时不保留事件行为，后者则保留。</li>
-<li>节点被替换后，所包含的事件行为就全部消失了。</li>
-<li>注意<code>replaceWith()</code>和<code>replaceAll()</code>方法替换的操作的<strong>内容和被替换元素所在的位置不同</strong></li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="基础_DOM_和_和_CSS">基础 DOM 和 和 CSS</h2><h3 id="一-_设置元素及内容">一. 设置元素及内容</h3><p>我们通过前面所学习的各种选择器、过滤器来得到我们想要操作的元素。这个时候，我们就可以对这些元素进行 DOM 的操作。<]]>
     </summary>
     
       <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
