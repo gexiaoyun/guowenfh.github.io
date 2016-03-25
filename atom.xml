@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-03-25T04:04:18.566Z</updated>
+  <updated>2016-03-25T15:28:47.331Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,8 +19,16 @@
     <link href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/"/>
     <id>http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/</id>
     <published>2016-03-25T03:57:50.000Z</published>
-    <updated>2016-03-25T04:04:18.566Z</updated>
-    <content type="html"><![CDATA[<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于<code>webpack</code>的理解。</p>
+    <updated>2016-03-25T15:28:47.331Z</updated>
+    <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步加深对于<code>webpack</code>的理解。</p>
 <p>首先我们应该思考要解析<code>.vue</code>类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？</p>
 <h2 id="开始">开始</h2><h3 id="第一步：初始化项目目录">第一步：初始化项目目录</h3><p>我们需要创建如下目录及文件夹，最终目录结构如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- dist <span class="comment">//文件生成目录</span></span><br><span class="line">    -- <span class="comment">//自动生成</span></span><br><span class="line">- node_module <span class="comment">//自动安装</span></span><br><span class="line">    -- ...</span><br><span class="line">- src <span class="comment">//文件入口</span></span><br><span class="line">    -- components <span class="comment">//组件存放</span></span><br><span class="line">        -- app.vue <span class="comment">//主.vue</span></span><br><span class="line">    -- main.js <span class="comment">//主.js</span></span><br><span class="line">- index.html <span class="comment">//主.html</span></span><br><span class="line">- package.json <span class="comment">//npm 配置</span></span><br><span class="line">- webpack.cofig.js <span class="comment">// webpack配置</span></span><br></pre></td></tr></table></figure>
@@ -54,8 +62,7 @@
 <p>不行的话，请再仔细对照去看看有什么地方没有编写对吧！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于<code>webpack</code>的理解。</p>
-<p>首先我们应该思考要解析<co]]>
+    <![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解]]>
     </summary>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
@@ -71,8 +78,16 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/</id>
     <published>2016-03-24T09:28:34.000Z</published>
-    <updated>2016-03-25T03:58:56.718Z</updated>
-    <content type="html"><![CDATA[<h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
+    <updated>2016-03-25T15:28:43.852Z</updated>
+    <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev</span><br></pre></td></tr></table></figure>
 <p>当然你也可以在<code>package.json</code>添加依赖，然后再<code>npm nstall</code>一样的效果。</p>
 <p>现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。</p>
@@ -106,8 +121,7 @@
 <p>自动刷新都配好了。下面我们就来试试怎么加载vue的文件，来实现单文件组件！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
-<figure class="highlight s]]>
+    <![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解]]>
     </summary>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
@@ -123,8 +137,16 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/</id>
     <published>2016-03-24T09:28:14.000Z</published>
-    <updated>2016-03-25T03:58:51.221Z</updated>
-    <content type="html"><![CDATA[<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
+    <updated>2016-03-25T15:58:30.505Z</updated>
+    <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
 <h2 id="了解webpack配置">了解webpack配置</h2><p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的<code>webpack.config.js</code>文件，这个文件是一个 <code>node.js</code> 模块，返回一个 <code>json</code> 格式的配置信息对象，或者通过 <code>--config</code> 选项来指定配置文件。</p>
 <p>所以现在我们就来新建一个<code>webpack.config.js</code>，在里面填写进下面的内容：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: [<span class="string">"./entry.js"</span>],</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [&#123;</span><br><span class="line">            test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">            loader: <span class="string">"style!css"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -149,7 +171,7 @@
 <p>如果看到了这里，相信你对于<code>webpack</code>的最基本的了解应该就差不多了，下面正式进入实战的阶段，来看看我们的一些<code>loader</code>到底是怎么样使用的。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要]]>
+    <![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解]]>
     </summary>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
@@ -163,8 +185,16 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/</id>
     <published>2016-03-24T09:28:00.000Z</published>
-    <updated>2016-03-25T03:58:59.992Z</updated>
-    <content type="html"><![CDATA[<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
+    <updated>2016-03-25T15:58:34.332Z</updated>
+    <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a> 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
 <p><code>Webpack</code> 能做的就是这样，只能处理 JavaScript 模块。</p>
 <p>当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的<code>loader</code>，进而可以处理其它类型的文件。</p>
 <h2 id="loader介绍">loader介绍</h2><p><code>Loader</code>可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过require来加载任何类型的模块或文件，比如<code>VUE</code>、<code>JSX</code>、<code>SASS</code> 或图片。</p>
@@ -204,7 +234,7 @@
 <p>虽然这样可以将多个css文件进行编译打包，但是总感觉很是繁琐，我不想每次都运行那么一长串的命令怎么办？继续向下走吧。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js<]]>
+    <![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a> 在本人有了新的理解]]>
     </summary>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
@@ -218,10 +248,18 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/</id>
     <published>2016-03-24T09:05:58.000Z</published>
-    <updated>2016-03-25T03:58:43.984Z</updated>
+    <updated>2016-03-25T15:59:28.854Z</updated>
     <content type="html"><![CDATA[<blockquote>
-<p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。</p>
+<p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！</p>
 </blockquote>
+<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
 <h2 id="什么是webpack">什么是webpack</h2><blockquote>
 <p>其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句吧。可以直接跳过。 </p>
 </blockquote>
@@ -251,6 +289,24 @@
 <p><code>Webpack</code> 会分析入口文件，<strong>解析包含依赖关系的各个文件</strong>。这些文件（模块）都打包到 <code>bundle.js</code> 。<code>Webpack</code> 会给每个模块分配一个唯一的 <code>id</code> 并通过这个 <code>id</code> 索引和访问模块。在页面启动时，会先执行 <code>entry.js</code> 中的代码，其它模块会在运行 <code>require</code> 的时候再执行。</p>
 <p>刷新浏览器，可以发现我们的刚刚的代码已经生效，又有了新的文字出现。</p>
 <p>好吧，我知道这么简单的你们不屑于看，等下我们升个级。</p>
+<blockquote>
+<p>下面是参考文档，也相当于一个汇总吧，有很多我还没实践到，还是可以多看看，好文章应该贴出来</p>
+</blockquote>
+<ul>
+<li><a href="http://www.hubwiz.com/course/5670d0a77e7d40946afc5e65/" target="_blank" rel="external">webpack入门 - 汇智网</a></li>
+<li><a href="https://segmentfault.com/a/1190000002552008" target="_blank" rel="external">Webpack 怎么用</a></li>
+<li><a href="https://segmentfault.com/a/1190000002551952" target="_blank" rel="external">Webpack 入门指迷</a></li>
+<li><a href="https://github.com/vikingmute/webpack-for-fools/blob/master/entries/chapter-1.md" target="_blank" rel="external">Webpack傻瓜式指南（一）</a></li>
+<li><a href="https://github.com/vikingmute/webpack-for-fools/blob/master/entries/chapter-2.md" target="_blank" rel="external">Webpack傻瓜式指南（二）</a></li>
+<li><a href="http://jiongks.name/blog/just-vue/" target="_blank" rel="external">Vue + webpack 项目实践</a></li>
+<li><a href="http://www.w3ctech.com/topic/1557" target="_blank" rel="external">webpack 入门及实践</a></li>
+<li><a href="http://javascript.ruanyifeng.com/#nodejs" target="_blank" rel="external">JavaScript 标准参考教程（alpha）–Node.js</a></li>
+<li><a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="external">应该是最好懂的Webpack教程—阮一峰</a> 还没敲呢，应该全部敲一遍的。</li>
+<li><a href="http://www.h-simon.com/42/" target="_blank" rel="external">webpack常用配置总结</a></li>
+<li><a href="https://segmentfault.com/a/1190000004505747" target="_blank" rel="external">Express结合Webpack的全栈自动刷新</a></li>
+<li><a href="http://cn.vuejs.org/guide/" target="_blank" rel="external">Vue.js官方教程</a></li>
+<li><a href="http://vuejs.github.io/vue-router/zh-cn/" target="_blank" rel="external">vue-router文档</a></li>
+</ul>
 ]]></content>
     <summary type="html">
     <![CDATA[<blockquote>

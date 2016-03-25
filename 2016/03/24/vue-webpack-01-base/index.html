@@ -59,26 +59,23 @@
 
 
 
-<meta name="description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
+<meta name="description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！
 
-什么是webpack
-其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两">
+这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-we">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack入坑之旅（一）不是开始的开始">
 <meta property="og:url" content="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
+<meta property="og:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！
 
-什么是webpack
-其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两">
+这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-we">
 <meta property="og:image" content="http://guowenfh.github.io/images/vue-webpack/00-webpack-base.png">
-<meta property="og:updated_time" content="2016-03-25T03:58:43.984Z">
+<meta property="og:updated_time" content="2016-03-25T15:59:28.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入坑之旅（一）不是开始的开始">
-<meta name="twitter:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。
+<meta name="twitter:description" content="最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！
 
-什么是webpack
-其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两">
+这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-we">
 <meta name="twitter:image" content="http://guowenfh.github.io/images/vue-webpack/00-webpack-base.png">
 
 
@@ -303,8 +300,16 @@
 
       
         <blockquote>
-<p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会比较基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。</p>
+<p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！</p>
 </blockquote>
+<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
 <h2 id="什么是webpack">什么是webpack</h2><blockquote>
 <p>其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句吧。可以直接跳过。 </p>
 </blockquote>
@@ -334,6 +339,24 @@
 <p><code>Webpack</code> 会分析入口文件，<strong>解析包含依赖关系的各个文件</strong>。这些文件（模块）都打包到 <code>bundle.js</code> 。<code>Webpack</code> 会给每个模块分配一个唯一的 <code>id</code> 并通过这个 <code>id</code> 索引和访问模块。在页面启动时，会先执行 <code>entry.js</code> 中的代码，其它模块会在运行 <code>require</code> 的时候再执行。</p>
 <p>刷新浏览器，可以发现我们的刚刚的代码已经生效，又有了新的文字出现。</p>
 <p>好吧，我知道这么简单的你们不屑于看，等下我们升个级。</p>
+<blockquote>
+<p>下面是参考文档，也相当于一个汇总吧，有很多我还没实践到，还是可以多看看，好文章应该贴出来</p>
+</blockquote>
+<ul>
+<li><a href="http://www.hubwiz.com/course/5670d0a77e7d40946afc5e65/" target="_blank" rel="external">webpack入门 - 汇智网</a></li>
+<li><a href="https://segmentfault.com/a/1190000002552008" target="_blank" rel="external">Webpack 怎么用</a></li>
+<li><a href="https://segmentfault.com/a/1190000002551952" target="_blank" rel="external">Webpack 入门指迷</a></li>
+<li><a href="https://github.com/vikingmute/webpack-for-fools/blob/master/entries/chapter-1.md" target="_blank" rel="external">Webpack傻瓜式指南（一）</a></li>
+<li><a href="https://github.com/vikingmute/webpack-for-fools/blob/master/entries/chapter-2.md" target="_blank" rel="external">Webpack傻瓜式指南（二）</a></li>
+<li><a href="http://jiongks.name/blog/just-vue/" target="_blank" rel="external">Vue + webpack 项目实践</a></li>
+<li><a href="http://www.w3ctech.com/topic/1557" target="_blank" rel="external">webpack 入门及实践</a></li>
+<li><a href="http://javascript.ruanyifeng.com/#nodejs" target="_blank" rel="external">JavaScript 标准参考教程（alpha）–Node.js</a></li>
+<li><a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="external">应该是最好懂的Webpack教程—阮一峰</a> 还没敲呢，应该全部敲一遍的。</li>
+<li><a href="http://www.h-simon.com/42/" target="_blank" rel="external">webpack常用配置总结</a></li>
+<li><a href="https://segmentfault.com/a/1190000004505747" target="_blank" rel="external">Express结合Webpack的全栈自动刷新</a></li>
+<li><a href="http://cn.vuejs.org/guide/" target="_blank" rel="external">Vue.js官方教程</a></li>
+<li><a href="http://vuejs.github.io/vue-router/zh-cn/" target="_blank" rel="external">vue-router文档</a></li>
+</ul>
 
       
     </div>

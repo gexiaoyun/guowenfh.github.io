@@ -59,25 +59,34 @@
 
 
 
-<meta name="description" content="需要什么？在经过前面的四个练习，相信已经对于webapck有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于webpack的理解。
-首先我们应该思考要解析.vue类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？
-开始第一步：初始化项目目录我们需要创建如下目录及文件夹，最终目录结构如下：
-1234567891011- dist //文件生成目录    --">
+<meta name="description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack入坑之旅（五）加载vue单文件组件">
 <meta property="og:url" content="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="需要什么？在经过前面的四个练习，相信已经对于webapck有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于webpack的理解。
-首先我们应该思考要解析.vue类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？
-开始第一步：初始化项目目录我们需要创建如下目录及文件夹，最终目录结构如下：
-1234567891011- dist //文件生成目录    --">
-<meta property="og:updated_time" content="2016-03-25T04:04:18.566Z">
+<meta property="og:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
+<meta property="og:updated_time" content="2016-03-25T15:28:47.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入坑之旅（五）加载vue单文件组件">
-<meta name="twitter:description" content="需要什么？在经过前面的四个练习，相信已经对于webapck有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于webpack的理解。
-首先我们应该思考要解析.vue类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？
-开始第一步：初始化项目目录我们需要创建如下目录及文件夹，最终目录结构如下：
-1234567891011- dist //文件生成目录    --">
+<meta name="twitter:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 
 
 
@@ -300,7 +309,15 @@
       
 
       
-        <h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步甲申年对于<code>webpack</code>的理解。</p>
+        <p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步加深对于<code>webpack</code>的理解。</p>
 <p>首先我们应该思考要解析<code>.vue</code>类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？</p>
 <h2 id="开始">开始</h2><h3 id="第一步：初始化项目目录">第一步：初始化项目目录</h3><p>我们需要创建如下目录及文件夹，最终目录结构如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- dist <span class="comment">//文件生成目录</span></span><br><span class="line">    -- <span class="comment">//自动生成</span></span><br><span class="line">- node_module <span class="comment">//自动安装</span></span><br><span class="line">    -- ...</span><br><span class="line">- src <span class="comment">//文件入口</span></span><br><span class="line">    -- components <span class="comment">//组件存放</span></span><br><span class="line">        -- app.vue <span class="comment">//主.vue</span></span><br><span class="line">    -- main.js <span class="comment">//主.js</span></span><br><span class="line">- index.html <span class="comment">//主.html</span></span><br><span class="line">- package.json <span class="comment">//npm 配置</span></span><br><span class="line">- webpack.cofig.js <span class="comment">// webpack配置</span></span><br></pre></td></tr></table></figure>

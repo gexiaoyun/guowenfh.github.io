@@ -59,25 +59,34 @@
 
 
 
-<meta name="description" content="引子在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件first.js、entry.js使用webpack进行文件打包生成了bundle.js。
-Webpack 能做的就是这样，只能处理 JavaScript 模块。
-当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的loader，进而可以处理其它类型的文件。
-loader介绍Load">
+<meta name="description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack入坑之旅（二）loader入门">
 <meta property="og:url" content="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="引子在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件first.js、entry.js使用webpack进行文件打包生成了bundle.js。
-Webpack 能做的就是这样，只能处理 JavaScript 模块。
-当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的loader，进而可以处理其它类型的文件。
-loader介绍Load">
-<meta property="og:updated_time" content="2016-03-25T03:58:59.992Z">
+<meta property="og:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
+<meta property="og:updated_time" content="2016-03-25T15:58:34.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入坑之旅（二）loader入门">
-<meta name="twitter:description" content="引子在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件first.js、entry.js使用webpack进行文件打包生成了bundle.js。
-Webpack 能做的就是这样，只能处理 JavaScript 模块。
-当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的loader，进而可以处理其它类型的文件。
-loader介绍Load">
+<meta name="twitter:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 
 
 
@@ -300,7 +309,15 @@ loader介绍Load">
       
 
       
-        <h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
+        <p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a> 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
 <p><code>Webpack</code> 能做的就是这样，只能处理 JavaScript 模块。</p>
 <p>当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的<code>loader</code>，进而可以处理其它类型的文件。</p>
 <h2 id="loader介绍">loader介绍</h2><p><code>Loader</code>可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过require来加载任何类型的模块或文件，比如<code>VUE</code>、<code>JSX</code>、<code>SASS</code> 或图片。</p>

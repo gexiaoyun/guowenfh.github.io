@@ -59,19 +59,34 @@
 
 
 
-<meta name="description" content="在上面我们已经尝试过了两种对于loader的使用方式，无论是在require的时候编写我们loader的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的loader，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。
-了解webpack配置Webpack在执行的时候，除了在命令行传入参数，还可以通过指定">
+<meta name="description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack入坑之旅（三）webpack.config入门">
 <meta property="og:url" content="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="在上面我们已经尝试过了两种对于loader的使用方式，无论是在require的时候编写我们loader的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的loader，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。
-了解webpack配置Webpack在执行的时候，除了在命令行传入参数，还可以通过指定">
-<meta property="og:updated_time" content="2016-03-25T03:58:51.221Z">
+<meta property="og:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
+<meta property="og:updated_time" content="2016-03-25T15:58:30.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入坑之旅（三）webpack.config入门">
-<meta name="twitter:description" content="在上面我们已经尝试过了两种对于loader的使用方式，无论是在require的时候编写我们loader的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的loader，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。
-了解webpack配置Webpack在执行的时候，除了在命令行传入参数，还可以通过指定">
+<meta name="twitter:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 
 
 
@@ -294,7 +309,15 @@
       
 
       
-        <p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
+        <p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
 <h2 id="了解webpack配置">了解webpack配置</h2><p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的<code>webpack.config.js</code>文件，这个文件是一个 <code>node.js</code> 模块，返回一个 <code>json</code> 格式的配置信息对象，或者通过 <code>--config</code> 选项来指定配置文件。</p>
 <p>所以现在我们就来新建一个<code>webpack.config.js</code>，在里面填写进下面的内容：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: [<span class="string">"./entry.js"</span>],</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,</span><br><span class="line">        filename: <span class="string">"bundle.js"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        loaders: [&#123;</span><br><span class="line">            test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">            loader: <span class="string">"style!css"</span></span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

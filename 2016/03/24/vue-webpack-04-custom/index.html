@@ -59,28 +59,34 @@
 
 
 
-<meta name="description" content="加载图片现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的loader。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：
-1npm install url-loader --save-dev
-当然你也可以在package.json添加依赖，然后再npm nstall一样的效果。
-现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。
-然后">
+<meta name="description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack入坑之旅（四）扬帆起航">
 <meta property="og:url" content="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/index.html">
 <meta property="og:site_name" content="三省吾身丶丶">
-<meta property="og:description" content="加载图片现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的loader。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：
-1npm install url-loader --save-dev
-当然你也可以在package.json添加依赖，然后再npm nstall一样的效果。
-现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。
-然后">
-<meta property="og:updated_time" content="2016-03-25T03:58:56.718Z">
+<meta property="og:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
+<meta property="og:updated_time" content="2016-03-25T15:28:43.852Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack入坑之旅（四）扬帆起航">
-<meta name="twitter:description" content="加载图片现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的loader。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：
-1npm install url-loader --save-dev
-当然你也可以在package.json添加依赖，然后再npm nstall一样的效果。
-现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。
-然后">
+<meta name="twitter:description" content="这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
+
+webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue">
 
 
 
@@ -303,7 +309,15 @@
       
 
       
-        <h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
+        <p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+</ul>
+<h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev</span><br></pre></td></tr></table></figure>
 <p>当然你也可以在<code>package.json</code>添加依赖，然后再<code>npm nstall</code>一样的效果。</p>
 <p>现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。</p>
