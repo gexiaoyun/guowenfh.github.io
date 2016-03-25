@@ -38,10 +38,10 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="web,前端,初学,html,css,javascript,bootstrap,jquery" />
+  <meta name="keywords" content="web,前端,初学,html,css,javascript,bootstrap,jquery,vue,webpack," />
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
 
@@ -75,11 +75,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6222900165502567000,
       author: '博主'
     }
   };
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -187,8 +191,6 @@
       
 
       
-      
-      
     </ul>
   
 
@@ -204,17 +206,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-      
-      
-
-      
-    
-
     
       
 
@@ -292,6 +283,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -306,7 +298,7 @@
         
           
           导航条导航条（navbar）和我们在上一个笔记中介绍的导航（nav）相比，就多了一个“条”字。其实在Bootstrap框架中他们有着一定的区别。在导航条(navbar)中有一个背景色、而且导航条可以是纯链接（类似导航），也可以是表单，还有就是表单和导航一起结合等多种形式。它们在移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式。
-基础导航条实际上，导航条
+基础导航条实际上，导航条和导航在外观上的差别并不是那么的大，但是在实际使用中导航条要比导航复杂得多。下面就来实现一个最基础的
           ...
 
           <div class="post-more-link text-center">
@@ -315,6 +307,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -408,6 +404,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -422,6 +419,7 @@
         
           
           我们接下来要学习的东西呢，是Bootstrap为我们提供的一些组件，这些组件的使用非常简单，可以方便快捷帮助我们搭建网站，并且能达到一个不错的显示效果。我们最需要注意的就是：HTML的结构和bootstrap提供添加到结构上的类以及属性。这些组件的交互功能是依赖于jQuery库实现的，所以还必须引入jQuery.js，且必须在Bootstrap.js之前。正式上线的话直接使用压缩版本就可以了如下：
+12&lt;script src="../js/jquery-min-1.11.3.js"&gt;
           ...
 
           <div class="post-more-link text-center">
@@ -430,6 +428,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -523,6 +525,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -540,7 +543,8 @@
 
 Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。包含了用于简单的布局选项的预定义类，也包含了用于生成更多语义布局的功能强大的混合类。
 
-我们来理解一下这一段话，
+我们来理解一下这一段话，可以发现其中最重要的部分就是移动设备优先，那么什么是移动设备优先呢？
+Bootstrap的基础CSS
           ...
 
           <div class="post-more-link text-center">
@@ -549,6 +553,10 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -642,6 +650,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 
           
           
+
         </div>
       </header>
     
@@ -658,7 +667,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
           
 关于表单的应用自然不需要多说，只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。
 
-良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等。其中每个控件所起的作用都各不相
+良好的表单设计能够让网页与用户更好的沟通。表单中常见的元素主要包括：文本输入框、下拉选择框、单选按钮、复选按钮、文本域和按钮等。其中每个控件所起的作用都各不相同，而且不同的浏览器对表单控件渲染的风格都各有不同。传统的HTML表单就不在这样进行讲解了，下面就开
           ...
 
           <div class="post-more-link text-center">
@@ -667,6 +676,10 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -760,6 +773,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 
           
           
+
         </div>
       </header>
     
@@ -775,7 +789,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
           
           1. 标题在Bootstrap中使用标题的方式和常规html一样：从&lt;h1&gt;到&lt;h6&gt;分别从大到小安排标题元素，只不过在Bootstrap中重新设置了其默认样式，从源码中可以看到有如下共性：
 字体颜色与字体样式继承自父元素，字体粗细为500，且行高全部设为1.1（也就是font-size的1.1倍）
-123456&#123;    font-family: inherit;
+123456&#123;    font-family: inherit;    font-weight: 500;    line-height: 1.1;    colo
           ...
 
           <div class="post-more-link text-center">
@@ -784,6 +798,10 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -877,6 +895,7 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 
           
           
+
         </div>
       </header>
     
@@ -894,7 +913,10 @@ Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，�
 Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网站的前端框架。
 基于html5、css3的bootstrap，具有下面这些诱人特性：（1）移动设备优先；（2）漂亮的设计；（3）友好的学习曲线；（4）卓越的兼容性；（5）响应式设计；（6）12列响应式栅格结构；（7）样式向导文档。
 
-自定义JQuery插件，完整的类库，基于Less、Sas
+自定义JQuery插件，完整的类库，基于Less、Sass等
+
+
+Bootstrap下载可以在其中文官网中下载，可以很明显的看到一个大大的下载按钮，此外还可
           ...
 
           <div class="post-more-link text-center">
@@ -903,6 +925,10 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -920,7 +946,6 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
 
 
     
-
   </section>
 
   
@@ -971,19 +996,23 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
               
-          </div>
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -1037,22 +1066,25 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.imooc.com/" target="_blank">慕课网</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://u-hey.com/" target="_blank">uhey blog</a>
-              </span>
-            
+            <div class="links-of-blogroll-title">友情链接</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+                </li>
+              
+            </ul>
           
         </div>
 
@@ -1072,10 +1104,10 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">guowenfh</span>
 </div>
@@ -1096,7 +1128,9 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -1104,6 +1138,14 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -1122,28 +1164,28 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1168,6 +1210,9 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
 
   
     
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
   
 
 
@@ -1176,10 +1221,11 @@ Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网�
 
   
   
-
-  
   
 
+  
+
+  
 
 </body>
 </html>

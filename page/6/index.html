@@ -38,10 +38,10 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="web,前端,初学,html,css,javascript,bootstrap,jquery" />
+  <meta name="keywords" content="web,前端,初学,html,css,javascript,bootstrap,jquery,vue,webpack," />
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
 
@@ -75,11 +75,11 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"right","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: 6222900165502567000,
       author: '博主'
     }
   };
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -187,8 +191,6 @@
       
 
       
-      
-      
     </ul>
   
 
@@ -204,17 +206,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-      
-      
-
-      
-    
-
     
       
 
@@ -292,6 +283,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -306,7 +298,7 @@
         
           
           DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
-1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;/
+1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;// 移除element中的样式oldClassNamefunction removeClass(el
           ...
 
           <div class="post-more-link text-center">
@@ -315,6 +307,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -408,6 +404,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -424,7 +421,10 @@
           1. 第一个页面交互
 这里最需要学习的老师的代码中，每一部分功能都由函数控制，没有创建一个全部变量。且最后有一个函数来控制执行代码。这个更多的是思想上的学习吧！
 在chrome上相加时，直接两个数拼接到一起了，而不是数值相加。因为输入的值，在获取时，默认是字符串类型的。
-在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用att
+在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用attachEvent
+
+1.1 了解JavaScript是什么
+JavaScript，一种直译式脚本语言
           ...
 
           <div class="post-more-link text-center">
@@ -433,6 +433,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -526,6 +530,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -543,7 +548,10 @@
 在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
 
 一个手机号码匹配的进化历程
-实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹
+实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回true
+
+第一阶段-字符直接量:匹配自身
+先假设一个手机号码为1376257109
           ...
 
           <div class="post-more-link text-center">
@@ -552,6 +560,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -645,6 +657,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -668,7 +681,9 @@
 使用RegExp()构造函数来创建RegExp对象
 特殊的直接量语法来创建，定义为包含在一对斜杠（/）之间的字符
 
-例：var reg = /s$/;  , var reg = new RegExp(s$);两者效果完全相同，用来匹配
+例：var reg = /s$/;  , var reg = new RegExp(s$);两者效果完全相同，用来匹配所有以字母“s”结尾的字符串。
+“文本模式”的正则表达式语法1.直接量字符
+非字母的字符匹配，这些字
           ...
 
           <div class="post-more-link text-center">
@@ -677,6 +692,10 @@
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -770,6 +789,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -813,7 +833,22 @@ false
 true
 true
 1
+“true”
 
+
+false
+false
+0
+“false”
+
+
+“”
+false
+0
+“”
+
+
+‘
           ...
 
           <div class="post-more-link text-center">
@@ -822,6 +857,10 @@ true
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -915,6 +954,7 @@ true
 
           
           
+
         </div>
       </header>
     
@@ -934,7 +974,7 @@ Samuel Ullman（塞缪尔.厄尔曼）
 
 Youth is not a time of life,it is a state of mind;青春不是年华，而是心境；
 it is not a matter of rosy cheeks, red lips and supple knees;青春不是桃面、丹唇、柔膝，
-it is a matter o
+it is a matter of the will, a quality of the imagination, a vigor 
           ...
 
           <div class="post-more-link text-center">
@@ -943,6 +983,10 @@ it is a matter o
             </a>
           </div>
         
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -960,7 +1004,6 @@ it is a matter o
 
 
     
-
   </section>
 
   
@@ -1011,19 +1054,23 @@ it is a matter o
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            
-              <span class="site-state-item-count">4</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
               
-          </div>
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">14</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -1077,22 +1124,25 @@ it is a matter o
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
-            <p class="site-author-name">友情链接</p>
-            
-              <span class="links-of-author-item">
-                <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.imooc.com/" target="_blank">慕课网</a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://u-hey.com/" target="_blank">uhey blog</a>
-              </span>
-            
+            <div class="links-of-blogroll-title">友情链接</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+                </li>
+              
+            </ul>
           
         </div>
 
@@ -1112,10 +1162,10 @@ it is a matter o
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">guowenfh</span>
 </div>
@@ -1136,7 +1186,9 @@ it is a matter o
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -1144,6 +1196,14 @@ it is a matter o
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -1162,28 +1222,28 @@ it is a matter o
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1208,6 +1268,9 @@ it is a matter o
 
   
     
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
   
 
 
@@ -1216,10 +1279,11 @@ it is a matter o
 
   
   
-
-  
   
 
+  
+
+  
 
 </body>
 </html>
