@@ -4,7 +4,7 @@
   <subtitle><![CDATA[兴趣遍地都是，专注和持之以恒才是真正稀缺的。]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-03-28T06:21:36.295Z</updated>
+  <updated>2016-03-28T06:31:48.828Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -19,8 +19,9 @@
     <link href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/"/>
     <id>http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/</id>
     <published>2016-03-28T05:57:57.000Z</published>
-    <updated>2016-03-28T06:21:36.295Z</updated>
-    <content type="html"><![CDATA[<ul>
+    <updated>2016-03-28T06:31:48.828Z</updated>
+    <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
+<ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
@@ -34,11 +35,11 @@
 <p><a href="http://cn.vuejs.org/guide/components.html" target="_blank" rel="external">官网对于组件讲解</a></p>
 </blockquote>
 <p>在<code>Vue</code>中定义一个组件非常简单，只需要一对<strong>自定义标签</strong>，在其中填入内容就可以进行我们的组件编写了，然后使用<code>Vue.component()</code>去注册我们的组件下面来看一个例子，来直观的看看vue的组件。</p>
-<h3 id="组件入门">组件入门</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 自定义标签作为组件名称 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 复用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span><br><span class="line">        // 定义并且注册组件</span><br><span class="line">        // 在官方的示例中使用 Vue.extend(&#123;&#125;)先注册了一个定义模板，再引用，看个人喜好吧</span><br><span class="line">        Vue.component("my-component", &#123;</span><br><span class="line">            template:"<span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span>"</span><br><span class="line">        &#125;)</span><br><span class="line">        // 创建根实例</span><br><span class="line">        // 在这里 定义并且注册组件 必须创建根实例前，不然会报错，因为解析顺序的问题？</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el:"#app"</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="组件入门">组件入门</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 自定义标签作为组件名称 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 复用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">        <span class="comment">// 定义并且注册组件</span></span><br><span class="line">        <span class="comment">// 在官方的示例中使用 Vue.extend(&#123;&#125;)先注册了一个定义模板，再引用，看个人喜好吧</span></span><br><span class="line">        Vue.component(<span class="string">"my-component"</span>, &#123;</span><br><span class="line">            template:<span class="string">"&lt;h2&gt;hello Vue component&lt;/h2&gt;"</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="comment">// 创建根实例</span></span><br><span class="line">        <span class="comment">// 在这里 定义并且注册组件 必须创建根实例前，不然会报错，因为解析顺序的问题？</span></span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el:<span class="string">"#app"</span></span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>上面就是最简单的定义组件的方式，<strong><code>template</code>属性中写的东西</strong>:就是<code>&lt;my-component&gt;</code>这个自定义标签渲染后展现出来的样式，这里渲染为：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="使用template标签">使用template标签</h3><p>在上面这段代码中组件内的内容都被写在<code>template</code>属性中，如果组件中的内容继续增加，一堆的引号和加号来拼接这些字符串简直就是噩梦。所以Vue 引入了<code>template</code>标签（html5定义的，浏览器默认不去解析里面的内容）。<strong><code>&lt;template&gt; 不能用在 &lt;table&gt; 内</code></strong>下面来看看它的使用方法：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用 template 并且添加选择器(只能使用id)--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"myTemp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span><br><span class="line">        Vue.component("my-component", &#123;</span><br><span class="line">            template:"#myTemp"//对应上面定义的template标签中的选择器</span><br><span class="line">        &#125;)</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el:"#app"</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用 template 并且添加选择器(只能使用id)--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"myTemp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">        Vue.component(<span class="string">"my-component"</span>, &#123;</span><br><span class="line">            template:<span class="string">"#myTemp"</span><span class="comment">//对应上面定义的template标签中的选择器</span></span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">            el:<span class="string">"#app"</span></span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以看到在注册组件中，可以<code>template</code>可以使用选择器来获取到上面我们<code>&lt;template&gt;</code>标签中的内容。所以这里应该会被渲染为：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>组件的基础介绍就到这，更多详细内容请移步<a href="http://cn.vuejs.org/guide/" target="_blank" rel="external">官网</a> </p>
@@ -89,9 +90,7 @@
 <p>好了，先到这。讲的有些凌乱，下次见</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<ul>
-<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
-<li><a href="http://guowenfh.git]]>
+    <![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解]]>
     </summary>
     
       <category term="webpack" scheme="http://guowenfh.github.io/tags/webpack/"/>
@@ -107,7 +106,7 @@
     <link href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/"/>
     <id>http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/</id>
     <published>2016-03-25T03:57:50.000Z</published>
-    <updated>2016-03-27T15:09:20.383Z</updated>
+    <updated>2016-03-28T06:31:17.302Z</updated>
     <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
 <ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
@@ -115,6 +114,7 @@
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
 <h2 id="需要什么？">需要什么？</h2><p>在经过前面的四个练习，相信已经对于<code>webapck</code>有了一定的了解，现在我们就来一个综合案例，进一步加深对于<code>webpack</code>的理解。</p>
 <p>首先我们应该思考要解析<code>.vue</code>类型的文件，需要什么样的东西？应该按照什么样的步骤来？我们应该怎么去搭建这个项目？</p>
@@ -166,7 +166,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/</id>
     <published>2016-03-24T09:28:34.000Z</published>
-    <updated>2016-03-25T15:28:43.852Z</updated>
+    <updated>2016-03-28T06:31:44.222Z</updated>
     <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
 <ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
@@ -174,6 +174,7 @@
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
 <h2 id="加载图片">加载图片</h2><p>现在来我们来试试加载图片，首先第一件事情，肯定是安装对应的<code>loader</code>。它会将样式中引用到的图片转为模块来处理，使用该加载器需要先进行安装：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install url-loader --save-dev</span><br></pre></td></tr></table></figure>
@@ -225,7 +226,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/</id>
     <published>2016-03-24T09:28:14.000Z</published>
-    <updated>2016-03-26T14:41:25.104Z</updated>
+    <updated>2016-03-28T06:31:27.253Z</updated>
     <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
 <ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
@@ -233,6 +234,7 @@
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
 <p>在上面我们已经尝试过了两种对于loader的使用方式，无论是在<code>require</code>的时候编写我们<code>loader</code>的前缀，还是在我们的命令行中进根据扩展名来自动绑定我们的<code>loader</code>，显然都不够自动化，在需要编译的语言继续增加的情况下，显然会是一个噩梦。<br>所以webapck实际上为我们提供了一个简单的方法，下面就一起来看看。</p>
 <h2 id="了解webpack配置">了解webpack配置</h2><p>Webpack在执行的时候，除了在命令行传入参数，还可以通过指定的配置文件来执行。默认情况下，会搜索当前目录的<code>webpack.config.js</code>文件，这个文件是一个 <code>node.js</code> 模块，返回一个 <code>json</code> 格式的配置信息对象，或者通过 <code>--config</code> 选项来指定配置文件。</p>
@@ -273,7 +275,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/</id>
     <published>2016-03-24T09:28:00.000Z</published>
-    <updated>2016-03-25T15:58:34.332Z</updated>
+    <updated>2016-03-28T06:31:32.376Z</updated>
     <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a> 在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
 <ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
@@ -281,6 +283,7 @@
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
 <h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
 <p><code>Webpack</code> 能做的就是这样，只能处理 JavaScript 模块。</p>
@@ -336,7 +339,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/</id>
     <published>2016-03-24T09:05:58.000Z</published>
-    <updated>2016-03-25T15:59:28.854Z</updated>
+    <updated>2016-03-28T06:31:37.534Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p>最近学习框架，选择了vue，然后接触到了vue中的单文件组件，官方推荐使用 Webpack + vue-loader构建这些单文件 Vue 组件，于是就开始了webpack的入坑之旅。<br>因为原来没有用过任何的构建工具与模块化工具，所以本系列会十分的基础。并且可能有很多不正确的地方，希望大家谅解，并指出错误帮助改进。谢谢！</p>
 </blockquote>
@@ -347,6 +350,7 @@
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
 <h2 id="什么是webpack">什么是webpack</h2><blockquote>
 <p>其实不是特别想写这个东西，但貌似所有的教程都有这个。随便写两句吧。可以直接跳过。 </p>
