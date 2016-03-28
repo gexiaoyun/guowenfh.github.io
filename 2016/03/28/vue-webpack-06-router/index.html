@@ -1,0 +1,909 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack,vue," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue单文件组件 
+webpack入坑之旅（六）配合vue-router实现SPA
+
+在上面的练习当中我们已经成功的加载了一个.vue格式的单文件组件，并且实现了在使用vue情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack入坑之旅（六）配合vue-router实现SPA">
+<meta property="og:url" content="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue单文件组件 
+webpack入坑之旅（六）配合vue-router实现SPA
+
+在上面的练习当中我们已经成功的加载了一个.vue格式的单文件组件，并且实现了在使用vue情">
+<meta property="og:image" content="http://guowenfh.github.io/images/vue-webpack/01-webpack-vuerouter.jpg">
+<meta property="og:updated_time" content="2016-03-28T06:21:36.295Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack入坑之旅（六）配合vue-router实现SPA">
+<meta name="twitter:description" content="webpack入坑之旅（一）不是开始的开始
+webpack入坑之旅（二）loader入门
+webpack入坑之旅（三）webpack.config入门
+webpack入坑之旅（四）扬帆起航
+webpack入坑之旅（五）加载vue单文件组件 
+webpack入坑之旅（六）配合vue-router实现SPA
+
+在上面的练习当中我们已经成功的加载了一个.vue格式的单文件组件，并且实现了在使用vue情">
+<meta name="twitter:image" content="http://guowenfh.github.io/images/vue-webpack/01-webpack-vuerouter.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6222900165502567000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> webpack入坑之旅（六）配合vue-router实现SPA | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack入坑之旅（六）配合vue-router实现SPA
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-28T13:57:57+08:00" content="2016-03-28">
+              2016-03-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/28/vue-webpack-06-router/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/vue-webpack-06-router/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-02-deploy/">webpack入坑之旅（二）loader入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-03-config/">webpack入坑之旅（三）webpack.config入门</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/">webpack入坑之旅（四）扬帆起航</a></li>
+<li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
+<li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
+</ul>
+<p>在上面的练习当中我们已经成功的加载了一个<code>.vue</code>格式的单文件组件，并且实现了在使用vue情况下的自动刷新。</p>
+<p>但是我们最终的目的还是要实现单页面应用程序，这个时候我们就必不可少的需要使用到路由管理器来进行SPA的开发，vue官方为我们提供了一个官方库<a href="https://github.com/vuejs/vue-router" target="_blank" rel="external">vue-router</a>，并且配有对应的<a href="http://vuejs.github.io/vue-router/zh-cn/index.html" target="_blank" rel="external">中文文档</a>。关于里面的内容大家自行前去观看。在这里，只会把我们需要的东西拿出来讲。</p>
+<h2 id="vue组件">vue组件</h2><blockquote>
+<p><a href="http://cn.vuejs.org/guide/components.html" target="_blank" rel="external">官网对于组件讲解</a></p>
+</blockquote>
+<p>在<code>Vue</code>中定义一个组件非常简单，只需要一对<strong>自定义标签</strong>，在其中填入内容就可以进行我们的组件编写了，然后使用<code>Vue.component()</code>去注册我们的组件下面来看一个例子，来直观的看看vue的组件。</p>
+<h3 id="组件入门">组件入门</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 自定义标签作为组件名称 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 复用 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span><br><span class="line">        // 定义并且注册组件</span><br><span class="line">        // 在官方的示例中使用 Vue.extend(&#123;&#125;)先注册了一个定义模板，再引用，看个人喜好吧</span><br><span class="line">        Vue.component("my-component", &#123;</span><br><span class="line">            template:"<span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span>"</span><br><span class="line">        &#125;)</span><br><span class="line">        // 创建根实例</span><br><span class="line">        // 在这里 定义并且注册组件 必须创建根实例前，不然会报错，因为解析顺序的问题？</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el:"#app"</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面就是最简单的定义组件的方式，<strong><code>template</code>属性中写的东西</strong>:就是<code>&lt;my-component&gt;</code>这个自定义标签渲染后展现出来的样式，这里渲染为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello Vue component<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用template标签">使用template标签</h3><p>在上面这段代码中组件内的内容都被写在<code>template</code>属性中，如果组件中的内容继续增加，一堆的引号和加号来拼接这些字符串简直就是噩梦。所以Vue 引入了<code>template</code>标签（html5定义的，浏览器默认不去解析里面的内容）。<strong><code>&lt;template&gt; 不能用在 &lt;table&gt; 内</code></strong>下面来看看它的使用方法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 使用 template 并且添加选择器(只能使用id)--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"myTemp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span><br><span class="line">        Vue.component("my-component", &#123;</span><br><span class="line">            template:"#myTemp"//对应上面定义的template标签中的选择器</span><br><span class="line">        &#125;)</span><br><span class="line">        new Vue(&#123;</span><br><span class="line">            el:"#app"</span><br><span class="line">        &#125;);</span><br><span class="line">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到在注册组件中，可以<code>template</code>可以使用选择器来获取到上面我们<code>&lt;template&gt;</code>标签中的内容。所以这里应该会被渲染为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>This is Template <span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>add ...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>组件的基础介绍就到这，更多详细内容请移步<a href="http://cn.vuejs.org/guide/" target="_blank" rel="external">官网</a> </p>
+<h2 id="vue-router">vue-router</h2><p>刚刚已经对于vue的组件有了一定的了解。现在来结合vue-router，来进行一下动态的切换。</p>
+<p>首先是安装，如果使用npm的形式的话，直接运行<code>npm install vue-router --save</code>,就可以看到<code>vue-router</code>，已经被添加到了项目依赖中。直接上<code>ES6</code>的语法来进行引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">"vue-router"</span>;</span><br><span class="line">Vue.use(VueRouter);</span><br></pre></td></tr></table></figure>
+<h3 id="起步">起步</h3><p>其实这一部分<code>vue-router</code>的<a href="http://vuejs.github.io/vue-router/zh-cn/basic.html" target="_blank" rel="external">中文文档</a>中已经讲的非常详细了。。在这里与它不同的是它用的<code>CommonJS</code>的规范来进行模块安装，而我使用ES6的import，有兴趣自己去看- -。其他的内容我就直接扒下来了。</p>
+<p>html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello App!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用指令 v-link 进行导航。 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; path: '/foo' &#125;"</span>&gt;</span>Go to Foo<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; path: '/bar' &#125;"</span>&gt;</span>Go to Bar<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 路由外链 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>javascript:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义组件</span></span><br><span class="line"><span class="keyword">var</span> Foo = Vue.extend(&#123;</span><br><span class="line">    template: <span class="string">'&lt;p&gt;This is foo!&lt;/p&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> Bar = Vue.extend(&#123;</span><br><span class="line">    template: <span class="string">'&lt;p&gt;This is bar!&lt;/p&gt;'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 路由器需要一个根组件。</span></span><br><span class="line"><span class="comment">// 出于演示的目的，这里使用一个空的组件，直接使用 HTML 作为应用的模板</span></span><br><span class="line"><span class="keyword">var</span> App = Vue.extend(&#123;&#125;)</span><br><span class="line"><span class="comment">// 创建一个路由器实例</span></span><br><span class="line"><span class="comment">// 创建实例时可以传入配置参数进行定制，为保持简单，这里使用默认配置</span></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter()</span><br><span class="line"><span class="comment">// 定义路由规则</span></span><br><span class="line"><span class="comment">// 每条路由规则应该映射到一个组件。这里的“组件”可以是一个使用 Vue.extend</span></span><br><span class="line"><span class="comment">// 创建的组件构造函数，也可以是一个组件选项对象。</span></span><br><span class="line"><span class="comment">// 稍后我们会讲解嵌套路由</span></span><br><span class="line">router.map(&#123;</span><br><span class="line">    <span class="string">'/foo'</span>: &#123;</span><br><span class="line">        component: Foo</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'/bar'</span>: &#123;</span><br><span class="line">        component: Bar</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 现在我们可以启动应用了！</span></span><br><span class="line"><span class="comment">// 路由器会创建一个 App 实例，并且挂载到选择符 #app 匹配的元素上。</span></span><br><span class="line">router.start(App, <span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
+<p>我个人感觉这部分还是很好理解的，官方也给了一个<a href="http://jsfiddle.net/yyx990803/xyu276sa/" target="_blank" rel="external">在线示例应用</a>。很好的展现了它的路由切换。</p>
+<p>简单的介绍到这，下面最重要的部分到了，看看如何结合我们定义的<code>.vue</code>单文件组件。</p>
+<p>首先来看我们的文件目录结构：</p>
+<p><img src="/images/vue-webpack/01-webpack-vuerouter.jpg" alt="01-webpack-vuerouter"></p>
+<h3 id="定义路由规则">定义路由规则</h3><p><strong>最主要是<code>main.js</code></strong>的变化，直接在文件中讲解了：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入vue以及vue-router</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">"vue"</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">"vue-router"</span>;</span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line"><span class="comment">// 引入组件！直接使用es6的语法</span></span><br><span class="line"><span class="keyword">import</span> index <span class="keyword">from</span> <span class="string">'./components/app.vue'</span>;</span><br><span class="line"><span class="keyword">import</span> list <span class="keyword">from</span> <span class="string">'./components/list.vue'</span>;</span><br><span class="line"><span class="keyword">import</span> hello <span class="keyword">from</span> <span class="string">'./components/hello.vue'</span>;</span><br><span class="line"><span class="comment">//开启debug模式</span></span><br><span class="line">Vue.config.debug = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// new Vue(app);//这是上一篇用到的，新建一个vue实例，现在使用vue-router就不需要了。</span></span><br><span class="line"><span class="comment">// 路由器需要一个根组件。</span></span><br><span class="line"><span class="keyword">var</span> App = Vue.extend(&#123;&#125;);</span><br><span class="line"><span class="comment">// 创建一个路由器实例</span></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter();</span><br><span class="line"><span class="comment">// 每条路由规则应该映射到一个组件。这里的“组件”可以是一个使用 Vue.extend创建的组件构造函数，也可以是一个组件选项对象。</span></span><br><span class="line"><span class="comment">// 稍后我们会讲解嵌套路由</span></span><br><span class="line">router.map(&#123;<span class="comment">//定义路由映射</span></span><br><span class="line">    <span class="string">'/index'</span>:&#123;<span class="comment">//访问地址</span></span><br><span class="line">        name:<span class="string">'index'</span>,<span class="comment">//定义路由的名字。方便使用。</span></span><br><span class="line">        component:index,<span class="comment">//引用的组件名称，对应上面使用`import`导入的组件</span></span><br><span class="line">        <span class="comment">//component:require("components/app.vue")//还可以直接使用这样的方式也是没问题的。不过会没有import集中引入那么直观</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'/list'</span>: &#123;</span><br><span class="line">        name:<span class="string">'list'</span>,</span><br><span class="line">        component: list</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">router.redirect(&#123;<span class="comment">//定义全局的重定向规则。全局的重定向会在匹配当前路径之前执行。</span></span><br><span class="line">    <span class="string">'*'</span>:<span class="string">"/index"</span><span class="comment">//重定向任意未匹配路径到/index</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 现在我们可以启动应用了！</span></span><br><span class="line"><span class="comment">// 路由器会创建一个 App 实例，并且挂载到选择符 #app 匹配的元素上。</span></span><br><span class="line">router.start(App, <span class="string">'#app'</span>);</span><br></pre></td></tr></table></figure>
+<p>在index.html需要有用于渲染匹配的组件，如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>现在当我们运行 <code>npm start</code> 进入<code>http://localhost:8080/</code>就会自动跳转到<code>http://localhost:8080/#!/index</code>，并且读取里面的内容。</p>
+<h3 id="实现路由跳转">实现路由跳转</h3><p>主要抽出<code>app.vue</code>中的内容来讲解，的内容是：(<code>list.vue</code>里面的内容自行设置查看吧)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>姓名：&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;age&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"golist"</span>&gt;</span>$route.router.go查看<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; name: 'list' &#125;"</span>&gt;</span>v-link查看列表<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; name: 'index' &#125;"</span>&gt;</span>回去主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;<span class="comment">//这里是官方的写法，默认导出，ES6</span></span><br><span class="line">        data () &#123; <span class="comment">//ES6，等同于data:function()&#123;&#125;</span></span><br><span class="line">            <span class="keyword">return</span> &#123;    <span class="comment">//必须使用这样的形式，才能创建出单一的作用域</span></span><br><span class="line">                name:<span class="string">"guowenfh"</span>,</span><br><span class="line">                age:<span class="string">"21"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods :&#123;</span><br><span class="line">            golist () &#123;<span class="comment">//方法，定义路由跳转，注意这里必须使用this，不然报错</span></span><br><span class="line">                <span class="keyword">this</span>.$route.router.go(&#123;name:<span class="string">"list"</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 样式自行设置，或者直接看源码就好 --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>因为自刷新的缘故，直接切换到浏览器。</p>
+<p>点击上面使用的<code>v-link</code>，与<code>router.go</code>的方式都可以跳转到<code>list</code>定义的路由。（<strong>观察浏览器地址栏的变化</strong>）在这里我们使用的<code>{name:&quot;list&quot;}</code>，使用<code>{ path: &#39;/list&#39; }</code>会有同样的效果。</p>
+<h2 id="引用Vue组件">引用Vue组件</h2><p>在第一小点里面我们看到了在页面内的组件的使用方法，第二小点中学习到了<code>vue-router</code>的制定路由规则。</p>
+<p>看过这两个地方之后，我们把思维发散开来，应该就能触类旁通的想到如何在页面中嵌套加载别的组件了。<br>我们创建一个<code>hello.vue</code> ，里面内容随意。现在我们如果要在<code>app.vue</code>中加载它，那么只需要在<code>app.vue</code>中使用<code>import hello from &quot;./hello.vue&quot;</code>（其实这个达到了使用require两步的效果。引入赋值）。</p>
+<p>引入之后，只需要如下注册：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="comment">//其它的就</span></span><br><span class="line">    components:&#123;</span><br><span class="line">        hello<span class="comment">//若还有更多的组件，只需要在import的情况下，以逗号分割，继续注册就好</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后在<code>app.vue</code>中添加<code>&lt;hello&gt;&lt;/hello&gt;</code>这一对自定义标签，就可以实现加载<code>hello.vue</code>中的内容。</p>
+<p>组件的嵌套也就是这样，很简单的描述完了，但是怎么样去抽离组件，在工作中积累可以复用的组件才是我们真正需要去思考的。</p>
+<p>那么先到这，关于组件之间通信的问题，留到以后慢慢了解。</p>
+<h2 id="路由嵌套">路由嵌套</h2><p>还是刚刚的代码与目录结构，我们已经实现了组件之间的嵌套，但是有时并不希望组件直接就加载进来，而是在用户点击后才展现在页面中，这是就需要使用到路由嵌套。</p>
+<p>为了偷懒，这里就直接使用<code>hello.vue</code>。实现嵌套路由主要有以下几步：</p>
+<p>第一步：制定嵌套路由规则：</p>
+<p>看<code>main.js</code>下面这部分的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">router.map(&#123;</span><br><span class="line">    <span class="string">'/index'</span>:&#123;</span><br><span class="line">        name:<span class="string">'index'</span>,</span><br><span class="line">        component:index,</span><br><span class="line">        <span class="comment">// 在/index下设置一个子路由</span></span><br><span class="line">        subRoutes:&#123; </span><br><span class="line">            <span class="comment">// 当匹配到/index/hello时，会在index的&lt;router-view&gt;内渲染</span></span><br><span class="line">            <span class="string">'/hello'</span>:&#123;</span><br><span class="line">                name:<span class="string">'hello'</span>,<span class="comment">//可有可无，主要是为了方便使用</span></span><br><span class="line">                <span class="comment">// 一个hello组件</span></span><br><span class="line">                component:hello</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>第二步：在组件中添加<code>&lt;router-view&gt;</code></p>
+<blockquote>
+<p>来自官网的解释：<code>&lt;router-view&gt;</code> 用于渲染匹配的组件，它基于Vue的动态组件系统，所以它继承了一个正常动态组件的很多特性。</p>
+</blockquote>
+<p>将<code>&lt;router-view&gt;</code>写在<code>app.vue</code>的<code>&lt;template&gt;&lt;/template&gt;</code>标签中。</p>
+<p>第三步：写入跳转路径</p>
+<p>还是在<code>app.vue</code>中：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; name: 'index' &#125;"</span>&gt;</span>回去主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 点击这两个标签就会实现页面内的切换效果 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-link</span>=<span class="string">"&#123; name: 'hello' &#125;"</span>&gt;</span>嵌套的路由<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>，切换到浏览器，点击该<code>嵌套的路由</code>即可让<code>hello.vue</code>中的展现出来，在这里直接使用了<code>v-link</code>来实现跳转（知道为什么要写name了吧。。如果使用path会是这样的<code>{ path: &#39;/index/hello&#39; }</code>- -。 ） ，当然<code>router.go</code>同理。（注意在点击两个不同的文字时，地址栏的变化，以及展现内容的切换）</p>
+<p><strong>注意：</strong></p>
+<p>在我的源码中是在<code>&lt;style scoped&gt;&lt;/style&gt;</code>标签中定义样式的，请注意<code>scoped</code>的使用，它表示在该<code>style</code>中定义的样式只会在当前的组件中起到效果，而不会去影响全局的css样式。</p>
+<p>最简单的理解应该就是：</p>
+<p>未写该<code>scoped</code>属性的所有组件中的样式，在经过<code>vue-loader</code>编译之后拥有全局作用域。相当于共用一份<code>css</code>样式表。</p>
+<p>而写了该属性的的组件中定义的样式，拥有独立作用域。相当于除去引入了公用的一份<code>css</code>样式表外，但单独拥有一份<code>css</code>的样式表。</p>
+<p>好了，先到这。讲的有些凌乱，下次见</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag">#webpack</a>
+          
+            <a href="/tags/vue/" rel="tag">#vue</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/25/vue-webpack-05-vue/" rel="next" title="webpack入坑之旅（五）加载vue单文件组件">
+                <i class="fa fa-chevron-left"></i> webpack入坑之旅（五）加载vue单文件组件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/28/vue-webpack-06-router/"
+           data-title="webpack入坑之旅（六）配合vue-router实现SPA" data-url="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 知乎
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> S F
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">友情链接</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lxxyx.win/" target="_blank">Lxxyx的前端乐园</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue组件"><span class="nav-number">1.</span> <span class="nav-text">vue组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件入门"><span class="nav-number">1.1.</span> <span class="nav-text">组件入门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用template标签"><span class="nav-number">1.2.</span> <span class="nav-text">使用template标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-router"><span class="nav-number">2.</span> <span class="nav-text">vue-router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#起步"><span class="nav-number">2.1.</span> <span class="nav-text">起步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义路由规则"><span class="nav-number">2.2.</span> <span class="nav-text">定义路由规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现路由跳转"><span class="nav-number">2.3.</span> <span class="nav-text">实现路由跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用Vue组件"><span class="nav-number">3.</span> <span class="nav-text">引用Vue组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由嵌套"><span class="nav-number">4.</span> <span class="nav-text">路由嵌套</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
