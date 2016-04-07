@@ -166,7 +166,7 @@
     <link href="http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/"/>
     <id>http://guowenfh.github.io/2016/03/24/vue-webpack-04-custom/</id>
     <published>2016-03-24T09:28:34.000Z</published>
-    <updated>2016-03-28T06:31:44.222Z</updated>
+    <updated>2016-04-07T12:19:01.261Z</updated>
     <content type="html"><![CDATA[<p>这是一系列文章，此系列所有的练习都存在了我的github仓库中<a href="https://github.com/guowenfh/vue-webpack" target="_blank" rel="external">vue-webpack</a>，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：</p>
 <ul>
 <li><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/">webpack入坑之旅（一）不是开始的开始</a></li>
@@ -181,7 +181,7 @@
 <p>当然你也可以在<code>package.json</code>添加依赖，然后再<code>npm nstall</code>一样的效果。</p>
 <p>现在去我们的项目目录中添加img文件夹，添加两张图片，一张大图jpg，一张小图png。</p>
 <p>然后在我们的<code>webpack.config.js</code>中添加这段：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loaders: [</span><br><span class="line">    &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style!css"</span> &#125;,</span><br><span class="line">    &#123; test: <span class="regexp">/\.(png|jpg)$/</span>, loader: <span class="string">"url-loade?limit=8192"</span> &#125;   <span class="comment">// 添加到这！并且会按照文件大小, 或者转化为 base64, 或者单独作为文件</span></span><br><span class="line">    <span class="comment">//在大小限制后可以加上&amp;name=./[name].[ext]，会将我们的文件生成在设定的文件夹下。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">loaders: [</span><br><span class="line">    &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style!css"</span> &#125;,</span><br><span class="line">    &#123; test: <span class="regexp">/\.(png|jpg)$/</span>, loader: <span class="string">"url-loader?limit=8192"</span> &#125;   <span class="comment">// 添加到这！并且会按照文件大小, 或者转化为 base64, 或者单独作为文件</span></span><br><span class="line">    <span class="comment">//在大小限制后可以加上&amp;name=./[name].[ext]，会将我们的文件生成在设定的文件夹下。</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>在html中添加：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/logo.png"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"qwe"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"asd"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在我们的css中添加：</p>
