@@ -27,18 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Sublime Text,开发工具," />
@@ -52,7 +79,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -81,7 +108,7 @@
 <meta property="og:image" content="http://guowenfh.github.io/images/SublimeText/BracketHighlighter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/SublimeText/Color_Highlighter.jpg">
 <meta property="og:image" content="http://guowenfh.github.io/images/SublimeText/Colorpicker.jpg">
-<meta property="og:updated_time" content="2016-04-06T16:20:45.041Z">
+<meta property="og:updated_time" content="2016-04-16T15:57:25.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个前端程序猿的Sublime Text3的自我修养">
 <meta name="twitter:description" content="详细设置 &amp;amp;&amp;amp; 20+插件
@@ -105,6 +132,11 @@
     }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://guowenfh.github.io/2015/12/26/SublimeText/"/>
 
   <title> 一个前端程序猿的Sublime Text3的自我修养 | 三省吾身丶丶 </title>
 </head>
@@ -172,7 +204,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -182,7 +214,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -192,7 +224,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -202,7 +234,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -300,6 +332,7 @@
           
           
 
+          
         </div>
       </header>
     
@@ -314,7 +347,7 @@
         <p><strong>详细设置 &amp;&amp; 20+插件</strong></p>
 <blockquote>
 <p>本文章会在本人有插件或者设置更新时，进行不定时更新</p>
-<p>2015-12-31更新：NO. 21 侧边栏同步编辑窗口底色插件。<br>2016-04-06更新：代码片段：<code>better-completions</code>；主题：<code>Material</code>,<code>Seti_UI</code>；代码格式化：<code>HTML-CSS-JS Prettify</code>；vue语法高亮：<code>Vue Syntax Highlight</code>；<code>Terminal</code>与<code>MarkdownEditing</code>个性化定制</p>
+<p>2015-12-31更新：NO. 21 侧边栏同步编辑窗口底色插件。<br>2016-04-06更新：代码片段：<code>better-completions</code>；主题：<code>Material</code>,<code>Seti_UI</code>；代码格式化：<code>HTML-CSS-JS Prettify</code>；vue语法高亮：<code>Vue Syntax Highlight</code>；<code>Terminal</code>与<code>MarkdownEditing</code>个性化定制<br>GitSavvy、SublimeWebInspector</p>
 </blockquote>
 <p><strong>为什么要选择Sublime Text3？</strong></p>
 <ul>
@@ -570,6 +603,13 @@
       
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -708,34 +748,38 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/guowenfh" target="_blank">
+                <a href="https://github.com/guowenfh" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-fw fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2194745681" target="_blank">
+                <a href="http://weibo.com/u/2194745681" target="_blank" title="Weibo">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-fw fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/guowen921" target="_blank">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank" title="知乎">
                   
-                    <i class="fa fa-globe"></i> 知乎
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  知乎
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://segmentfault.com/u/guowenfh" target="_blank">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank" title="S F">
                   
-                    <i class="fa fa-globe"></i> S F
+                    <i class="fa fa-fw fa-globe"></i>
                   
+                  S F
                 </a>
               </span>
             
@@ -746,38 +790,38 @@
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-            <div class="links-of-blogroll-title">友情链接</div>
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
             <ul class="links-of-blogroll-list">
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://notes.iissnan.com/" target="_blank">IIssNan</a>
+                  <a href="http://notes.iissnan.com/" title="IIssNan" target="_blank">IIssNan</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://www.imooc.com/" target="_blank">慕课网</a>
+                  <a href="http://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://u-hey.com/" target="_blank">uhey blog</a>
+                  <a href="http://u-hey.com/" title="uhey blog" target="_blank">uhey blog</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
-                  <a href="http://www.lxxyx.win/" target="_blank">Lxxyx的前端乐园</a>
+                  <a href="http://www.lxxyx.win/" title="Lxxyx的前端乐园" target="_blank">Lxxyx的前端乐园</a>
                 </li>
               
             </ul>
-          
-        </div>
+          </div>
+        
 
       </section>
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
@@ -785,9 +829,6 @@
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单栏基础功能介绍"><span class="nav-number">1.</span> <span class="nav-text">菜单栏基础功能介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">1.1.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ctrl+P：Goto_Anything"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ctrl+P：Goto Anything</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行游标"><span class="nav-number">1.1.2.</span> <span class="nav-text">多行游标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置"><span class="nav-number">1.2.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建系统实现快捷调用浏览器"><span class="nav-number">1.3.</span> <span class="nav-text">构建系统实现快捷调用浏览器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件的安装与使用"><span class="nav-number">2.</span> <span class="nav-text">插件的安装与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装package_control。"><span class="nav-number">2.1.</span> <span class="nav-text">安装package control。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装主题"><span class="nav-number">2.2.</span> <span class="nav-text">安装主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人常用插件及使用方法："><span class="nav-number">3.</span> <span class="nav-text">个人常用插件及使用方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-1_AdvancedNewFile：快速新建文件。"><span class="nav-number">3.1.</span> <span class="nav-text">NO.1 AdvancedNewFile：快速新建文件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-2_Nettuts+_Fetch：管理类库。"><span class="nav-number">3.2.</span> <span class="nav-text">NO.2 Nettuts+ Fetch：管理类库。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-3_Sidebar_Enhancements：增强侧边栏。"><span class="nav-number">3.3.</span> <span class="nav-text">NO.3 Sidebar Enhancements：增强侧边栏。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-4_Doc​Blockr：代码块注释。"><span class="nav-number">3.4.</span> <span class="nav-text">NO.4 Doc​Blockr：代码块注释。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-5_SublimeLinter-jshint:语法校验"><span class="nav-number">3.5.</span> <span class="nav-text">NO.5 SublimeLinter-jshint:语法校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-6_Git_:版本控制"><span class="nav-number">3.6.</span> <span class="nav-text">NO.6 Git :版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-7_Emmet：不解释。"><span class="nav-number">3.7.</span> <span class="nav-text">NO.7 Emmet：不解释。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-8_JsFormat：代码格式化_使用_HTML-CSS-JS_Prettify，下面介绍："><span class="nav-number">3.8.</span> <span class="nav-text">NO.8 JsFormat：代码格式化 使用 HTML-CSS-JS Prettify，下面介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-10_jQuery：jQuery的API代码片段"><span class="nav-number">3.9.</span> <span class="nav-text">NO.10 jQuery：jQuery的API代码片段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-11_BracketHighlighter:符号高亮"><span class="nav-number">3.10.</span> <span class="nav-text">NO.11 BracketHighlighter:符号高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-12_JavaScript_Next：完美支持ECMAScript_6"><span class="nav-number">3.11.</span> <span class="nav-text">NO.12 JavaScript Next：完美支持ECMAScript 6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-13_CSS3:CSS3语法高亮"><span class="nav-number">3.12.</span> <span class="nav-text">NO.13 CSS3:CSS3语法高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-14_Color_Highlighter_：CSS颜色高亮"><span class="nav-number">3.13.</span> <span class="nav-text">NO.14 Color Highlighter ：CSS颜色高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-15Colorpicker：使用一个取色器改变颜色"><span class="nav-number">3.14.</span> <span class="nav-text">NO.15Colorpicker：使用一个取色器改变颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-16_Markdown_Editing_和_Markdown_Preview，实现预览MD"><span class="nav-number">3.15.</span> <span class="nav-text">NO.16 Markdown Editing 和 Markdown Preview，实现预览MD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-17AutoFileName：文件路径自动提示"><span class="nav-number">3.16.</span> <span class="nav-text">NO.17AutoFileName：文件路径自动提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-18_Terminal：在Sublime_Text直接打开命令行"><span class="nav-number">3.17.</span> <span class="nav-text">NO.18 Terminal：在Sublime Text直接打开命令行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-19_CSScomb_:_CSS属性排序"><span class="nav-number">3.18.</span> <span class="nav-text">NO.19 CSScomb : CSS属性排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-20_JavaScript_Completions和Java​Script_&_Node​JS_Snippets。输入提示，代码补全"><span class="nav-number">3.19.</span> <span class="nav-text">NO.20 JavaScript Completions和Java​Script & Node​JS Snippets。输入提示，代码补全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-21_SyncedSidebarBg:自动同步侧边栏底色为编辑窗口底色。"><span class="nav-number">3.20.</span> <span class="nav-text">NO.21 SyncedSidebarBg:自动同步侧边栏底色为编辑窗口底色。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-22_HTML-CSS-JS_Prettify:_HTML-CSS-JavaScript_代码格式化"><span class="nav-number">3.21.</span> <span class="nav-text">NO.22 HTML-CSS-JS Prettify: HTML-CSS-JavaScript 代码格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NO-23_better-completions:_涵盖了html,_jquery，javascript，Bootstrap的代码片段。"><span class="nav-number">3.22.</span> <span class="nav-text">NO.23 better-completions: 涵盖了html, jquery，javascript，Bootstrap的代码片段。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他："><span class="nav-number">3.23.</span> <span class="nav-text">其他：</span></a></li></ol></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -823,8 +864,9 @@
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
@@ -835,12 +877,6 @@
 
   
 
-
-  
-
-
-
-
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
@@ -848,205 +884,65 @@
 </script>
 
 
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -1071,10 +967,12 @@
 
   
     
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
       <script src="/js/src/hook-duoshuo.js"></script>
     
   
+
 
 
 
