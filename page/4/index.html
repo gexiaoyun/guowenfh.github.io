@@ -212,6 +212,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -238,6 +248,135 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/03/jQuery-06-toolFunction/" itemprop="url">
+                  jQuery入门笔记之（六）工具函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-03T22:20:57+08:00" content="2016-01-03">
+              2016-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/jQuery-06-toolFunction/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/jQuery-06-toolFunction/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+工具函数直接依附于 jQuery 对象，针对 jQuery 对象本身定义的方法，它是全局性的函数。主要提供比如字符串、数组、对象等操作方面的遍历。
+
+字符串操作去除字符串左右空格的工具函数：$.trim()。这个函数我在task0002的部分已经用正则实现了。如下：
+12345678function trim(str) &#123;    var result = "";    result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换    return result;&#125;//下面是jQuery中的使用方法var str = "         guowen      ";alert($.trim(str));//可以看到空格被去除
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/03/jQuery-06-toolFunction/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -334,7 +473,9 @@
 关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。Ajax入门（一）从0开始到一次成功的GET请求Ajax入门（二）Ajax函数封装
 
 jQuery中的Ajax
-jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.g
+jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.get()和$.post()，最高层是$.getScript()和$.getJSON()方法。
+
+Ajax中的load()方法12345678910/** * Ajax中的load方法（局部方法，可以直
           ...
 
           <div class="post-more-link text-center">
@@ -463,6 +604,8 @@ jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不�
 先来说明第一个参数：
 
 第一种用法是传入数字，为毫秒数，表示动画过渡效果的时间。里面同时富含了匀速变大变小，以及透明度变换。
+
+1234567891011&lt;button class="show"&gt;显示&lt;/button&gt;&lt;button class="hide"&gt;隐藏&lt;/button&
           ...
 
           <div class="post-more-link text-center">
@@ -590,7 +733,8 @@ jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不�
           
 在JavaScript 有一个非常重要的功能，就是事件驱动。如果你的网页需要与用户进行交互的话，就不可能不用到事件。它在页面完全加载后，用户通过鼠标或键盘触发页面中绑定事件的元素即可触发。jQuery为开发者更有效率的编写事件行为，封装了大量事件方法供我们使用。
 
-基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout等等。如果恰好你使用的是事件
+基础事件一. 绑定事件如果你学习过原生的javascript事件，比如常用的事件：click、dblclick、mousedown、mouseup、mousemove、mouseover、mouseout等等。如果恰好你使用的是事件绑定的方式进行触发的话，一定会知道它有多么难处理，各种浏览器的兼容性，this的指向等等，但是在jQuery中，一切都不再是问题了。
+jQuery 通过.bind()方法来为元素绑定这些事件。可以传递
           ...
 
           <div class="post-more-link text-center">
@@ -741,7 +885,19 @@ text()
 自动清理html标签
 
 
-text(
+text(value)
+设置元素中文本内容
+自动转义html标签以文本形式呈现
+
+
+val()
+获取表单中的文本内容
+value属性的值
+
+
+val(value)
+设置表单中的文本内容
+设置value的值(有特
           ...
 
           <div class="post-more-link text-center">
@@ -870,142 +1026,25 @@ text(
 本来是单独整理了一个CSS选择器的，但是在jQuery中基本都有对应的，所以就不发了。
 jQuery选择器，若未作特别说明，获取的都是元素集合。
 
-一. 常规选择器（一）简单选择器模仿的是CSS选择器，只不过在使用jQuery选择器时，我们首先必须使用“$()”函数来包装我们的 CSS 规则。而CSS 规则作为参数传递到jQuery对象内部后，再返回包含页面中对应元素的 jQuery 对象。随后可以进行节点操作，例如：$(&#39;#box&#39;).css(&#39;color&#39;,
+一. 常规选择器（一）简单选择器模仿的是CSS选择器，只不过在使用jQuery选择器时，我们首先必须使用“$()”函数来包装我们的 CSS 规则。而CSS 规则作为参数传递到jQuery对象内部后，再返回包含页面中对应元素的 jQuery 对象。随后可以进行节点操作，例如：$(&#39;#box&#39;).css(&#39;color&#39;, &#39;red&#39;);。
+那么除了 ID 选择器之外，还有两种基本的选择器，分别为：元素标签名和类(class)：
+
+
+
+选择器
+CSS 模式
+jQuery 模式
+描述
+
+
+
+
+元素名
+di
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/31/jQuery-01-Sizzle/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/27/jQuery-00-thinkingBasicCore/" itemprop="url">
-                  jQuery入门笔记之（零）思考与基础核心
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-27T20:50:40+08:00" content="2015-12-27">
-              2015-12-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/jQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/27/jQuery-00-thinkingBasicCore/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/27/jQuery-00-thinkingBasicCore/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          思考篇一. 什么是 jQuery?
-jQuery是一个JavaScript库，它通过封装原生的JavaScript函数得到一整套定义好的方法。它的作者是JohnResig，于2006年创建的一个开源项目，随着越来越多开发者的加入，jQuery已经集成了JavaScript、CSS、DOM和Ajax于一体的强大功能。它可以用最少的代码，完成更多复杂而困难的功能，从而得到了开发者的青睐。
-
-jQuery的版本
-随着jQuery的不断进化，发展也变成了两条进化线：
-
-2006 年 8 月发布了 jQu
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/27/jQuery-00-thinkingBasicCore/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1080,24 +1119,24 @@ jQuery的版本
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">4</span>
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

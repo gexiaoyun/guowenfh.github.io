@@ -212,6 +212,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -238,6 +248,134 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/18/Ajax-elementary-course-2-fn/" itemprop="url">
+                  Ajax入门（二）Ajax函数封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-18T19:49:35+08:00" content="2015-12-18">
+              2015-12-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/18/Ajax-elementary-course-2-fn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/18/Ajax-elementary-course-2-fn/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+如果看了的我上一篇博客《Ajax入门（一）从0开始到一次成功的GET请求》的话，肯定知道我们已经完成了一个简单的get请求函数了。如下：
+
+123456789101112131415161718192021222324252627282930313233343536373839404142/** * 一个简单的get请求 * @param &#123;String&#125;   url     请求地址,文件名 * @param &#123;Function&#125; fnSucc  请求成功时执行的函数 * @param &#123;Function&#125; fnFaild 请求失败执行的函数 */function AJAX(url, fnSucc, fnFaild) &#123
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/18/Ajax-elementary-course-2-fn/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -349,7 +487,12 @@ Web服务器- 关闭TCP连接
 Ajax必须在服务器环境下才能正常使用
 
 
-我使用的WampServer程序.(支持中文)官网连接.可
+我使用的WampServer程序.(支持中文)官网连接.可能速度不行,不过科学上网,大家应该都会.
+网上的使用教程:如何安装使用
+XAMPP–我试了一下,还是wamp简单,大家有兴趣就自己去测试了
+推荐使用firefox浏览器进行AJAX的调试。
+
+Ajax
           ...
 
           <div class="post-more-link text-center">
@@ -475,7 +618,7 @@ Ajax必须在服务器环境下才能正常使用
         
           
           DOM添加class、移除class、是否同级元素、获取元素位置先来一些简单的，在你的util.js中完成以下任务：
-1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;// 移除element中的样式oldClassNamefunction removeClass(el
+1234567891011121314151617181920// 为element增加一个样式名为newClassName的新样式function addClass(element, newClassName) &#123;    // your implement&#125;// 移除element中的样式oldClassNamefunction removeClass(element, oldClassName) &#123;    // your implement&#125;// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bo
           ...
 
           <div class="post-more-link text-center">
@@ -606,7 +749,7 @@ Ajax必须在服务器环境下才能正常使用
 在IE8下提示对象不支持“addEventListener”属性或方法。原因是IE8不支持标准的DOM事件绑定函数，它使用attachEvent
 
 1.1 了解JavaScript是什么
-JavaScript，一种直译式脚本语言
+JavaScript，一种直译式脚本语言，是一种动态类型、基于原型的语言，内置支持类。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML网页上使用，用来给HTML网页增加动态功能。然而现在
           ...
 
           <div class="post-more-link text-center">
@@ -738,7 +881,12 @@ JavaScript，一种直译式脚本语言
 实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回true
 
 第一阶段-字符直接量:匹配自身
-先假设一个手机号码为1376257109
+先假设一个手机号码为13762571094.
+
+
+最初形态
+
+123456/13762571094/.test("13783281094");//false/13762571094/.test("13762571094");//true/1
           ...
 
           <div class="post-more-link text-center">
@@ -875,181 +1023,46 @@ JavaScript，一种直译式脚本语言
 
 例：var reg = /s$/;  , var reg = new RegExp(s$);两者效果完全相同，用来匹配所有以字母“s”结尾的字符串。
 “文本模式”的正则表达式语法1.直接量字符
-非字母的字符匹配，这些字
+非字母的字符匹配，这些字符需要通过反斜线（\）作前缀进行转义.
+
+
+
+
+字 符
+匹 配
+
+
+
+
+字母和数字字符
+自身
+
+
+\o
+NUL字符
+
+
+\t
+制表符
+
+
+\n
+换行符
+
+
+\v
+垂直制表符
+
+
+\f
+换页符
+
+
+\r
           ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/01/Regexp-basis/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/30/javascript-type/" itemprop="url">
-                  JavaScript类型识别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-30T19:50:30+08:00" content="2015-11-30">
-              2015-11-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/30/javascript-type/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/30/javascript-type/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          类型系统
-javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。
-
-.
-类型转化表
-
-
-Value
-Boolean
-Number
-String
-
-
-
-
-undefined
-false
-NaN
-“undefined”
-
-
-null
-false
-0
-“null”
-
-
-true
-true
-1
-“true”
-
-
-false
-false
-0
-“false”
-
-
-“”
-false
-0
-“”
-
-
-‘
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/11/30/javascript-type/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1124,24 +1137,24 @@ false
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">4</span>
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

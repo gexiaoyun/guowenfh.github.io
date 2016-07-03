@@ -220,6 +220,16 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
@@ -467,7 +477,7 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'#box+p'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);<span class="regexp">//</span>下一个同级节点</span><br><span class="line"><span class="variable">$(</span><span class="string">'#box'</span>).<span class="keyword">next</span>(<span class="string">'p'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);<span class="regexp">//</span>和<span class="keyword">next</span>选择器等价</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>jQuery为nextAll选择器提供了一个等价的方法nextAll()：</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$(</span><span class="string">'#box ~ p'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);<span class="regexp">//</span>后面所有同级节点</span><br><span class="line"><span class="variable">$(</span><span class="string">'#box'</span>).nextAll(<span class="string">'p'</span>).css(<span class="string">'color'</span>, <span class="string">'red'</span>); <span class="regexp">//</span>和 nextAll 选择器等价</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#box ~ p'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);<span class="comment">//后面所有同级节点</span></span><br><span class="line">$(<span class="string">'#box'</span>).nextAll(<span class="string">'p'</span>).css(<span class="string">'color'</span>, <span class="string">'red'</span>); <span class="comment">//和 nextAll 选择器等价</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><strong>需要注意的是：</strong></p>
@@ -984,24 +994,24 @@ jQuery选择器，若未作特别说明，获取的都是元素集合。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">4</span>
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

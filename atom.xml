@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-03-28T06:31:48.828Z</updated>
+  <updated>2016-07-03T13:12:37.746Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -14,6 +14,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>思想汇报</title>
+    <link href="http://guowenfh.github.io/2016/07/03/thoughtReport-2016-07-03/"/>
+    <id>http://guowenfh.github.io/2016/07/03/thoughtReport-2016-07-03/</id>
+    <published>2016-07-03T09:14:29.000Z</published>
+    <updated>2016-07-03T13:12:37.746Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;闲来无事，翻了翻朋友圈，看到自己年初定下的几个小目标，突然想到原来王自如的思想汇报，我觉得自己也应该要反思一下自己，正好写下来做一个沉淀。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;时间真快啊，到写博客的时候才发现上一篇博客还是三月份在广州实习的时候写的，到今天已经有96天了。沉默了那么长一段时间，也并没有憋什么大招，不是太满意，现在重新开始写，最低产量一个星期一篇吧，不过什么都可以写，都是自己心境的一个记录。&lt;/p&gt;
+&lt;p&gt;正好2016年已经过去一半了，那就先从年初定下的目标开始说起吧&lt;/p&gt;
+&lt;h3 id=&quot;说说目标&quot;&gt;&lt;a href=&quot;#说说目标&quot; class=&quot;headerlink&quot; title=&quot;说说目标&quot;&gt;&lt;/a&gt;说说目标&lt;/h3&gt;&lt;p&gt;还记得当时是15年最后一天，本来东拼西凑写了千把字的总结，因为太散就只留下了下面这几个目标：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;前端实习，答辩，工作。&lt;/li&gt;
+&lt;li&gt;前端技术与编程思想的学习。&lt;/li&gt;
+&lt;li&gt;继续消除自卑心理，提升自信，积极面对。&lt;/li&gt;
+&lt;li&gt;多看书，先定个最低目标吧，30本。&lt;/li&gt;
+&lt;li&gt;写作表达，开口说话，冷场说话，脸皮薄也要说话，挨打也要说话。&lt;/li&gt;
+&lt;li&gt;尽心尽力把每一件事情最好，但求问心无愧。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;半年时间，对自己不够满意，但也算是完成了一些吧，如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;结束广州的前端实习，到重庆的毕业答辩，再到现在杭州的前端工作，辗转几个地方，第一个目标算是完成了。&lt;/li&gt;
+&lt;li&gt;书这方面，无营养的网文看了不少，正儿八经的书就有点惨不忍睹了，看完的有：《大学之路（上、下册）》、《Web全栈开发师的自我修养》、《自卑与超越》、《慕课革命》。确实完成的不像话，后面这半年得加油了，书买回来就要看，自己定下的目标还是要去完成&lt;/li&gt;
+&lt;li&gt;其他的几个目标其实说的比较泛泛，不是太好评价。&lt;ul&gt;
+&lt;li&gt;前端技术和编程思想方面，其实个人觉得进步不多，不过在和老友一起做一个外包项目之后，明白以及确定以解决问题为完成工作的第一要务，而后再去考虑其他的种种因素，这也是一个进步吧！&lt;/li&gt;
+&lt;li&gt;关于自卑和说话，现在已经好很多了，在分享与提出质疑中继续加油吧！大不了就是挨打不是么？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;尽心尽力把每一件事情最好，但求问心无愧。&lt;/strong&gt;，这个继续加油吧！&lt;/p&gt;
+&lt;p&gt;不知不觉中学习前端到这个月已经整整一年时间，算是正式跨入了互联网的行当里面。&lt;/p&gt;
+&lt;p&gt;其实第一次接触编程是大一，当时买了本C语言的书，对着教程就开始学，然后…就从入门到放弃了，直到去年再次想学习编程，接触到前端，因为易入门、浏览器的直观显示（至今我还更喜欢调界面，为了1px耗上个半天，毕竟处女座嘛）、再到了解到响应式网页开发的强大，才真正的喜欢上了编程。前路漫漫，继续加油！&lt;/p&gt;
+&lt;h3 id=&quot;思想和感悟&quot;&gt;&lt;a href=&quot;#思想和感悟&quot; class=&quot;headerlink&quot; title=&quot;思想和感悟&quot;&gt;&lt;/a&gt;思想和感悟&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;其实每次写博客都希望自己写的很好，写一些别人没有写过的东西出来，但是现在还没达到那样的水平，然后一味的想，导致根本没有产出。其实产出可以是对自己的，你把别人的东西学会、用出来，把过程记录下来，然后学到的东西不就是自己的了么？所以现在改变策略了，事无巨细，我更多的可能会把博客当成笔记来使用，只是把记的笔记使用讲述的方式来帮助我理解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;这半年看书确实看的有点少了，当初刚学前端的时候，学校安排到医院实习，除去正常的医院工作外，在办公室就是看书了。哦，不对，抄书。css一个一个属性抄过去，js秘密花园抄了一遍，结果后来开始找实习之后就没有这样了，看博客、敲代码。做了很多重复的事情，现在要改变策略了，又在知乎上看到CSS魔法在半年前对我说的：&lt;code&gt;疯狂啃书，野蛮生长！&lt;/code&gt;，这半年没这样做到，就像乔老爷子说的那句话 &lt;code&gt;Stay Hungry. Stay Foolish.&lt;/code&gt;，保持这种饥饿感，保持一种初学者的心态， 那么下半年就要加油了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;想得太多，做的太少，可能真的是我一个特别需要去改进的地方吧，就像完成工作一样，首先一定是要把工作完成，然后再想着怎么去优化，改进。在这个新型技术一浪接着一浪的时代，一定要快速开发，功能都没有完成，想着优化有什么用呢?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;质疑和沟通很重要，有什么问题在尝试过后，解决不了就和别人沟通，说不定是别人的问题，或者别人可能很轻松的帮你解决，记得把问题的解决记录下来。不要一个人闷着，做太多的额外功，等到别人催你之后再去和别人沟通，这时，项目的进度就被你拉下来了，这样不好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;做事情积极主动一点，手上工作完成了就想想能不能优化，和同事一起商量一下有没有更好的解决方案，同事那边有什么是你能帮上忙的，不要被动的被推着走，积极主动点没错的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;记下这句可以警醒的话&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这才是真正的人生，每个人都按照惯性进步或者滑落，更多是在煮沸温水中逐渐死去的青蛙，愚昧无知到连跳出去的欲望都欠奉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;都快130了，这么胖你能忍? 多跑步健身减肥，健康是最大的本钱，平安是福，对人对己都是。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今天就到这，最重要的是：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;坚持去坚持。&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;闲来无事，翻了翻朋友圈，看到自己年初定下的几个小目标，突然想到原来王自如的思想汇报，我觉得自己也应该要反思一下自己，正好写下来做一个沉淀。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;时间真快啊，到写博客的时候才发现上一篇博客还是三月份在广州实习的时
+    
+    </summary>
+    
+      <category term="生活" scheme="http://guowenfh.github.io/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="思想汇报" scheme="http://guowenfh.github.io/tags/%E6%80%9D%E6%83%B3%E6%B1%87%E6%8A%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>webpack入坑之旅（六）配合vue-router实现SPA</title>
@@ -447,7 +522,7 @@
     <link href="http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/"/>
     <id>http://guowenfh.github.io/2016/03/01/Bootstrap-06-other-more/</id>
     <published>2016-02-29T17:41:42.000Z</published>
-    <updated>2016-03-01T03:19:19.465Z</updated>
+    <updated>2016-07-03T09:18:59.354Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;博客之外&lt;/p&gt;
@@ -568,7 +643,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -580,7 +655,7 @@
     <link href="http://guowenfh.github.io/2016/01/30/Bootstrap-05-navbar-pagination/"/>
     <id>http://guowenfh.github.io/2016/01/30/Bootstrap-05-navbar-pagination/</id>
     <published>2016-01-30T15:12:50.000Z</published>
-    <updated>2016-03-01T02:57:55.630Z</updated>
+    <updated>2016-07-03T09:19:00.009Z</updated>
     
     <content type="html">&lt;h2 id=&quot;导航条&quot;&gt;导航条&lt;/h2&gt;&lt;p&gt;导航条（navbar）和我们在上一个笔记中介绍的导航（nav）相比，就多了一个&lt;strong&gt;“条”&lt;/strong&gt;字。其实在Bootstrap框架中他们有着一定的区别。&lt;br&gt;在导航条(navbar)中有一个背景色、而且导航条可以是纯链接（类似导航），也可以是表单，还有就是表单和导航一起结合等多种形式。它们在移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式。&lt;/p&gt;
 &lt;h3 id=&quot;基础导航条&quot;&gt;基础导航条&lt;/h3&gt;&lt;p&gt;实际上，导航条和导航在外观上的差别并不是那么的大，但是在实际使用中导航条要比导航复杂得多。下面就来实现一个最基础的导航条。&lt;/p&gt;
@@ -670,7 +745,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -682,7 +757,7 @@
     <link href="http://guowenfh.github.io/2016/01/30/Bootstrap-04-dropdown-btn-nav/"/>
     <id>http://guowenfh.github.io/2016/01/30/Bootstrap-04-dropdown-btn-nav/</id>
     <published>2016-01-29T17:23:36.000Z</published>
-    <updated>2016-01-30T16:08:55.495Z</updated>
+    <updated>2016-07-03T09:19:00.609Z</updated>
     
     <content type="html">&lt;p&gt;我们接下来要学习的东西呢，是Bootstrap为我们提供的一些组件，这些组件的使用非常简单，可以方便快捷帮助我们搭建网站，并且能达到一个不错的显示效果。我们最需要注意的就是：&lt;strong&gt;HTML的结构&lt;/strong&gt;和bootstrap提供&lt;strong&gt;添加到结构上的类以及属性&lt;/strong&gt;。&lt;br&gt;这些组件的交互功能是依赖于jQuery库实现的，所以还必须引入jQuery.js，且必须在Bootstrap.js之前。正式上线的话直接使用压缩版本就可以了如下：&lt;/p&gt;
 &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;../js/jquery-min-1.11.3.js&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;../js/bootstrap.min.js&quot;&lt;/span&gt;&amp;gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -770,7 +845,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -782,7 +857,7 @@
     <link href="http://guowenfh.github.io/2016/01/28/Bootstrap-03-Grid/"/>
     <id>http://guowenfh.github.io/2016/01/28/Bootstrap-03-Grid/</id>
     <published>2016-01-27T16:49:03.000Z</published>
-    <updated>2016-01-30T16:08:48.243Z</updated>
+    <updated>2016-07-03T09:19:01.016Z</updated>
     
     <content type="html">&lt;h2 id=&quot;实现原理&quot;&gt;实现原理&lt;/h2&gt;&lt;p&gt;栅格系统是Bootstrap中的核心，正是因为栅格系统的存在，Bootstrap才能有着如此强大的响应式布局方案。下面是官方文档中的解说：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -906,7 +981,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -918,7 +993,7 @@
     <link href="http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/"/>
     <id>http://guowenfh.github.io/2016/01/18/Bootstrap-02-form/</id>
     <published>2016-01-18T15:26:45.000Z</published>
-    <updated>2016-01-28T06:46:27.480Z</updated>
+    <updated>2016-07-03T09:19:01.422Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;关于表单的应用自然不需要多说，只要您的的网站可以用户登录，那么不可能不用到表单！表单主要功能是用来与用户做交流的一个网页控件，JavaScript发明之初最大的作用也就是用来进行表单操作。所以表单是每一个前端开发者必须要熟练掌握的东西。&lt;/p&gt;
@@ -1048,7 +1123,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -1060,7 +1135,7 @@
     <link href="http://guowenfh.github.io/2016/01/18/Bootstrap-01-typesetting/"/>
     <id>http://guowenfh.github.io/2016/01/18/Bootstrap-01-typesetting/</id>
     <published>2016-01-18T05:40:46.000Z</published>
-    <updated>2016-01-18T05:57:37.692Z</updated>
+    <updated>2016-07-03T09:19:01.826Z</updated>
     
     <content type="html">&lt;h2 id=&quot;1-_标题&quot;&gt;1. 标题&lt;/h2&gt;&lt;p&gt;在Bootstrap中使用标题的方式和常规html一样：从&lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;到&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt;分别从大到小安排标题元素，只不过在Bootstrap中重新设置了其默认样式，从源码中可以看到有如下共性：&lt;/p&gt;
 &lt;p&gt;字体颜色与字体样式继承自父元素，字体粗细为500，且行高全部设为1.1（也就是font-size的1.1倍）&lt;/p&gt;
@@ -1193,7 +1268,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -1205,7 +1280,7 @@
     <link href="http://guowenfh.github.io/2016/01/17/Bootstrap-00-summary/"/>
     <id>http://guowenfh.github.io/2016/01/17/Bootstrap-00-summary/</id>
     <published>2016-01-17T09:26:06.000Z</published>
-    <updated>2016-01-17T10:49:17.791Z</updated>
+    <updated>2016-07-03T09:19:27.642Z</updated>
     
     <content type="html">&lt;h3 id=&quot;什么是Bootstrap？&quot;&gt;什么是Bootstrap？&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;Bootstrap 是由Twitter推出的一个用于快速开发 Web 应用程序和网站的前端框架。&lt;/li&gt;
@@ -1241,7 +1316,7 @@
     
     </summary>
     
-      <category term="前端技术" scheme="http://guowenfh.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+      <category term="Bootstrap" scheme="http://guowenfh.github.io/categories/Bootstrap/"/>
     
     
       <category term="Bootstrap" scheme="http://guowenfh.github.io/tags/Bootstrap/"/>
@@ -1858,93 +1933,6 @@
     
     
       <category term="Ajax" scheme="http://guowenfh.github.io/tags/Ajax/"/>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery入门笔记之（四）动画效果</title>
-    <link href="http://guowenfh.github.io/2016/01/01/jQuery-04-animation/"/>
-    <id>http://guowenfh.github.io/2016/01/01/jQuery-04-animation/</id>
-    <published>2016-01-01T08:29:11.000Z</published>
-    <updated>2016-01-01T08:33:01.846Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;jQuery自带动画效果&quot;&gt;jQuery自带动画效果&lt;/h2&gt;&lt;h3 id=&quot;一-_显示、隐藏&quot;&gt;一. 显示、隐藏&lt;/h3&gt;&lt;p&gt;jQuery中&lt;code&gt;.show()&lt;/code&gt;为显示方法，&lt;code&gt;.hide()&lt;/code&gt;为隐藏方法。&lt;br&gt;在无参数的时候，只是硬性的显示内容和隐藏内容。就不用代码来演示了，&lt;code&gt;.hide()&lt;/code&gt;方法其实就是把对象的css设为&lt;code&gt;display：none&lt;/code&gt;；而&lt;code&gt;.show()&lt;/code&gt;方法会保留原来的display值，并进行设置。但是在一些场景中会有所改变，在后面进行说明）。&lt;br&gt;这两个方法都可以带参数。&lt;/p&gt;
-&lt;p&gt;先来说明第一个参数：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;第一种用法是传入数字，为毫秒数，表示动画过渡效果的时间。里面同时富含了匀速变大变小，以及透明度变换。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;show&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;显示&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;hide&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;隐藏&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;块&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;.show&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).show(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//显示用了一秒&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;span class=&quot;comment&quot;&gt;//可以看到很明显的动画过渡效果。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;.hide&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).hide(&lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol&gt;
-&lt;li&gt;第二种用法是传入一个字符串。”slow”、”normal”和”fast”，分别对应600毫秒、400毫秒和200毫秒。在传入空字符串或其他字符串参数时，默认为400毫秒。&lt;/li&gt;
-&lt;li&gt;传入一个对象，后面的参数就不能填了，都在对象中。这个比较强大，整合了&lt;code&gt;show()&lt;/code&gt;方法的多种参数实现效果外，还有一些其他的方法，比如可以动画执行中的状态，来执行函数。比较复杂，而且日常使用的话，现在这个就已经够了，在这里并不做讲述，有兴趣的可以自己参考手册。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;特别注意&lt;/strong&gt;：在传入了速度之后，内联元素inline，隐藏显示过后会变成内联块，inline-block。假设你给一个内联元素的css中设置了宽高，本来不生效，但是在执行隐藏显示后宽高生效&lt;/p&gt;
-&lt;p&gt;第二个参数：为可选参数，easing运动方式，这个参数，大部分参数值需要通过插件来使用，以后再来讲解。自带的参数有两个：”swing”(缓动)、”linear”(匀速)，不填时，默认为”swing”。（注意这里传入一个错误参数，会报错）&lt;/p&gt;
-&lt;p&gt;第三个参数：可选，回调函数，第一个动画执行完毕后执行，实现链式动画。&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;show&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;显示&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;hide&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;隐藏&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;一&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;二&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;三&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;四&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;.show&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;//链式动画，递归自调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     $(&lt;span class=&quot;string&quot;&gt;&#39;.test&#39;&lt;/span&gt;).first().show(&lt;span class=&quot;string&quot;&gt;&#39;fast&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;testShow&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).next(&lt;span class=&quot;string&quot;&gt;&quot;.test&quot;&lt;/span&gt;).show(&lt;span class=&quot;string&quot;&gt;&#39;fast&#39;&lt;/span&gt;, testShow);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;);&lt;span class=&quot;comment&quot;&gt;//注意next中的限制条件，不然会干扰其他的元素，执行该函数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;.hide&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     $(&lt;span class=&quot;string&quot;&gt;&#39;.test&#39;&lt;/span&gt;).last().hide(&lt;span class=&quot;string&quot;&gt;&#39;fast&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).prev(&lt;span class=&quot;string&quot;&gt;&quot;.test&quot;&lt;/span&gt;).hide(&lt;span class=&quot;string&quot;&gt;&#39;fast&#39;&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;arguments&lt;/span&gt;.callee);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       &amp;#125;);&lt;span class=&quot;comment&quot;&gt;//这里只是展现有arguments.callee这种方式，并不推荐使用，建议使用函数递归自调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;我们在使用&lt;code&gt;.show()&lt;/code&gt;和&lt;code&gt;.hide()&lt;/code&gt;的时候，如果需要一个按钮切换操作，需要进行一些条件判&lt;br&gt;断。而 jQuery 提供给我们一个类似功能的独立方法：&lt;code&gt;.toggle()&lt;/code&gt;。使用方法一样。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;.toggle&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;).toggle(&lt;span class=&quot;string&quot;&gt;&quot;fast&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;二-_滑动、卷动&quot;&gt;二. 滑动、卷动&lt;/h3&gt;&lt;p&gt;jQuery 提供了一组改变元素高度的方法：&lt;code&gt;.slideUp()&lt;/code&gt;、&lt;code&gt;.slideDown()&lt;/code&gt;和&lt;code&gt;.slideToggle()&lt;/code&gt;。顾名思义，向上收缩(卷动)和向下展开(滑动)。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.toggle&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;).slideToggle();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;注意：滑动、卷动效果和显示、隐藏效果一样，具有相同的参数。不展开讲&lt;/p&gt;
-&lt;h3 id=&quot;三-_淡入、淡出&quot;&gt;三. 淡入、淡出&lt;/h3&gt;&lt;p&gt;jQuery 提供了一组专门用于透明度变化的方法：&lt;code&gt;.fadeIn()&lt;/code&gt;和&lt;code&gt;.fadeOut()&lt;/code&gt;，分别表示淡入、&lt;br&gt;淡出，当然还有一个自动切换的方法：&lt;code&gt;.fadeToggle()&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;但是上面三个透明度方法只能是从 0 到 100，或者从 100 到 0，如果我们想设置指定值就没&lt;br&gt;有办法了。而 jQuery 为了解决这个问题提供了&lt;code&gt;.fadeTo()&lt;/code&gt;方法，使透明度到达指定值：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;.toggle&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).fadeToggle(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;.to&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).fadeTo(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.3&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//表示30，jQuery中使用的是百分比的形式来设置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注意：最先点击&lt;code&gt;to&lt;/code&gt;透明度变成0.3，再点击&lt;code&gt;toggle&lt;/code&gt;，第一次点击隐藏，第二次点击显示透明度为0.3！（回到原有设置）&lt;/p&gt;
-&lt;p&gt;淡入、淡出和上面的显示、隐藏效果一样，具有相同参数&lt;/p&gt;
-&lt;h2 id=&quot;自定义动画&quot;&gt;自定义动画&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;jQuery提供了上面几种简单常用的固定动画方面我们使用。但有些时候，这些简单动画无法满足我们更加复杂的需求。这个时候，jQuery 提供了一个&lt;code&gt;.animate()&lt;/code&gt;方法来创建我们的自定义动画，满足更多复杂多变的要求。&lt;br&gt;强烈建议先看我的&lt;a href=&quot;http://guowenfh.github.io/2015/12/21/JS-Animated-Frames/&quot;&gt;《JavaScript完美运动框架的进阶之旅》&lt;/a&gt;，使用JS基本实现了自定义动画，只不过jQuery的更加全面完善，当然也更加复杂。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;必传参数只有一个，对象，实现动画：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).animate(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        width: &lt;span class=&quot;string&quot;&gt;&quot;200px&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        height: &lt;span class=&quot;string&quot;&gt;&quot;500px&quot;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这段代码已经实现了多重动画同步运动的效果，使用键值对的方式，来表明运动动画终点的位置。在实现上下左右移动时，需要结合CSS，把物体属性设置绝对定位！&lt;/p&gt;
-&lt;p&gt;第二个参数，可选，使用字符串时如同上面一样的3个值表示不同的时间（默认400ms），数字类型时，使用毫秒方式。直接跟在第一个参数之后就好&lt;br&gt;第三个参数，可选，也和上面一样，easing运动方式，自带的参数有两个：”swing”(缓动)、”linear”(匀速)，不填时，默认为”swing”。（注意这里传入一个错误参数，会报错）&lt;br&gt;第四个参数，可选，回调函数，在动画执行完毕后执行，可实现链式动画。&lt;/p&gt;
-&lt;p&gt;下面进行一些特殊的说明：&lt;/p&gt;
-&lt;p&gt;自定义动画中，每次开始运动都必须是初始位置或初始状态，而有时我们想通过当前位置或状态下再进行动画。jQuery 提供了自定义动画的累加、累减功能。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;button&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;#box&quot;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;comment&quot;&gt;//必须先设置CSS的绝对定位。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left:&lt;span class=&quot;string&quot;&gt;&quot;+=100px&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;主要是说一下自定义动画中的链式动画，有两种形式：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在回调函数中再执行一个动画，这个没什么好说的。&lt;/li&gt;
-&lt;li&gt;通过连缀或顺序来实现链式动画。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;通过依次顺序实现链式动画&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;left&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;100px&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;top&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;100px&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;width&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;注意：如果不是同一个元素，就会实现同步动画&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;通过连缀实现链式动画&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;left&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;100px&#39;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;top&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;100px&#39;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    .animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;width&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;链式动画进阶&quot;&gt;链式动画进阶&lt;/h2&gt;&lt;p&gt;之前我们已经可以实现链式动画了，如果是同一个元素，可以依次顺序或连缀调用。如果是不同元素，可以使用回调函数。但有时链式动画太多，回调函数的可读性大大降低。为此，jQuery 提供了一组专门用于链式动画的方法。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$(&amp;#39;#box&amp;#39;).slideUp(&amp;#39;slow&amp;#39;).slideDown(&amp;#39;slow&amp;#39;).css(&amp;#39;background&amp;#39;, &amp;#39;orange&amp;#39;);&lt;/code&gt;这段代码中，css方法会在一开始就执行。因为动画方法可以用连缀来实现依次排列，但是css方法不是，会在一开始传入队列之前。如何解决呢？回调函数当然可以实现。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).slideUp(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;).slideDown(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).css(&lt;span class=&quot;string&quot;&gt;&#39;background&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;orange&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;这当然没问题，但是那并不是我们应该做的，因为这样可读性太差了，链式动画一多呢？原本的动画都不清晰了吧？jQuery为我们实现了一个类似回调函数的方法：&lt;code&gt;.queue()&lt;/code&gt;。jQuery 的&lt;code&gt;.queue()&lt;/code&gt;的回调函数可以传递一个参数，这个参数是 next 函数，在结尾处调用这个 next()方法即可再连缀执行列队动画。（不这样使用的话，后续动画效果无法实现）&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;//在同一个元素直接这样写就可以了。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).slideUp(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                .slideDown(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                .queue(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;next&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    $(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).css(&lt;span class=&quot;string&quot;&gt;&#39;background&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;orange&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    &lt;span class=&quot;comment&quot;&gt;//next();//animate的动画效果不会生效，因为把next()注释掉了。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                .animate(&amp;#123;&lt;span class=&quot;comment&quot;&gt;//记得设置绝对定位&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    height: &lt;span class=&quot;string&quot;&gt;&quot;200px&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                    left: &lt;span class=&quot;string&quot;&gt;&quot;100px&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;code&gt;.queue()&lt;/code&gt;方法还有一个功能，就是可以得到当前链式动画剩余的长度（包括当前的动画）。fx 是默认链条的参数。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//把上面的代码的第一个动画改装成如下模样时，会弹出4。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).slideUp(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;  (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    alert($(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).queue(&lt;span class=&quot;string&quot;&gt;&#39;fx&#39;&lt;/span&gt;).length);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;jQuery 还提供了一个清理链式动画的功能方法：&lt;code&gt;.clearQueue()&lt;/code&gt;。把它放入一个链式的回调函数或&lt;code&gt;.queue()&lt;/code&gt;方法里，就可以把剩下未执行的链条给截断。&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//清理后续链式调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).slideDown(&lt;span class=&quot;string&quot;&gt;&#39;slow&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;$(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;).clearQueue()&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;动画相关方法与全局属性&quot;&gt;动画相关方法与全局属性&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;停止动画&lt;/strong&gt;&lt;br&gt;有很多时候，我们需要停止正在运行中的动画，jQuery中为此提供了一个&lt;code&gt;.stop()&lt;/code&gt;方法。&lt;br&gt;它有三个&lt;strong&gt;可选参数&lt;/strong&gt;：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;queue        类型: String   停止链式动画的名称。（比较少用到，若存在，后两个参数都是指向该链式动画）&lt;/li&gt;
-&lt;li&gt;clearQueue类型: Boolean一个布尔值，指示是否取消后续的链式动画。默认 false.&lt;/li&gt;
-&lt;li&gt;jumpToEnd 类型: Boolean一个布尔值指示是否当前动画立即完成。默认false.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在无参数，且为链式动画时，调用&lt;code&gt;.stop()&lt;/code&gt;方法，只是立即停止当前正在进行的动画，后续动画继续执行。&lt;/li&gt;
-&lt;li&gt;传入一个true时，立即停止动画，并且清空后续所有动画。&lt;/li&gt;
-&lt;li&gt;传入2个true时，立即停止，并且跳转到当前动画的结束位置，后续动画也不再执行。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;代码如下：有兴趣的自行测试&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;start&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;动画&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;stop&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;停止&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;position: absolute;height: 50px;width: 50px;background-color: #0B71E6;top:30px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;12&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;.start&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&#39;div&#39;&lt;/span&gt;).animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;left&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 .animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;top&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 .animate(&amp;#123; &lt;span class=&quot;string&quot;&gt;&#39;width&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                 .animate(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;height&#39;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&#39;300px&#39;&lt;/span&gt;&amp;#125;, &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;.stop&quot;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        $(&lt;span class=&quot;string&quot;&gt;&quot;div&quot;&lt;/span&gt;).stop(&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;延迟动画&lt;/strong&gt;&lt;br&gt;有时在执行动画或链式动画时，需要在运动之前有延迟执行，jQuery 为此提供了&lt;code&gt;.delay()&lt;/code&gt;方法。参数为延迟时间，单位为毫秒数。这个方法可以在动画之前设置延迟，也可 、以在列队动画中间加上。直接在上面代码任意地方加都可以，比较简单，自行测试吧。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;获取正在进行的动画&lt;/strong&gt;&lt;br&gt;在选择器的那篇文章中中，我们提到过一个过滤器&lt;code&gt;:animated&lt;/code&gt;，这个过滤器可以判断出当前运动的动画是哪个元素。通过这个特点，我们可以避免由于用户快速在某个元素执行动画时，由于动画积累而导致的动画和用户的行为不一致。&lt;/p&gt;
-&lt;p&gt;对上面代码进行一些改造,将原div进行复制，添加到其后，给原div添加一个id并且在动画效果中改为该元素运动&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;.stop&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;div:animated&#39;&lt;/span&gt;).stop().css(&lt;span class=&quot;string&quot;&gt;&#39;background&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//可以看到只有运动的div背景变色，而未移动的div不改变背景色。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;动画全局属性&lt;/strong&gt;&lt;br&gt;jQuery 提供了两种全局设置的属性，分别为：&lt;code&gt;$.fx.interval&lt;/code&gt;，设置每秒运行的帧数；&lt;code&gt;$.fx.off&lt;/code&gt;，关闭页面上所有的动画。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$.fx.interval&lt;/code&gt; 属性可以调整动画每秒的运行帧数，默认为 13 毫秒。数字越小越流畅，但可能影响浏览器性能。&lt;br&gt;设置运行帧数为 1000 毫秒：&lt;code&gt;$.fx.interval = 1000;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;设置动画为关闭 true：&lt;code&gt;$.fx.off = true;&lt;/code&gt;默认为false&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;jQuery自带动画效果&quot;&gt;jQuery自带动画效果&lt;/h2&gt;&lt;h3 id=&quot;一-_显示、隐藏&quot;&gt;一. 显示、隐藏&lt;/h3&gt;&lt;p&gt;jQuery中&lt;code&gt;.show()&lt;/code&gt;为显示方法，&lt;code&gt;.hide()&lt;/code&gt;为隐藏方法。&lt;br&gt;在无参数
-    
-    </summary>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
-    
     
       <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
     
