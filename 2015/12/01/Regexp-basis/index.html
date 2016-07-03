@@ -372,7 +372,7 @@
 <li>特殊的直接量语法来创建，定义为包含在一对斜杠（/）之间的字符</li>
 </ol>
 <p>例：<code>var reg = /s$/;</code>  , <code>var reg = new RegExp(s$);</code><br>两者效果完全相同，用来匹配所有以字母“s”结尾的字符串。</p>
-<h2 id="“文本模式”的正则表达式语法">“文本模式”的正则表达式语法</h2><h3 id="1-直接量字符">1.直接量字符</h3><blockquote>
+<h2 id="“文本模式”的正则表达式语法"><a href="#“文本模式”的正则表达式语法" class="headerlink" title="“文本模式”的正则表达式语法"></a>“文本模式”的正则表达式语法</h2><h3 id="1-直接量字符"><a href="#1-直接量字符" class="headerlink" title="1.直接量字符"></a>1.直接量字符</h3><blockquote>
 <p>非字母的字符匹配，这些字符需要通过反斜线（\）作前缀进行转义.</p>
 </blockquote>
 <table>
@@ -430,7 +430,7 @@
 </ul>
 <p><code>^</code>, <code>$</code>, <code>.</code>, <code>*</code>, <code>+</code>, <code>?</code>, <code>=</code>, <code>!</code>, <code>:</code>, <code>|</code>, <code>\</code>, <code>/</code>,<code>(</code>,<code>)</code>,<code>[</code>,<code>]</code>,<code>{</code>, <code>}</code> </p>
 <p>想在正则表达式中使用这些字符的直接量进行匹配，则必须使用前缀”\”，其他标点符号(比如@和引号)无特殊含义，在正则表达式中按照字面含义进行匹配。</p>
-<h3 id="2-字符类-">2.字符类.</h3><p>方括号,或,范围</p>
+<h3 id="2-字符类"><a href="#2-字符类" class="headerlink" title="2.字符类."></a>2.字符类.</h3><p>方括号,或,范围</p>
 <blockquote>
 <p>将直接量字符单独放进方括号内就组成了字符类。一个字符类可以匹配它包含的任意字符。<strong>字符类可以使用连字符来表示字符范围。</strong></p>
 </blockquote>
@@ -492,7 +492,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-_重复">3. 重复</h3><blockquote>
+<h3 id="3-重复"><a href="#3-重复" class="headerlink" title="3. 重复"></a>3. 重复</h3><blockquote>
 <p>用以指定字符重复的标记</p>
 </blockquote>
 <table>
@@ -550,7 +550,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-选择-分组和引用">4.选择-分组和引用</h3><blockquote>
+<h3 id="4-选择-分组和引用"><a href="#4-选择-分组和引用" class="headerlink" title="4.选择-分组和引用"></a>4.选择-分组和引用</h3><blockquote>
 <p>包括：指定选择项，自表达式分组，和引用前一子表达式的特殊字符</p>
 </blockquote>
 <ul>
@@ -596,7 +596,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="5-指定匹配位置">5.指定匹配位置</h3><blockquote>
+<h3 id="5-指定匹配位置"><a href="#5-指定匹配位置" class="headerlink" title="5.指定匹配位置"></a>5.指定匹配位置</h3><blockquote>
 <p>我们称这些元素为正则表达式的锚,它们将模式定位在搜索字符串的特定位置上.</p>
 </blockquote>
 <table>
@@ -632,7 +632,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-修饰符">6.修饰符</h3><blockquote>
+<h3 id="6-修饰符"><a href="#6-修饰符" class="headerlink" title="6.修饰符"></a>6.修饰符</h3><blockquote>
 <p>说明高级匹配的规则,放在”/“符号之外,第二条斜线后</p>
 </blockquote>
 <table>
@@ -663,21 +663,21 @@
 </ul>
 </li>
 </ul>
-<h2 id="用于模式匹配的string方法">用于模式匹配的string方法</h2><blockquote>
+<h2 id="用于模式匹配的string方法"><a href="#用于模式匹配的string方法" class="headerlink" title="用于模式匹配的string方法"></a>用于模式匹配的string方法</h2><blockquote>
 <p>正则表达式的作用就是用来解析字符串</p>
 </blockquote>
-<h3 id="1-_search():">1. <code>search()</code>:</h3><ul>
+<h3 id="1-search"><a href="#1-search" class="headerlink" title="1. search():"></a>1. <code>search()</code>:</h3><ul>
 <li>查找字符串,接受一个参数为正则表达式,返回返回一个与之匹配的子串的起始位置,若未找到返回-1.</li>
 <li>例: <code>JavaScript.search(/script/i);//返回4</code></li>
 <li><code>search()</code>方法不支持全局属性检索,所以会忽略修饰符g</li>
 </ul>
-<h3 id="2-_replace():">2. <code>replace()</code>:</h3><ul>
+<h3 id="2-replace"><a href="#2-replace" class="headerlink" title="2. replace():"></a>2. <code>replace()</code>:</h3><ul>
 <li>用以执行检索与替换操作,接受两个参数,第一个参数是一个正则,第二个是要进行替换的字符串</li>
 <li>若第一个参数是字符串,<code>replace()</code>则会直接搜索这个字符串</li>
 <li>若替换字符串中出现了<strong>$加数字</strong>,那么<code>replace()</code>将用与指定的子表达式相匹配的文本来替换这两个字符.</li>
 </ul>
-<p><strong>例:</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">text.replace(<span class="regexp">/javascript/gi</span>,<span class="string">"JavaScript"</span>);<span class="comment">//将所有不区分大小写的javascript都替换成,大小写正确的JavaScript.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一段引用文本起始于引号,结束与引号.</span></span><br><span class="line"><span class="comment">//中间的内容区域,不能包含引号</span></span><br><span class="line"><span class="keyword">var</span> quote = <span class="regexp">/"([^"]*)"/g</span>;</span><br><span class="line"><span class="comment">//引用中文半角引号替换英文引号,同时要保持引号之间的内容(储存在$1中)没有被修改.</span></span><br><span class="line">text.replace(quote,<span class="string">'“$1”'</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-_match()">3. <code>match()</code></h3><ul>
+<p><strong>例:</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">text.replace(<span class="regexp">/javascript/gi</span>,<span class="string">"JavaScript"</span>);<span class="comment">//将所有不区分大小写的javascript都替换成,大小写正确的JavaScript.</span></div><div class="line"></div><div class="line"><span class="comment">//一段引用文本起始于引号,结束与引号.</span></div><div class="line"><span class="comment">//中间的内容区域,不能包含引号</span></div><div class="line"><span class="keyword">var</span> quote = <span class="regexp">/"([^"]*)"/g</span>;</div><div class="line"><span class="comment">//引用中文半角引号替换英文引号,同时要保持引号之间的内容(储存在$1中)没有被修改.</span></div><div class="line">text.replace(quote,<span class="string">'“$1”'</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="3-match"><a href="#3-match" class="headerlink" title="3. match()"></a>3. <code>match()</code></h3><ul>
 <li>接受唯一一个参数,就是正则表达式,返回的是一个由匹配结果组成的数组.例:<ul>
 <li><code>&quot;1 plus 2 equals 3&quot;.match(/\d+/g);//返回[&quot;1&quot;,&quot;2&quot;,&quot;3&quot;]</code></li>
 </ul>
@@ -686,8 +686,8 @@
 <li>因此，如果macth()返回一个数组a，那么a[0]存放的是完整的匹配，a[1]存放的是与第一个圆括号括起来的表达式相匹配的子串，以此类推。为了和方法replace()保持以后，a[n]存放的是$n的内容。</li>
 <li>例:解析一个url</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="regexp">/(\w+):\/\/([\w.]+)\/(\S*)/</span>;</span><br><span class="line"><span class="keyword">var</span> text = <span class="string">"Visit my blog at http://www.example.com/~david"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = text.match(url);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> fullurl = result[<span class="number">0</span>]; <span class="comment">//包含 "http://www.example.com/"</span></span><br><span class="line">    <span class="keyword">var</span> protocol = result[<span class="number">1</span>]; <span class="comment">//包含 "http"</span></span><br><span class="line">    <span class="keyword">var</span> host = result[<span class="number">2</span>]; <span class="comment">//包含 "www.example.com"</span></span><br><span class="line">    <span class="keyword">var</span> path = result[<span class="number">3</span>]; <span class="comment">//包含~david</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-_split()">4. <code>split()</code></h3><ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> url = <span class="regexp">/(\w+):\/\/([\w.]+)\/(\S*)/</span>;</div><div class="line"><span class="keyword">var</span> text = <span class="string">"Visit my blog at http://www.example.com/~david"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> result = text.match(url);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</div><div class="line">    <span class="keyword">var</span> fullurl = result[<span class="number">0</span>]; <span class="comment">//包含 "http://www.example.com/"</span></div><div class="line">    <span class="keyword">var</span> protocol = result[<span class="number">1</span>]; <span class="comment">//包含 "http"</span></div><div class="line">    <span class="keyword">var</span> host = result[<span class="number">2</span>]; <span class="comment">//包含 "www.example.com"</span></div><div class="line">    <span class="keyword">var</span> path = result[<span class="number">3</span>]; <span class="comment">//包含~david</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-split"><a href="#4-split" class="headerlink" title="4. split()"></a>4. <code>split()</code></h3><ul>
 <li>用以将调用它的字符串拆分为子串组成的数组,使用分隔符是<code>split()</code>的参数</li>
 <li>参数为字符串<ul>
 <li><code>&quot;123,456,789&quot;.split(&quot;,&quot;);//返回[&quot;123&quot;,&quot;456&quot;,&quot;789&quot;]</code></li>
@@ -699,13 +699,13 @@
 </ul>
 </li>
 </ul>
-<h2 id="RegExp对象">RegExp对象</h2><ul>
+<h2 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h2><ul>
 <li>RegExp对象用以创建新的RegExp对象,可接受两个参数,第二个可选.</li>
 <li>RegExp对象的第一个参数为正则表达式的主体部分,也就是<code>/...../</code>之间的文本,无论是字符串直接量,还是正则表达式都使用”\”作为转义字符的前缀.</li>
 <li>第二个可选参数为指定正则表达式的修饰符,<code>i</code>,<code>g</code>,<code>m</code>或者他们的组合.参考:文本模式的则表达式-修饰符<br>例:</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\d&#123;5&#125;"</span>,<span class="string">"g"</span>);<span class="comment">//匹配全局模式下的5个数字</span></span><br><span class="line">alert(reg.test(<span class="string">"1J2a35786"</span>));<span class="comment">//true</span></span><br><span class="line">alert(reg.test(<span class="string">"1J2a356"</span>));<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<h3 id="RegExp属性">RegExp属性</h3><table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"\\d&#123;5&#125;"</span>,<span class="string">"g"</span>);<span class="comment">//匹配全局模式下的5个数字</span></div><div class="line">alert(reg.test(<span class="string">"1J2a35786"</span>));<span class="comment">//true</span></div><div class="line">alert(reg.test(<span class="string">"1J2a356"</span>));<span class="comment">//false</span></div></pre></td></tr></table></figure>
+<h3 id="RegExp属性"><a href="#RegExp属性" class="headerlink" title="RegExp属性"></a>RegExp属性</h3><table>
 <thead>
 <tr>
 <th>属性名</th>
@@ -991,7 +991,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#“文本模式”的正则表达式语法"><span class="nav-number">1.</span> <span class="nav-text">“文本模式”的正则表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接量字符"><span class="nav-number">1.1.</span> <span class="nav-text">1.直接量字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-字符类-"><span class="nav-number">1.2.</span> <span class="nav-text">2.字符类.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_重复"><span class="nav-number">1.3.</span> <span class="nav-text">3. 重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-选择-分组和引用"><span class="nav-number">1.4.</span> <span class="nav-text">4.选择-分组和引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-指定匹配位置"><span class="nav-number">1.5.</span> <span class="nav-text">5.指定匹配位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-修饰符"><span class="nav-number">1.6.</span> <span class="nav-text">6.修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用于模式匹配的string方法"><span class="nav-number">2.</span> <span class="nav-text">用于模式匹配的string方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_search():"><span class="nav-number">2.1.</span> <span class="nav-text">1. search():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_replace():"><span class="nav-number">2.2.</span> <span class="nav-text">2. replace():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_match()"><span class="nav-number">2.3.</span> <span class="nav-text">3. match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-_split()"><span class="nav-number">2.4.</span> <span class="nav-text">4. split()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp对象"><span class="nav-number">3.</span> <span class="nav-text">RegExp对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp属性"><span class="nav-number">3.1.</span> <span class="nav-text">RegExp属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#“文本模式”的正则表达式语法"><span class="nav-number">1.</span> <span class="nav-text">“文本模式”的正则表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-直接量字符"><span class="nav-number">1.1.</span> <span class="nav-text">1.直接量字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-字符类"><span class="nav-number">1.2.</span> <span class="nav-text">2.字符类.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-重复"><span class="nav-number">1.3.</span> <span class="nav-text">3. 重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-选择-分组和引用"><span class="nav-number">1.4.</span> <span class="nav-text">4.选择-分组和引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-指定匹配位置"><span class="nav-number">1.5.</span> <span class="nav-text">5.指定匹配位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-修饰符"><span class="nav-number">1.6.</span> <span class="nav-text">6.修饰符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用于模式匹配的string方法"><span class="nav-number">2.</span> <span class="nav-text">用于模式匹配的string方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-search"><span class="nav-number">2.1.</span> <span class="nav-text">1. search():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-replace"><span class="nav-number">2.2.</span> <span class="nav-text">2. replace():</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-match"><span class="nav-number">2.3.</span> <span class="nav-text">3. match()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-split"><span class="nav-number">2.4.</span> <span class="nav-text">4. split()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RegExp对象"><span class="nav-number">3.</span> <span class="nav-text">RegExp对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RegExp属性"><span class="nav-number">3.1.</span> <span class="nav-text">RegExp属性</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -361,10 +361,10 @@ webpack入坑之旅（五）加载vue">
 <li><a href="http://guowenfh.github.io/2016/03/25/vue-webpack-05-vue/">webpack入坑之旅（五）加载vue单文件组件</a> </li>
 <li><a href="http://guowenfh.github.io/2016/03/28/vue-webpack-06-router/">webpack入坑之旅（六）配合vue-router实现SPA</a></li>
 </ul>
-<h2 id="引子">引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
+<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>在上一篇博客中我们已经成功的把简单的事情变得复杂了，把我们的只有几行代码的两个文件<code>first.js</code>、<code>entry.js</code>使用webpack进行文件打包生成了<code>bundle.js</code>。</p>
 <p><code>Webpack</code> 能做的就是这样，只能处理 JavaScript 模块。</p>
 <p>当然它如果能做的仅仅是这样，那它也就不可能这么火了=_=。所以它可以通过引入其他的<code>loader</code>，进而可以处理其它类型的文件。</p>
-<h2 id="loader介绍">loader介绍</h2><p><code>Loader</code>可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过require来加载任何类型的模块或文件，比如<code>VUE</code>、<code>JSX</code>、<code>SASS</code> 或图片。</p>
+<h2 id="loader介绍"><a href="#loader介绍" class="headerlink" title="loader介绍"></a>loader介绍</h2><p><code>Loader</code>可以理解为是模块和资源的转换器，它本身是一个函数，接受源文件作为参数，返回转换的结果。这样，我们就可以通过require来加载任何类型的模块或文件，比如<code>VUE</code>、<code>JSX</code>、<code>SASS</code> 或图片。</p>
 <p>先来看看 loader 有哪些特性？(网上复制的，不喜欢可以跳过。<a href="http://www.hubwiz.com/class/5670d0a77e7d40946afc5e65" target="_blank" rel="external">地址</a>)</p>
 <ul>
 <li><code>Loader</code>可以通过管道方式链式调用，每个<code>loader</code>可以把资源转换成任意格式并传递给下一个<code>loader</code>，但是最后一个<code>loader</code>必须返回JavaScript。</li>
@@ -378,25 +378,25 @@ webpack入坑之旅（五）加载vue">
 <li>插件可以让<code>loader</code>拥有更多特性。</li>
 <li><code>Loader</code>可以分发出附加的任意文件。</li>
 </ul>
-<h2 id="loader使用">loader使用</h2><h3 id="安装">安装</h3><p>根据上面说的<code>loader</code>的知识，就这样编译是肯定不行的，所以我们安装用来读取css文件的<code>css-loader</code>，再用 <code>style-loader</code> 把它插入到页面中。</p>
-<p>在命令行中输入：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install css-loader style-loader --save-dev</span><br></pre></td></tr></table></figure></p>
+<h2 id="loader使用"><a href="#loader使用" class="headerlink" title="loader使用"></a>loader使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>根据上面说的<code>loader</code>的知识，就这样编译是肯定不行的，所以我们安装用来读取css文件的<code>css-loader</code>，再用 <code>style-loader</code> 把它插入到页面中。</p>
+<p>在命令行中输入：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install css-loader style-loader --save-dev</div></pre></td></tr></table></figure></p>
 <p>在<code>package.json</code>中，主要是<code>devDependencies</code>这个字段有了改变：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"devDependencies": &#123;</span><br><span class="line">    "css-loader": "^0.23.1",</span><br><span class="line">    "style-loader": "^0.13.0",</span><br><span class="line">    "webpack": "^1.12.2"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">"devDependencies": &#123;</div><div class="line">    "css-loader": "^0.23.1",</div><div class="line">    "style-loader": "^0.13.0",</div><div class="line">    "webpack": "^1.12.2"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>当然你可以用一个更加方便的方式进行安装，可以直接在<code>package.json</code>中，添加相应的依赖（如上面的代码），之后的命令行中运行<code>npm intall</code>，它会自动帮我们安装相应的依赖。</p>
 <p>安装完毕。</p>
-<h3 id="加载_CSS_文件">加载 CSS 文件</h3><p>还是上一篇博客中的文件，来添加一个css文件。<code>style.css</code>,在里面添加</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加载-CSS-文件"><a href="#加载-CSS-文件" class="headerlink" title="加载 CSS 文件"></a>加载 CSS 文件</h3><p>还是上一篇博客中的文件，来添加一个css文件。<code>style.css</code>,在里面添加</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>修改我们的<code>entry.js</code>，原文件不变，添加<code>require(&quot;!style!css!./style.css&quot;);</code>,用来引入我们的css文件。</p>
 <p>我们继续编译:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack entry.js bundle.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack entry.js bundle.js</div></pre></td></tr></table></figure>
 <p>完成后，刷新我们的页面，背景颜色是不是已经变成了红色了呢？</p>
-<h3 id="扩展名自动绑定loader">扩展名自动绑定loader</h3><p>这就是我们的<code>loader</code>的使用方式了。如果每次 <code>require</code> CSS 文件的时候都要写 <code>loader</code> 前缀<code>!style!css!</code>这样的东西，显然是一件很麻烦的事情。我们需要它可以根据模块类型（扩展名）来自动绑定需要的 <code>loader</code>。</p>
+<h3 id="扩展名自动绑定loader"><a href="#扩展名自动绑定loader" class="headerlink" title="扩展名自动绑定loader"></a>扩展名自动绑定loader</h3><p>这就是我们的<code>loader</code>的使用方式了。如果每次 <code>require</code> CSS 文件的时候都要写 <code>loader</code> 前缀<code>!style!css!</code>这样的东西，显然是一件很麻烦的事情。我们需要它可以根据模块类型（扩展名）来自动绑定需要的 <code>loader</code>。</p>
 <p>来看看更简便的方式，将 <code>entry.js</code> 中的 <code>require(&quot;!style!css!./style.css&quot;)</code>修改为<code>require(&quot;./style.css&quot;)</code>，可以改变一个背景颜色让你更明显的查看到变化！然后执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack entry.js bundle.js --module-bind <span class="string">"css=style!css"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack entry.js bundle.js --module-bind <span class="string">"css=style!css"</span></div></pre></td></tr></table></figure>
 <p>。。</p>
 <p>。。。</p>
 <p>没成功对吧!<br>因为<code>!</code>在命令行中具有特殊的含义，所以我们需要对它进行转义操作。再来试试：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack ./entry.js bundle.js --module-bind <span class="string">"css=style\!css"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webpack ./entry.js bundle.js --module-bind <span class="string">"css=style\!css"</span></div></pre></td></tr></table></figure>
 <p>成功的话，应该能再次看到背景的变化。</p>
 <p>虽然这样可以将多个css文件进行编译打包，但是总感觉很是繁琐，我不想每次都运行那么一长串的命令怎么办？继续向下走吧。</p>
 
@@ -647,7 +647,7 @@ webpack入坑之旅（五）加载vue">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader介绍"><span class="nav-number">2.</span> <span class="nav-text">loader介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader使用"><span class="nav-number">3.</span> <span class="nav-text">loader使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载_CSS_文件"><span class="nav-number">3.2.</span> <span class="nav-text">加载 CSS 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展名自动绑定loader"><span class="nav-number">3.3.</span> <span class="nav-text">扩展名自动绑定loader</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-number">1.</span> <span class="nav-text">引子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader介绍"><span class="nav-number">2.</span> <span class="nav-text">loader介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loader使用"><span class="nav-number">3.</span> <span class="nav-text">loader使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载-CSS-文件"><span class="nav-number">3.2.</span> <span class="nav-text">加载 CSS 文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩展名自动绑定loader"><span class="nav-number">3.3.</span> <span class="nav-text">扩展名自动绑定loader</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
