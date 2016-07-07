@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://guowenfh.github.io/"/>
-  <updated>2016-07-03T13:21:25.589Z</updated>
+  <updated>2016-07-07T16:53:28.634Z</updated>
   <id>http://guowenfh.github.io/</id>
   
   <author>
@@ -16,11 +16,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JavaScript作用域学习笔记</title>
+    <link href="http://guowenfh.github.io/2016/07/08/JavaScript-scopeChain/"/>
+    <id>http://guowenfh.github.io/2016/07/08/JavaScript-scopeChain/</id>
+    <published>2016-07-07T16:45:23.000Z</published>
+    <updated>2016-07-07T16:53:28.634Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;无论什么语言中，作用域都是一个十分重要的概念，在JavaScript中也不例外，作用域定义了变量或者函数有权访问的范围，决定了它们各自的行为。要理解JavaScript中的作用域首先就要知道：在&lt;code&gt;let&lt;/code&gt;出现之前，JS中变量的作用域只有两种：全局作用域和局部作用域。（本文也只讨论这两种作用域）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;全局作用域&quot;&gt;&lt;a href=&quot;#全局作用域&quot; class=&quot;headerlink&quot; title=&quot;全局作用域&quot;&gt;&lt;/a&gt;全局作用域&lt;/h3&gt;&lt;p&gt;全局作用域是最外围的一个执行环境，可以在代码的任何地方访问到。在浏览器中，我们的全局作用域就是&lt;code&gt;window&lt;/code&gt;。因此在浏览器中，所有的全局变量和函数都是作为&lt;code&gt;window&lt;/code&gt;对象的属性和方法创建的。&lt;/p&gt;
+&lt;p&gt;下面就来看看全局作用域的创建方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全局变量与全局函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;doSomething&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; anotherName = &lt;span class=&quot;string&quot;&gt;&quot;小黑&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    showName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name);&lt;span class=&quot;comment&quot;&gt;//小红&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName);&lt;span class=&quot;comment&quot;&gt;//【脚本出错】&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;doSomething();&lt;span class=&quot;comment&quot;&gt;//小红---小黑&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;showName();&lt;span class=&quot;comment&quot;&gt;//【脚本出错】&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过代码可以很清楚的看出来，我在前面所说的 &lt;strong&gt;作用域定义了变量或者函数有权访问的范围&lt;/strong&gt; ，在这里我们定义了一个全局的变量&lt;code&gt;name&lt;/code&gt;与全局函数&lt;code&gt;doSomething()&lt;/code&gt;，他可以在任何地方被直接访问。但是我们又在函数内部创建了变量&lt;code&gt;anotherName&lt;/code&gt;与函数&lt;code&gt;showName()&lt;/code&gt;，通过代码中的调用情况可以发现，我们在外部调用它时提示【脚本出错】，因为他们处于局部作用域内（稍后讲），而 &lt;strong&gt;外部环境不能访问内部环境的任何变量与函数&lt;/strong&gt;。这就涉及到了作用域的概念(稍后讲)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;未声明直接定义的变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; fullName = &lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    anotherName = &lt;span class=&quot;string&quot;&gt;&quot;小黑&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(fullName)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;showName();&lt;span class=&quot;comment&quot;&gt;//小红&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName);&lt;span class=&quot;comment&quot;&gt;//小黑&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(fullName);&lt;span class=&quot;comment&quot;&gt;//【脚本出错】&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这样的情况下，变量&lt;code&gt;anotherName&lt;/code&gt;拥有全局作用域，而&lt;code&gt;fullName&lt;/code&gt;在函数外部无法访问到。（注：在高程中明确说明，不声明而直接初始化变量是错误做法，应该避免这样的情况&lt;code&gt;严格模式下，初始化未声明的变量将报错&lt;/code&gt;）&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所有window对象上的属性都具有全局作用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这个实际上在上面已经提到了：&lt;strong&gt;所有的全局变量和函数都是作为&lt;code&gt;window&lt;/code&gt;对象的属性和方法创建的。&lt;/strong&gt;，自然&lt;code&gt;window&lt;/code&gt;对象它本身所具有的属性和方法，同样是处于全局作用域，例如：&lt;code&gt;window.location&lt;/code&gt;，&lt;code&gt;window.name&lt;/code&gt;等等。&lt;/p&gt;
+&lt;h3 id=&quot;局部作用域&quot;&gt;&lt;a href=&quot;#局部作用域&quot; class=&quot;headerlink&quot; title=&quot;局部作用域&quot;&gt;&lt;/a&gt;局部作用域&lt;/h3&gt;&lt;p&gt;其实在上面的代码中，为了展示全局作用域的效果，我们就已经创造了局部作用域。局部作用域和全局作用域正好相反，局部作用域一般只在固定的代码片段内可访问到，最常见的就是函数内部，所以在很多地方就会有人把它称为函数作用域。（记住&lt;code&gt;let&lt;/code&gt;之前无块级作用域）。我们再来看一下第一段代码：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;doSomething&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; anotherName = &lt;span class=&quot;string&quot;&gt;&quot;小黑&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    showName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName);&lt;span class=&quot;comment&quot;&gt;//【脚本出错】&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;showName();&lt;span class=&quot;comment&quot;&gt;//【脚本出错】&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这段代码中变量 &lt;code&gt;anotherName&lt;/code&gt;,与函数 &lt;code&gt;showName()&lt;/code&gt;，都拥有局部作用域。因此它不能被外部所访问，那么问题就来了，为什么全局变量他就能在局部作用域内被访问到呢？这就是 JavaScript 中的作用域链概念！&lt;/p&gt;
+&lt;h3 id=&quot;作用域链&quot;&gt;&lt;a href=&quot;#作用域链&quot; class=&quot;headerlink&quot; title=&quot;作用域链&quot;&gt;&lt;/a&gt;作用域链&lt;/h3&gt;&lt;p&gt;在JS中:”一切皆是对象, 函数也是”。&lt;/p&gt;
+&lt;p&gt;在 JavaScript 中，每个函数都有着自己的作用域，在每次调用一个函数的时候 ，就会进入一个函数内的作用域，而当函数执行返回以后，就返回调用前的作用域。&lt;/p&gt;
+&lt;p&gt;当代码在一个作用域内执行时，就会根据其上下文创建一个作用域链，该作用域链的用途就是控制当前作用域对于内所有的变量与函数的有序访问。作用域链的最前端，始终都是当前执行代码所在的作用域的变量对象。&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;changeName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(name ===&lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        name=&lt;span class=&quot;string&quot;&gt;&quot;小黑&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        name =&lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;changeName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(&lt;span class=&quot;string&quot;&gt;&quot;新名字:&quot;&lt;/span&gt;+name);&lt;span class=&quot;comment&quot;&gt;//小黑&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这个例子中，&lt;code&gt;changName()&lt;/code&gt;被定义在全局作用域下，他的作用域链包含着包含两个对象：1.它本身的变量对象(函数都会包含&lt;code&gt;arguments&lt;/code&gt;对象)，2.全局环境对象。之所以能在函数内部访问到变量&lt;code&gt;name&lt;/code&gt;,就是因为在它的作用域中，能找到它。（&lt;strong&gt;JS的标识符解析，是沿着作用域链一级一级的查找搜索的过程，从作用域链的最前端开始直到全局环境，最终没有查找到时将报错。&lt;/strong&gt;）我们再回过头来稍微改一下第一段代码：并且看看他们能访问到那些变量：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&quot;小红&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;doSomething&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; anotherName = &lt;span class=&quot;string&quot;&gt;&quot;小黑&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; author =&lt;span class=&quot;string&quot;&gt;&quot;三省吾身丶丶&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(anotherName)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;// 在这里可以访问到 name 、anotherName 、author&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    showName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// 在这里可以访问到 name anotherName ,不能访问到 author&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;doSomething();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 在这里只能访问到 name&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;要想理解这种作用域其实也很简单，作用域就像是一架 &lt;strong&gt;每一个台阶都是相对封闭（同级），并且只能上不能下的梯子&lt;/strong&gt;，在越底层的台阶上，它能走的步数越多（作用域链越长）。为了找到它想要的东西，就开始爬台阶，每爬一步台阶，都能看到这一级台阶上有什么东西，直到最顶上的那一阶。（找到了就带回去一起玩耍，玩完了之后还得换回去，要是最后都没找到就掉下去摔死了）&lt;/p&gt;
+&lt;h3 id=&quot;坑与示例解析&quot;&gt;&lt;a href=&quot;#坑与示例解析&quot; class=&quot;headerlink&quot; title=&quot;坑与示例解析&quot;&gt;&lt;/a&gt;坑与示例解析&lt;/h3&gt;&lt;p&gt;在了解坑之前，其实只要记住权威指南里面的一句话，就可以躲过很多这方面的坑了，那就是：&lt;strong&gt;JavaScript中的函数运行在它们被定义的作用域里,而不是它们被执行的作用域里&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下面就来看看这一个例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&#39;小红&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;show&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&#39;小黑&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    showName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;show();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;结果会是什么呢？ &lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;小红&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果你记住并且理解了上面的话，那么应该可以得到这个结果。用作用域链的角度解析：执行&lt;code&gt;show()&lt;/code&gt;函数时，进入&lt;code&gt;function show(){}&lt;/code&gt;的作用域内，然后执行&lt;code&gt;showName()&lt;/code&gt;函数，再进入到&lt;code&gt;function showName(){}&lt;/code&gt;的作用域内，要输出&lt;code&gt;name&lt;/code&gt;，就在当前作用域找，但是找不到，然后就向上爬一层，在全局环境中找到了&lt;code&gt;var name = &amp;#39;小红&amp;#39;;&lt;/code&gt;，所以&lt;code&gt;show()&lt;/code&gt;就输出了小红。&lt;/p&gt;
+&lt;p&gt;再来看一个这个例子的改动版本&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&#39;小红&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;show&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; name = &lt;span class=&quot;string&quot;&gt;&#39;小黑&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;showName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.info(name);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    showName();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;show();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;结果是：&lt;code&gt;小黑&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;解析：执行&lt;code&gt;show()&lt;/code&gt;函数时，进入&lt;code&gt;function show(){}&lt;/code&gt;的作用域内，然后执行&lt;code&gt;showName()&lt;/code&gt;函数，再进入到&lt;code&gt;function showName(){}&lt;/code&gt;的作用域内，要输出&lt;code&gt;name&lt;/code&gt;，就在当前作用域找，发现本身找不到，就向上爬一层到了&lt;code&gt;show()&lt;/code&gt;里面，发现已经找到了&lt;code&gt;var name = &amp;#39;小黑&amp;#39;;&lt;/code&gt;，那么就停止查找，输出了&lt;code&gt;小黑&lt;/code&gt;&lt;br&gt;。&lt;/p&gt;
+&lt;p&gt;先到这，不知道有没有对作用域有了更多的了解呢？感觉有些地方还了解的不够透彻，希望在开发项目的过程中能有更深的理解。&lt;/p&gt;
+&lt;p&gt;如果有错误之处，请指正。谢谢！&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;无论什么语言中，作用域都是一个十分重要的概念，在JavaScript中也不例外，作用域定义了变量或者函数有权访问的范围，决定了它们各自的行为。要理解JavaScript中的作用域首先就要知道：在&lt;code&gt;let&lt;/code&gt;出现之前，JS中变量的
+    
+    </summary>
+    
+      <category term="JS深度学习" scheme="http://guowenfh.github.io/categories/JS%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="百度前端技术学院" scheme="http://guowenfh.github.io/tags/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2/"/>
+    
+      <category term="JS" scheme="http://guowenfh.github.io/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>思想汇报</title>
     <link href="http://guowenfh.github.io/2016/07/03/thoughtReport-2016-07-03/"/>
     <id>http://guowenfh.github.io/2016/07/03/thoughtReport-2016-07-03/</id>
     <published>2016-07-03T09:14:29.000Z</published>
-    <updated>2016-07-03T13:21:25.589Z</updated>
+    <updated>2016-07-03T13:30:55.441Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;闲来无事，翻了翻朋友圈，看到自己年初定下的几个小目标，突然想到原来王自如的思想汇报，我觉得自己也应该要反思一下自己，正好写下来做一个沉淀。&lt;/p&gt;
@@ -56,7 +122,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;这半年看书确实看的有点少了，当初刚学前端的时候，学校安排到医院实习，除去正常的医院工作外，在办公室就是看书了。哦，不对，抄书。css一个一个属性抄过去，js秘密花园抄了一遍，结果后来开始找实习之后就没有这样了，看博客、敲代码。做了很多重复的事情，现在要改变策略了，又在知乎上看到CSS魔法在半年前对我说的：&lt;code&gt;疯狂啃书，野蛮生长！&lt;/code&gt;，这半年没这样做到，就像乔老爷子说的那句话 &lt;code&gt;Stay Hungry. Stay Foolish.&lt;/code&gt;，保持这种饥饿感，保持一种初学者的心态， 那么下半年就要加油了。&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;想得太多，做的太少，可能真的是我一个特别需要去改进的地方吧，就像完成工作一样，首先一定是要把工作完成，然后再想着怎么去优化，改进。在这个新型技术一浪接着一浪的时代，一定要快速开发，功能都没有完成，想着优化有什么用呢?&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;我学习有一个很大的问题想得太多，做的太少，可能真的是我一个特别需要去改进的地方吧，就像完成工作一样，首先一定是要把工作完成，然后再想着怎么去优化，改进。在这个新型技术一浪接着一浪的时代，一定要快速开发，功能都没有完成，想着优化有什么用呢?&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;质疑和沟通很重要，有什么问题在尝试过后，解决不了就和别人沟通，说不定是别人的问题，或者别人可能很轻松的帮你解决，记得把问题的解决记录下来。不要一个人闷着，做太多的额外功，等到别人催你之后再去和别人沟通，这时，项目的进度就被你拉下来了，这样不好。&lt;/p&gt;
 &lt;/li&gt;
@@ -1705,231 +1771,6 @@
     
       <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
     
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery入门笔记之（五）jQuery中的Ajax</title>
-    <link href="http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/"/>
-    <id>http://guowenfh.github.io/2016/01/03/jQuery-05-Ajax/</id>
-    <published>2016-01-03T04:22:45.000Z</published>
-    <updated>2016-01-06T09:45:18.663Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。&lt;br&gt;&lt;a href=&quot;http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-1/&quot;&gt;Ajax入门（一）从0开始到一次成功的GET请求&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://guowenfh.github.io/2015/12/18/Ajax-elementary-course-2-fn/&quot;&gt;Ajax入门（二）Ajax函数封装&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;jQuery中的Ajax&quot;&gt;&lt;a href=&quot;#jQuery中的Ajax&quot; class=&quot;headerlink&quot; title=&quot;jQuery中的Ajax&quot;&gt;&lt;/a&gt;jQuery中的Ajax&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;jQuery 对 Ajax 做了大量的封装，我们使用起来也较为方便，不需要去考虑浏览器兼容性。对于封装的方式，jQuery采用了三层封装：最底层的封装方法为：$.ajax()，而通过这层封装了第二层有三种方法：.load()、$.get()和$.post()，最高层是$.getScript()和$.getJSON()方法。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;Ajax中的load-方法&quot;&gt;&lt;a href=&quot;#Ajax中的load-方法&quot; class=&quot;headerlink&quot; title=&quot;Ajax中的load()方法&quot;&gt;&lt;/a&gt;Ajax中的&lt;code&gt;load()&lt;/code&gt;方法&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * Ajax中的load方法（局部方法，可以直接绑定在需要获取的元素上）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param &amp;#123;String&amp;#125;        url  必须，获取文件地址&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param &amp;#123;JSON or String&amp;#125;          可选，键值对方式的请求参数或者（使用键值对形式，请求将转化成post）&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; * @param &amp;#123;Function&amp;#125;      可选，请求成功的回调函数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; *   @config   &amp;#123;String&amp;#125;   responseText         获得字符串形式的响应数据&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; *   @config   &amp;#123;String&amp;#125;   textStatus            文本方式返回HTTP状态码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; *   @config   &amp;#123;Object&amp;#125;   XMLHttpRequest        xhr对象，有多种属性&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; */&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.load(url, data, complete(responseText, textStatus, XMLHttpRequest));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;例如下面这段代码&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).load(&lt;span class=&quot;string&quot;&gt;&#39;test.php&#39;&lt;/span&gt;, &amp;#123;url : &lt;span class=&quot;string&quot;&gt;&#39;guowen&#39;&lt;/span&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;在控制台可以看到请求为POST，（注意：这里第二个参数若是字符串的情况，例如”url=guowen”，请求仍然为GET。）&lt;br&gt;所以服务器端php文件应该如此设置：&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; ($_POST[&lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;] == &lt;span class=&quot;string&quot;&gt;&quot;guowen&quot;&lt;/span&gt;) &amp;#123;&lt;span class=&quot;comment&quot;&gt;//get请求把POST更改一下就好了&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;a href=&#39;http://guowenfh.github.io/&#39;&amp;gt;三省吾身丶丶&amp;lt;/a&amp;gt;&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;其他网站&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;关于XHR对象上的属性，和HTTP状态码，参考我原来的博客。&lt;/p&gt;
-&lt;h3 id=&quot;get-和-post&quot;&gt;&lt;a href=&quot;#get-和-post&quot; class=&quot;headerlink&quot; title=&quot;$.get()和$.post()&quot;&gt;&lt;/a&gt;$.get()和$.post()&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;.load()方法是局部方法，因为他需要一个包含元素的 jQuery 对象作为前缀。而$.get()和$.post()是全局方法，无须指定某个元素。对于用途而言，.load()适合做静态文件的异步获取，而对于需要传递参数到服务器页面的，$.get()和$.post()更加合适。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;$.get()方法有四个参数，前面三个参数和.load()一样，多了一个第四参数type，即服务器返回的内容格式：包括xml、html、script、json、jsonp和text。第一个参数为必选参数，后面三个为可选参数&lt;/p&gt;
-&lt;p&gt;GET方式请求会直接在html后以&lt;code&gt;?Key=value&lt;/code&gt;跟随，所以，有三种形式请求数据，&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;直接跟在url后&lt;/li&gt;
-&lt;li&gt;字符串形式的&lt;code&gt;&amp;quot;url=guowen&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;键值对形式的&lt;code&gt;{url:&amp;quot;guowen&amp;quot;}&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;POST请求方式除去不能直接跟在url后之外，剩余两个，使用方法一样&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt; 与&lt;code&gt;.load()&lt;/code&gt;方法不同的是：&lt;code&gt;.load()&lt;/code&gt;方法根据第二个参数的不同类型，请求方式会改变，但这里已经是两个独立的方法了，所以请求类型不会进行转换。&lt;/p&gt;
-&lt;p&gt;第四个参数一般都不进行设置，jQuery会自动转换其类型。强制设置时，有可能会连标签一起返回。&lt;/p&gt;
-&lt;p&gt;至于POST与GET方式请求的差别，在我原来的博客中也有写到，这里就不赘述了。&lt;/p&gt;
-&lt;h3 id=&quot;getScript-和-getJSON&quot;&gt;&lt;a href=&quot;#getScript-和-getJSON&quot; class=&quot;headerlink&quot; title=&quot;$.getScript()和$.getJSON()&quot;&gt;&lt;/a&gt;&lt;code&gt;$.getScript()&lt;/code&gt;和&lt;code&gt;$.getJSON()&lt;/code&gt;&lt;/h3&gt;&lt;p&gt;jQuery提供了一组用于特定异步加载的方法：&lt;code&gt;$.getScript()&lt;/code&gt;，用于加载特定的JS文件；&lt;code&gt;$.getJSON()&lt;/code&gt;，用于专门加载JSON文件。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;$.getJSON()&lt;/code&gt;方法与之前的使用方法类似，就是把第四个参数，类型强制设置成了JSON。&lt;/p&gt;
-&lt;p&gt;有时我们希望能够特定的情况再加载JS文件，而不是一开始把所有JS文件都加载了，这时就可以使用&lt;code&gt;$.getScript()&lt;/code&gt;方法。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//点击按钮后再加载 JS 文件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;input&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $.getScript(&lt;span class=&quot;string&quot;&gt;&#39;test.js&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;ajax&quot;&gt;&lt;a href=&quot;#ajax&quot; class=&quot;headerlink&quot; title=&quot;$.ajax()&quot;&gt;&lt;/a&gt;&lt;code&gt;$.ajax()&lt;/code&gt;&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;$.ajax()是所有 ajax 方法中最底层的方法，所有其他方法都是基于$.ajax()方法的封装。这个方法只有一个参数，传递一个各个功能键值对的对象。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;参数很多有兴趣的自己去看&lt;a href=&quot;http://www.css88.com/jqapi-1.9/jQuery.ajax/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jQuery.ajax()&lt;/a&gt;，本来准备写几个常用的。强迫症犯了，去网上找资料做成了表格。。如下：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;类型&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;url&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;发送请求的地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;type&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;请求方式：POST 或 GET，默认 GET&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;timeout&lt;/td&gt;
-&lt;td&gt;Number&lt;/td&gt;
-&lt;td&gt;设置请求超时的时间（毫秒）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;data&lt;/td&gt;
-&lt;td&gt;Object 或String&lt;/td&gt;
-&lt;td&gt;发送到服务器的数据，键值对字符串或对象&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dataType&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;返回的数据类型，比如 html、xml、json 等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;beforeSend&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;发送请求前可修改 XMLHttpRequest 对象的函数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;complete&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;请求完成后调用的回调函数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;success&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;请求成功后调用的回调函数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;error&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;请求失败时调用的回调函数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;global&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;默认为 true，表示是否触发全局 Ajax&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;cache&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;设置浏览器缓存响应，默认为 true。如果 dataType类型为 script 或 jsonp 则为 false。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;content&lt;/td&gt;
-&lt;td&gt;DOM&lt;/td&gt;
-&lt;td&gt;指定某个元素为与这个请求相关的所有回调函数的上下文。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;contentType&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;指 定 请 求 内 容 的 类 型 。 默 认 为application/x-www-form-urlencoded。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;async&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;是否异步处理。默认为 true，false 为同步处理&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;processData&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;默认为 true，数据被处理为 URL 编码格式。如果为 false，则阻止将传入的数据处理为 URL 编码的格式。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;dataFilter&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;用来筛选响应数据的回调函数。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;ifModified&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;默认为 false，不进行头检测。如果为true，进行头检测，当相应内容与上次请求改变时，请求被认为是成功的。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;jsonp&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;指定一个查询参数名称来覆盖默认的 jsonp 回调参数名 callback。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;username&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;在 HTTP 认证请求中使用的用户名&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;password&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;在 HTTP 认证请求中使用的密码&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;scriptCharset&lt;/td&gt;
-&lt;td&gt;String&lt;/td&gt;
-&lt;td&gt;当远程和本地内容使用不同的字符集时，用来设置 script 和 jsonp 请求所使用的字符集。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;xhr&lt;/td&gt;
-&lt;td&gt;Function&lt;/td&gt;
-&lt;td&gt;用来提供 XHR 实例自定义实现的回调函数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;traditional&lt;/td&gt;
-&lt;td&gt;Boolean&lt;/td&gt;
-&lt;td&gt;默认为 false，不使用传统风格的参数序列化。如为 true，则使用&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;最常用的如下：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;button&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $.ajax(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        type : &lt;span class=&quot;string&quot;&gt;&#39;POST&#39;&lt;/span&gt;, &lt;span class=&quot;comment&quot;&gt;//这里可以换成 GET&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        url : &lt;span class=&quot;string&quot;&gt;&#39;test.php&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        data : &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            url : &lt;span class=&quot;string&quot;&gt;&#39;guowen&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        success : &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;response, stutas, xhr&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).html(response);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注意：对于data属性，如果是GET、模式，可以使用三种之前说所的三种形式。如果是POST模式可以使用之前所说的两种形式。（这里不需要考虑之前的data类型的问题了，因为指定了请求类型，不会转化）&lt;/p&gt;
-&lt;h3 id=&quot;表单序列化&quot;&gt;&lt;a href=&quot;#表单序列化&quot; class=&quot;headerlink&quot; title=&quot;表单序列化&quot;&gt;&lt;/a&gt;表单序列化&lt;/h3&gt;&lt;p&gt;使用表单序列化方法&lt;code&gt;.serialize()&lt;/code&gt;，会智能的获取指定表单内的所有元素。这样，在面对大量表单元素时，会把表单元素内容序列化为字符串，然后再使用Ajax请求。&lt;br&gt;序列化表单内的元素：&lt;code&gt;data : $(&amp;#39;form&amp;#39;).serialize()&lt;/code&gt;，其余部分相同。&lt;/p&gt;
-&lt;p&gt;除此之外还可以直接获取单选框、复选框和下拉列表框等内容&lt;/p&gt;
-&lt;p&gt;除了&lt;code&gt;.serialize()&lt;/code&gt;方法，还有一个可以返回 JSON 数据的方法：&lt;code&gt;.serializeArray()&lt;/code&gt;。这个方法可以直接把数据整合成键值对的 JSON 对象。&lt;br&gt;使用方法相同&lt;code&gt;$(&amp;#39;form&amp;#39;).serializeArray()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;有时，我们可能会在同一个程序中多次调用$.ajax()方法。而它们很多参数都相同，这&lt;br&gt;个时候我们课时使用 jQuery 提供的&lt;code&gt;$.ajaxSetup()&lt;/code&gt;请求默认值来初始化参数。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&#39;form input[type=button]&#39;&lt;/span&gt;).click(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $.ajaxSetup(&amp;#123;&lt;span class=&quot;comment&quot;&gt;//初始化多个ajax方法相同部分参数，后面再写ajax的时候，就不用在写了。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        type : &lt;span class=&quot;string&quot;&gt;&#39;POST&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        url : &lt;span class=&quot;string&quot;&gt;&#39;test.php&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        data : $(&lt;span class=&quot;string&quot;&gt;&#39;form&#39;&lt;/span&gt;).serialize()&lt;span class=&quot;comment&quot;&gt;//表单序列化&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $.ajax(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        success : &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;response, status, xhr&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    alert(response);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在使用 data 属性传递的时候，如果是以对象形式传递键值对，可以使用&lt;code&gt;$.param()&lt;/code&gt;方法将对象转换为字符串键值对格式。&lt;/p&gt;
-&lt;p&gt;主要是针对无法直接使用表单序列化方法&lt;code&gt;.serialize()&lt;/code&gt;的情况，且传递参数为对象，建议使用该方法进行解析后再进行传递。&lt;/p&gt;
-&lt;h2 id=&quot;Ajax进阶&quot;&gt;&lt;a href=&quot;#Ajax进阶&quot; class=&quot;headerlink&quot; title=&quot;Ajax进阶&quot;&gt;&lt;/a&gt;Ajax进阶&lt;/h2&gt;&lt;h3 id=&quot;加载请求，及错误处理。&quot;&gt;&lt;a href=&quot;#加载请求，及错误处理。&quot; class=&quot;headerlink&quot; title=&quot;加载请求，及错误处理。&quot;&gt;&lt;/a&gt;加载请求，及错误处理。&lt;/h3&gt;&lt;p&gt;主要是处理网速较慢的情况，出现请求时间较长的问题。而此时若没有一点提示，用户可能会认为你的网页出现了问题。若是能在请求过程中给用户一些提示，比如：正在努力加载中…… 。 可能会对用户更加友好一些。&lt;br&gt;jQuery提供了两个全局事件，jQuery 提供了两个全局事件，&lt;code&gt;.ajaxStart()&lt;/code&gt;和&lt;code&gt;.ajaxStop()&lt;/code&gt;。&lt;br&gt;这两个全局事件，只要用户触发了 Ajax，请求开始时（&lt;strong&gt;未完成其他请求&lt;/strong&gt;）激活&lt;code&gt;.ajaxStart()&lt;/code&gt;，请求结束时（&lt;strong&gt;所有请求都结束了&lt;/strong&gt;）激活&lt;code&gt;.ajaxStop()&lt;/code&gt;。&lt;br&gt;值得注意的是，因为是全局事件，所以这两个方法是直接需要直接绑定到document上的。例如：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;).ajaxStart(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;.loading&quot;&lt;/span&gt;).show();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;).ajaxStop(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&quot;.loading&quot;&lt;/span&gt;).hide();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;当然你也可以自行在ajax内部进行一些设置,如请求超时时间，该ajax函数是否触发全局事件等等。以键值对的方式写明就可以了。&lt;/p&gt;
-&lt;p&gt;错误处理也特别简单&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//…………&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    timeout : &lt;span class=&quot;number&quot;&gt;500&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//如果请求时间太长，可以设置超时&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    global : &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//如果某个 ajax 不想触发全局事件，可以设置取消&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    error : &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;xhr,errorText,errorType&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;span class=&quot;comment&quot;&gt;//一般都直接用xhr对象&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                alert(&lt;span class=&quot;string&quot;&gt;&quot;发生错误：&quot;&lt;/span&gt;+xhr.status);&lt;span class=&quot;comment&quot;&gt;//返回错误状态码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;除此之外&lt;code&gt;$.get()&lt;/code&gt;、&lt;code&gt;$.post()&lt;/code&gt;和&lt;code&gt;.load()&lt;/code&gt;,可以通过连缀处理使用局部&lt;code&gt;.error()&lt;/code&gt;方法来处理错误，当然还有一个全局的方法：通过全局&lt;code&gt;.ajaxError()&lt;/code&gt;事件方法来返回错误信息。即可&lt;/p&gt;
-&lt;h3 id=&quot;请求全局事件&quot;&gt;&lt;a href=&quot;#请求全局事件&quot; class=&quot;headerlink&quot; title=&quot;请求全局事件&quot;&gt;&lt;/a&gt;请求全局事件&lt;/h3&gt;&lt;p&gt;jQuery 对于 Ajax 操作提供了很多全局事件方法，除去上面已经提到的.ajaxStart()、.ajaxStop()、.ajaxError()等事件方法。他们都属于请求时触发的全局事件，除了这些，还有一些其他全局事件：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;.ajaxSuccess()，对应一个局部方法：.success()，请求成功完成时执行。&lt;/li&gt;
-&lt;li&gt;.ajaxComplete()，对应一个局部方法：.complete()，请求完成后注册一个回调函数。&lt;/li&gt;
-&lt;li&gt;.ajaxSend()，没有对应的局部方法，只有属性 beforeSend，请求发送之前要绑定的函数。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;全局事件方法是所有 Ajax 请求都会触发到，并且只能绑定在 document 上。而局部方法，则针对某个 Ajax。&lt;br&gt;对于一些全局事件方法的参数，大部分为对象，而这些对象有哪些属性或方法能调用，&lt;br&gt;可以通过遍历方法得到。如：&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//遍历 settings 对象的属性&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;).ajaxSuccess(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;event, xhr, settings&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; settings) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(i);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这些全局方法，在$.ajax()方法中都可以直接以参数中的键值对的形式来完成&lt;/p&gt;
-&lt;h3 id=&quot;JSON和JSONP&quot;&gt;&lt;a href=&quot;#JSON和JSONP&quot; class=&quot;headerlink&quot; title=&quot;JSON和JSONP&quot;&gt;&lt;/a&gt;JSON和JSONP&lt;/h3&gt;&lt;p&gt;其实在同一个域中时，只要url的后缀是json的文件的，默认就是json。当然你还可以使用&lt;code&gt;$.ajax()&lt;/code&gt;方法设置 dataType属性加载 JSON 文件。&lt;/p&gt;
-&lt;p&gt;先来试试本地JSON:&lt;br&gt;php如下：&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $_arr= &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $_result = json_encode($_arr);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; $_result;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;js:&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    type:&lt;span class=&quot;string&quot;&gt;&quot;post&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    url:&lt;span class=&quot;string&quot;&gt;&quot;test.php&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    dataType:&lt;span class=&quot;string&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//因为文件类型是php。但是返回的数据是json，所以必须设置类型，否则返回字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    success:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;response,staus,xhr&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(response.a);&lt;span class=&quot;comment&quot;&gt;//打印出来1&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;实现跨域：这部分需要服务器端配合。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $_arr= &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $_result = json_encode($_arr);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $_callback = $_GET[&lt;span class=&quot;string&quot;&gt;&#39;callback&#39;&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;//关键在这。配合客户端JS使用&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; $_callback.&lt;span class=&quot;string&quot;&gt;&quot;($_result)&quot;&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//php用点号实现字符串拼接&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;客户端实现：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$.ajax(&amp;#123;&lt;span class=&quot;comment&quot;&gt;//我本地地址为http://127.0.0.1:8020/ajax.html&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    type:&lt;span class=&quot;string&quot;&gt;&quot;GET&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    url:&lt;span class=&quot;string&quot;&gt;&quot;http://localhost/test.php?callback=?&quot;&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//这样就可以实现跨域资源的访问了，最后的？号，jQuery会自动转化成字符串&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    dataType:&lt;span class=&quot;string&quot;&gt;&quot;json&quot;&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//若这里使用JSONP的话，可以删除上面url的“?callback=?”，jQuery会自动处理。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    success:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;response,staus,xhr&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        alert(response.a);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(response)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;当然我们还可以进行使用&lt;code&gt;$.getJSON()&lt;/code&gt;。使用方式同上。&lt;/p&gt;
-&lt;h3 id=&quot;jqXHR对象&quot;&gt;&lt;a href=&quot;#jqXHR对象&quot; class=&quot;headerlink&quot; title=&quot;jqXHR对象&quot;&gt;&lt;/a&gt;jqXHR对象&lt;/h3&gt;&lt;p&gt;在之前，我们使用了局部方法：.success()、.complete()和.error()。这三个局部方法并不是 XMLHttpRequest 对象调用的，而是$.ajax()之类的全局方法返回的对象调用的。这个对象，就是 jqXHR 对象，它是原生对象 XHR 的一个超集。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//获取 jqXHR 对象，查看属性和方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; jqXHR = $.ajax(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    type : &lt;span class=&quot;string&quot;&gt;&#39;POST&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    url : &lt;span class=&quot;string&quot;&gt;&#39;test.php&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    data : $(&lt;span class=&quot;string&quot;&gt;&#39;form&#39;&lt;/span&gt;).serialize()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; jqXHR) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.write(i + &lt;span class=&quot;string&quot;&gt;&#39;&amp;lt;br /&amp;gt;&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注意：如果使用 jqXHR 对象的话，那么建议用.done()、.always()和.fail()代&lt;br&gt;替.success()、.complete()和.error()。以为在未来版本中，很可能将这三种方法废弃取消。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//成功后回调函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;jqXHR.done(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;response&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $(&lt;span class=&quot;string&quot;&gt;&#39;#box&#39;&lt;/span&gt;).html(response);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;使用 jqXHR 的连缀方式比$.ajax()的属性方式有三大好处：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;可连缀操作，可读性大大提高；&lt;/li&gt;
-&lt;li&gt;可以多次执行同一个回调函数；&lt;/li&gt;
-&lt;li&gt;为多个操作指定回调函数；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;PS：很多都只做了一下测试，并不能熟练应用，先过一遍吧，以后再来熟练掌握。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;关于Ajax的概述就不说了，有兴趣自己去找一下吧，并且建议去我博客看关于原生js实现Ajax函数的实现，希望有所帮助。服务器的配置，那篇文章也给出了地址。&lt;br&gt;&lt;a href=&quot;http://guowenfh.github.io/2015/12/
-    
-    </summary>
-    
-      <category term="jQuery" scheme="http://guowenfh.github.io/categories/jQuery/"/>
-    
-    
-      <category term="Ajax" scheme="http://guowenfh.github.io/tags/Ajax/"/>
     
       <category term="jQuery" scheme="http://guowenfh.github.io/tags/jQuery/"/>
     
