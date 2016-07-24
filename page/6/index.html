@@ -270,6 +270,137 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/19/task0002-BOM&&AJAX/" itemprop="url">
+                  task0002（三）- BOM + AJAX
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T00:08:41+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端技术/" itemprop="url" rel="index">
+                    <span itemprop="name">前端技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/19/task0002-BOM&&AJAX/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/task0002-BOM&&AJAX/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          BOM实现以下函数
+判断是否为IE浏览器
+这里应该说一下，在从网上了解到的资料来看，在对于某个功能事件的时候不要去做浏览器检测，而应该做特性检测。这样更符合要求，且浏览器的UserAgent可人为修改
+需要实现的话，ie11的版本号中并没有msie:。只能通过rv:获得。所以需进行一些处理。但是该属性同样可以返回火狐浏览器的版本号- -。所以还需要多加一层判断。查找是否存在Trident\/7.0;
+使用正则表达式的match方法,详细见我写的正则表达式的博客。
+
+1234567891011121314// 判断是否为IE浏览器，返回-1或者版本号function isIE() &#123;    var uUserAgent = navigator.userAgent; //保存浏览器的u
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/19/task0002-BOM&&AJAX/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/18/LaoZiShiLaiHaMa/" itemprop="url">
                   《老子是癞蛤蟆》
                 </a>
@@ -917,143 +1048,6 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/14/Regexp-basisCombat/" itemprop="url">
-                  正则表达式-基础实战篇
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-14T11:34:31+08:00" content="2015-12-14">
-              2015-12-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端技术/" itemprop="url" rel="index">
-                    <span itemprop="name">前端技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/14/Regexp-basisCombat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Regexp-basisCombat/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          
-在理论基础篇之后呢,应该就对正则表达式有了一些了解.比如说如何去创建一个正则表达式以及其中的匹配规则等等.那么就开始正则表达式的实战吧!建议把所有的实例在console窗口敲一遍.例子中展现的只是一部分,配合《正则表达式-理论基础篇》SF地址、原址使用效果更佳哦!
-
-一个手机号码匹配的进化历程
-实例代码依托于:RegExpObj.test(String)，其含义是测试正则表达式与指定字符串是否匹配。成功匹配返回true
-
-第一阶段-字符直接量:匹配自身
-先假设一个手机号码为13762571094.
-
-
-最初形态
-
-123456/13762571094/.test("13783281094");//false/13762571094/.test("13762571094");//true/1
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/14/Regexp-basisCombat/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1099,7 +1093,7 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1189,10 +1183,6 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
               
                 <li class="links-of-blogroll-item">
                   <a href="http://notes.iissnan.com/" title="IIssNan" target="_blank">IIssNan</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
                 </li>
               
                 <li class="links-of-blogroll-item">
@@ -1341,10 +1331,8 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
 
   
     
-      
-      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-      <script src="/js/src/hook-duoshuo.js"></script>
-    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1354,6 +1342,7 @@ JavaScript，一种直译式脚本语言，是一种动态类型、基于原型�
 
   
   
+
   
 
   
