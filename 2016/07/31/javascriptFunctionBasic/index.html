@@ -1,0 +1,875 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,百度前端技术学院," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="函数
+函数式一块javascript代码，定义一次，可以被多次调用与执行，JS中的函数也是对象，所以JS函数可以像其他对象那样操作，和传递，所以也称函数对象函数的参数列表相当于函数的人口，return相当于函数的出口，函数本身就是一种数据类型，函数是可以嵌套定义的。
+
+函数基础####　定义函数的方式
+有三种方式可以定义函数。并且有着如下区别：
+
+
+
+定义方式：
+function 语句（函数声明）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript函数学习笔记">
+<meta property="og:url" content="http://guowenfh.github.io/2016/07/31/javascriptFunctionBasic/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="函数
+函数式一块javascript代码，定义一次，可以被多次调用与执行，JS中的函数也是对象，所以JS函数可以像其他对象那样操作，和传递，所以也称函数对象函数的参数列表相当于函数的人口，return相当于函数的出口，函数本身就是一种数据类型，函数是可以嵌套定义的。
+
+函数基础####　定义函数的方式
+有三种方式可以定义函数。并且有着如下区别：
+
+
+
+定义方式：
+function 语句（函数声明）">
+<meta property="og:updated_time" content="2016-07-31T12:04:21.789Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript函数学习笔记">
+<meta name="twitter:description" content="函数
+函数式一块javascript代码，定义一次，可以被多次调用与执行，JS中的函数也是对象，所以JS函数可以像其他对象那样操作，和传递，所以也称函数对象函数的参数列表相当于函数的人口，return相当于函数的出口，函数本身就是一种数据类型，函数是可以嵌套定义的。
+
+函数基础####　定义函数的方式
+有三种方式可以定义函数。并且有着如下区别：
+
+
+
+定义方式：
+function 语句（函数声明）">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6222900165502567000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://guowenfh.github.io/2016/07/31/javascriptFunctionBasic/"/>
+
+  <title> JavaScript函数学习笔记 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript函数学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-31T20:03:45+08:00" content="2016-07-31">
+              2016-07-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JS深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">JS深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/31/javascriptFunctionBasic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/javascriptFunctionBasic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><blockquote>
+<p>函数式一块javascript代码，定义一次，可以被多次调用与执行，JS中的函数也是对象，所以JS函数可以像其他对象那样操作，和传递，所以也称函数对象<br>函数的参数列表相当于函数的人口，<code>return</code>相当于函数的出口，函数本身就是一种数据类型，函数是可以嵌套定义的。</p>
+</blockquote>
+<h3 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h3><p>####　定义函数的方式</p>
+<p>有三种方式可以定义函数。并且有着如下区别：</p>
+<table>
+<thead>
+<tr>
+<th>定义方式：</th>
+<th><code>function</code> 语句（函数声明）</th>
+<th><code>Function</code> 构造函数</th>
+<th>函数表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解析时机：</td>
+<td>优先解析(声明前置)</td>
+<td>顺序解析</td>
+<td>顺序解析(声明提前，赋值不提前)</td>
+</tr>
+<tr>
+<td>允许匿名：</td>
+<td>有名</td>
+<td>匿名</td>
+<td>匿名</td>
+</tr>
+<tr>
+<td>形式：</td>
+<td>句子</td>
+<td>表达式</td>
+<td>表达式</td>
+</tr>
+<tr>
+<td>性质：</td>
+<td>静态</td>
+<td>动态</td>
+<td>静态</td>
+</tr>
+<tr>
+<td>作用域：</td>
+<td>具有函数的作用域</td>
+<td>顶级函数(顶级作用域)</td>
+<td>具有函数作用域</td>
+</tr>
+</tbody>
+</table>
+<p>主要有下面两个需要注意的地方：</p>
+<ul>
+<li>理解<code>Function</code> 构造函数的顶级作用域，直接看代码就好：很直观就可以表示出来</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a  = <span class="number">2</span>;</div><div class="line">    <span class="keyword">var</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"console.info(a)"</span>);</div><div class="line">    func();</div><div class="line">&#125;</div><div class="line">test();<span class="comment">//1;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>函数表达式的多种创建方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 最简单的形式，将函数赋值给一个变量</span></div><div class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="comment">//do ..</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 立即执行匿名函数表达式IIFE</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//do ..</span></div><div class="line">&#125;)();</div><div class="line"><span class="comment">// 将函数当成返回值</span></div><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//do ..</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//命名式函数表达式NFE</span></div><div class="line"><span class="keyword">var</span> add  = <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">    <span class="comment">// do..</span></div><div class="line">    <span class="comment">// 只在foo函数内部可以使用foo这个名称(用途如：递归调用)（在新版浏览器下可用）</span></div><div class="line">    <span class="comment">// 外部访问不到foo这个函数名</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><blockquote>
+<p>在JS中函数的参数分为形式参数和实际参数两个概念</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c,d</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(test.length)<span class="comment">//4</span></div><div class="line">    <span class="keyword">return</span> a+b+c;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.info(test(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>))<span class="comment">//60</span></div><div class="line"><span class="built_in">console</span>.log(test.length)<span class="comment">//4</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">//3,表示实际接受的参数个数</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]);<span class="comment">//10，传进来的第一个参数===a</span></div></pre></td></tr></table></figure>
+<p>在 <strong>函数内部</strong> ，JS使用了一个特别的变量<code>arguments</code>的 <strong>类数组对象</strong>（以后再来说这个问题），用来接受传入函数的实际参数列表。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">arg</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">    <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">    <span class="built_in">console</span>.info(a,b,c)</div><div class="line">&#125;</div><div class="line">arg(<span class="number">143</span>,<span class="number">456</span>,<span class="number">6</span>)<span class="comment">//1 456 6</span></div></pre></td></tr></table></figure>
+<p>普通模式下可以直接对于<code>arguments</code>对象进行更改，上面的代码就是一个很直观的例子，我们直接更改了第一个参数的值，<strong>但建议不要去试图更改<code>arguments</code>对象的属性</strong>，不符合规范。<br>注：严格模式下<code>arguments</code>对象是实参的一个副本，所以上面的改动不会生效(自行尝试)</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>什么是构造函数？</p>
+<p>其实构造函数只是普通函数的一个变种，它可以当成普通的函数方式调用，也能通过<code>new</code>关键字来调用。 在<code>Javascript</code>中通过 <code>new</code> 关键字方式调用的函数都被认为是构造函数。<br>在构造函数内部（ 也就是被调用的函数内） <code>this</code> 指向新创建的对象<code>Object</code>。 这个新创建的对象的 <code>prototype</code> 被指向到构造函数的 <code>prototype</code>。<br>如果被调用的函数没有显式的 <code>return</code> 表达式，则隐式的会返回 <code>this</code> 对象(也就是新创建的对象)。</p>
+<p>这就来看看实际中不同情况下的区别：</p>
+<ol>
+<li>使用<code>new</code>关键字吗，不指定<code>return</code>语句</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.father = <span class="string">'allen'</span>;</div><div class="line">&#125;</div><div class="line">Person.prototype.getFatherName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.info(<span class="keyword">this</span>.father);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.info( <span class="keyword">new</span> Person());<span class="comment">//Person &#123;father: "allen"&#125;</span></div><div class="line">hong.getFatherName();<span class="comment">//allen</span></div></pre></td></tr></table></figure>
+<ol>
+<li>使用<code>new</code>关键字，并且指定<code>return</code>语句</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.father = <span class="string">'allen'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="string">"1"</span>;</div><div class="line">&#125;</div><div class="line">Person.prototype.getFatherName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.info(<span class="keyword">this</span>.father);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.info( hong);<span class="comment">//Person &#123;father: "allen"&#125;</span></div><div class="line">hong.getFatherName();<span class="comment">//allen</span></div><div class="line"></div><div class="line"><span class="comment">//把return的值换成一个对象：</span></div><div class="line"><span class="comment">//return "1";-----------&gt;return &#123;a:1&#125;;或者return new String("12");</span></div><div class="line"><span class="keyword">var</span> hong = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.info( hong);<span class="comment">//Object &#123;a: 1&#125;</span></div><div class="line">hong.getFatherName();<span class="comment">//[脚本错误]</span></div></pre></td></tr></table></figure>
+<ol>
+<li>不使用<code>new</code>关键字，当成普通函数直接调用</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.father = <span class="string">'allen'</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;&#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line">Person.prototype.getFatherName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.info(<span class="keyword">this</span>.father);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> bai = Person();</div><div class="line"><span class="built_in">console</span>.info(bai);<span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.info(father);<span class="comment">//allen</span></div><div class="line">bai.getFatherName();<span class="comment">//[脚本错误]</span></div></pre></td></tr></table></figure>
+<p>通过这三段不同情况的示例代码，应该可以发现一些区别：</p>
+<ol>
+<li>使用<code>new</code>关键字吗，不指定<code>return</code>语句时，将隐式的会返回 <code>this</code> 对象(返也就是新创建的对象)。</li>
+<li>使用<code>new</code>关键字，并且指定<code>return</code>语句时，需分为两种情况：<ul>
+<li>返回值为标准类型，显式的 <code>return</code> 表达式将<strong>不会</strong>影响返回结果</li>
+<li>返回值为对象，将直接返回你显式设置的对象</li>
+</ul>
+</li>
+<li>不使用<code>new</code>关键字，当成普通函数直接调用时，<code>this</code>指向全局对象 window，所以内部this指定的属性与方法，全部都暴露到全局，导致全局变量污染。prototype上的方法不起效果(当然你要是这样的形式指定了return返回的内容，它自然会原样返回啦！)</li>
+</ol>
+<h4 id="工厂模型"><a href="#工厂模型" class="headerlink" title="工厂模型"></a>工厂模型</h4><p>为了不使用<code>new</code>关键字，构造函数必须显式的返回一个值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age, sex</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">    obj.name = name;</div><div class="line">    obj.age = age;</div><div class="line">    <span class="keyword">var</span> private = <span class="number">2</span>;<span class="comment">//私有外部不可访问</span></div><div class="line">    obj.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.info(<span class="keyword">this</span>.name)</div><div class="line">    &#125;</div><div class="line">    obj.getPrivate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> private;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> p1 = createPerson(<span class="string">"小红"</span>,<span class="number">21</span>,<span class="string">"女"</span>)</div><div class="line"><span class="keyword">var</span> p2 = createPerson(<span class="string">"小国"</span>,<span class="number">22</span>,<span class="string">"男"</span>)</div><div class="line"><span class="built_in">console</span>.info(p1.name);<span class="comment">//小红</span></div><div class="line"><span class="built_in">console</span>.info(p2.age);<span class="comment">//22</span></div><div class="line">p2.sayName();<span class="comment">//小国</span></div></pre></td></tr></table></figure>
+<p>这就是一个简单的工厂模型，使用或者不使用<code>new</code>关键字没有功能性的区别。这样的方式比起 <code>new</code>的调用方式不容易出错，并且可以充分利用 <strong>私有变量</strong>带来的便利， 但是也有下面这样的问题</p>
+<ol>
+<li>占用更多的内存，因为新创建的对象不能共享原型上的方法。</li>
+<li>为了实现继承，工厂方法需要从另外一个对象拷贝所有属性，或者把一个对象作为新创建对象的原型。</li>
+</ol>
+<p>这一篇博客最主要是对于函数学习的笔记，不过用自己的话来描述总描述的还不够清晰。<br>有错误之处请指出！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="guowenfh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="guowenfh Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/百度前端技术学院/" rel="tag">#百度前端技术学院</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/24/JavaScript-ArrayMethod/" rel="next" title="JavaScript数组方法学习笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript数组方法学习笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/31/javascriptFunctionBasic/"
+           data-title="JavaScript函数学习笔记" data-url="http://guowenfh.github.io/2016/07/31/javascriptFunctionBasic/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank" title="S F">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  S F
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lxxyx.win/" title="Lxxyx的前端乐园" target="_blank">Lxxyx的前端乐园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://u-hey.com/" title="uhey" target="_blank">uhey</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iwuly.com" title="前端老军医" target="_blank">前端老军医</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tostring.site/" title="小强" target="_blank">小强</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数基础"><span class="nav-number">1.1.</span> <span class="nav-text">函数基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的参数"><span class="nav-number">1.1.1.</span> <span class="nav-text">函数的参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数"><span class="nav-number">1.2.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模型"><span class="nav-number">1.2.1.</span> <span class="nav-text">工厂模型</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
