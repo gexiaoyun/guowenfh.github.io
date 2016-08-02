@@ -270,6 +270,159 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/03/javascript-this-closure/" itemprop="url">
+                  Javascript中this与闭包学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T00:30:29+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JS深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">JS深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/javascript-this-closure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/javascript-this-closure/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          理解 Javascript中的this基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：
+
+
+
+调用方式
+表达式
+
+
+
+
+构造函数调用
+new Foo();
+
+
+对象方法调用
+o.method();
+
+
+函数直接调用
+foo();
+
+
+call/apply/bind
+func.call(o);
+
+
+
+现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：
+构造函数调用模式123456789function Person(name,age)&#123;    this.name = name;    this.age = age;    this.sayName  = function()&#123;        console.info(this.name);
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/03/javascript-this-closure/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/31/javascriptFunctionBasic/" itemprop="url">
                   JavaScript函数学习笔记
                 </a>
@@ -960,141 +1113,6 @@ webpack入坑之旅（六）配合vue-router实现SPA
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/25/vue-webpack-05-vue/" itemprop="url">
-                  webpack入坑之旅（五）加载vue单文件组件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-25T11:57:50+08:00" content="2016-03-25">
-              2016-03-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端框架/" itemprop="url" rel="index">
-                    <span itemprop="name">前端框架</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/25/vue-webpack-05-vue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/25/vue-webpack-05-vue/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          这是一系列文章，此系列所有的练习都存在了我的github仓库中vue-webpack，在本人有了新的理解与认识之后,会对文章有不定时的更正与更新。下面是目前完成的列表：
-
-webpack入坑之旅（一）不是开始的开始
-webpack入坑之旅（二）loader入门
-webpack入坑之旅（三）webpack.config入门
-webpack入坑之旅（四）扬帆起航
-webpack入坑之旅（五）加载vue单文件组件 
-webpack入坑之旅（六）配合vue-router实现SPA
-
-需要什么？在经过前面的四个练习，相信已经对于webapck有了一定的了解，现在我们就来一个综合案例，进一步加深对于webpack的理解。
-首先我们应该思考要解析.vue类型的文件，需要什么样的东西？应该按照什么样的步骤来
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/25/vue-webpack-05-vue/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1140,7 +1158,7 @@ webpack入坑之旅（六）配合vue-router实现SPA
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

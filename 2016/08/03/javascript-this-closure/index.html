@@ -1,0 +1,913 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS,百度前端技术学院," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="三省吾身丶丶" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="理解 Javascript中的this基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：
+
+
+
+调用方式
+表达式
+
+
+
+
+构造函数调用
+new Foo();
+
+
+对象方法调用
+o.method();
+
+
+函数直接调用
+foo();
+
+
+call/apply/bind
+func.call(o);
+
+
+
+现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：
+构造函数调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript中this与闭包学习笔记">
+<meta property="og:url" content="http://guowenfh.github.io/2016/08/03/javascript-this-closure/index.html">
+<meta property="og:site_name" content="三省吾身丶丶">
+<meta property="og:description" content="理解 Javascript中的this基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：
+
+
+
+调用方式
+表达式
+
+
+
+
+构造函数调用
+new Foo();
+
+
+对象方法调用
+o.method();
+
+
+函数直接调用
+foo();
+
+
+call/apply/bind
+func.call(o);
+
+
+
+现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：
+构造函数调用">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/82d12951gw1f6emf8rigdj208l07tglm.jpg">
+<meta property="og:updated_time" content="2016-08-02T16:31:35.240Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript中this与闭包学习笔记">
+<meta name="twitter:description" content="理解 Javascript中的this基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：
+
+
+
+调用方式
+表达式
+
+
+
+
+构造函数调用
+new Foo();
+
+
+对象方法调用
+o.method();
+
+
+函数直接调用
+foo();
+
+
+call/apply/bind
+func.call(o);
+
+
+
+现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：
+构造函数调用">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/82d12951gw1f6emf8rigdj208l07tglm.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6222900165502567000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://guowenfh.github.io/2016/08/03/javascript-this-closure/"/>
+
+  <title> Javascript中this与闭包学习笔记 | 三省吾身丶丶 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?23a157b5fe12ea1f925808de31def828";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">三省吾身丶丶</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Javascript中this与闭包学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T00:30:29+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JS深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">JS深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/javascript-this-closure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/javascript-this-closure/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="理解-Javascript中的this"><a href="#理解-Javascript中的this" class="headerlink" title="理解 Javascript中的this"></a>理解 <code>Javascript</code>中的<code>this</code></h3><p>基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：</p>
+<table>
+<thead>
+<tr>
+<th>调用方式</th>
+<th>表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>构造函数调用</td>
+<td><code>new Foo();</code></td>
+</tr>
+<tr>
+<td>对象方法调用</td>
+<td><code>o.method();</code></td>
+</tr>
+<tr>
+<td>函数直接调用</td>
+<td><code>foo();</code></td>
+</tr>
+<tr>
+<td>call/apply/bind</td>
+<td><code>func.call(o);</code></td>
+</tr>
+</tbody>
+</table>
+<p>现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：</p>
+<h4 id="构造函数调用模式"><a href="#构造函数调用模式" class="headerlink" title="构造函数调用模式"></a>构造函数调用模式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">    <span class="keyword">this</span>.sayName  = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.info(<span class="keyword">this</span>.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> allen = <span class="keyword">new</span> Person(<span class="string">"allen"</span>,<span class="number">12</span>);</div><div class="line"><span class="built_in">console</span>.info(allen);<span class="comment">//&#123;name: "allen", age: 12&#125;;...</span></div></pre></td></tr></table></figure>
+<p>通过这样的代码可以很清楚的的看出，构造函数 Person 内部的<code>this</code>指向被创建的调用对象 allen</p>
+<h4 id="对象方法调用"><a href="#对象方法调用" class="headerlink" title="对象方法调用"></a>对象方法调用</h4><p>通过上面的代码很明显我们创建了一个 allen 对象，其中有一个 <code>sayName</code> 方法, 直接打印 this.name ，现在我们就来看一下它会输出什么。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allen.sayName();<span class="comment">//allen</span></div></pre></td></tr></table></figure></p>
+<p>很明显，这里函数中的<code>this</code>指向<code>allen</code>对象本身。</p>
+<h4 id="函数直接调用"><a href="#函数直接调用" class="headerlink" title="函数直接调用"></a>函数直接调用</h4><p>先来看一段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> myNumber = &#123;</div><div class="line">    value: <span class="number">1</span>,</div><div class="line">    double: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">this</span>.value = add(<span class="keyword">this</span>.value, <span class="keyword">this</span>.value);</div><div class="line">        &#125;</div><div class="line">        handle();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.info(myNumber.value);<span class="comment">//1</span></div><div class="line">myNumber.double();</div><div class="line"><span class="built_in">console</span>.info(myNumber.value);<span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<p>解析： 首先我们定义了一个全局函数<code>add</code>用于加法运算，接着我们定义了一个对象，有一属性value为1，还有一个方法的目的是让value值乘以二。我们在函数内嵌套定义了一个函数<code>handle</code>,调用<code>add</code>方法并且执行。但是在调用函数值执行之后并没有达到我们想要的效果。这是为什么呢？<br>如何你打开chrome调试工具并打下断点会发现在<code>handle</code>函数内部的this会指向window！<br>由此可以发现，<strong>在函数内部创建的函数，在这个函数调用时，函数内部的<code>this</code>会指向window而不是外部的函数</strong></p>
+<p>下面就就可以看一下常见的两个方案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 取消 handle函数的定义，直接在对象的方法中使用this</span></div><div class="line">double2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.value = add(<span class="keyword">this</span>.value, <span class="keyword">this</span>.value);</div><div class="line">&#125;,</div><div class="line"><span class="comment">// 使用变量保存外部函数的this。</span></div><div class="line">double3: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        that.value = add(that.value, that.value);</div><div class="line">    &#125;</div><div class="line">    handle();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用-call-apply与bind-手动改变-this"><a href="#使用-call-apply与bind-手动改变-this" class="headerlink" title="使用 call/apply与bind 手动改变 this"></a>使用 <code>call</code>/<code>apply</code>与<code>bind</code> 手动改变 this</h4><p>先来看下面这样一段代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x = x;</div><div class="line">    <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line">Point.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">stepX, stepY</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x += stepX;</div><div class="line">    <span class="keyword">this</span>.y += stepY;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(p);<span class="comment">//&#123;x: 0, y: 0&#125;</span></div><div class="line">p.move(<span class="number">2</span>,<span class="number">2</span>);</div><div class="line"><span class="built_in">console</span>.log(p);<span class="comment">//&#123;x: 2, y: 2&#125;</span></div><div class="line"><span class="keyword">var</span> circle = &#123;x:<span class="number">1</span>,y:<span class="number">1</span>,r:<span class="number">1</span>&#125;;</div><div class="line">p.move.apply(circle, [<span class="number">2</span>,<span class="number">1</span>]);</div><div class="line"><span class="built_in">console</span>.info(circle);<span class="comment">//&#123;x: 3, y: 2, r: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用<code>Point</code>构造函数可以创建出一个点，在其原型上有一个<code>move</code>方法可以使这个点坐标移动。<br>之后我们又创建<code>circle</code>对象，有x/y/r属性（把它想象成一个圆），之后我们的需求是：将这个圆的圆心移动，我们就使用了<code>apply</code>来借用<code>move</code>方法，最终将圆移动了位置，最终效果如下图：<br><img src="http://ww4.sinaimg.cn/large/82d12951gw1f6emf8rigdj208l07tglm.jpg" alt="apply使用圆示意图"></p>
+<ul>
+<li><code>function.prototype.apply/call</code></li>
+</ul>
+<p>在上面我们可以看到能实现圆心移动的关键方法就是<code>apply</code>，大致解析如下，<code>p.move</code>是一个函数它的作用就是将一个点移动，然后我们通过<code>apply</code>方法把它借用给<code>circle</code>这个对象。将<code>circle</code>对象上的x/y属性进行变更，分别加2和1，实现了圆心的移动。很明显在这里 <strong><code>apply</code>方法描述的就是一个借用的功能</strong>.</p>
+<p>为什么会把<code>apply/call</code>放在一起说呢，因为他们的功能并没有实质性的区别。只是在传入参数的时候，apply需要将参数以数组的形式进行传递，而call是将需要传入的参数一个一个跟在借用的对象后。下面一个小例子足以说明：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">call1</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> sum.call(<span class="keyword">this</span>, num1, num2);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">apply1</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">    <span class="comment">// return sum.apply(this,[num1,num2])</span></div><div class="line">    <span class="keyword">return</span> sum.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);<span class="comment">//利用函数的arguments对象</span></div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.info(call1(<span class="number">10</span>, <span class="number">20</span>));<span class="comment">//30</span></div><div class="line"><span class="built_in">console</span>.info(call1(<span class="number">5</span>, <span class="number">10</span>));<span class="comment">//15</span></div></pre></td></tr></table></figure>
+<p>可以看到我们在后两个函数中，可以直接使用sum方法。</p>
+<ul>
+<li><code>function.prototype.bind</code></li>
+</ul>
+<p>这里来看看ES5引入的<code>bind</code>，又有什么不同，还是和上面类似的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x = x;</div><div class="line">    <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line">Point.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">stepX, stepY</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.x += stepX;</div><div class="line">    <span class="keyword">this</span>.y += stepY;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line"><span class="keyword">var</span> circle = &#123;x:<span class="number">1</span>,y:<span class="number">1</span>,r:<span class="number">1</span>&#125;;</div><div class="line"><span class="keyword">var</span> circleMove = p.move.bind(circle,<span class="number">2</span>,<span class="number">2</span>);</div><div class="line">circleMove();</div><div class="line"><span class="built_in">console</span>.info(circle);<span class="comment">//&#123;x: 3, y: 3, r: 1&#125;</span></div><div class="line">circleMove(<span class="number">3</span>,<span class="number">4</span>);</div><div class="line"><span class="built_in">console</span>.info(circle);<span class="comment">//&#123;x: 5, y: 5, r: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<p>这里我使用了和 call 类似的调用方法，但是显然 bind 和 call 不一样，使用 bind 时，它会将我们绑定 this 后的函数引用返回，然后手动执行。可以看到的是，因为在这里我们绑定的对象的后面传入了x/y两个值，所以执行后坐标立即变化，并且在后来手动设置偏移量时也不再起到效果。<br>这样的相比于apply立即执行的好处时，我们可以使用定时器，例如:<code>setTimeout(circleMove,1000)</code>，延迟一秒后移动。</p>
+<p>当然，每次只能移动固定的值也不是一件很好的事情，所以我们在使用 bind 的时候常常不会设置其默认参数， <code>var circleMove2 = p.move.bind(circle,);</code>,之后在执行函数时，再将参数传入<code>circleMove(3,4);</code>，这样就可以实现每次自定义偏移量了</p>
+<p>这又引出了<code>call</code>/<code>apply</code>与<code>bind</code>的作用的另外一种说法： <strong>扩充作用域</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> color = <span class="string">'red'</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;color:<span class="string">'blue'</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj1 = &#123;color:<span class="string">'black'</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;color:<span class="string">'yellow'</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">showColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.info(<span class="keyword">this</span>.color);</div><div class="line">&#125;</div><div class="line">showColor();<span class="comment">//red</span></div><div class="line">showColor.call(obj);<span class="comment">//blue</span></div><div class="line">showColor.apply(obj1);<span class="comment">//black</span></div><div class="line">showColor.bind(obj2)();<span class="comment">//yellow</span></div></pre></td></tr></table></figure>
+<p>可以看到这里都实现了一样的效果。值得说的是使用<code>call</code>、<code>aplly()</code>来扩充作用域的最大好处就是对象不需要与方法有任何耦合关系。</p>
+<p>###　闭包</p>
+<h4 id="简单定义"><a href="#简单定义" class="headerlink" title="简单定义"></a>简单定义</h4><p>先来看这样的一段代码，在chrome中找到<code>Scope</code>列表，可以看到，在作用域链上我们已经创建了一个闭包作用域！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">0</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        a = <span class="number">1</span>;</div><div class="line">        <span class="keyword">debugger</span>;</div><div class="line">    &#125;</div><div class="line">    b();</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>闭包一个最简单的定义就是：闭包就是说在函数内部定义了一个函数，然后这个函数调用到了父函数内的相关临时变量，这些相关的临时变量就会存入闭包作用域里面.这就是闭包最基础的定义</p>
+<h4 id="保存变量"><a href="#保存变量" class="headerlink" title="保存变量"></a>保存变量</h4><p>下面就来看一下闭包的一个基本特性保存变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.info(i++);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> f = add();</div><div class="line">f();<span class="comment">//1</span></div><div class="line">f();<span class="comment">//2</span></div></pre></td></tr></table></figure>
+<p>我们定义了一个 add 方法，执行完毕后会返回一个函数，接着我们就把这个函数赋值给了变量f，由于 add 函数也是返回一个函数，在我们每一次执行<code>f()</code>的时候，它引用了add内的变量i，并且保存在自己的闭包作用域内，所以一直输出执行的话，也会累加输出。</p>
+<h4 id="小tips"><a href="#小tips" class="headerlink" title="小tips"></a>小tips</h4><p>需要我们记住的是 <strong>每次函数调用的时候创建一个新的闭包</strong>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fun = add();</div><div class="line">fun();<span class="comment">//1</span></div><div class="line">fun();<span class="comment">//2</span></div></pre></td></tr></table></figure>
+<p>我们再来通过简单的例子看看另一个注意的地方：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> a  = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> ff =  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.info(a);</div><div class="line">    &#125;;</div><div class="line">    a = <span class="number">1214</span>;</div><div class="line">    <span class="keyword">return</span> ff;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> b = test();</div><div class="line">b();<span class="comment">//1214</span></div></pre></td></tr></table></figure>
+<p>执行的结果是1214，从这里我们可以看到 <strong>闭包中局部变量是引用而非拷贝</strong>，其实这样的改变发散开来我们就可以知道，即使在这里变量 a 未在函数 ff 之前定义，而是<code>var a = 1214;</code>我们同样会得到同样的结果</p>
+<h4 id="点击li显示对应编号案例解析"><a href="#点击li显示对应编号案例解析" class="headerlink" title="点击li显示对应编号案例解析"></a>点击li显示对应编号案例解析</h4><p>其实上面这些我是很晕的，来看一个我们实际在前端编程过程中经常遇到的问题。<br>我们有一个列表，分别为1/2/3，我们的需求是在点击不同的数字时，也能把它对应的编号弹出来。然后我们洋洋洒洒写下了这样的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"#list"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> oLi = <span class="built_in">document</span>.getElementById(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">"li"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oLi.length; i++) &#123;</div><div class="line">        oLi[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            alert(i);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>一运行，发现懵了。怎么弹出来的都是3？不对啊，我不是用循环将值都传进去了吗？</p>
+<p>如果你确实理解了上面的 <strong>闭包中局部变量是引用而非拷贝</strong>这一节中的两个案例的话，那么就应该能了解一些。</p>
+<p>解析：在这里我们为每一个li的<code>onclick</code>事件 <strong>绑定</strong>了一个匿名函数，这个匿名函数就形成了一个闭包。这些匿名函数并不立即执行，而是在点击对应的li的时候才回去执行它。<br>而在这时就和上面的<code>a = 1214;</code>这个例子一样，此时的循环早已结束，i 就等于<code>oLi.length</code>，在我们点击不同的<code>li</code>时，闭包中引用的其实都是引用的同一个变量i自然弹出来的都是3，（这里不理解引用的都是用一个i的话，可以将<code>alert(i);</code>替换成<code>alert(i++);</code>，再到浏览器上去进行测试）</p>
+<p>解决方案：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> oLi = <span class="built_in">document</span>.getElementById(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">"li"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oLi.length; i++) &#123;</div><div class="line">        oLi[i].onclick = (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                alert(j);</div><div class="line">            &#125;;</div><div class="line">        &#125;)(i);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line"><span class="comment">/*</span></div><div class="line">(function() &#123;</div><div class="line">    var oLi = document.getElementById("#list").getElementsByTagName("li");</div><div class="line">    for (var i = 0; i &lt; oLi.length; i++) &#123;</div><div class="line">        (function(j)&#123;</div><div class="line">            oLi[i].onclick= function()&#123;</div><div class="line">                alert(j);</div><div class="line">            &#125;;</div><div class="line">        &#125;)(i);</div><div class="line">    &#125;</div><div class="line">&#125;)();</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>可以看到这里给出了两个简单的写法，但实际上除了写法不同之外、闭包包含范围、内容也不太一样（有兴趣的可以打开chrome调试工具看看），但是达到的效果是一样的。这样我们就为每个<code>li</code>的<code>onclick</code>事件的匿名函数，都保存下了自己闭包变量。就可以实现在点击每个li的时候弹出对应的标号了。（还可以将<code>alert(j);</code>替换成<code>alert(j++);</code>欣赏一下点击不同li时的累加效果）</p>
+<p>当然如果你只是想要记住一些标号这么简单的事情，其实还可以将变量保留于元素节点上，也能达到一样的效果，如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> oLi = <span class="built_in">document</span>.getElementById(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">"li"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oLi.length; i++) &#123;</div><div class="line">        oLi[i].flag = i;</div><div class="line">        oLi[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            alert(<span class="keyword">this</span>.flag);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="guowenfh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="guowenfh Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/百度前端技术学院/" rel="tag">#百度前端技术学院</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/31/javascriptFunctionBasic/" rel="next" title="JavaScript函数学习笔记">
+                <i class="fa fa-chevron-left"></i> JavaScript函数学习笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/javascript-this-closure/"
+           data-title="Javascript中this与闭包学习笔记" data-url="http://guowenfh.github.io/2016/08/03/javascript-this-closure/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/guowenfh.jpg"
+               alt="guowenfh" />
+          <p class="site-author-name" itemprop="name">guowenfh</p>
+          <p class="site-description motion-element" itemprop="description">芝兰生于深林，不以无人而不芳。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guowenfh" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2194745681" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/guowen921" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://segmentfault.com/u/guowenfh" target="_blank" title="S F">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  S F
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.lxxyx.win/" title="Lxxyx的前端乐园" target="_blank">Lxxyx的前端乐园</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://u-hey.com/" title="uhey" target="_blank">uhey</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://indexof.site/" title="天桥" target="_blank">天桥</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://iwuly.com" title="前端老军医" target="_blank">前端老军医</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://tostring.site/" title="小强" target="_blank">小强</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解-Javascript中的this"><span class="nav-number">1.</span> <span class="nav-text">理解 Javascript中的this</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数调用模式"><span class="nav-number">1.1.</span> <span class="nav-text">构造函数调用模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象方法调用"><span class="nav-number">1.2.</span> <span class="nav-text">对象方法调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数直接调用"><span class="nav-number">1.3.</span> <span class="nav-text">函数直接调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-call-apply与bind-手动改变-this"><span class="nav-number">1.4.</span> <span class="nav-text">使用 call/apply与bind 手动改变 this</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单定义"><span class="nav-number">1.5.</span> <span class="nav-text">简单定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存变量"><span class="nav-number">1.6.</span> <span class="nav-text">保存变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小tips"><span class="nav-number">1.7.</span> <span class="nav-text">小tips</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击li显示对应编号案例解析"><span class="nav-number">1.8.</span> <span class="nav-text">点击li显示对应编号案例解析</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">guowenfh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"guowenfh"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
