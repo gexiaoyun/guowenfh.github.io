@@ -149,7 +149,7 @@ func.call(o);
 现在就来看看这些不同的调用模式，this的指向会有怎么样的区别：
 构造函数调用">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/82d12951gw1f6emf8rigdj208l07tglm.jpg">
-<meta property="og:updated_time" content="2016-08-02T16:31:35.240Z">
+<meta property="og:updated_time" content="2016-08-02T16:45:53.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript中this与闭包学习笔记">
 <meta name="twitter:description" content="理解 Javascript中的this基于不同的调用方式this的指向也会有所不同，调用方式大致有如下几种：
@@ -495,6 +495,7 @@ func.call(o);
 <p>可以看到这里给出了两个简单的写法，但实际上除了写法不同之外、闭包包含范围、内容也不太一样（有兴趣的可以打开chrome调试工具看看），但是达到的效果是一样的。这样我们就为每个<code>li</code>的<code>onclick</code>事件的匿名函数，都保存下了自己闭包变量。就可以实现在点击每个li的时候弹出对应的标号了。（还可以将<code>alert(j);</code>替换成<code>alert(j++);</code>欣赏一下点击不同li时的累加效果）</p>
 <p>当然如果你只是想要记住一些标号这么简单的事情，其实还可以将变量保留于元素节点上，也能达到一样的效果，如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> oLi = <span class="built_in">document</span>.getElementById(<span class="string">"#list"</span>).getElementsByTagName(<span class="string">"li"</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; oLi.length; i++) &#123;</div><div class="line">        oLi[i].flag = i;</div><div class="line">        oLi[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            alert(<span class="keyword">this</span>.flag);</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>如果有错误之处，请指正。谢谢！</p>
 
       
     </div>
